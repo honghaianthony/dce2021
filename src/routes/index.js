@@ -6,6 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import Home from '../pages/Home';
+import Login from "../pages/Login";
 
 export default function App() {
   return (
@@ -32,6 +33,9 @@ export default function App() {
           <Route path="/users">
             <Users />
             {/* trong router sẽ render các pages */}
+          </Route>
+          <Route path="/login">
+            <Login />
           </Route>
           <Route path="/">
             <Home />

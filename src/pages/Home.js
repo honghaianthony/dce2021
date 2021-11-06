@@ -1,9 +1,14 @@
-
+import MainLayout from "../layouts/MainLayout";
 
 function Home() {
 
     return (
-        <h1>Home</h1>
+        <>
+        <MainLayout>
+
+            <h1>Home</h1>
+        </MainLayout>
+        </>
         // trong pages sẽ chứa layout
     );
 }
