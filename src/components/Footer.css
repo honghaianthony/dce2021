@@ -1,0 +1,144 @@
+.footer-container {
+  background-color: white;
+  padding: 1rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+/* Links and Credit */
+.footer-links {
+  width: 100%;
+  max-width: 1500px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-link-wrapper {
+  display: flex
+}
+
+.footer-link-items {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 16px;
+  text-align: left;
+  width: 160px;
+  box-sizing: border-box;
+}
+
+.footer-link-items:last-child {
+  width: 300px;
+  pointer-events: none;
+}
+
+.footer-link-items:last-child > a:nth-child(3) {
+  font-weight: 700;
+}
+
+.footer-link-items:last-child > img {
+  display: block;
+  margin: auto;
+}
+
+.footer-link-items > h2 {
+  color: #1E266D;
+  margin-bottom: 16px;
+  cursor: default;
+
+}
+
+.footer-link-items a {
+  color: #3B3C54;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+}
+
+.footer-link-items a:hover {
+  color: #2C31CF;
+  text-decoration: underline;
+  transition: 0.3s ease-out;
+}
+
+/* Logo and Social Networks */
+
+.footer-icons-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 16px 0;
+}
+
+.footer-icons-items span {
+  text-decoration: none;
+  margin-bottom: 16px;
+  color: #2C31CF;
+  cursor: default;
+  font-size: 2rem;
+}
+
+.footer-icons-items a {
+  margin-right: 35px;
+}
+
+.footer-icons-items h2 {
+  margin: 16px 0;
+  cursor: default;
+}
+
+.website-rights {
+  display: block;
+  text-align: center;
+
+}
+
+/* Copyrights */
+.social-icon-link {
+  color: #000;
+  font-size: 24px;
+}
+
+.social-media {
+  width: 100%;
+  background-color: #1C1D31;
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 10px 0;
+}
+
+@media screen and (max-width: 960px) {
+  .footer-links {
+    padding-top: 0.5rem;
+  }
+
+  .footer-link-wrapper {
+    flex-direction: column;
+  }
+
+  .footer-icons-wrapper {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .footer-links {
+    flex-direction: column;
+  }
+  .footer-link-wrapper {
+    align-self: center;
+  }
+
+  .footer-link-items {
+    align-items: center;
+    text-align: center;
+    width: 300px;
+    box-sizing: border-box;
+  }
+  .footer-icons-items a {
+    margin-left: 35px;
+  }
+
+}
