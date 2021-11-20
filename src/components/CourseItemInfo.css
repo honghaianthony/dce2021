@@ -17,9 +17,20 @@
     font-size: 20px;
     border-radius: 10px;
     font-weight: 600;
+    cursor: pointer;
+}
+.btnCourseItemInfo__Container button:hover{
+    transform: scale(1.02);
+    opacity: 0.9;
 }
 .CourseIntemInfo__Decription__Container p{
     font-size:16px;
     font-weight: 600;
     text-align: justify;
+}
+/*ĐT*/
+@media (max-width:46.1875em){
+    .btnCourseItemInfo__Container button{
+        padding:15px;
+    }
 }

@@ -55,9 +55,27 @@
     font-size: 20px;
     color:#fff;
     font-weight: 700;
+    cursor: pointer;
+}
+.MyCourseInfoDecription-btnBottom button:hover{
+    transform: scale(1.02);
+    opacity: 0.9;
 }
 .course__CenterContent{
     margin-top: 20px;
     background-color: #1E266D;
     border-radius: 10px;
+}
+/*ĐT*/
+@media (max-width:46.1875em){
+    .course__TopContent{
+        flex-direction: column;
+    }
+    .myCourseInfoLeft__Container{
+        width:100%;
+    }
+    .myCourseInfoRight__Container{
+        width:100%;
+        margin-top: 20px;
+    }
 }
