@@ -45,7 +45,7 @@ function Navigation() {
             </li>
             <li className='nav-item'>
               <Link
-                to='./'
+                to='./Courses'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
