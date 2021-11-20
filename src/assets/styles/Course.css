@@ -1,0 +1,63 @@
+.course__Container{
+    padding:0 30px 30px ;
+}
+.course__TopContent{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.myCourseInfoLeft__Container{
+    width:30%;
+    background-color: #1E266D;
+    border-radius: 10px;
+    padding:20px;
+
+}
+.MyCourseInfoDecriptionLine{
+    border-right: 1px solid #fff;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+.myCourseInfoRight__Container{
+    width:30%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #1E266D;
+    border-radius: 10px;
+    padding:15px;
+}
+.MyCourseInfoDecription{
+    width:50%;
+}
+.MyCourseInfoDecription-btn{
+    width:50%;
+}
+.MyCourseInfoDecription-btnTop{
+    display: flex;
+    justify-content: center;
+}
+.MyCourseInfoDecription-btnBottom{
+    display: flex;
+    justify-content: center;
+    margin-top:25px;
+}
+.MyCourseInfoDecription-btn .MyCourseInfoDecription-btnTop h2{
+    font-size: 25px;
+    color:#fff;
+    margin:0;
+}
+.MyCourseInfoDecription-btnBottom button{
+    margin-top: 20px;
+    padding:15px;
+    background-color: #26A7F0;
+    border-radius:24px;
+    /* border: 1px solid #26A7F0; */
+    font-size: 20px;
+    color:#fff;
+    font-weight: 700;
+}
+.course__CenterContent{
+    margin-top: 20px;
+    background-color: #1E266D;
+    border-radius: 10px;
+}

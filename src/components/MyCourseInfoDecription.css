@@ -1,0 +1,30 @@
+.myCourseInfoDecription__Container{
+    color: #fff;
+}
+.myCourseInfoDecription__Top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.myCourseInfoDecription__Top h2{
+    font-size: 25px;
+    margin: 0;
+}
+.myCourseInfoDecriptionInfo__img img{
+    width:40px;
+}
+.myCourseInfoDecriptionInfoTop{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.myCourseInfoDecriptionInfoCenter{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.myCourseInfoDecriptionInfoBottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

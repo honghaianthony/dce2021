@@ -1,0 +1,40 @@
+.myCourseInfo__container{
+    color: #fff;
+}
+.top__CourseInfo{
+    display:flex;
+    justify-content: center;
+}
+.top__CourseInfo h2{
+    margin: 0;
+}
+.center__CourseInfo{
+    display:flex;
+    justify-content: space-between;
+}
+.couseInfo__user{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.courseInfo__Avatar img{
+    width:40px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+.courseInfo_NameMemeber{
+    margin-left: 10px;
+}
+.courseInfo__StartRates{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+.start__img img{
+    width: 40px;
+    object-fit: contain;
+}
+.bottom_CourseInfo{
+    margin-top: 5px;
+    text-align: justify;
+}
