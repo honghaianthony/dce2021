@@ -1,0 +1,128 @@
+.exercises-container
+{
+    background-color: rgb(209, 221, 231);
+    display: block;
+}
+.exercise-banner
+{
+
+}
+.exercise-search
+{
+    display: block;  
+    font-size: 24px;
+    padding: 30px;
+}
+.form-search
+{
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    padding: 10px 70px;
+}
+.icon-search
+{
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    background-color: rgb(209, 221, 231);
+}
+.icon-search:hover
+{
+    transform: scale(1.1);
+}
+.icon-search:hover,.form-search:hover
+{
+    cursor: pointer;
+}
+.exercise-main{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: space-around;
+    margin: 0 130px;
+}
+.exercise-pagenumber
+{
+    padding: 20px 0 80px 0;
+    display: flex;
+    justify-content: center;
+}
+.exercise-pagenumber ul
+{
+    margin-left: -16px;
+}
+.exercise-pagenumber ul li
+{
+    list-style-type: none;
+    font-size: 20px;
+    display: inline-block;
+    background-color: aliceblue;
+    padding: 6px 10px;
+    margin-right: 4px;
+    border-radius: 5px;
+    
+}
+.exercise-pagenumber ul li a
+{
+    text-decoration: none;
+    color:rgb(5, 5, 90);
+}
+.exercise-pagenumber ul li:hover
+{
+    background-color:rgb(5, 5, 90);
+    cursor: pointer;
+}
+.exercise-pagenumber ul li:hover a
+{
+    color: #fff; 
+}
+.exercise-pagenumber a:active
+{
+    text-decoration:underline;
+    color: #fff; 
+}
+/*respone*/
+/*TABLET*/
+@media(min-width:740px) and (max-width:1024px)
+{
+    .exercise-main{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: start;
+        justify-content: space-around;
+        margin: 0 30px;
+    }
+    
+}
+@media (max-width:740px)
+{ 
+    .exercise-main{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: start;
+        justify-content: space-around;
+        margin: 0 50px;
+    }
+    .exercise-search
+    {
+        width: 90%;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    .icon-search
+    {
+        font-size: 16px;
+        padding: 5px;
+        border: none;
+        background-color: rgb(209, 221, 231);
+    }
+    .form-search
+    {
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    padding: 10px 10px;
+    }
+}
