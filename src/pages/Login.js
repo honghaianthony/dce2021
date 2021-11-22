@@ -1,7 +1,13 @@
-import React from 'react'
+// import React from 'react'
+import React, { useState } from 'react'
 import hinhlaptrinh from '../assets/images/background-login.png'
 import "./Login.css"
 function Login () {
+    const [isCreateAccount, setIsCreateAccount] = useState(false)
+
+    const toggleCreateAccount = () => {
+      setIsCreateAccount(!isCreateAccount);
+    }
     return (
         <section className="login">
             <div className="img-content-left">
@@ -14,6 +20,7 @@ function Login () {
                         <span>Đăng nhập</span>
                     </div>
                 </div>
+                <form action="" method="POST" className="login-form">
                 <div className="form-middle">
                     <div className="from-group">
                         <label className="label-login" for="user-name">Tên đăng nhập</label>
@@ -24,6 +31,7 @@ function Login () {
                         <input className="form-input" type="password" name="password" placeholder="Mật khẩu..." id="password" required/>
                     </div>
                 </div>
+                </form>
                 <div className="form-checked">
                     <input className="btn-checkbox-password" type="checkbox" name="check-password" id="check-password" />
                     <label className="check-password" htmlFor="check-password">Lưu mật khẩu</label>
@@ -42,11 +50,25 @@ function Login () {
                     </div>
                     <div className="become-member">
                         <p>Chưa phải là thành viên?</p>
-                        <a href="#" className="sign-up-now">Đăng ký ngay</a>
+                        <a href="#" className="sign-up-now" onClick={toggleCreateAccount}>Đăng ký ngay</a>
                     </div>
                 </div>
+               
             </div>
+             {/* pop up create account */}
+             {isCreateAccount && (
+                <div className="modal">
+                    <div className="login-overlay" onClick={toggleCreateAccount}></div>
+                    <div className="register-form">
+                        <div className="register-title">Đăng ký</div>
+                        <form action="/register" method="POST">
+
+                        </form>
+                    </div>
+                </div>
+                )}
         </section>
+        
     )
 }
 
