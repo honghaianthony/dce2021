@@ -145,7 +145,7 @@
 }
 
 
-.login-overlay, .register-form{
+.login-overlay{
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -153,10 +153,11 @@
     bottom: 0;
     left: 0;
     right: 0;
+
 }
 
 .login-overlay {
-    background-color: rgba(49, 49, 49, 0.7);
+    /* background-color: rgba(49, 49, 49, 0.7); */
 }
 
 .register-form {
@@ -165,10 +166,20 @@
     height: 500px;
     /* top:50%; */
     position: absolute;
-    
-    top: 10vh;
-    left: 50%;
-    transform: translate(-50%, 0);
-    box-shadow: 0 0 25px 7px rgba(255, 255, 255, 0.3);
+    border: 1px solid #000;
+    /* top: 5%;
+    left: 60%; */
+    /* transform: translate(-50%, 0); */
+    /* box-shadow: 0 0 25px 7px rgba(255, 255, 255, 0.3); */
     border-radius: 15px;
+    border: 1px solid #000;
+    border-radius: 2rem;
+    padding: 1rem 2rem;
+    max-width: 24rem;
+    /* width:450px; */
+    width: 30%;
+    /* margin-left: 10%; */
+    /* float:right; */
+    /* position: absolute; */
+    right:40px;
 }
