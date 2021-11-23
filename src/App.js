@@ -1,6 +1,5 @@
 import './App.css';
 import Router from './routes';
-import Exercises from './pages/Exercises';
 
 function App() {
   return (

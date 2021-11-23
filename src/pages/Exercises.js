@@ -1,5 +1,5 @@
 import MainLayout from "../layouts/MainLayout";
-import "../assets/styles/Exercise.css";
+import "../assets/styles/Exercises.css";
 import Frameexercise from "../components/Frameexercise";
 function Exercises()
 {
@@ -70,15 +70,21 @@ function Exercises()
         <>
         <MainLayout>
         <div className="exercises-container">
-            <div className="exercise-banner">
+            <div className="exercises-path">
+                <a href="">Home</a>
+                <i class="fas fa-angle-right"></i>
+                <a href="">Exercises</a>
             </div>
-            <div className="exercise-search">
+            <div className="exercises-banner">
+                <img src="../assets/images/banner-exercise.jpg"></img>
+            </div>
+            <div className="exercises-search">
             <form className="form-search" action="/action_page.php">
                 <input  className="form-search" type="text" placeholder="Tìm kiếm bài luyện tập.." name="search"/>
                 <button className="icon-search" type="submit"><i class="fa fa-search"></i></button>
             </form>
             </div>
-            <div className="exercise-main">
+            <div className="exercises-main">
                {
                    exercises.map(
                        (exercise => (
@@ -90,7 +96,7 @@ function Exercises()
                        )))
                }
             </div>
-            <div className="exercise-pagenumber">
+            <div className="exercises-pagenumber">
                 <ul>
                     <li><a href=""><i class="fas fa-angle-double-left"></i></a></li>
                     <li><a href="">1</a></li>
