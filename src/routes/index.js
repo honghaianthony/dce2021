@@ -12,6 +12,8 @@ import Exercises from "../pages/Exercises";
 import Exercise from "../pages/Exercise";
 
 
+import Course from "../pages/Course";
+import Lesson from "../components/Lesson";
 export default function App() {
   return (
 
@@ -49,6 +51,12 @@ export default function App() {
           </Route>
           <Route path="/exercise">
             <Exercise/>
+          </Route>
+          <Route path="/course">
+            <Course />
+          </Route>
+          <Route path="/lesson">
+            <Lesson/>
           </Route>
           <Route path="/">
             <Home />

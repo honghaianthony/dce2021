@@ -1,0 +1,14 @@
+.ListCourse__Container{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 40px;
+    grid-row-gap: 40px;
+    padding:60px;
+}
+/*ĐT*/
+@media (max-width:46.1875em){
+    .ListCourse__Container{
+        grid-template-columns: 1fr;
+        padding:30px;
+    }
+}

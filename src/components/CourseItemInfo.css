@@ -1,0 +1,36 @@
+.CourseItemInfo__Container{
+    background: #fff;
+    border-radius: 10px;
+    padding:20px 30px;
+}
+.btnCourseItemInfo__Container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 10px; */
+}
+.btnCourseItemInfo__Container button{
+    width:100%;
+    background: #26A7F0;
+    padding: 20px 10px;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.btnCourseItemInfo__Container button:hover{
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+.CourseIntemInfo__Decription__Container p{
+    font-size:16px;
+    font-weight: 600;
+    text-align: justify;
+}
+/*ĐT*/
+@media (max-width:46.1875em){
+    .btnCourseItemInfo__Container button{
+        padding:15px;
+    }
+}
