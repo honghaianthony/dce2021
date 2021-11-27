@@ -8,6 +8,9 @@ import {
 import Home from '../pages/Home';
 import Login from "../pages/Login";
 import Courses from '../pages/Courses';
+import Exercises from "../pages/Exercises";
+import Exercise from "../pages/Exercise";
+
 
 export default function App() {
   return (
@@ -40,6 +43,12 @@ export default function App() {
           </Route>
           <Route path="/courses">
             <Courses />
+          </Route>
+          <Route path="/exercises">
+            <Exercises />
+          </Route>
+          <Route path="/exercise">
+            <Exercise/>
           </Route>
           <Route path="/">
             <Home />

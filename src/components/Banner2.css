@@ -1,0 +1,44 @@
+.Banner
+{
+    padding: 70px;
+    font-family: 'Muli',sans-serif;
+    background-image: url(/src/assets/images/footer-banner-bg.png);
+    background-size: 110%;
+}
+.title
+{
+    font-size: 32px;
+    font-weight: bold;
+    color: aliceblue;
+} 
+.title span
+{
+    color:#FAD93C;
+    margin-bottom: 16px;
+}
+.content
+{
+    margin-top: -24px;
+    margin-bottom: 60px;
+    font-size: 24px;
+    font-weight: 600;
+    color: aliceblue;
+}
+button
+{
+    
+    color:#fff;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.27;
+    padding: 18px 25px;
+    background-color: #E8505B;
+    border-radius: 4px;
+    border: none;  
+    cursor: pointer;
+    
+}
+button:hover
+{
+    background-color: #f35106;
+}
