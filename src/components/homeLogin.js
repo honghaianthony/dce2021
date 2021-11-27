@@ -1,5 +1,5 @@
 import React from 'react'
-import './Login.css';
+import './homeLogin.css';
 import anh1 from '../assset/image/147353160_849851585747953_3866102664319134315_n.jpg'
 import anh2 from '../assset/image/258771302_1802826646578663_3106383078379779822_n.png'
 import anh3 from '../assset/image/258405880_1310680229361095_4537703433681840589_n.png'
@@ -11,7 +11,7 @@ import anh8 from '../assset/image/254981000_473344604100735_4534982061181340360_
 import anh9 from '../assset/image/download.png'
 
 
-function Login() {
+function homeLogin() {
   return (
     <div>
 
@@ -373,4 +373,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default homeLogin;

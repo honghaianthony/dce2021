@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Home from '../pages/Home';
 import Login from "../pages/Login";
+import HomeLogin from "../pages/HomeLogin";
 
 export default function App() {
   return (
@@ -36,6 +37,9 @@ export default function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/HomeLogin">
+            <HomeLogin/>
           </Route>
           <Route path="/">
             <Home />

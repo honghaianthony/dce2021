@@ -6,7 +6,7 @@ function Home() {
     return (
         <>
         <MainLayout>
-
+        git push origin --delete
 
             <h1>Home</h1>
         </MainLayout>
