@@ -1,17 +1,17 @@
 import React from 'react'
-import './homeLogin.css';
-import anh1 from '../assset/image/147353160_849851585747953_3866102664319134315_n.jpg'
-import anh2 from '../assset/image/258771302_1802826646578663_3106383078379779822_n.png'
-import anh3 from '../assset/image/258405880_1310680229361095_4537703433681840589_n.png'
-import anh4 from '../assset/image/258868308_1946851468827802_626131283865978839_n.png'
-import anh5 from '../assset/image/258891764_1289526941488343_155681037865934349_n.png'
-import anh6 from '../assset/image/256304292_600805224574213_5430485495829320675_n.png'
-import anh7 from '../assset/image/254884567_221471523448432_8016803298139607140_n.png'
-import anh8 from '../assset/image/254981000_473344604100735_4534982061181340360_n.png'
-import anh9 from '../assset/image/download.png'
+import './HomeLoginComponent.css';
+import anh1 from '../assets/images/ava.jpg'
+import anh2 from '../assets/images/anh2.png'
+import anh3 from '../assets/images/anh3.png'
+import anh4 from '../assets/images/anh4.png'
+import anh5 from '../assets/images/anh5.png'
+import anh6 from '../assets/images/anh6.png'
+import anh7 from '../assets/images/anh7.png'
+import anh8 from '../assets/images/anh8.png'
+import anh9 from '../assets/images/download.png'
 
 
-function homeLogin() {
+function HomeLoginComponent() {
   return (
     <div>
 
@@ -373,4 +373,4 @@ function homeLogin() {
   );
 }
 
-export default homeLogin;
+export default HomeLoginComponent;

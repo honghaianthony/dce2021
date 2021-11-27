@@ -7,8 +7,8 @@ function Home() {
         <>
         <MainLayout>
         git push origin --delete
-
-            <h1>Home</h1>
+            <Part1/>           
+             <h1>Home</h1>
         </MainLayout>
         </>
         // trong pages sẽ chứa layout

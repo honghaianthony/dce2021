@@ -1,5 +1,5 @@
 import MainLayout from "../layouts/MainLayout";
-import homeLogin from "../components/homeLogin";
+import HomeLoginComponent from "../components/HomeLoginComponent"
 
 function HomeLogin() {
 
@@ -7,8 +7,8 @@ function HomeLogin() {
         <>
         <MainLayout>
 
-            <h1>Home</h1>
-            <homeLogin/>
+            
+            <HomeLoginComponent/>
         </MainLayout>
         </>
         // trong pages sẽ chứa layout
