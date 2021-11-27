@@ -10,6 +10,7 @@ import Login from "../pages/Login";
 import Courses from '../pages/Courses';
 import Exercises from "../pages/Exercises";
 import Exercise from "../pages/Exercise";
+import Blogs from "../pages/Blogs";
 
 
 import Course from "../pages/Course";
@@ -57,6 +58,9 @@ export default function App() {
           </Route>
           <Route path="/lesson">
             <Lesson/>
+          </Route>
+          <Route path="/blogs">
+            <Blogs />
           </Route>
           <Route path="/">
             <Home />
