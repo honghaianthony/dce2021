@@ -1,8 +1,14 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import './Courses.css';
 import CourseItem from './CourseItem';
+import coursesApi from '../apis/coursesApi';
 
 function CoursesMain() {
+  const [data, setData] = useState([]);
+  useEffect(async () => {
+    const res = await coursesApi.getAllCourses('ALL');
+    setData(res);
+  }, [])
   return (
     <>
 
