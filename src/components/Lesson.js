@@ -169,19 +169,19 @@ function Lesson() {
                                 <textarea id="code-of-exser" name="code-of-exser">
                                 </textarea>
                             </div>
-                        <div className="testcase">                           
-                                <div className="testcase-header">
+                        <div className="testcase-lesson">                           
+                                <div className="testcase-header-lesson">
                                    <p>TEST CASE</p>
                                 </div>
-                                <div className="testcase-content">
-                                    <div className="testcase-number">
+                                <div className="testcase-content-lesson">
+                                    <div className="testcase-number-lesson">
                                         <ul>
                                             <li>Kiểm thử 1</li>
                                             <li>Kiểm thử 2</li>
                                             <li>Kiểm thử 2</li>
                                         </ul>
                                     </div>
-                                    <div className="testcase-display">
+                                    <div className="testcase-display-lesson">
                                         <p>Đầu vào:</p>
                                         <p>Đầu ra:</p>
                                         <p>Đầu ra mong muốn:</p>
@@ -189,7 +189,7 @@ function Lesson() {
                                         <p>Tin nhắn:</p>
                                     </div>
                                 </div>
-                                <div className="testcase-button">
+                                <div className="testcase-button-lesson">
                                     <button type="button" className="run-btn">Chạy thử</button>
                                     <button type="button" className="submit-btn">Nộp bài</button>
                                 </div>
