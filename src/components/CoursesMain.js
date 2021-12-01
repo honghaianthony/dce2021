@@ -1,6 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import './Courses.css';
 import CourseItem from './CourseItem';
+import SearchFilter from "../components/SearchFilter";
 import coursesApi from '../apis/coursesApi';
 
 function CoursesMain() {
@@ -17,12 +18,7 @@ function CoursesMain() {
           <div className="courses__head__container">
 
             <h2>Tự học lập trình trực tuyến. Hãy bắt đầu với khoá học đầu tiên của bạn!</h2>
-            <div className="courses-search">
-              <form className="form-search" action="/action_page.php">
-                <input className="form-control" type="text" placeholder="Nhập nội dung tìm kiếm" name="search" />
-                <span className="icon-search" type="submit"><i class="fa fa-search"></i></span>
-              </form>
-            </div>
+            <SearchFilter placeholder="Nhập khoá học cần tìm" className='courses-search' />
 
           </div>
           <img
