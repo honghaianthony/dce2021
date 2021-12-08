@@ -1,5 +1,5 @@
 import React from 'react';
-import './Ingo.css';
+import './Info.css';
 import anh1 from '../assets/images/avata.jpg'
 
 
