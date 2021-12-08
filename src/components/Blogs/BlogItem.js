@@ -32,12 +32,12 @@ function BlogItem(props) {
                     <i className='blog-time-icon'><BsCircle/></i>
                     <span className='blog-time'>{props.time}</span>
                 </div>
-                <div className='blog-text-right'>
+                {/* <div className='blog-text-right'>
                     <i className='blog-icon-view'><GrView/></i>
                     <span className='blog-view'>{props.view}</span>
                     <i className='blog-icon-share'><BsShare/></i>
                     <span className='blog-share'>0</span>
-                </div>
+                </div> */}
               </div>
             </div>
         </Link>

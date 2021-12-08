@@ -12,6 +12,8 @@ import Exercises from "../pages/Exercises";
 import Exercise from "../pages/Exercise";
 import Blogs from "../pages/Blogs";
 import HomeLogin from "../pages/HomeLogin";
+import Blog from "../pages/Blog";
+
 import Course from "../pages/Course";
 import Lesson from "../pages/Lesson";
 import AdminAddCourseDetail from "../pages/AdminAddCourseDetail";
@@ -63,6 +65,9 @@ export default function App() {
           </Route>
           <Route path="/blogs">
             <Blogs />
+          </Route>
+          <Route path="/blog">
+            <Blog />
           </Route>
           <Route path="/HomeLogin">
             <HomeLogin/>
