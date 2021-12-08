@@ -1,15 +1,15 @@
 import React from "react";
 import MainLayout from "../layouts/MainLayout";
-import BlogsMain from "../components/Blogs/BlogsMain";
+import BlogDetail from "../components/Blogs/BlogDetail/BlogDetail";
 
-function Blogs () {
+function Blog () {
     return (
         <>
             <MainLayout>
-                <BlogsMain />
+                <BlogDetail />
             </MainLayout>
         </>
     )
 }
 
-export default Blogs;
+export default Blog;

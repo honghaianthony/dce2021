@@ -130,6 +130,10 @@
 {
     text-align: left;
 }
+.content-Lesson h2,.content-input h2,.content-output h2{
+    color:#000;
+}
+
 /*RIGHT*/
 .code
 {
@@ -180,22 +184,22 @@
     border: 2px #fff solid;
     border-radius: 10px;
 }
-.testcase
+.testcase-lesson
 {
     padding-left: 15px;
-    margin-top: -20px;
+    /* margin-top: -20px; */
 }
-.testcase-header
+.testcase-header-lesson
 {
     font-size: 20px;
     font-weight: bold;
     text-align: left;
     margin-bottom: -20px;
 }
-.testcase-content {
+.testcase-content-lesson {
     display: flex;
 }
-.testcase-number
+.testcase-number-lesson
 {
     width: 20%;
     text-align: left;
@@ -203,21 +207,21 @@
     margin:10px;
     display: block;
 }
-.testcase-number ul
+.testcase-number-lesson ul
 {
     margin-left: -40px;
 }
-.testcase-number ul li
+.testcase-number-lesson ul li
 {
     list-style-type: none;
     padding: 3px 10px;   
 }
-.testcase-number ul li:hover
+.testcase-number-lesson ul li:hover
 {
     cursor: pointer;
     background-color: #3b3c54;
 }
-.testcase-display
+.testcase-display-lesson
 {
     width: 76%;
     text-align: left;
@@ -225,7 +229,7 @@
     padding-left: 10px;
     border-radius: 10px;
 }
-.testcase-button
+.testcase-button-lesson
 {
     padding: 10px;
     text-align: right;
@@ -365,12 +369,14 @@
     width:5%;
     display:flex;
     flex-direction: column;
-    height: 100vh;
+    height: 80vh;
     background-color: #050295;
 }
 .Noted__container{
     width:40%;
-    height: 100vh;
+    /* height: 80vh; */
+    border:1px solid;
+    position: relative;
 }
 .Noted__container_Top{
     width:100%;
@@ -378,12 +384,40 @@
 .Note_Fill_Container{
     width:55%;
     display: flex;
-    height: 100vh;
+    height: 80vh;
 }
 #note-of-lesson{
     width: 100%;
     padding:20px;
+    position: relative;
 }
+.submit_noted{
+    position: absolute;
+    /* position: absolute; */
+    bottom: 40px;
+    right: 15px;
+    width: 150px;
+}
+.submit_noted button{
+    border-radius:10px;
+    border:none;
+    background-color: #42FF00;
+    padding:5px;
+    cursor: pointer;
+    color:#000;
+}
+.submit_noted button:hover{
+    transform: scale(1.1);
+    color: chartreuse;
+    color:#000;
+}
+/* .submit_noted{
+    position: absolute;
+    right:20px;
+    bottom:135px;
+    cursor: pointer;
+     
+} */
 .content-off{
     display:none;
 }

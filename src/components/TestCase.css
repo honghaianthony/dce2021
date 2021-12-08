@@ -1,0 +1,20 @@
+.testcase-option
+{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.delete-icon p
+{
+    font-size: 20px;
+    font-weight: 600;
+}
+.delete-icon i
+{
+    margin-right: 10px;
+}
+.delete-icon:hover
+{
+    cursor: pointer;
+    color: red;
+}

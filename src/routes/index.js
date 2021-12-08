@@ -12,11 +12,15 @@ import Exercises from "../pages/Exercises";
 import Exercise from "../pages/Exercise";
 import Blogs from "../pages/Blogs";
 import HomeLogin from "../pages/HomeLogin";
+import Blog from "../pages/Blog";
+import Censor from "../pages/Censor";
 import HomeInfo from "../pages/HomeInfo";
 
-
 import Course from "../pages/Course";
-import Lesson from "../components/Lesson";
+import Lesson from "../pages/Lesson";
+import AdminAddCourseDetail from "../pages/AdminAddCourseDetail";
+import AdminAddCourse from "../pages/AdminAddCourse";
+import AdminUpdateCourse from "../pages/AdminUpdateCourse";
 export default function App() {
   return (
 
@@ -64,15 +68,31 @@ export default function App() {
           <Route path="/blogs">
             <Blogs />
           </Route>
+          <Route path="/blog">
+            <Blog />
+          </Route>
+          <Route path="/censor">
+            <Censor />
+          </Route>
           <Route path="/HomeLogin">
             <HomeLogin/>
             <Route path="/HomeInfo"> 
               <HomeInfo/>
             </Route>
           </Route>
+          <Route path="/adminaddcoursedetail">
+            <AdminAddCourseDetail/>
+          </Route>
+          <Route path="/adminaddcourse">
+            <AdminAddCourse/>
+          </Route>
+          <Route path="/adminupdatecourse">
+            <AdminUpdateCourse/>
+          </Route>
           <Route path="/">
             <Home />
           </Route>
+          
         </Switch>
       </div>
     </Router>

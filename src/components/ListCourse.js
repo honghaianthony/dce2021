@@ -34,16 +34,16 @@ function ListCourse() {
             title:'Mối Quan Hệ Giữa Các Đối Tượng',
             decription:'Quan hệ một một (1-1), quan hệ một nhiều(1-n), quan hệ nhiều nhiều'
         },
-        {
-            id:'7',
-            title:'Bài Tập Trắc Nghiệm',
-            decription:'Bài tập này sẽ đưa ra các bài trắc nghiệm để kiểm tra mức độ hiểu biết của bạn.'
-        },
-        {
-            id:'8',
-            title:'Bài Tập Rèn Luyện',
-            decription:'Bài tập này sẽ đưa ra các bài tập ứng dụng để kiểm tra mức độ hiểu biết của bạn và ứng dụng kiến thức đó vào bài tập.'
-        }
+        // {
+        //     id:'7',
+        //     title:'Bài Tập Trắc Nghiệm',
+        //     decription:'Bài tập này sẽ đưa ra các bài trắc nghiệm để kiểm tra mức độ hiểu biết của bạn.'
+        // },
+        // {
+        //     id:'8',
+        //     title:'Bài Tập Rèn Luyện',
+        //     decription:'Bài tập này sẽ đưa ra các bài tập ứng dụng để kiểm tra mức độ hiểu biết của bạn và ứng dụng kiến thức đó vào bài tập.'
+        // }
     ]
     return (
         <div className="ListCourse__Container">

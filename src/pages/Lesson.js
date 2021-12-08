@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from "react";
 import reactDom from "react-dom";
-import "./Lesson.css"
+import "../assets/styles/Lesson.css"
 function Lesson() {
     const [display,setdisplay]=useState("off");
     const setcomment = () =>
@@ -13,6 +13,7 @@ function Lesson() {
     {
         setdisplay2(display2 === "off" ? "on" : "off");
     }
+    
     return (
         <>
             <div className="exercise-container">
@@ -33,7 +34,7 @@ function Lesson() {
                         <div className="content-and-comment">
                             <div className={display === "on" ? "main-content-off" : "main-content"}>
                             <div className="content-header">
-                                <div className="level">Đơn giản</div>
+                                {/* <div className="level">Đơn giản</div> */}
                                 <div className="point">100 Points</div>
                             </div>
                             <div className="content-disc">
@@ -137,9 +138,45 @@ function Lesson() {
                             </div> 
                         </div>
                     </div>
+                   
+                    <div className={display2 === "on" ? "code-off" : "code"}>
+                            <div className="intro">
+                                <p className="intro-content">Code in here</p>
+                                <button type="button" className="refresh-btn">Làm mới</button>
+                            </div>
+                            <div className="place-code">
+                                <textarea id="code-of-exser" name="code-of-exser">
+                                </textarea>
+                            </div>
+                        <div className="testcase-lesson">                           
+                                <div className="testcase-header-lesson">
+                                   <p>TEST CASE</p>
+                                </div>
+                                <div className="testcase-content-lesson">
+                                    <div className="testcase-number-lesson">
+                                        <ul>
+                                            <li>Kiểm thử 1</li>
+                                            <li>Kiểm thử 2</li>
+                                            <li>Kiểm thử 2</li>
+                                        </ul>
+                                    </div>
+                                    <div className="testcase-display-lesson">
+                                        <p>Đầu vào:</p>
+                                        <p>Đầu ra:</p>
+                                        <p>Đầu ra mong muốn:</p>
+                                        <p>Thời gian thực hiện:</p>
+                                        <p>Tin nhắn:</p>
+                                    </div>
+                                </div>
+                                <div className="testcase-button-lesson">
+                                    <button type="button" className="run-btn">Chạy thử</button>
+                                    <button type="button" className="submit-btn">Nộp bài</button>
+                                </div>
+                        </div>
+                    </div> 
                     <div className={display2 === "on" ? "ListNode__Container" : "ListNode__Container-off"}>
                         <div className="discuss-list">
-                            <button type="button" className={display === "on" ? "discuss-icon-on" : "discuss-icon"} onClick={setcomment}>
+                            <button type="button" className={display2 === "on" ? "discuss-icon" : "discuss-icon-on"} onClick={handledisplay2}>
                                 <i class="fab fa-rocketchat"></i>
                             </button>
                             <button type="button" className={display2==="on" ? "discuss-icon-on" : "discuss-icon"} onClick={handledisplay2}>
@@ -158,43 +195,13 @@ function Lesson() {
                         <div className="Note_Fill_Container">
                                <textarea id="note-of-lesson" name="note-of-lesson"  placeholder="Nhập ghi chú">
                                 </textarea>
+                                
                         </div>
-                    </div>
-                    <div className={display2 === "on" ? "code-off" : "code"}>
-                            <div className="intro">
-                                <p className="intro-content">Code in here</p>
-                                <button type="button" className="refresh-btn">Làm mới</button>
-                            </div>
-                            <div className="place-code">
-                                <textarea id="code-of-exser" name="code-of-exser">
-                                </textarea>
-                            </div>
-                        <div className="testcase">                           
-                                <div className="testcase-header">
-                                   <p>TEST CASE</p>
-                                </div>
-                                <div className="testcase-content">
-                                    <div className="testcase-number">
-                                        <ul>
-                                            <li>Kiểm thử 1</li>
-                                            <li>Kiểm thử 2</li>
-                                            <li>Kiểm thử 2</li>
-                                        </ul>
-                                    </div>
-                                    <div className="testcase-display">
-                                        <p>Đầu vào:</p>
-                                        <p>Đầu ra:</p>
-                                        <p>Đầu ra mong muốn:</p>
-                                        <p>Thời gian thực hiện:</p>
-                                        <p>Tin nhắn:</p>
-                                    </div>
-                                </div>
-                                <div className="testcase-button">
-                                    <button type="button" className="run-btn">Chạy thử</button>
-                                    <button type="button" className="submit-btn">Nộp bài</button>
-                                </div>
+                        <div className="submit_noted">
+                            <button className="submit_noted">Hoàn tất</button>
                         </div>
-                    </div>                    
+                    </div> 
+                                      
                 </div> 
             </div>                        
         </>

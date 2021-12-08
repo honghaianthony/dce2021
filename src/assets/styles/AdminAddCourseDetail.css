@@ -1,0 +1,74 @@
+.route_container{
+    display: flex;
+    align-items: flex-start;
+    margin-left: 10px;
+    color:#050295;
+}
+
+.center_AddCourse_Top{
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+.center_AddCourse_Top h2{
+    color: #000;
+   
+}
+.container_AdminAddCourse_detail{
+    display:flex;
+    padding:0 15px;
+}
+.center_AddCourseDetail_container{
+    width:100%;
+}
+.center_menu_AdminAddCourse{
+    width:30%;
+}
+.center_AddCourse_right{
+    width:70%;
+}
+.listAddCourse_BtnAdd {
+    display: flex;
+    align-items: center;
+    padding: 20px 15px;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+.btnAdd_Decription{
+    margin-left: 15px;
+    font-size: 20px;
+    font-weight: 500;
+    color:#3B3C54;
+    font-style: italic;
+}
+.btn_iconAdd button{
+    width:40px;
+    height:40px;
+    border: none;
+    background-color: #fff;
+    font-size: 25px;
+    color:#3B3C54;
+    cursor: pointer;
+}
+.btn_AddCourse__container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+.btn_AddCourse__container button{
+    width:fit-content;
+    height:40px;
+    cursor: pointer;
+    font-weight: 500;
+    background-color: #1E266D;
+    color: #fff;
+    border: none;
+    padding:10px;
+    border-radius: 5px;
+}
+.btn_AddCourse__container button:hover{
+transform: scale(1.1);
+color: #1E266D;
+color:#fff;
+
+}
