@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from './Button';
+import { Button } from './Button/index';
 import { Link } from 'react-router-dom';
 import './Navigation.css';
 
@@ -63,7 +63,7 @@ function Navigation() {
             </li>
             <li className='nav-item'>
               <Link
-                to='./'
+                to='/blogs'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >

@@ -1,8 +1,8 @@
 import React,{useEffect, useState} from 'react';
 import './Courses.css';
 import CourseItem from './CourseItem';
-import SearchFilter from "../components/SearchFilter";
-import coursesApi from '../apis/coursesApi';
+import SearchFilter from "../Search/index";
+import coursesApi from '../../apis/coursesApi';
 
 function CoursesMain() {
   const [data, setData] = useState([]);

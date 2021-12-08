@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './ExcerciseCensorTable.css';
-import { Button } from './Button';
 import { Link } from 'react-router-dom';
 
 function ExercisesCensor({ exdata }) {

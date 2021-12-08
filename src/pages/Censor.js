@@ -1,6 +1,6 @@
 import React from "react";
-import ExercisesCensor from "../components/ExerciseCensorTable";
-import BlogCensor from "../components/BlogCensorTable";
+import ExercisesCensor from "../components/Censor/ExerciseCensorTable";
+import BlogCensor from "../components/Censor/BlogCensorTable";
 import "../assets/styles/Censor.css"
 import { FaAngleRight } from 'react-icons/fa';
 import { Link } from "react-router-dom"
