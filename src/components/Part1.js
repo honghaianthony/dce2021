@@ -21,7 +21,7 @@ function Part1() {
                   <li>
                       <div className="heading-key">
                           <img  src={anh2} className="heading-key-img" alt="Nơi tỏa sức đam mê code" /> 
-                          <h3>Nơi tỏa sức đam mê code</h3>
+                          <h3 className="statistic-title">Nơi tỏa sức đam mê code</h3>
                       </div>
   
                       <p className="key-des">Trang web này là nơi chúng tôi tạo ra các bài học bổ ích từ cơ bản đến nâng cao. 
@@ -31,7 +31,7 @@ function Part1() {
                   <li>
                       <div className="heading-key">
                           <img  src={anh3} className="heading-key-img" alt="Định hướng nghề nghiệp" /> 
-                          <h3>Định hướng nghề nghiệp</h3>
+                          <h3 className="statistic-title">Định hướng nghề nghiệp</h3>
                       </div>
   
                       <p className="key-des">Học lập trình giúp bạn có được những kiến thức tốt nhất để làm quen với thế giới công nghệ, 
@@ -41,7 +41,7 @@ function Part1() {
                   <li>
                       <div className="heading-key">
                           <img  src={anh4} className="heading-key-img" alt="Sẻ chia kinh nghiệm lập trình" /> 
-                          <h3>Sẻ chia kinh nghiệm lập trình</h3>
+                          <h3 className="statistic-title">Sẻ chia kinh nghiệm lập trình</h3>
                       </div>
   
                       <p className="key-des">Kỹ năng lập trình có xu hướng đa dạng hơn phục vụ cho nhu cầu phát triển của mọi ngành nghề. 

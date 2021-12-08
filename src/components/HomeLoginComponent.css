@@ -13,23 +13,17 @@
     margin-right: auto;
   }
   
-  div{
-    display: block;
-  }
-  
-  h2{
-    display: block;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-  }
   
   .welcome-user{
     margin: 0;
     font-size: 18px;
     line-height: 1.26;
     font-weight: 600;
+    display: block;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
   }
   
   .welcome-user span{
@@ -173,9 +167,7 @@
     margin-right: auto;
   }
   
-  h3, h3, h4{
-    font-weight: 700px;
-  }
+  
   
   .heading-block {
     font-size: 26px;
@@ -188,11 +180,11 @@
     width: 100%;
   }
   
-  .wrap-block-courses .heading-block a{
+  .wrap-block-courses .heading-block .xem{
     transform: translateY(50px);
   }
   
-  .heading-block a{
+  .heading-block .xem{
     color: black;
     float: right;
     transition: all 300ms;
@@ -200,12 +192,12 @@
     font-size: 1rem;
     white-space: nowrap;
   }
-  
-  a{
-  
+
+  .xem{
     background-color: transparent;
     text-decoration: none;
   }
+  
   
   .wrap-cl-tabs-control{
     display: inline-block;
@@ -229,33 +221,21 @@
     position: relative;
     z-index: 1;
     outline: none !important;
-  }
-  
-  button, input, select, textarea{
-    /* font-family: ; ---------------------------*/
     font-size: 18px;
     line-height: 1.25;
-  }
-  
-  button, select{
     text-decoration: none;
-  
-  }
-  
-  button, input, optgroup, select, textarea{
-    margin: 0;
-    /* font: ; -------------------------*/
     color: black;
   }
+  
+ 
   
   .wrap-cl-tabs-control .mobile-dropdown-control-select option{
     font-weight: 400;
     font-size: 1rem;
-  }
-  
-  select option{
     border: solid 1px #ddd;
   }
+  
+
   
   .wrap-cl-tabs-control .mobile-dropdown-control i{
     padding-left: 10px;
@@ -270,9 +250,6 @@
     display: flex;
     align-items: center;
     /* width: 100%; */
-  }
-  
-  ul{
     list-style: none;
     margin-block-start: 1em;
     margin-block-end: 1em;
@@ -281,22 +258,24 @@
     padding-inline-start: 40px;
   }
   
-  .cl-tabs-control li{
+  
+  .cl-tabs-control .li{
     display: inline-block;
     list-style: none;
     margin: 0 40px 10px 0;
   }
-  
-  li{
+
+  .li{
     text-align: -webkit-match-parent;
   }
+  
   
   .cl-tabs-control li a:not(.disabled):hover, .cl-tabs-control li a:not(.disabled).active{
     color: #452BE2;
     text-decoration: none;
   }
   
-  .cl-tabs-control li a{
+  .cl-tabs-control .li a{
     display: block;
     font-size: 18px;
     font-weight: 700;
@@ -350,11 +329,11 @@
     left: -5px;
   }
   
-  .grid-style.course-item .course-thumb img {
+  .grid-style.course-item .course-thumb .img {
     border-radius: 3px 3px 0 0;
   }
   
-  .course-item .course-thumb img{
+  .course-item .course-thumb .img{
     width: 100%;
     transform: none !important;
     display: block;
@@ -362,7 +341,7 @@
     background-color: #ddd;
   }
   
-  .course-thumb img{
+  .course-thumb .img{
     height: 180px;
   }
   
@@ -395,9 +374,6 @@
     -webkit-box-orient: vertical;
   }
   
-  p{
-    margin: 0 0 10px;
-  }
   
   .course-item .course-info {
     display: flex;
@@ -595,7 +571,7 @@
     justify-content: space-between;
   }
   
-  .task-info-info li {
+  .task-info-info .li {
     list-style: none;
     padding: 5px;
     color: #65656d;
@@ -610,11 +586,11 @@
     text-align: left;
   }
   
-  .task-info-info li {
+  .task-info-info .li {
     width: auto;
   }
   
-  .task-info-info li i {
+  .task-info-info .li i {
     font-size: 16px;
   }
   
@@ -627,7 +603,7 @@
     line-height: 1em;
   } */
   
-  .task-info-info li span {
+  .task-info-info .li span {
     margin-left: 3px;
   }
   
@@ -675,14 +651,14 @@
     width: 30%;
   }
   
-  .blog-item.list-style .wrap-blog-thumb img {
+  .blog-item.list-style .wrap-blog-thumb .img {
     width: 100%;
     object-fit: cover;
     height: 108px;
     border-radius: 4px;
   }
   
-  img {
+  .img {
     vertical-align: middle;
     border: 0;
   }

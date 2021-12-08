@@ -88,7 +88,7 @@ function HomeLoginComponent() {
 
         <h3 className="heading-block">  
           Khóa học
-          <a href="/learning">Xem tất cả</a>
+          <a href="/learning" className="xem">Xem tất cả</a>
         </h3>
 
         <div className="wrap-cl-tabs-control">
@@ -105,7 +105,7 @@ function HomeLoginComponent() {
           </span>
 
           <ul className="cl-tabs-control">
-            <li>
+            <li className="li"> 
               <a onClick="initSlick();" href="#suggest-courses" className="cl-tab-control-item active">Khoá học giợi ý</a>
             </li>
               
@@ -124,12 +124,12 @@ function HomeLoginComponent() {
                 <article className="course-item grid-style col-xs-12 col-sm-6 col-lg-3">
                   <a til="C++ cho người mới bắt đầu" href="https://codelearn.io/learning/cpp-cho-nguoi-moi-bat-dau" className="wrap-course-item"> 
                     <div className="course-thumb">
-                      <img src={anh2}  alt="C++ cho người mới bắt đầu"/>
+                      <img src={anh2} className="img" alt="C++ cho người mới bắt đầu"/>
                     </div>
                  
 
                   <div className="view-content">
-                    <h3 className="">C++ cho người mới bắt đầu</h3>
+                    <h3 className="course-title">C++ cho người mới bắt đầu</h3>
                     <p>
                     Khóa học lập trình C++ cơ bản cho người mới bắt đầu. Khóa học này 
                     sẽ cung cấp những kiến thức cơ bản, dễ hiểu nhất về ngôn ngữ lập trình C++.
@@ -148,12 +148,12 @@ function HomeLoginComponent() {
                 <article className="course-item grid-style col-xs-12 col-sm-6 col-lg-3">
                   <a til="Lập trình hướng đối tượng" href="https://codelearn.io/learning/lap-trinh-huong-doi-tuong-trong-cpp" className="wrap-course-item"> 
                     <div className="course-thumb">
-                      <img src={anh3}  alt="Lập trình hướng đối tượng"/>
+                      <img src={anh3} className="img" alt="Lập trình hướng đối tượng"/>
                     </div>
                   
 
                   <div className="view-content">
-                    <h3 className="">Lập trình hướng đối tượng</h3>
+                    <h3 className="course-title">Lập trình hướng đối tượng</h3>
                     <p>
                     Lập trình hướng đối tượng (Object-Oriented-Programming) 
                     là phương pháp lập trình dựa trên đối tượng để tìm ra bản chất của vấn đề.
@@ -172,12 +172,12 @@ function HomeLoginComponent() {
                 <article className="course-item grid-style col-xs-12 col-sm-6 col-lg-3">
                   <a til="Python cơ bản" href="https://codelearn.io/learning/python-co-ban" className="wrap-course-item"> 
                     <div className="course-thumb">
-                      <img src={anh4}  alt="Python cơ bản"/>
+                      <img src={anh4} className="img" alt="Python cơ bản"/>
                     </div>
                   
 
                   <div className="view-content">
-                    <h3 className="">Python cơ bản</h3>
+                    <h3 className="course-title">Python cơ bản</h3>
                     <p>
                     Khóa học lập trình Python cơ bản với các bài tập và lý thuyết dễ hiểu, 
                     học xong bạn có thể tự tin để tới với các chủ đề nâng cao hơn của Python.
@@ -197,12 +197,12 @@ function HomeLoginComponent() {
                 <article className="course-item grid-style col-xs-12 col-sm-6 col-lg-3">
                   <a til="C cho người mới bắt đầu" href="https://codelearn.io/learning/c-cho-nguoi-moi-bat-dau" className="wrap-course-item"> 
                     <div className="course-thumb">
-                      <img src={anh5}  alt="C cho người mới bắt đầu"/>
+                      <img src={anh5} className="img" alt="C cho người mới bắt đầu"/>
                     </div>
                   
 
                   <div className="view-content">
-                    <h3 className="">C cho người mới bắt đầu</h3>
+                    <h3 className="course-title">C cho người mới bắt đầu</h3>
                     <p>
                     Khóa học lập trình C cho người mới bắt đầu. Khóa học này sẽ cung cấp những kiến thức
                      cơ bản và là nền tảng để bạn đi xa hơn trên con đường lập trình.
@@ -257,7 +257,7 @@ function HomeLoginComponent() {
                     <ul className="task-info-info">
                       <li className="6581/7280">
                         <i>
-                          <img src={anh9}  alt="người"/>
+                          <img src={anh9} className="img" alt="người"/>
                           <span className="span-user-submit">30/40</span>
                         </i>
                       </li>
@@ -275,7 +275,7 @@ function HomeLoginComponent() {
                     <ul className="task-info-info">
                       <li className="6581/7280">
                         <i>
-                          <img src={anh9}  alt="người"/>
+                          <img src={anh9} className="img" alt="người"/>
                           <span className="span-user-submit">30/40</span>
                         </i>
                       </li>
@@ -293,7 +293,7 @@ function HomeLoginComponent() {
                     <ul className="task-info-info">
                       <li className="6581/7280">
                         <i>
-                          <img src={anh9}  alt="người"/>
+                          <img src={anh9} className="img" alt="người"/>
                           <span className="span-user-submit">30/40</span>
                         </i>
                       </li>

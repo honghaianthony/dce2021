@@ -15,16 +15,15 @@
   }
   
   /* H2 CSS */
-  h2{
+  
+  
+  .title-section{
+    margin-bottom: 40px;
     display: block;
     margin-block-start: 0.83em;
     margin-block-end: 0.83em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-  }
-  
-  .title-section{
-    margin-bottom: 40px;
   }
   
   .title-section{
@@ -66,11 +65,7 @@
   .our-statistic img{
     max-width: 100%;
   }
-  
-  img{
-    vertical-align: middle;
-    border: 0;
-  }
+
   
   
   /* BÊN PHẢI */
@@ -80,7 +75,10 @@
     float: left;
   }
   
-  ul{
+  
+  .list-key-futures{
+    margin: 0 0 0 15%;
+    padding: 0;
     display: block;
     list-style: none;
     margin-block-start: 1em;
@@ -88,45 +86,25 @@
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     padding-inline-start: 40px;
-    
-  
   }
   
-  
-  .list-key-features{
-    margin: 0 0 0 15%;
-    padding: 0;
-  }
-  
-  .list-key-features li{
+  .list-key-futures {
     display: inline-block;
     width: 100%;
     margin-bottom: 60px;
     list-style: none;
   }
   
-  li{
-    text-align: -webkit-match-parent;
-  }
-  
-  
-  .list-key-features .heading-key{
+  .list-key-futures .heading-key{
     display: flex;
     align-items: center;
     margin-bottom: 15px;
     font-size: 2em;
   }
   
+ 
   
-  h3{
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-  }
-  
-  .list-key-features .heading-key h3{
+  .list-key-futures .heading-key {
     font-size: 2em;
     margin: 0 0 0 15px;
   }
@@ -136,21 +114,17 @@
     align-items: center;
   }
   
-  .heading-key h3 {
+  .heading-key  {
     font-size: 2em;
   }
   
   .heading-key-img {
     margin-right: 15px;
+    vertical-align: middle;
+    border: 0;
   }
   
-  p{
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-  }
+  
   
   .list-key-features .key-des{
     font-size: 1.5em;
@@ -161,10 +135,13 @@
   
   .key-des{
     font-size: 1.5em;
-  }
-  
-  p{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
     margin: 0 0 10px;
+
   }
   
   /* group 2 */
@@ -190,7 +167,6 @@
   
   .statistic-title{
     color:#fff;
-    font-family: "font-Serif";
     font-size: 24px;
     font-weight: 600;
     letter-spacing: 600;
