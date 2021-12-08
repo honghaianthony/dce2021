@@ -1,5 +1,5 @@
-import Navigation from "../components/Navigation";
-import Footer from "../components/Footer";
+import Navigation from "../components/Navigations/Navigation";
+import Footer from "../components/Footer/index";
 
 function MainLayout ({children}) {
     return (

@@ -13,6 +13,7 @@ import Exercise from "../pages/Exercise";
 import Blogs from "../pages/Blogs";
 import HomeLogin from "../pages/HomeLogin";
 import Blog from "../pages/Blog";
+import Censor from "../pages/Censor";
 
 import Course from "../pages/Course";
 import Lesson from "../pages/Lesson";
@@ -68,6 +69,9 @@ export default function App() {
           </Route>
           <Route path="/blog">
             <Blog />
+          </Route>
+          <Route path="/censor">
+            <Censor />
           </Route>
           <Route path="/HomeLogin">
             <HomeLogin/>
