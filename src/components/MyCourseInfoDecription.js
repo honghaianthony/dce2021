@@ -3,7 +3,7 @@ import './MyCourseInfoDecription.css'
 import book from '../assets/images/book.png'
 import clock from '../assets/images/clock.png'
 import user from '../assets/images/user.png'
-function MyCourseInfoDecription({numHours,numLessons,numPeople}) {
+function MyCourseInfoDecription({numHours,numPeople}) {
     
     return (
         <div className="myCourseInfoDecription__Container">
@@ -31,7 +31,7 @@ function MyCourseInfoDecription({numHours,numLessons,numPeople}) {
                             <span>Số Bài Học</span>
                         </div>
                         <div className="myCourseInfoDecriptionInfo__titleRight">
-                            <span>{numLessons} Bài</span>
+                            <span>6 Bài</span>
                         </div>
                     </div>
                     <div className="myCourseInfoDecriptionInfoBottom">
@@ -39,7 +39,7 @@ function MyCourseInfoDecription({numHours,numLessons,numPeople}) {
                             <img src={user} alt="user" />
                         </div>
                         <div className="myCourseInfoDecriptionInfo__title">
-                            <span>{numPeople} Người</span>
+                            <span>50 Người</span>
                         </div>
                     </div>
                 </div>

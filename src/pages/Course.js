@@ -16,7 +16,7 @@ function Course() {
                     nameCourse="Lập trình hướng đối tượng C++"
                     avatar={avatar}
                     nameMember="Nguyễn Văn A"
-                    numStarts="4.6"
+                    // numStarts="4.6"
                     numRates="100"
                     decription="Khóa học lập trình C++ cơ bản cho người mới bắt đầu. Khóa học này sẽ cung cấp những kiến thức cơ bản, dễ hiểu nhất về ngôn ngữ lập trình C++."
                     />
@@ -25,8 +25,8 @@ function Course() {
                     <div className="MyCourseInfoDecription">
                         <MyCourseInfoDecription 
                             numHours="30"
-                            numLessons="40"
-                            numPeople="100"
+                            // numLessons="40"
+                            // numPeople="100"
                         />
                     </div>
                     <div className="MyCourseInfoDecriptionLine"></div>

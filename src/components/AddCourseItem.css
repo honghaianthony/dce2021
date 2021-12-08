@@ -1,0 +1,41 @@
+.AddCourseItem_container{
+    text-align: left !important;
+}
+.AddCourseItem_container{
+    display:flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    /* align-items: center; */
+    /* border: 1px solid #000; */
+    /* padding:20px 15px; */
+    font-size: 20px;
+    font-weight: 500;
+}
+.AddCourseItem_left{
+    display:flex;
+    align-items: center;
+}
+.Name_course_AddCourseItem{
+    margin-left: 15px;
+}
+.btn_edit_AddCourseItem button i,.AddCourseItem_right button i{
+    font-size: 25px;
+    cursor: pointer;
+}
+.btn_edit_AddCourseItem button,.btn_delete_AddCourseItem button{
+    width:40px;
+    height:40px;
+    border: none;
+    background-color: #fff;
+}
+.btn_edit_AddCourseItem button:hover{
+    opacity: 500;
+}
+.Item_container{
+    display:flex;
+    justify-content: space-between;
+    /* margin-bottom: 25px; */
+    border: 1px solid #000;
+    padding:20px 15px;
+    border-radius: 5px;
+}
