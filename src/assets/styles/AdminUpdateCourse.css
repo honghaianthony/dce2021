@@ -1,0 +1,88 @@
+.Update__AdminCourse__Container{
+    width:100%;
+}
+.center_AdminUpdateCourse__container{
+    width:100%;
+    display: flex;
+    justify-content: start;
+}
+.Update__container{
+    padding:0px 30px;
+}
+.center_menu_AdminUpdateCourse{
+    width:30%;
+}
+.center_content_AdminUpdateCourse{
+    width:70%;
+}
+.center_content_AdminUpdateCourse_title{
+    display: flex;
+}
+.upCourse_label{
+    display:flex;
+}
+#Up_idCourse {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    padding:5px;
+    border-radius: 5px;
+}
+
+.btn_updateCourse_find {
+    display:flex;
+    justify-content: flex-end;
+}
+.center_content_AdminUpdateCourse_title p{
+    font-weight: 500;
+    font-size: 25px;
+}
+.upCourse_label{
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.btn_updateCourse_find input{
+    width:150px;
+    padding:5px;
+    background-color: #050295;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+}
+.btn_updateCourse_find input:hover{
+    transform: scale(1.1);
+    background-color: #050295;
+}
+.center_content_AdminUpdateCourse__bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+.center_content_AdminUpdateCourse__nametitle{
+    font-size: 25px;
+    font-weight: 500;
+}
+.center_container_btn_deleteAll button{
+    border-radius: 50% ;
+    border:none;
+    font-size: 25px;
+    font-weight: 500;
+    cursor: pointer;
+    color: red;
+    width: 50px;
+    height: 50px;
+}
+.center_container_btn_deleteAll i{
+    font-size: 30px;
+}
+.center_container_btn_deleteAll button:hover{
+    opacity: 500;
+    background-color: #ccc;
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from "react";
 import reactDom from "react-dom";
-import "./Lesson.css"
+import "../assets/styles/Lesson.css"
 function Lesson() {
     const [display,setdisplay]=useState("off");
     const setcomment = () =>
@@ -13,6 +13,7 @@ function Lesson() {
     {
         setdisplay2(display2 === "off" ? "on" : "off");
     }
+    
     return (
         <>
             <div className="exercise-container">
@@ -33,7 +34,7 @@ function Lesson() {
                         <div className="content-and-comment">
                             <div className={display === "on" ? "main-content-off" : "main-content"}>
                             <div className="content-header">
-                                <div className="level">Đơn giản</div>
+                                {/* <div className="level">Đơn giản</div> */}
                                 <div className="point">100 Points</div>
                             </div>
                             <div className="content-disc">
@@ -137,29 +138,7 @@ function Lesson() {
                             </div> 
                         </div>
                     </div>
-                    <div className={display2 === "on" ? "ListNode__Container" : "ListNode__Container-off"}>
-                        <div className="discuss-list">
-                            <button type="button" className={display === "on" ? "discuss-icon-on" : "discuss-icon"} onClick={setcomment}>
-                                <i class="fab fa-rocketchat"></i>
-                            </button>
-                            <button type="button" className={display2==="on" ? "discuss-icon-on" : "discuss-icon"} onClick={handledisplay2}>
-                             <i class="far fa-clipboard"></i>
-                            </button>
-                        </div>
-                        <div className="Noted__container">
-                            <div className="Noted__container_Top">
-                                <h2>Những ghi chú đã có</h2>
-                            </div>
-                            <div className="Noted__container_Center">
-                                <span>1. Cần học lại những kiến thức cũ</span>
-                                <span>2. Nên xem thêm những video ví dụ khác</span>
-                            </div>
-                        </div>
-                        <div className="Note_Fill_Container">
-                               <textarea id="note-of-lesson" name="note-of-lesson"  placeholder="Nhập ghi chú">
-                                </textarea>
-                        </div>
-                    </div>
+                   
                     <div className={display2 === "on" ? "code-off" : "code"}>
                             <div className="intro">
                                 <p className="intro-content">Code in here</p>
@@ -194,7 +173,35 @@ function Lesson() {
                                     <button type="button" className="submit-btn">Nộp bài</button>
                                 </div>
                         </div>
-                    </div>                    
+                    </div> 
+                    <div className={display2 === "on" ? "ListNode__Container" : "ListNode__Container-off"}>
+                        <div className="discuss-list">
+                            <button type="button" className={display2 === "on" ? "discuss-icon" : "discuss-icon-on"} onClick={handledisplay2}>
+                                <i class="fab fa-rocketchat"></i>
+                            </button>
+                            <button type="button" className={display2==="on" ? "discuss-icon-on" : "discuss-icon"} onClick={handledisplay2}>
+                             <i class="far fa-clipboard"></i>
+                            </button>
+                        </div>
+                        <div className="Noted__container">
+                            <div className="Noted__container_Top">
+                                <h2>Những ghi chú đã có</h2>
+                            </div>
+                            <div className="Noted__container_Center">
+                                <span>1. Cần học lại những kiến thức cũ</span>
+                                <span>2. Nên xem thêm những video ví dụ khác</span>
+                            </div>
+                        </div>
+                        <div className="Note_Fill_Container">
+                               <textarea id="note-of-lesson" name="note-of-lesson"  placeholder="Nhập ghi chú">
+                                </textarea>
+                                
+                        </div>
+                        <div className="submit_noted">
+                            <button className="submit_noted">Hoàn tất</button>
+                        </div>
+                    </div> 
+                                      
                 </div> 
             </div>                        
         </>

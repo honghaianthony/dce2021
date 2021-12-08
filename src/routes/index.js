@@ -12,10 +12,11 @@ import Exercises from "../pages/Exercises";
 import Exercise from "../pages/Exercise";
 import Blogs from "../pages/Blogs";
 import HomeLogin from "../pages/HomeLogin";
-
-
 import Course from "../pages/Course";
-import Lesson from "../components/Lesson";
+import Lesson from "../pages/Lesson";
+import AdminAddCourseDetail from "../pages/AdminAddCourseDetail";
+import AdminAddCourse from "../pages/AdminAddCourse";
+import AdminUpdateCourse from "../pages/AdminUpdateCourse";
 export default function App() {
   return (
 
@@ -66,9 +67,19 @@ export default function App() {
           <Route path="/HomeLogin">
             <HomeLogin/>
           </Route>
+          <Route path="/adminaddcoursedetail">
+            <AdminAddCourseDetail/>
+          </Route>
+          <Route path="/adminaddcourse">
+            <AdminAddCourse/>
+          </Route>
+          <Route path="/adminupdatecourse">
+            <AdminUpdateCourse/>
+          </Route>
           <Route path="/">
             <Home />
           </Route>
+          
         </Switch>
       </div>
     </Router>

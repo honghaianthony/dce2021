@@ -1,7 +1,7 @@
 import React from 'react'
 import './MyCourseInfo.css'
 import start from '../assets/images/start.png'
-function MyCourseInfo({nameCourse,avatar,nameMember,numStarts,numRates,decription}) {
+function MyCourseInfo({nameCourse,avatar,nameMember,numRates,decription}) {
     return (
         <div className="myCourseInfo__container">
             <div className="top__CourseInfo">
@@ -21,7 +21,7 @@ function MyCourseInfo({nameCourse,avatar,nameMember,numStarts,numRates,decriptio
                         <img src={start} alt="ngôi sao" />
                     </div>
                     <div className="courseInfo__NumStart">
-                        <span>{numStarts} sao ({numRates} đánh giá)</span>
+                        <span>4 sao ({numRates} đánh giá)</span>
                     </div>
                 </div>
             </div>
