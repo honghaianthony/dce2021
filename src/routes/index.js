@@ -7,8 +7,15 @@ import {
 } from "react-router-dom";
 import Home from '../pages/Home';
 import Login from "../pages/Login";
+import Courses from '../pages/Courses';
+import Exercises from "../pages/Exercises";
+import Exercise from "../pages/Exercise";
+import Blogs from "../pages/Blogs";
 import HomeLogin from "../pages/HomeLogin";
 
+
+import Course from "../pages/Course";
+import Lesson from "../components/Lesson";
 export default function App() {
   return (
 
@@ -37,6 +44,24 @@ export default function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/courses">
+            <Courses />
+          </Route>
+          <Route path="/exercises">
+            <Exercises />
+          </Route>
+          <Route path="/exercise">
+            <Exercise/>
+          </Route>
+          <Route path="/course">
+            <Course />
+          </Route>
+          <Route path="/lesson">
+            <Lesson/>
+          </Route>
+          <Route path="/blogs">
+            <Blogs />
           </Route>
           <Route path="/HomeLogin">
             <HomeLogin/>
