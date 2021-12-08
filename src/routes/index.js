@@ -14,6 +14,7 @@ import Blogs from "../pages/Blogs";
 import HomeLogin from "../pages/HomeLogin";
 import Blog from "../pages/Blog";
 import Censor from "../pages/Censor";
+import HomeInfo from "../pages/HomeInfo";
 
 import Course from "../pages/Course";
 import Lesson from "../pages/Lesson";
@@ -75,6 +76,9 @@ export default function App() {
           </Route>
           <Route path="/HomeLogin">
             <HomeLogin/>
+            <Route path="/HomeInfo"> 
+              <HomeInfo/>
+            </Route>
           </Route>
           <Route path="/adminaddcoursedetail">
             <AdminAddCourseDetail/>
