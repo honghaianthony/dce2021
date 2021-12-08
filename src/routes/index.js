@@ -1,13 +1,8 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import Home from '../pages/Home';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Home from "../pages/Home";
 import Login from "../pages/Login";
-import Courses from '../pages/Courses';
+import Courses from "../pages/Courses";
 import Exercises from "../pages/Exercises";
 import Exercise from "../pages/Exercise";
 import Blogs from "../pages/Blogs";
@@ -21,31 +16,20 @@ import Lesson from "../pages/Lesson";
 import AdminAddCourseDetail from "../pages/AdminAddCourseDetail";
 import AdminAddCourse from "../pages/AdminAddCourse";
 import AdminUpdateCourse from "../pages/AdminUpdateCourse";
+
+import TestCallApi from "../pages/TestCallApi";
+
 export default function App() {
   return (
-
     //   định nghĩa các route
-    
+
     <Router>
       <div>
-        {/* Navigation sẽ ở đây */}
-        {/* <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
-          </ul>
-        </nav> */}
-
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/users">
             <Users />
-            {/* trong router sẽ render các pages */}
           </Route>
           <Route path="/login">
             <Login />
@@ -57,13 +41,13 @@ export default function App() {
             <Exercises />
           </Route>
           <Route path="/exercise">
-            <Exercise/>
+            <Exercise />
           </Route>
           <Route path="/course">
             <Course />
           </Route>
           <Route path="/lesson">
-            <Lesson/>
+            <Lesson />
           </Route>
           <Route path="/blogs">
             <Blogs />
@@ -75,31 +59,33 @@ export default function App() {
             <Censor />
           </Route>
           <Route path="/HomeLogin">
-            <HomeLogin/>
-            <Route path="/HomeInfo"> 
-              <HomeInfo/>
+            <HomeLogin />
+            <Route path="/HomeInfo">
+              <HomeInfo />
             </Route>
           </Route>
           <Route path="/adminaddcoursedetail">
-            <AdminAddCourseDetail/>
+            <AdminAddCourseDetail />
           </Route>
           <Route path="/adminaddcourse">
-            <AdminAddCourse/>
+            <AdminAddCourse />
           </Route>
           <Route path="/adminupdatecourse">
-            <AdminUpdateCourse/>
+            <AdminUpdateCourse />
           </Route>
+
+          <Route path="/testcallapi">
+            <TestCallApi />
+          </Route>
+
           <Route path="/">
             <Home />
           </Route>
-          
         </Switch>
       </div>
     </Router>
   );
 }
-
-
 
 function Users() {
   return <h2>Users</h2>;
