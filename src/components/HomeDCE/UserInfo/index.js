@@ -1,6 +1,6 @@
 import React from 'react';
 import './Info.css';
-import anh1 from '../assets/images/avata.jpg'
+import anh1 from '../../../assets/images/avata.jpg'
 
 
 

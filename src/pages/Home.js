@@ -1,19 +1,20 @@
 import MainLayout from "../layouts/MainLayout";
-import Roadmap from "../components/Roadmap";
-import Why from "../components/Why"
-import Part1 from "../components/Part1";
+import Roadmap from "../components/Home/Roadmap/index";
+import Why from "../components/Home/Why/index"
+import Intro from "../components/Home/Intro/index";
+import Talk from "../components/Home/TalkAbout/index";
+import Banner from "../components/Home/Banner/index";
 
 function Home() {
 
     return (
         <>
         <MainLayout>
+            <Intro/>  
             <Roadmap/>
-            <Why/>
-            <h1>Home</h1>
-        git push origin --delete
-            <Part1/>           
-             <h1>Home</h1>
+            <Why/>      
+            <Talk/>  
+            <Banner/> 
         </MainLayout>
         </>
         // trong pages sẽ chứa layout

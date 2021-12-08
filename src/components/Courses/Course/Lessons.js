@@ -1,5 +1,5 @@
 import React from 'react'
-import './ListCourse.css'
+import './Lessons.css'
 import CourseItemInfo from './CourseItemInfo'
 function ListCourse() {
     const courses=

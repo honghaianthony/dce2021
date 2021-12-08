@@ -14,13 +14,12 @@ import Blogs from "../pages/Blogs";
 import HomeLogin from "../pages/HomeLogin";
 import Blog from "../pages/Blog";
 import Censor from "../pages/Censor";
-import HomeInfo from "../pages/HomeInfo";
-
+import Account from "../pages/Account";
 import Course from "../pages/Course";
 import Lesson from "../pages/Lesson";
-import AdminAddCourseDetail from "../pages/AdminAddCourseDetail";
-import AdminAddCourse from "../pages/AdminAddCourse";
-import AdminUpdateCourse from "../pages/AdminUpdateCourse";
+// import AdminAddCourseDetail from "../pages/AdminCourse/AddCourse/AddCourseDetail";
+// import AdminAddCourse from "../pages/AdminCourse/AdminAddCourse";
+// import AdminUpdateCourse from "../pages/AdminCourse/AdminUpdateCourse";
 export default function App() {
   return (
 
@@ -76,11 +75,11 @@ export default function App() {
           </Route>
           <Route path="/HomeLogin">
             <HomeLogin/>
-            <Route path="/HomeInfo"> 
-              <HomeInfo/>
+            <Route path="/Account"> 
+              <Account/>
             </Route>
           </Route>
-          <Route path="/adminaddcoursedetail">
+          {/* <Route path="/adminaddcoursedetail">
             <AdminAddCourseDetail/>
           </Route>
           <Route path="/adminaddcourse">
@@ -88,7 +87,7 @@ export default function App() {
           </Route>
           <Route path="/adminupdatecourse">
             <AdminUpdateCourse/>
-          </Route>
+          </Route> */}
           <Route path="/">
             <Home />
           </Route>

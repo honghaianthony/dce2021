@@ -1,7 +1,7 @@
 import React from 'react'
-import './MyCourseInfo.css'
-import start from '../assets/images/start.png'
-function MyCourseInfo({nameCourse,avatar,nameMember,numRates,decription}) {
+import './CourseInfo.css'
+import start from '../../../assets/images/start.png'
+function CourseInfo({nameCourse,avatar,nameMember,numRates,decription}) {
     return (
         <div className="myCourseInfo__container">
             <div className="top__CourseInfo">
@@ -32,4 +32,4 @@ function MyCourseInfo({nameCourse,avatar,nameMember,numRates,decription}) {
     )
 }
 
-export default MyCourseInfo
+export default CourseInfo

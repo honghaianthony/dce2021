@@ -1,9 +1,9 @@
 import React from 'react'
 import MainLayout from "../layouts/MainLayout";
 import "../assets/styles/Course.css";
-import MyCourseInfo from '../components/MyCourseInfo'
-import MyCourseInfoDecription from '../components/MyCourseInfoDecription'
-import ListCourse from '../components/ListCourse'
+import CourseInfo from '../components/Courses/Course/CourseInfo'
+import CourseDes from '../components/Courses/Course/CourseDes'
+import Lessons from '../components/Courses/Course/Lessons'
 import avatar from '../assets/images/giao.jpg'
 function Course() {
     return (
@@ -12,7 +12,7 @@ function Course() {
         <div className="course__Container">
             <div className="course__TopContent">
                 <div className="myCourseInfoLeft__Container">
-                    <MyCourseInfo 
+                    <CourseInfo 
                     nameCourse="Lập trình hướng đối tượng C++"
                     avatar={avatar}
                     nameMember="Nguyễn Văn A"
@@ -23,7 +23,7 @@ function Course() {
                 </div>
                 <div className="myCourseInfoRight__Container">
                     <div className="MyCourseInfoDecription">
-                        <MyCourseInfoDecription 
+                        <CourseDes 
                             numHours="30"
                             // numLessons="40"
                             // numPeople="100"
@@ -41,7 +41,7 @@ function Course() {
                 </div>
             </div>
             <div className="course__CenterContent">
-                <ListCourse />
+                <Lessons />
             </div>
         </div>
         </MainLayout>

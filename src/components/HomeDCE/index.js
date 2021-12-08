@@ -1,17 +1,17 @@
 import React from 'react'
-import './HomeLoginComponent.css';
-import anh1 from '../assets/images/ava.jpg'
-import anh2 from '../assets/images/anh2.png'
-import anh3 from '../assets/images/anh3.png'
-import anh4 from '../assets/images/anh4.png'
-import anh5 from '../assets/images/anh5.png'
-import anh6 from '../assets/images/anh6.png'
-import anh7 from '../assets/images/anh7.png'
-import anh8 from '../assets/images/anh8.png'
-import anh9 from '../assets/images/download.png'
+import './HomeDCE.css';
+import anh1 from '../../assets/images/ava.jpg'
+import anh2 from '../../assets/images/anh2.png'
+import anh3 from '../../assets/images/anh3.png'
+import anh4 from '../../assets/images/anh4.png'
+import anh5 from '../../assets/images/anh5.png'
+import anh6 from '../../assets/images/anh6.png'
+import anh7 from '../../assets/images/anh7.png'
+import anh8 from '../../assets/images/anh8.png'
+import anh9 from '../../assets/images/download.png'
 
 
-function HomeLoginComponent() {
+function HomeDCE() {
   return (
     <div>
 
@@ -373,4 +373,4 @@ function HomeLoginComponent() {
   );
 }
 
-export default HomeLoginComponent;
+export default HomeDCE;
