@@ -1,6 +1,6 @@
 import MainLayout from "../layouts/MainLayout";
 import "../assets/styles/Exercises.css";
-import Frameexercise from "../components/Frameexercise";
+import Frameexercise from "../components/Exercises/index";
 function Exercises()
 {
     const exercises =

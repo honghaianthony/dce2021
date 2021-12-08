@@ -1,17 +1,16 @@
 import MainLayout from "../layouts/MainLayout";
-import Info from "../components/Info";
+import UserInfo from "../components/HomeDCE/UserInfo/index";
 
-function HomeInfo() {
+function Account() {
 
     return (
         <>
         <MainLayout>
-        git push origin --delete
-            <Info/>
+            <UserInfo/>
         </MainLayout>
         </>
         // trong pages sẽ chứa layout
     );
 }
 
-export default HomeInfo;
+export default Account;

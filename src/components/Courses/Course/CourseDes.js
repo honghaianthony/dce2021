@@ -1,9 +1,9 @@
 import React from 'react'
-import './MyCourseInfoDecription.css'
-import book from '../assets/images/book.png'
-import clock from '../assets/images/clock.png'
-import user from '../assets/images/user.png'
-function MyCourseInfoDecription({numHours,numPeople}) {
+import './CourseDes.css'
+import book from '../../../assets/images/book.png'
+import clock from '../../../assets/images/clock.png'
+import user from '../../../assets/images/user.png'
+function CourseDes({numHours,numPeople}) {
     
     return (
         <div className="myCourseInfoDecription__Container">
@@ -48,4 +48,4 @@ function MyCourseInfoDecription({numHours,numPeople}) {
     )
 }
 
-export default MyCourseInfoDecription
+export default CourseDes

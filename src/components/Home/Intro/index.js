@@ -1,9 +1,9 @@
 import React from 'react';
-import './Part1.css';
-import anh1 from '../assets/images/Animated Image.png'
-import anh2 from '../assets/images/Group.png'
-import anh3 from '../assets/images/icon-park-outline_brain.png'
-import anh4 from '../assets/images/vaadin_handshake.png'
+import './Intro.css';
+import anh1 from '../../../assets/images/Animated-Image.png'
+import anh2 from '../../../assets/images/Group.png'
+import anh3 from '../../../assets/images/icon-park-outline_brain.png'
+import anh4 from '../../../assets/images/vaadin_handshake.png'
 
 function Part1() {
     return (

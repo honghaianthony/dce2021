@@ -1,14 +1,11 @@
 import MainLayout from "../layouts/MainLayout";
-import HomeLoginComponent from "../components/HomeLoginComponent"
+import HomeDCE from "../components/HomeDCE/index";
 
 function HomeLogin() {
-
     return (
         <>
-        <MainLayout>
-
-            
-            <HomeLoginComponent/>
+        <MainLayout>    
+            <HomeDCE/>
         </MainLayout>
         </>
         // trong pages sẽ chứa layout

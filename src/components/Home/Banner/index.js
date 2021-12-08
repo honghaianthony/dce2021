@@ -1,6 +1,6 @@
 import react from "react";
-import "./Banner2.css";
-function Banner2()
+import "./Banner.css";
+function Banner()
 {
     return(
        <section className="Banner">
@@ -14,4 +14,4 @@ function Banner2()
        </section>
     )
 }
-export default Banner2;
+export default Banner;

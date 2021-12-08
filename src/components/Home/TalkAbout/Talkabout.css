@@ -65,7 +65,7 @@
     height: 150px;
     box-shadow: 10px 10px rgb(231, 243, 243);
     position: relative;
-    background-image: url("../assets/images/background-taklabout.png");
+    background-image: url("../../../assets/images/background-taklabout.png");
     background-size: 100%; 
     background-repeat: no-repeat;
    
@@ -94,7 +94,7 @@
     font-size: 16px; 
     font-weight: 600;
     color:#50e850;   
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
     display: inline-block;
     margin-top: -32px;
     margin-bottom: -6px;
@@ -103,7 +103,7 @@
 .Slider-item-think
 {
     font-size: 16px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
     font-style: italic;
 }
 .radio-btn 
