@@ -39,7 +39,7 @@ function UploadTest() {
       <progress value={progress} max="100" />
       <br />
       <br />
-      <input type="file" onChange={handleChange} />
+      <input type="file" accept="image/*" onChange={handleChange} />
       <button onClick={handleUpload}>Upload</button>
       <br />
       <button onClick={handleDelete}>Delete</button>
