@@ -51,23 +51,7 @@ function AdminAddCourseDetail() {
                 <AddCourseItem2 id={item.id} name={item.name} />
               </div>
             ))}
-            {/* <div className="listAddCourse2__Container">
-                                        <AddCourseItem2 
-                                            // id={item.id}
-                                            // name={item.name}
-                                            data={items}
-                                            // props={item}
-                                            handleDeleteClick={handleDeleteClick}
-                                        />   
-                        </div> */}
-            {/* {
-                            items.map((item)=>(
-                                <AddCourseItem2
-                                data={item}
-                                handleDeleteClick={handleDeleteClick}
-                                />
-                            ))
-                        } */}
+            
             <div className="listAddCourse_BtnAdd">
               <div className="btn_iconAdd">
                 <button>
@@ -89,3 +73,20 @@ function AdminAddCourseDetail() {
 }
 
 export default AdminAddCourseDetail;
+{/* <div className="listAddCourse2__Container">
+                                        <AddCourseItem2 
+                                            // id={item.id}
+                                            // name={item.name}
+                                            data={items}
+                                            // props={item}
+                                            handleDeleteClick={handleDeleteClick}
+                                        />   
+                        </div> */}
+            {/* {
+                            items.map((item)=>(
+                                <AddCourseItem2
+                                data={item}
+                                handleDeleteClick={handleDeleteClick}
+                                />
+                            ))
+                        } */}
