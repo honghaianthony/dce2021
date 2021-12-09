@@ -209,6 +209,8 @@
   font-size: 18px;
   font-weight: 700;
   position: relative;
+  line-height: 1.25;
+  text-decoration: none;
 }
 
 .wrap-cl-tabs-control .mobile-dropdown-control-select{
@@ -220,32 +222,18 @@
   position: relative;
   z-index: 1;
   outline: none !important;
-}
-
-button, input, select, textarea{
-  /* font-family: ; ---------------------------*/
-  font-size: 18px;
-  line-height: 1.25;
-}
-
-button, select{
-  text-decoration: none;
-
-}
-
-button, input, optgroup, select, textarea{
-  margin: 0;
-  /* font: ; -------------------------*/
-  color: black;
+  color: #25308E;
 }
 
 .wrap-cl-tabs-control .mobile-dropdown-control-select option{
   font-weight: 400;
-  font-size: 1rem;
-}
-
-select option{
+  font-size: 18px;
   border: solid 1px #ddd;
+  line-height: 1.25;
+  text-decoration: none;
+  margin: 0;
+  /* font: ; -------------------------*/
+  color: black;
 }
 
 .wrap-cl-tabs-control .mobile-dropdown-control i{
@@ -349,7 +337,6 @@ select option{
   display: block;
   object-fit: cover;
   background-color: #ddd;
-  vertical-align: middle;
   border: 0;
 }
 
