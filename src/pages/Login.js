@@ -1,6 +1,8 @@
 // import React from 'react'
 import React, { useState } from 'react'
 import hinhlaptrinh from '../assets/images/background-login.png'
+import { Link } from 'react-router-dom';
+
 // import "./Login.css"
 import "../assets/styles/Login.css"
 function Login () {
@@ -46,15 +48,20 @@ function Login () {
                             <input className="btn-submit-google" type="submit" value="Google" />
                     </div>
                     <div className="form-bottom">
+                        <Link to='/forgotpassword'>
                         <div className="forgot-pass">
                             <a  href="#">Quên mật khẩu?</a>
                         </div>
+                        </Link>
                         <div className="become-member">
                             <p>Chưa phải là thành viên?</p>
-                            <a href="#" className="sign-up-now" onClick={toggleCreateAccount}>Đăng ký ngay</a>
+                            <Link to='/register'>
+                               <a href="#" className="sign-up-now" >Đăng ký ngay</a>
+                            </Link>
                         </div>
                     </div>
                 </div>
+                
                 {/* )} */}
              {/* pop up create account */}
              {/* {isCreateAccount && (
