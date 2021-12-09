@@ -16,7 +16,7 @@ function Info()
                         <div className="user--profile-left">
                         
                             <ul className="user--profile--list-function">
-                                <li className="active">
+                                <li className="active" className="li">
                                         <span>Thông tin liên hệ</span>
                                 </li>
 

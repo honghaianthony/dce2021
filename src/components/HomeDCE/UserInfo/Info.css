@@ -41,14 +41,12 @@
 .user--profile-left .user--profile--list-function {
     list-style: none;
     padding: 30px 30px;
-}
-
-ol, ul {
     margin-top: 0;
     margin-bottom: 10px;
 }
 
-li{
+
+.li{
     margin-bottom: 10px;
 }
 
