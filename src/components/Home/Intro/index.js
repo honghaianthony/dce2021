@@ -5,7 +5,7 @@ import anh2 from '../../../assets/images/Group.png'
 import anh3 from '../../../assets/images/icon-park-outline_brain.png'
 import anh4 from '../../../assets/images/vaadin_handshake.png'
 
-function Part1() {
+function Intro() {
     return (
       <div>
       <div className="container">
@@ -97,7 +97,7 @@ function Part1() {
     );
   }
   
-  export default Part1;
+  export default Intro;
 
 
 

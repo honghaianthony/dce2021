@@ -20,11 +20,11 @@ function Info()
                                         <span>Thông tin liên hệ</span>
                                 </li>
 
-                                <li>
+                                <li className="li">
                                         Đổi tên người dùng
                                 </li>
 
-                                <li>
+                                <li className="li">
                                         Đổi mật khẩu
                                 </li>
                             </ul>
