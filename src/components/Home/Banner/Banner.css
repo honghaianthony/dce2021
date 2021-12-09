@@ -4,6 +4,11 @@
     font-family: 'Muli',sans-serif;
     background-image: url(/src/assets/images/footer-banner-bg.png);
     background-size: 110%;
+    text-align: center;
+}
+.Banner-content
+{
+    text-align: center;
 }
 .title
 {
@@ -16,23 +21,23 @@
     color:#FAD93C;
     margin-bottom: 16px;
 }
-.content
+.Banner-content .banner-text
 {
-    margin-top: -24px;
+    margin-top: 20px;
     margin-bottom: 60px;
     font-size: 24px;
     font-weight: 600;
     color: aliceblue;
+    text-align: center;
 }
-button
+.Banner-button button
 {
-    
     color:#fff;
     font-size: 18px;
     font-weight: 700;
     line-height: 1.27;
     padding: 18px 25px;
-    background-color: #E8505B;
+    background-color: #e94a19;
     border-radius: 4px;
     border: none;  
     cursor: pointer;
@@ -40,5 +45,6 @@ button
 }
 button:hover
 {
-    background-color: #f35106;
+    background-color: #f31606;
+    color: #000;
 }

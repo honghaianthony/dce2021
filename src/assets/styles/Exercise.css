@@ -90,6 +90,12 @@
     display: flex;
     justify-content: space-between;
 }
+.content-and-comment
+{
+    display: block;
+    overflow: auto;
+    height: 715px;
+}
  .level
 {
     border: none;
@@ -162,7 +168,7 @@
     color: #fff;
     font-size: 20px;
     display: block;
-    height: 350px;
+    height: 250px;
     width: 100% ;
     border: 2px #fff solid;
     border-radius: 10px;

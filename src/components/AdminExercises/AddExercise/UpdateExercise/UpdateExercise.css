@@ -7,6 +7,13 @@
     color: #000;
 }
 /*button*/
+.show{
+    display: block;
+}
+.hide
+{
+    display: none;
+}
 .button-UpdateExercise
 {
     text-align: right;

@@ -55,9 +55,11 @@ function Talkabout() {
                                     <div className="Slider-item-avt">
                                         <img src={user.avt} />
                                     </div>
-                                    <p className="Slider-item-name">{user.name}</p>
-                                    <p className="Slider-item-job">{user.job}</p>
-                                    <p className="Slider-item-think">" {user.think} "</p>
+                                    <div className="user-talk">
+                                        <p className="Slider-item-name">{user.name}</p>
+                                        <p className="Slider-item-job">{user.job}</p>
+                                        <p className="Slider-item-think">" {user.think} "</p>
+                                    </div>
                                 </div>
                     )})
                 }

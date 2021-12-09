@@ -1,7 +1,20 @@
 import './UpdateLesson.css';
 import react from 'react';
+import { useState } from 'react';
+import TestCase from '../../../AdminExercises/AddExercise/AddExercise/TestCase.js'
 function UpdateLesson()
 {
+    const [addShow,setAddShow] = useState("show");
+    const[countTestcase,setSountTestcase]=useState();
+    const arrTestCase=[];
+    const handleAdd = () =>
+    {       
+        setAddShow(addShow === "show" ? "hide" : "show");
+    }
+    for(var i=0;i<countTestcase;i++)
+        {
+            arrTestCase.push(i+1);
+        }   
     return(
         <div className="UpdateLesson-container">
             <div className="UpdateLesson-main">
@@ -39,19 +52,20 @@ function UpdateLesson()
                                 </div>
                                 <div className="row-updateLesson">
                                     <h2>Kết Quả Mong Muốn</h2>
-                                    <label className="uplesson-label" for="testLesson">Testcase</label>
-                                    <div className="in-out-lesson">
-                                        <textarea type="text" name="input" id="testLesson" value="input bài học hiện tại"/>
-                                        <textarea type="text" name="output" id="testLesson" value="input bài học hiện tại"/>
-                                    </div>    
+                                    <TestCase/>  
                                 </div>
                                 <div className="row-updateLesson">
-                                    <h3 className="add-test-case"><i class="fas fa-plus"></i>Thêm testcase mới</h3>  
-                                    <label className="uplesson-label" for="testLesson">Testcase</label>
-                                    <div className="in-out-lesson">
-                                        <textarea type="text" name="input" id="testLesson" placeholder="Nhập input "/>
-                                        <textarea type="text" name="output" id="testLesson" placeholder="Nhập output"/>
-                                    </div> 
+                                    <h3 className="add-test-case" onClick={handleAdd}><i class="fas fa-plus"></i>Thêm testcase mới</h3>  
+                                    <input type="text" onChange={(event)=>setSountTestcase(event.target.value)} className={addShow === "show" ? "hide":"show"} placeholder="Nhập số lượng testcase"/>
+                                    <div className="add-testcase">                                 
+                                    {arrTestCase.map((testCaseIndex) =>(
+                                           <TestCase
+                                                id= {testCaseIndex}
+                                                key={testCaseIndex}
+                                           />
+                                       )                                        
+                                        )}
+                                    </div>  
                                 </div>
                                 <div className="row-updateLesson">
                                 <div className="button-UpdateLesson">

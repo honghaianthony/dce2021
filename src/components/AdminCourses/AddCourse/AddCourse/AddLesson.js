@@ -1,7 +1,7 @@
 import './AddLesson.css';
 import react from 'react';
 import { useState,useEffect} from 'react';
-import TestCase from  './TestCase.js';
+import TestCase from '../../../AdminExercises/AddExercise/AddExercise/TestCase.js'
 function AddLesson()
 {
     const [addShow,setAddShow] = useState("show");
