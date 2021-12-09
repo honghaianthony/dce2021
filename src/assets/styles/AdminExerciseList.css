@@ -1,0 +1,50 @@
+.exerciselist-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e7e7e7;
+  }
+  .exerciselist-title {
+    text-align: center;
+    margin-left: 330px;
+    font-size: 35px;
+    color: black;
+  }
+  .exerciselist-search {
+    display: flex;
+    flex-direction: column;
+  }
+  .exerciselist-title1 {
+    width: 1500px;
+    text-align: left;
+    font-size: 35px;
+    margin-bottom: 20px;
+    margin-left: 330px;
+    color: black;
+  }
+  
+  /* Exercise list path */
+  
+  .exerciselist-path {
+      text-align: left;
+      padding: 40px 30px;  
+      font-size: 16px;
+      background-color: white;
+      height: 50px;
+    }
+    .exerciselist-link {
+      display: inline-block;
+      margin: 5px;
+      text-decoration: none;
+      color:#050295;
+    }
+    .exerciselist-link:hover {
+      color: rgb(240, 27, 27);
+      cursor: pointer;
+    }
+    
+    .icon-angle-right {
+      color: #050295;
+      opacity: 0.8;
+      font-size: 10px;
+    }

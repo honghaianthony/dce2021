@@ -10,12 +10,12 @@ import * as BsIcons from 'react-icons/bs';
 export const SidebarData = [
   {
     title: 'Quản lý thành viên',
-    path: '/',
+    path: '',
     icon: <FiIcons.FiUsers />,
   },
   {
     title: 'Quản lý khoá học',
-    path: '/',
+    path: '/admincourselist',
     icon: <BsIcons.BsFillBookmarksFill />,
     iconClosed: <RiIcons.RiArrowDownSLine />,
     iconOpened: <RiIcons.RiArrowUpSLine />,
@@ -23,26 +23,26 @@ export const SidebarData = [
     subNav: [
       {
         title: 'Danh sách khoá học',
-        path: '/',
+        path: '/admincourselist',
         icon: <BiIcons.BiTable />,
         cName: 'sub-nav'
       },
       {
         title: 'Thêm khoá học',
-        path: '/',
+        path: '',
         icon: <CgIcons.CgAdd />,
         cName: 'sub-nav'
       },
       {
         title: 'Chỉnh sửa khoá học',
-        path: '/',
+        path: '',
         icon: <BiIcons.BiEditAlt />
       }
     ]
   },
   {
     title: 'Quản lý bài luyện tập',
-    path: '/',
+    path: '',
     icon: <IoIcons.IoIosPaper />,
     iconClosed: <RiIcons.RiArrowDownSLine />,
     iconOpened: <RiIcons.RiArrowUpSLine />,
@@ -50,26 +50,26 @@ export const SidebarData = [
     subNav: [
       {
         title: 'Danh sách luyện tập',
-        path: '/',
+        path: '',
         icon: <BiIcons.BiTable />,
         cName: 'sub-nav'
       },
       {
         title: 'Thêm bài',
-        path: '/',
+        path: '',
         icon: <CgIcons.CgAdd />,
         cName: 'sub-nav'
       },
       {
         title: 'Chỉnh sửa',
-        path: '/',
+        path: '',
         icon: <BiIcons.BiEditAlt />
       }
     ]
   },
   {
     title: 'Quản lý blog',
-    path: '/',
+    path: '',
     icon: <FaIcons.FaBlogger />,
     iconClosed: <RiIcons.RiArrowDownSLine />,
     iconOpened: <RiIcons.RiArrowUpSLine />,
@@ -77,26 +77,26 @@ export const SidebarData = [
     subNav: [
       {
         title: 'Danh sách blog',
-        path: '/',
+        path: '',
         icon: <BiIcons.BiTable />,
         cName: 'sub-nav'
       },
       {
         title: 'Thêm blog',
-        path: '/',
+        path: '',
         icon: <CgIcons.CgAdd />,
         cName: 'sub-nav'
       },
       {
         title: 'Chỉnh sửa',
-        path: '/',
+        path: '',
         icon: <BiIcons.BiEditAlt />
       }
     ]
   },
   {
     title: 'Thống kê',
-    path: '/',
+    path: '',
     icon: <BsIcons.BsCardList />,
   }
 ];

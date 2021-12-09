@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 function ExercisesCensor({ exdata }) {
     // const [exercises, setExdatas] = useState(data);
     return (
-        <div className="table-container">
-            <table className='table'>
-                <thead className='table-header'>
-                    <tr className='table-row'>
+        <div className="exercisetable-container">
+            <table className='exercisetable'>
+                <thead className='exercisetable-header'>
+                    <tr className='exercisetable-row'>
                         <th>STT</th>
                         <th>Tên bài luyện tập</th>
                         <th>Tác giả</th>
@@ -19,7 +19,7 @@ function ExercisesCensor({ exdata }) {
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody className='exercisetable-body'>
                     {/* {exdata.map((exdata) => (
                         <tr>
                             <td>{exdata.id}</td>
@@ -56,7 +56,7 @@ function ExercisesCensor({ exdata }) {
                         <td>02/10/2021</td>
                         <td>
                             <Link to='./' className='btn-mobile'>
-                                <button className='btn'>
+                                <button className='view-btn'>
                                     Xem chi tiết
                                 </button>
                             </Link>
@@ -78,7 +78,7 @@ function ExercisesCensor({ exdata }) {
                         <td>04/10/2021</td>
                         <td>
                             <Link to='./' className='btn-mobile'>
-                                <button className='btn'>
+                                <button className='view-btn'>
                                     Xem chi tiết
                                 </button>
                             </Link>
@@ -100,7 +100,7 @@ function ExercisesCensor({ exdata }) {
                         <td>05/10/2021</td>
                         <td>
                             <Link to='./' className='btn-mobile'>
-                                <button className='btn'>
+                                <button className='view-btn'>
                                     Xem chi tiết
                                 </button>
                             </Link>
@@ -122,7 +122,7 @@ function ExercisesCensor({ exdata }) {
                         <td>05/10/2021</td>
                         <td>
                             <Link to='./' className='btn-mobile'>
-                                <button className='btn'>
+                                <button className='view-btn'>
                                     Xem chi tiết
                                 </button>
                             </Link>
@@ -145,7 +145,7 @@ function ExercisesCensor({ exdata }) {
                         <td>07/10/2021</td>
                         <td>
                             <Link to='./' className='btn-mobile'>
-                                <button className='btn'>
+                                <button className='view-btn'>
                                     Xem chi tiết
                                 </button>
                             </Link>

@@ -1,10 +1,10 @@
-import './UpdateExercise.css';
+import './DetailExercise.css';
 import react from 'react';
 // import {getAllCourses} from '../apis/coursesApi'
 import { useEffect,useState } from 'react';
 
 
-function UpdateExercise()
+function DetailExercise()
 {
    /* const handleSubmit =(e)=>{
         e.preventDefault();
@@ -89,4 +89,4 @@ function UpdateExercise()
 
     )
 }
-export default UpdateExercise;
+export default DetailExercise;

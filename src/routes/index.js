@@ -13,9 +13,11 @@ import Account from "../pages/Account";
 import Course from "../pages/Course";
 import Lesson from "../pages/Lesson";
 import TestCallApi from "../pages/TestCallApi";
+import AdminCourseList from "../pages/AdminCourseList";
+import AdminExerciseList from "../pages/AdminExerciseList";
 // import AdminAddCourseDetail from "../pages/AdminCourse/AddCourse/AddCourseDetail";
 // import AdminAddCourse from "../pages/AdminCourse/AdminAddCourse";
-// import AdminUpdateCourse from "../pages/AdminCourse/AdminUpdateCourse";
+import CensorDetailExercise from "../components/Censor/DetailExercise/DetailExercise";
 export default function App() {
   return (
     //   định nghĩa các route
@@ -70,6 +72,15 @@ export default function App() {
           <Route path="/adminupdatecourse">
             <AdminUpdateCourse/>
           </Route> */}
+          <Route path="/admincourselist">
+            <AdminCourseList/>
+          </Route>
+          <Route path="/adminexerciselist">
+            <AdminExerciseList/>
+          </Route>
+          <Route path="/censor/detailexercise">
+            <CensorDetailExercise/>
+          </Route>
           <Route path="/testcallapi">
             <TestCallApi />
           </Route>
