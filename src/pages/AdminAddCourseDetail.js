@@ -2,7 +2,8 @@ import React from "react";
 import MainLayout from "../layouts/MainLayout";
 import Navigation from "../components/Navigations/Navigation";
 import "../assets/styles/AdminAddCourseDetail.css";
-import AddCourseItem2 from "../components/AddCourseItem";
+// import AddCourseItem2 from "../components/AddCourseItem";
+import AddCourseItem2 from "../components/AdminCourses/AddCourse/AddCourse/AddCourseItem2"
 import { useState } from "react/cjs/react.development";
 function AdminAddCourseDetail() {
   const listAddCourse2 = [
