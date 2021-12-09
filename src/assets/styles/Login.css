@@ -24,12 +24,13 @@
 .img-content-left img{
     width:100%;
     /* margin-top:10%; */
-    height:500px;
+    height: 600px;
+    object-fit: contain;
     /* height:70%; */
     /* flex-shrink: 0; */
 }
 .img-content-left{
-    width: 50%;
+    width: 60%;
     /* background-image: url("../assets/images/background-login.png"); */
     /* background-position: left;
     background-repeat: no-repeat;

@@ -2,7 +2,8 @@ import React from "react";
 import MainLayout from "../layouts/MainLayout";
 import Navigation from "../components/Navigations/Navigation";
 import "../assets/styles/AdminAddCourseDetail.css";
-import AddCourseItem2 from "../components/AddCourseItem";
+// import AddCourseItem2 from "../components/AddCourseItem";
+import AddCourseItem2 from "../components/AdminCourses/AddCourse/AddCourse/AddCourseItem2"
 import { useState } from "react/cjs/react.development";
 function AdminAddCourseDetail() {
   const listAddCourse2 = [
@@ -50,23 +51,7 @@ function AdminAddCourseDetail() {
                 <AddCourseItem2 id={item.id} name={item.name} />
               </div>
             ))}
-            {/* <div className="listAddCourse2__Container">
-                                        <AddCourseItem2 
-                                            // id={item.id}
-                                            // name={item.name}
-                                            data={items}
-                                            // props={item}
-                                            handleDeleteClick={handleDeleteClick}
-                                        />   
-                        </div> */}
-            {/* {
-                            items.map((item)=>(
-                                <AddCourseItem2
-                                data={item}
-                                handleDeleteClick={handleDeleteClick}
-                                />
-                            ))
-                        } */}
+            
             <div className="listAddCourse_BtnAdd">
               <div className="btn_iconAdd">
                 <button>
@@ -88,3 +73,20 @@ function AdminAddCourseDetail() {
 }
 
 export default AdminAddCourseDetail;
+{/* <div className="listAddCourse2__Container">
+                                        <AddCourseItem2 
+                                            // id={item.id}
+                                            // name={item.name}
+                                            data={items}
+                                            // props={item}
+                                            handleDeleteClick={handleDeleteClick}
+                                        />   
+                        </div> */}
+            {/* {
+                            items.map((item)=>(
+                                <AddCourseItem2
+                                data={item}
+                                handleDeleteClick={handleDeleteClick}
+                                />
+                            ))
+                        } */}

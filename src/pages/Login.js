@@ -1,7 +1,10 @@
 // import React from 'react'
 import React, { useState } from 'react'
 import hinhlaptrinh from '../assets/images/background-login.png'
-import "./Login.css"
+import { Link } from 'react-router-dom';
+
+// import "./Login.css"
+import "../assets/styles/Login.css"
 function Login () {
     const [isCreateAccount, setIsCreateAccount] = useState(false)
 
@@ -23,8 +26,8 @@ function Login () {
                     <form action="" method="POST" className="login-form">
                     <div className="form-middle">
                         <div className="from-group">
-                            <label className="label-login" for="user-name">Tên đăng nhập</label>
-                            <input className="form-input" type="text" name="user-name" placeholder="Tên đăng nhập..." id="user-name" required/>
+                            <label className="label-login" for="username">Tên đăng nhập</label>
+                            <input className="form-input" type="text" name="username" placeholder="Tên đăng nhập..." id="user-name" required/>
                         </div>
                         <div className="from-group">
                             <label className="label-login label-password" for="password">Mật khẩu</label>
@@ -45,15 +48,20 @@ function Login () {
                             <input className="btn-submit-google" type="submit" value="Google" />
                     </div>
                     <div className="form-bottom">
+                        <Link to='/forgotpassword'>
                         <div className="forgot-pass">
                             <a  href="#">Quên mật khẩu?</a>
                         </div>
+                        </Link>
                         <div className="become-member">
                             <p>Chưa phải là thành viên?</p>
-                            <a href="#" className="sign-up-now" onClick={toggleCreateAccount}>Đăng ký ngay</a>
+                            <Link to='/register'>
+                               <a href="#" className="sign-up-now" >Đăng ký ngay</a>
+                            </Link>
                         </div>
                     </div>
                 </div>
+                
                 {/* )} */}
              {/* pop up create account */}
              {/* {isCreateAccount && (

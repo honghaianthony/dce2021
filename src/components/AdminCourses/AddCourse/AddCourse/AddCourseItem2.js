@@ -1,6 +1,6 @@
 import React from 'react'
 import './AddCourseItem2.css'
-function AddCourseItem2({data,handleDeleteClick}) {
+function AddCourseItem2(data) {
     // return (
     //     <div className="AddCourseItem2_container">
     //         <div className="AddCourseItem2_left">
