@@ -1,9 +1,13 @@
 import axiosInstance from "./axiosInstance";
 
-const getAllCourses = async (data) => {
-  return await axiosInstance.get(`/courses/get-courses?id=${data}`);
+const getAllCourses = async () => {
+  return await axiosInstance.get(`courses/get-all-courses`);
+};
+const getCourseById = async (id) => {
+  return await axiosInstance.get(`courses/get-course-by-id?id=${id}`);
 };
 
 export default {
-    getAllCourses,
-}
+  getAllCourses,
+  getCourseById,
+};
