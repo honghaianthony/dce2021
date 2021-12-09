@@ -1,11 +1,10 @@
-import "../UpdateExercise/UpdateExercise.css"
-import TestCase  from "../AddExercise/TestCase";
+import './DetailExercise.css';
 import react from 'react';
 // import {getAllCourses} from '../apis/coursesApi'
 import { useEffect,useState } from 'react';
 
 
-function UpdateExercise()
+function DetailExercise()
 {
    /* const handleSubmit =(e)=>{
         e.preventDefault();
@@ -16,19 +15,6 @@ function UpdateExercise()
         const rep = await getAllCourses();
         setData(rep);
     },[])*/
-    const [addShow,setAddShow] = useState("show");
-    const[countTestcase,setSountTestcase]=useState();
-    const arrTestCase=[];
-    const handleAdd = () =>
-    {       
-        setAddShow(addShow === "show" ? "hide" : "show");
-    }
-    for(var i=0;i<countTestcase;i++)
-        {
-            arrTestCase.push(i+1);
-        }   
-    console.log(countTestcase);
-    console.log(arrTestCase);
     return(
         <div className="UpdateExercise-container">
             <div className="UpdateExercise-main">
@@ -74,20 +60,19 @@ function UpdateExercise()
                                 </div>
                                 <div className="row-updateExercise">
                                     <h2>Kết Quả Mong Muốn</h2>
-                                    <TestCase/> 
+                                    <label className="upExercise-label" for="testExercise">Testcase</label>
+                                    <div className="in-out-Exercise">
+                                        <textarea type="text" name="input" id="testExercise" value="input bài luyện tập hiện tại"/>
+                                        <textarea type="text" name="output" id="testExercise" value="input bài luyện tập hiện tại"/>
+                                    </div>    
                                 </div>
                                 <div className="row-updateExercise">
-                                    <h3 className="add-test-case" onClick={handleAdd}><i class="fas fa-plus"></i>Thêm testcase mới</h3>  
-                                    <input type="text" onChange={(event)=>setSountTestcase(event.target.value)} className={addShow === "show" ? "hide":"show"} placeholder="Nhập số lượng testcase"/>
-                                    <div className="add-testcase">                                 
-                                    {arrTestCase.map((testCaseIndex) =>(
-                                           <TestCase
-                                                id= {testCaseIndex}
-                                                key={testCaseIndex}
-                                           />
-                                       )                                        
-                                        )}
-                                    </div>  
+                                    <h3 className="add-test-case"><i class="fas fa-plus"></i>Thêm testcase mới</h3>  
+                                    <label className="upExercise-label" for="testExercise">Testcase</label>
+                                    <div className="in-out-lesson">
+                                        <textarea type="text" name="input" id="testExercise" placeholder="Nhập input "/>
+                                        <textarea type="text" name="output" id="testExercise" placeholder="Nhập output"/>
+                                    </div> 
                                 </div>
                                 <div className="row-updateExercise">
                                 <div className="button-UpdateExercise">
@@ -104,4 +89,4 @@ function UpdateExercise()
 
     )
 }
-export default UpdateExercise;
+export default DetailExercise;

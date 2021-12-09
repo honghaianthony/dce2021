@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 
 function BlogCensor( { blogdata }) {
     return (
-        <div className="table-container">
-            <table>
-                <thead>
-                    <tr>
+        <div className="blogtable-container">
+            <table className="blogtable">
+                <thead className="blogtable-header">
+                    <tr className="blogtable-row">
                         <th>STT</th>
                         <th>Tên bài blog</th>
                         <th>Tác giả</th>
@@ -17,7 +17,7 @@ function BlogCensor( { blogdata }) {
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody className="blogtable-body">
                     {/* {blogdata.map((blogdata) => (
                         <tr>
                             <td>{blogdata.id}</td>
@@ -29,7 +29,7 @@ function BlogCensor( { blogdata }) {
                             <td>02/10/2021</td>
                             <td>
                                 <Link to='./'>
-                                    <button className='btn'>
+                                    <button className='view-btn'>
                                         Xem chi tiết
                                     </button>
                                 </Link>
@@ -52,7 +52,7 @@ function BlogCensor( { blogdata }) {
                         <td>02/10/2021</td>
                         <td>
                             <Link to='./'>
-                                <button className='btn'>
+                                <button className='view-btn'>
                                     Xem chi tiết
                                 </button>
                             </Link>
@@ -73,7 +73,7 @@ function BlogCensor( { blogdata }) {
                         <td>04/10/2021</td>
                         <td>
                             <Link to='./'>
-                                <button className='btn'>
+                                <button className='view-btn'>
                                     Xem chi tiết
                                 </button>
                             </Link>
@@ -94,7 +94,7 @@ function BlogCensor( { blogdata }) {
                         <td>05/10/2021</td>
                         <td>
                             <Link to='./'>
-                                <button className='btn'>
+                                <button className='view-btn'>
                                     Xem chi tiết
                                 </button>
                             </Link>
@@ -115,7 +115,7 @@ function BlogCensor( { blogdata }) {
                         <td>05/10/2021</td>
                         <td>
                             <Link to='./'>
-                                <button className='btn'>
+                                <button className='view-btn'>
                                     Xem chi tiết
                                 </button>
                             </Link>
@@ -136,7 +136,7 @@ function BlogCensor( { blogdata }) {
                         <td>07/10/2021</td>
                         <td>
                             <Link to='./'>
-                                <button className='btn'>
+                                <button className='view-btn'>
                                     Xem chi tiết
                                 </button>
                             </Link>

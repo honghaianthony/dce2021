@@ -13,6 +13,10 @@ import Account from "../pages/Account";
 import Course from "../pages/Course";
 import Lesson from "../pages/Lesson";
 import TestCallApi from "../pages/TestCallApi";
+import AdminCourseList from "../pages/AdminCourseList";
+import AdminExerciseList from "../pages/AdminExerciseList";
+// import AdminAddCourseDetail from "../pages/AdminCourse/AddCourse/AddCourseDetail";
+// import AdminAddCourse from "../pages/AdminCourse/AdminAddCourse";
 import AdminAddCourseDetail from "../pages/AdminAddCourseDetail";
 import AdminAddCourse from "../pages/AdminAddCourse";
 import Register from "../pages/Register";
@@ -93,6 +97,12 @@ export default function App() {
           </Route>
           <Route path="/adminAddExercise">
               <AddExercise/>
+          </Route>
+          <Route path="/admincourselist">
+            <AdminCourseList/>
+          </Route>
+          <Route path="/adminexerciselist">
+            <AdminExerciseList/>
           </Route>
           <Route path="/testcallapi">
             <TestCallApi />

@@ -1,13 +1,14 @@
 import React from "react";
 import ExercisesCensor from "../components/Censor/ExerciseCensorTable";
 import BlogCensor from "../components/Censor/BlogCensorTable";
-import "../assets/styles/Censor.css"
+import "../components/Censor/Censor.css"
+import CensorLayout from "../layouts/CensorLayout"
 import { FaAngleRight } from 'react-icons/fa';
 import { Link } from "react-router-dom"
 
 function Censor() {
     return (
-        <>
+        <CensorLayout>
             <div className='censor'>
                 <div className='censor-path'>
                     <Link to='/' className='censor-link'>
@@ -19,13 +20,13 @@ function Censor() {
                     </Link>
                 </div>
                 <div className='censor-container'>
-                    <h2>Kiểm duyệt bài luyện tập</h2>
+                    <h2 className='censor-title'>Kiểm duyệt bài luyện tập</h2>
                     <ExercisesCensor />
-                    <h2>Kiểm duyệt bài blog</h2>
+                    <h2 className='censor-title'>Kiểm duyệt bài blog</h2>
                     <BlogCensor />
                 </div>
             </div>
-        </>
+        </CensorLayout>
     )
 }
 

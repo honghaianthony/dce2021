@@ -18,7 +18,7 @@
 }
 
 .btn--outline {
-  background-color: transparent;
+  background-color: #2C31CF;
   color: #2C31CF;
   padding: 8px 20px;
   transition: all 0.3s ease-out;

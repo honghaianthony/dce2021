@@ -1,59 +1,60 @@
-.table-container {
+.exercisetable-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding: 1rem;
   }
   
-  .table {
+  .exercisetable {
     border-collapse: collapse;
     width: 1700px;
     border-radius: 10px;
     overflow: hidden;
   }
-  .table-row th,
-  .table-row td {
+  .exercisetable-row th,
+  .exercisetable-row td {
     border: 1px solid #ffffff;
     text-align: left;
-    padding: 8px;
+    padding: 5px;
     font-size: 25px;
     height: 80px;
   }
-  .table-row th {
+  .exercisetable-row th {
     background-color: #1E266D;
     color: white;
     font-weight: 500;
     text-align: center;
   }
-  .table-row th:first-child {
+  .exercisetable-row th:first-child {
       width: 50px;
   }
-  .table-row th:nth-child(5) {
+  .exercisetable-row th:nth-child(5) {
       width: 200px;
   }
-  .table-row th:nth-child(6) {
+  .exercisetable-row th:nth-child(6) {
     width: 250px;
 }
-  .table-row td {
+  .exercisetable-body tr td {
     text-align: center;
+    font-size: 22px;
   }
-  .table-row td:nth-child(2) {
+  .exercisetable-body tr td:nth-child(2) {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 450px;
   }
-  .table-row td:nth-child(3) {
+  .exercisetable-body tr td:nth-child(3) {
       line-height: 35px;
       display: flex;
       justify-content: center;
       padding-top: 20px;
       
   }
-  .table-row:nth-child(odd) {
+  .exercisetable-body tr:nth-child(odd) {
     background-color: rgb(205, 235, 253);
   }
-  .table-row:nth-child(even) {
+  .exercisetable-body tr:nth-child(even) {
     background-color: white;
   }
   .check {
