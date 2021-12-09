@@ -15,6 +15,7 @@ import Lesson from "../pages/Lesson";
 import TestCallApi from "../pages/TestCallApi";
 import AdminCourseList from "../pages/AdminCourseList";
 import AdminExerciseList from "../pages/AdminExerciseList";
+import UploadTest from "../pages/UploadTest";
 // import AdminAddCourseDetail from "../pages/AdminCourse/AddCourse/AddCourseDetail";
 // import AdminAddCourse from "../pages/AdminCourse/AdminAddCourse";
 import AdminAddCourseDetail from "../pages/AdminAddCourseDetail";
@@ -66,9 +67,9 @@ export default function App() {
             <Censor />
           </Route>
           <Route path="/HomeLogin">
-            <HomeLogin/>
-            <Route path="/Account"> 
-              <Account/>
+            <HomeLogin />
+            <Route path="/Account">
+              <Account />
             </Route>
           </Route>
           <Route path="/adminaddcoursedetail">
@@ -106,6 +107,9 @@ export default function App() {
           </Route>
           <Route path="/testcallapi">
             <TestCallApi />
+          </Route>
+          <Route path="/upload">
+            <UploadTest />
           </Route>
           <Route path="/">
             <Home />
