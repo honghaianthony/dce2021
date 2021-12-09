@@ -17,7 +17,6 @@ import AdminCourseList from "../pages/AdminCourseList";
 import AdminExerciseList from "../pages/AdminExerciseList";
 // import AdminAddCourseDetail from "../pages/AdminCourse/AddCourse/AddCourseDetail";
 // import AdminAddCourse from "../pages/AdminCourse/AdminAddCourse";
-import CensorDetailExercise from "../components/Censor/DetailExercise/DetailExercise";
 export default function App() {
   return (
     //   định nghĩa các route
@@ -77,9 +76,6 @@ export default function App() {
           </Route>
           <Route path="/adminexerciselist">
             <AdminExerciseList/>
-          </Route>
-          <Route path="/censor/detailexercise">
-            <CensorDetailExercise/>
           </Route>
           <Route path="/testcallapi">
             <TestCallApi />
