@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import { storage } from "../firebase";
-import {
-  ref,
-  uploadBytesResumable,
-  getDownloadURL,
-  deleteObject,
-} from "firebase/storage";
+import { uploadFile, deleteFile } from "../firebase/util";
 
 function UploadTest() {
   const [image, setImage] = useState(null);
@@ -19,45 +13,24 @@ function UploadTest() {
   };
 
   const handleDelete = () => {
-    let storageRef = ref(storage, url);
-    console.log(storageRef.name);
-    // Create a reference to the file to delete
-    const desertRef = ref(storage, `images/${storageRef.name}`);
-
-    // Delete the file
-    deleteObject(desertRef)
-      .then(() => {
-        // File deleted successfully
+    deleteFile(
+      url,
+      () => {
         alert("Xóa thành công");
-      })
-      .catch((error) => {
-        // Uh-oh, an error occurred!
-      });
-  };
-  const handleUpload = async () => {
-    const storageRef = ref(storage, `images/${Date.now()}-${image.name}`);
-
-    const metadata = {
-      contentType: "image/*",
-    };
-
-    const uploadTask = uploadBytesResumable(storageRef, image, metadata);
-
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        const progress = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
-        setProgress(progress);
       },
       (error) => {
-        console.log(error);
+        alert(error);
+      }
+    );
+  };
+  const handleUpload = async () => {
+    uploadFile(
+      image,
+      (progress) => {
+        setProgress(progress);
       },
-      () => {
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          setUrl(downloadURL);
-        });
+      (url) => {
+        setUrl(url);
       }
     );
   };
