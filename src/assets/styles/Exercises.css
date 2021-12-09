@@ -30,26 +30,31 @@
     display: block;  
     font-size: 24px;
     padding: 30px;
+    text-align: center;
 }
-.form-search
+.form-search-exer
 {
     border-radius: 5px;
     border: none;
     font-size: 20px;
     padding: 10px 70px;
+    position: relative;
 }
-.icon-search
+.icon-search-exer
 {
     font-size: 20px;
     padding: 10px;
     border: none;
-    background-color: rgb(209, 221, 231);
+    background:none;
+    position: absolute;
+    margin-left: -50px;
 }
-.icon-search:hover
+.icon-search-exer:hover
 {
     transform: scale(1.1);
+    background: none;
 }
-.icon-search:hover,.form-search:hover
+.icon-search-exer:hover,.form-search-exer:hover
 {
     cursor: pointer;
 }
@@ -58,7 +63,7 @@
     flex-wrap: wrap;
     align-items: start;
     justify-content: space-around;
-    margin: 0 130px;
+    margin: 0 200px;
 }
 .exercises-pagenumber
 {
@@ -129,14 +134,14 @@
         align-items: center;
         justify-content: center;
     }
-    .icon-search
+    .icon-search-exer
     {
         font-size: 16px;
+        margin: 7px 0 0 -30px ;
         padding: 5px;
         border: none;
-        background-color: rgb(209, 221, 231);
     }
-    .form-search
+    .form-search-exer
     {
     border-radius: 5px;
     border: none;

@@ -13,13 +13,15 @@ import Account from "../pages/Account";
 import Course from "../pages/Course";
 import Lesson from "../pages/Lesson";
 import TestCallApi from "../pages/TestCallApi";
-// import AdminAddCourseDetail from "../pages/AddCourseDetail";
 import AdminAddCourseDetail from "../pages/AdminAddCourseDetail";
 import AdminAddCourse from "../pages/AdminAddCourse";
-// import AdminUpdateCourse from "../pages/AdminUpdateCourse";
 import Register from "../pages/Register";
 import AdminUpdateCourse from "../pages/AdminUpdateCourse"
 import ForgotPassword from "../pages/ForgotPassword";
+import UpdateLesson from "../components/AdminCourses/AddCourse/UpdateCourse/UpdateLesson";
+import UpdateExercise from "../components/AdminExercises/AddExercise/UpdateExercise/UpdateExercise";
+import AddExercise from "../components/AdminExercises/AddExercise/AddExercise/AddExercise";
+import AddLesson from"../components/AdminCourses/AddCourse/AddCourse/AddLesson";
 export default function App() {
   return (
     //   định nghĩa các route
@@ -79,6 +81,18 @@ export default function App() {
           </Route>
           <Route path="/forgotpassword">
             <ForgotPassword/>
+          </Route>
+          <Route path="/adminUpdateLesson">
+              <UpdateLesson/>
+          </Route>
+          <Route path="/adminUpdateExersise">
+              <UpdateExercise/>
+          </Route>
+          <Route path="/adminAddLesson">
+              <AddLesson/>
+          </Route>
+          <Route path="/adminAddExercise">
+              <AddExercise/>
           </Route>
           <Route path="/testcallapi">
             <TestCallApi />

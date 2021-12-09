@@ -4,12 +4,14 @@
     background-color: rgb(228, 198, 236); 
     height: 600px;
     position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
 }
 .Slider-title
 {
     padding: 25px 0px 25px; 
     color: #1E266D;
     font-size: 28px;
+    text-align: center;
 
 }
 .Slider-main
@@ -63,7 +65,9 @@
     margin: 50px; 
     width: 30%;
     height: 150px;
-    box-shadow: 10px 10px rgb(231, 243, 243);
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+    
+    border-radius: 10px;
     position: relative;
     background-image: url("../../../assets/images/background-taklabout.png");
     background-size: 100%; 
@@ -75,7 +79,7 @@
     font-size: 20px;
     font-weight: 600;
     color:#E8505B;
-    margin-bottom: 0;
+    margin-top:20px;
 }
 .Slider-item-avt
 {
@@ -89,22 +93,22 @@
     max-width: 100px;
     border-radius: 30%;
 }
+.user-talk
+{
+    text-align: center;
+}
 .Slider-item-job,.Slider-item-age
 {
     font-size: 16px; 
     font-weight: 600;
     color:#50e850;   
-    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
     display: inline-block;
-    margin-top: -32px;
-    margin-bottom: -6px;
-    margin-right: 4px;   
+   margin: 10px 0;
 }
 .Slider-item-think
 {
     font-size: 16px;
     /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
-    font-style: italic;
 }
 .radio-btn 
 {

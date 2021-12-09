@@ -4,6 +4,7 @@ import Why from "../components/Home/Why/index"
 import Intro from "../components/Home/Intro/index";
 import Talk from "../components/Home/TalkAbout/index";
 import Banner from "../components/Home/Banner/index";
+import Talkabout from "../components/Home/TalkAbout/index";
 
 function Home() {
 
@@ -13,7 +14,7 @@ function Home() {
             <Intro/>  
             <Roadmap/>
             <Why/>      
-            <Talk/>  
+            <Talk/>             
             <Banner/> 
         </MainLayout>
         </>
