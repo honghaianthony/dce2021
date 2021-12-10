@@ -1,36 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Info.css";
 import anh1 from "../../../assets/images/avata.jpg";
-import axiosInstance from "../../../apis/axiosInstance";
+// import axiosInstance from "../../../apis/axiosInstance";
 
 
 function Info() {
-  const [data, setData] = useState([]);
-  useEffect(async () => {
-    const res = await axiosInstance();
-    setData(res);
-  }, []);
+  // const [data, setData] = useState([]);
+  // useEffect(async () => {
+  //   const res = await axiosInstance();
+  //   setData(res);
+  // }, []);
 
-  const listAccount = () => {
-    if (data.length > 0) {
-      return data.map((item, index) => {
-        let path = "/user/" + item.id;
-        return (
-          <>
-            key = {index}
-            src = {item.image}
-            text = {item.firstName}
-            text = {item.lastName}
-            text = {item.phone}
-            date = {item.dateOfBirth}
-          </>
+  // const listAccount = () => {
+  //   if (data.length > 0) {
+  //     return data.map((item, index) => {
+  //       let path = "/user/" + item.id;
+  //       return (
+  //         <>
+  //           key = {index}
+  //           src = {item.image}
+  //           text = {item.firstName}
+  //           text = {item.lastName}
+  //           text = {item.phone}
+  //           date = {item.dateOfBirth}
+  //         </>
 
-        );
-      });
-    } else {
-      return <h2>Loading</h2>;
-    }
-  };
+  //       );
+  //     });
+  //   } else {
+  //     return <h2>Loading</h2>;
+  //   }
+  // };
   return (
     <>
       <div className="container">
@@ -64,9 +64,9 @@ function Info() {
                       </div>
                     </div>
 
-                    <ul>{listAccount}</ul>
+                    {/* <ul>{listAccount}</ul> */}
 
-                    {/* <div className="row">
+                    <div className="row">
                       <div className="col-lg-3 col-sm-4 col-xs-12">
                         <div className="form-group">First Name</div>
                       </div>
@@ -139,10 +139,10 @@ function Info() {
                             </div>
                           </div>
                         </div>
-                      </div> */}
+                      </div>
 
 
-                    {/* </div> */}
+                    </div>
                   </div>
                 </div>
               </div>
