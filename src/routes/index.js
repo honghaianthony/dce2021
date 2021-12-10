@@ -9,7 +9,7 @@ import Blogs from "../pages/Blogs";
 import HomeLogin from "../pages/HomeLogin";
 import Blog from "../pages/Blog";
 import Censor from "../pages/Censor";
-import Account from "../pages/Account";
+// import Account from "../pages/Account";
 import Course from "../pages/Course";
 import Lesson from "../pages/Lesson";
 import TestCallApi from "../pages/TestCallApi";
@@ -74,9 +74,6 @@ export default function App() {
           </Route>
           <Route path="/HomeLogin">
             <HomeLogin />
-            {/* <Route path="/Account">
-              <Account />
-            </Route> */}
           </Route>
           <Route path="/Account">
               <Account />
