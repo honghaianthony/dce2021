@@ -22,7 +22,6 @@
 }
 
 .navbar-logo {
-  color: #2C31CF;
   justify-self: start;
   cursor: pointer;
   text-decoration: none;
@@ -31,9 +30,8 @@
   align-items: center;
 }
 
-.fa-disease {
-  margin-left: 0.5rem;
-  font-size: 1.8rem;
+.dce-logo {
+  max-width: 60px;
 }
 
 .nav-menu {

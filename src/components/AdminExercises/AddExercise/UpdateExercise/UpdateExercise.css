@@ -43,6 +43,7 @@
     font-weight: 600;
     border: none;
     border-radius: 5px; 
+    margin-right: -25px !important;
 }
 .UpdateExercise-main
 {
@@ -74,15 +75,20 @@
 {
     margin-bottom: 15px;
 }
-.UpdateExercise-right input,textarea
+.UpdateExercise-right input
 {
-    width: 98%;
-    padding: 8px 10px;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+}
+.UpdateExercise-right textarea
+{
+    width: 100%;
+    padding: 10px;
     margin: 5px 0;
 }
 .UpdateExercise-right select
-{
-    width: 100%;
+{  
     padding: 8px 12px;
     margin: 5px 0;
     
@@ -91,7 +97,6 @@
 .form-update-updateExercise p
 {
     font-weight: 600;
-    font-size: 28px;
 }
 #desExercise
 {

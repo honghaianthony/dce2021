@@ -1,6 +1,8 @@
 import MainLayout from "../layouts/MainLayout";
 import "../assets/styles/Exercises.css";
 import Frameexercise from "../components/Exercises/index";
+import ExerciseApi from "../apis/ExerciseApi";
+import { useState,useEffect } from "react";
 function Exercises()
 {
     const exercises =
@@ -78,6 +80,35 @@ function Exercises()
                 level:"Đơn giản"
             }
         ]
+        const [listExercise,setListExercise]=useState([]);
+        useEffect( async () => {
+            const res = await ExerciseApi.getAllExercise();
+            setListExercise(res.data);           
+        }, [])
+        console.log(listExercise);
+        const listExercises =() =>
+        {
+            if(listExercise.length >0)
+            {
+                return listExercise.map((item,index)=>
+                {
+                    return(
+                        <Frameexercise
+                        key={index}
+                        id={item.id}
+                        title ={item.exerciseName}
+                        level={item.level}
+                        />
+                    );
+                });
+            }
+            else
+            {
+                return <h2>Loading..</h2>
+            }
+        }
+        console.log(listExercises)
+        console.log(listExercise)
     return(
         <>
         <MainLayout>
@@ -98,15 +129,7 @@ function Exercises()
             </div>
             <div className="exercises-main">
                {
-                   exercises.map(
-                       (exercise => (
-                            <Frameexercise
-                                key={exercise.id}
-                                title={exercise.title}
-                                type={exercise.type}
-                                level={exercise.level}
-                            />
-                       )))
+                  listExercises()
                }
             </div>
             <div className="exercises-pagenumber">

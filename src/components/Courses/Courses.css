@@ -24,7 +24,7 @@
   text-align: left;
   /* margin: 0 5rem; */
 }
-  h2 {
+  .course__head__container h2 {
     color: white;
   }
   .courses__head #search {
@@ -60,14 +60,10 @@
     background: #f1f1f1;
   }
   
-  h1 {
+  .course h1 {
     text-align: left;
   }
   
-  /* ul {
-    
-  } */
-
   .courses__container {
     display: flex;
     flex-flow: column;

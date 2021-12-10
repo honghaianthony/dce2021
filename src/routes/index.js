@@ -9,10 +9,11 @@ import Blogs from "../pages/Blogs";
 import HomeLogin from "../pages/HomeLogin";
 import Blog from "../pages/Blog";
 import Censor from "../pages/Censor";
-// import Account from "../pages/Account";
+import Account from "../pages/Account";
 import Course from "../pages/Course";
 import Lesson from "../pages/Lesson";
 import TestCallApi from "../pages/TestCallApi";
+import AdminMemberList from "../pages/AdminMembersList";
 import AdminCourseList from "../pages/AdminCourseList";
 import AdminExerciseList from "../pages/AdminExerciseList";
 import UploadTest from "../pages/UploadTest";
@@ -21,12 +22,14 @@ import UploadTest from "../pages/UploadTest";
 import AdminAddCourseDetail from "../pages/AdminAddCourseDetail";
 import AdminAddCourse from "../pages/AdminAddCourse";
 import Register from "../pages/Register";
-import AdminUpdateCourse from "../pages/AdminUpdateCourse"
+import AdminUpdateCourse from "../pages/AdminUpdateCourse";
 import ForgotPassword from "../pages/ForgotPassword";
 import UpdateLesson from "../components/AdminCourses/AddCourse/UpdateCourse/UpdateLesson";
 import UpdateExercise from "../components/AdminExercises/AddExercise/UpdateExercise/UpdateExercise";
 import AddExercise from "../components/AdminExercises/AddExercise/AddExercise/AddExercise";
-import AddLesson from"../components/AdminCourses/AddCourse/AddCourse/AddLesson";
+import AddLesson from "../components/AdminCourses/AddCourse/AddCourse/AddLesson";
+import AddBlog from "../pages/AddBlog";
+
 export default function App() {
   return (
     //   định nghĩa các route
@@ -63,45 +66,53 @@ export default function App() {
           <Route path="/blog">
             <Blog />
           </Route>
+          <Route path="/addblog">
+            <AddBlog />
+          </Route>
           <Route path="/censor">
             <Censor />
           </Route>
           <Route path="/HomeLogin">
             <HomeLogin />
           </Route>
-          
+          <Route path="/Account">
+            <Account />
+          </Route>
           <Route path="/adminaddcoursedetail">
-            <AdminAddCourseDetail/>
+            <AdminAddCourseDetail />
           </Route>
           <Route path="/adminaddcourse">
             <AdminAddCourse />
           </Route>
           <Route path="/adminupdatecourse">
-            <AdminUpdateCourse/>
+            <AdminUpdateCourse />
           </Route>
           <Route path="/register">
-            <Register/>
+            <Register />
           </Route>
           <Route path="/forgotpassword">
-            <ForgotPassword/>
+            <ForgotPassword />
           </Route>
           <Route path="/adminUpdateLesson">
-              <UpdateLesson/>
+            <UpdateLesson />
           </Route>
           <Route path="/adminUpdateExersise">
-              <UpdateExercise/>
+            <UpdateExercise />
           </Route>
           <Route path="/adminAddLesson">
-              <AddLesson/>
+            <AddLesson />
           </Route>
           <Route path="/adminAddExercise">
-              <AddExercise/>
+            <AddExercise />
           </Route>
           <Route path="/admincourselist">
-            <AdminCourseList/>
+            <AdminCourseList />
           </Route>
           <Route path="/adminexerciselist">
-            <AdminExerciseList/>
+            <AdminExerciseList />
+          </Route>
+          <Route path="/adminmemberlist">
+            <AdminMemberList />
           </Route>
           <Route path="/testcallapi">
             <TestCallApi />

@@ -31,8 +31,7 @@ function Navigation() {
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            DCE
-            <i class='fas fa-disease' />
+            <img src="https://firebasestorage.googleapis.com/v0/b/dce2021.appspot.com/o/images%2F1639105423707-logoDCE.png?alt=media&token=05afc33e-ef75-4e9e-9247-a9c48f95bea4" className="dce-logo" />
           </Link>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
