@@ -1,12 +1,20 @@
 /* dữ liệu chính */
 
+.home-DCE{
+  width: 1240px;
+  width: 100%;
+  
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* group 1 */
 .wrap-block-user{
   padding: 30px 0;
   margin-bottom: 30px;
   background-color: #1E266D;
   color: white;
-  width: 1240px;
+  
   padding-left: 15px;
   padding-right: 15px;
   margin-left: auto;
@@ -312,6 +320,7 @@
   transition: all 300ms;
   position: relative;
   z-index: 1;
+  text-decoration: none;
 }
 
 .course-item .course-thumb {
@@ -508,8 +517,9 @@
   width: 33,33333%;
 }
 
-.training-item {
+.training-item .wrap-training-content{
   margin-bottom: 0;
+  text-decoration: none;
 }
 
 .wrap-training-content {
@@ -637,6 +647,7 @@
   align-items: stretch;
   /* flex-wrap: wrap; */
   justify-content: space-between;
+  text-decoration: none;
 }
 
 .blog-item .wrap-blog-item {
@@ -699,4 +710,13 @@
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+
+.courses__item {
+  display: flex;
+  flex: 1;
+  margin: 0 1rem;
+  border-radius: 10px;
+  color: #1E266D;
+  align-items: center;
 }
