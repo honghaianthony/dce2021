@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import './HomeDCE.css';
 import anh1 from '../../assets/images/ava.jpg'
 import anh2 from '../../assets/images/anh2.png'
@@ -9,8 +9,8 @@ import anh6 from '../../assets/images/anh6.png'
 import anh7 from '../../assets/images/anh7.png'
 import anh8 from '../../assets/images/anh8.png'
 import anh9 from '../../assets/images/download.png'
-import CourseItem from "../Courses/CourseItem";
-import coursesApi from "../../apis/coursesApi";
+// import CourseItem from "../Courses/CourseItem";
+// import coursesApi from "../../apis/coursesApi";
 
 
 
