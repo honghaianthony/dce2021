@@ -375,7 +375,7 @@
     background-color: #050295;
 }
 .Noted__container{
-    width:40%;
+    width:95%;
     /* height: 80vh; */
     border:1px solid;
     position: relative;
@@ -436,4 +436,47 @@
 .Noted__container_Center span{
     margin-bottom: 20px;
     font-size:20px;
+}
+.Noted__container_title{
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 600;
+}
+.Noted_container_content{
+    
+    width:100%;
+}
+.Noted_container_content input{
+    width:50%;
+    box-sizing: border-box;
+    padding:5px;
+
+}
+.Input__noted_container {
+    display: flex;
+    justify-content: center;
+}
+.Input__noted_container button{
+    width: 10%;
+    cursor: pointer;
+    background: #452BE2;
+    border: none;
+    color: #fff;
+    margin-left: 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size:20px;
+    padding:5px;
+}
+.Input__noted_container button:hover{
+    transform: scale(1.08);
+    cursor: pointer;
+}
+.TodoNoted_list{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
