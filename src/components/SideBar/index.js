@@ -7,7 +7,8 @@ import { IconContext } from 'react-icons/lib';
 
 const SidebarNav = styled.nav`
   background: #1E266D;
-  width: 320px;
+  width: 20vw;
+  min-width: 265px;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -15,7 +16,10 @@ const SidebarNav = styled.nav`
   top: 200px;
   left: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
   transition: 350ms;
-  z-index: 1;
+  box-shadow: rgba(6, 24, 44, 0.3) 6px 4px 4px 0.3px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.05) 0px 1px 0px inset;
+  border-radius: 0 20px 20px 0;
+  overflow: hidden;
+  z-index: 0;
 `;
 
 const SidebarWrap = styled.div`

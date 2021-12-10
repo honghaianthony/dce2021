@@ -26,7 +26,7 @@ function ExercisesCensor({ exdata }) {
                             <td>{exdata.name}</td>
                             <td>
                                 <img src='https://drive.google.com/uc?id=1rxPivgNOIy8VOAuDAG4ohRciZT9S_mWX' className='circle' />
-                                <p>vietcv</p>
+                                <p className='exercise-author'>vietcv</p>
                             </td>
                             <td>{exdata.level}</td>
                             <td>02/10/2021</td>
@@ -39,7 +39,7 @@ function ExercisesCensor({ exdata }) {
                             </td>
                             <td>
                                 <Link to='/' className='check'>
-                                    <i class="fas fa-check-circle"></i>
+                                    <i className="fas fa-check-circle"></i>
                                 </Link>
                             </td>
                         </tr>
@@ -50,7 +50,7 @@ function ExercisesCensor({ exdata }) {
                         <td>boxBlur</td>
                         <td>
                             <img src='https://drive.google.com/uc?id=1rxPivgNOIy8VOAuDAG4ohRciZT9S_mWX' className='circle' />
-                            <p>vietcv</p>
+                            <p className='exercise-author'>vietcv</p>
                         </td>
                         <td>Trung bình</td>
                         <td>02/10/2021</td>
@@ -63,7 +63,7 @@ function ExercisesCensor({ exdata }) {
                         </td>
                         <td>
                             <Link to='/' className='check'>
-                                <i class="fas fa-check-circle"></i>
+                                <i className="fas fa-check-circle"></i>
                             </Link>
                         </td>
                     </tr>
@@ -72,7 +72,7 @@ function ExercisesCensor({ exdata }) {
                         <td>makeTriangle</td>
                         <td>
                             <img src='https://drive.google.com/uc?id=1rxPivgNOIy8VOAuDAG4ohRciZT9S_mWX' className='circle' />
-                            <p>Fsoft_LongVH13</p>
+                            <p className='exercise-author'>Fsoft_LongVH13</p>
                         </td>
                         <td>Đơn giản</td>
                         <td>04/10/2021</td>
@@ -85,7 +85,7 @@ function ExercisesCensor({ exdata }) {
                         </td>
                         <td>
                             <Link to='/' className='check'>
-                                <i class="fas fa-check-circle"></i>
+                                <i className="fas fa-check-circle"></i>
                             </Link>
                         </td>
                     </tr>
@@ -94,7 +94,7 @@ function ExercisesCensor({ exdata }) {
                         <td>removeDuplicateCharacter</td>
                         <td>
                             <img src='https://drive.google.com/uc?id=1rxPivgNOIy8VOAuDAG4ohRciZT9S_mWX' className='circle' />
-                            <p>MinhNguyet</p>
+                            <p className='exercise-author'>MinhNguyet</p>
                         </td>
                         <td>Đơn giản</td>
                         <td>05/10/2021</td>
@@ -107,7 +107,7 @@ function ExercisesCensor({ exdata }) {
                         </td>
                         <td>
                             <Link to='/' className='check'>
-                                <i class="fas fa-check-circle"></i>
+                                <i className="fas fa-check-circle"></i>
                             </Link>
                         </td>
                     </tr>
@@ -116,7 +116,7 @@ function ExercisesCensor({ exdata }) {
                         <td>oneMoveCheckMate</td>
                         <td>
                             <img src='https://drive.google.com/uc?id=1rxPivgNOIy8VOAuDAG4ohRciZT9S_mWX' className='circle' />
-                            <p>vietcv</p>
+                            <p className='exercise-author'>vietcv</p>
                         </td>
                         <td>Trung bình</td>
                         <td>05/10/2021</td>
@@ -129,7 +129,7 @@ function ExercisesCensor({ exdata }) {
                         </td>
                         <td>
                             <Link to='/' className='check'>
-                                <i class="fas fa-check-circle"></i>
+                                <i className="fas fa-check-circle"></i>
                             </Link>
                         </td>
                     </tr>
@@ -139,7 +139,7 @@ function ExercisesCensor({ exdata }) {
                         <td>sequenceElement</td>
                         <td>
                             <img src='https://drive.google.com/uc?id=1rxPivgNOIy8VOAuDAG4ohRciZT9S_mWX' className='circle' />
-                            <p>vietcv</p>
+                            <p className='exercise-author'>vietcv</p>
                         </td>
                         <td>Trung bình</td>
                         <td>07/10/2021</td>
@@ -152,7 +152,7 @@ function ExercisesCensor({ exdata }) {
                         </td>
                         <td>
                             <Link to='/' className='check'>
-                                <i class="fas fa-check-circle"></i>
+                                <i className="fas fa-check-circle"></i>
                             </Link>
                         </td>
                     </tr>
@@ -163,7 +163,7 @@ function ExercisesCensor({ exdata }) {
                             <td>{exercise.name}</td>
                             <td>
                                 <img src='https://drive.google.com/uc?id=1rxPivgNOIy8VOAuDAG4ohRciZT9S_mWX' className='circle' />
-                                <p>{exercise.author}</p>
+                                <p className='exercise-author'>{exercise.author}</p>
                             </td>
                             <td>{exercise.level}</td>
                             <td>{exercise.date}</td>
@@ -176,7 +176,7 @@ function ExercisesCensor({ exdata }) {
                             </td>
                             <td>
                                 <Link to='/' className='check'>
-                                    <i class="fas fa-check-circle"></i>
+                                    <i className="fas fa-check-circle"></i>
                                 </Link>
                             </td>
                         </tr>

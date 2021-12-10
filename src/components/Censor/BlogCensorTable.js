@@ -36,7 +36,7 @@ function BlogCensor( { blogdata }) {
                             </td>
                             <td>
                                 <Link to='/' className='check'>
-                                    <i class="fas fa-check-circle"></i>
+                                    <i className="fas fa-check-circle"></i>
                                 </Link>
                             </td>
                         </tr>
@@ -47,7 +47,7 @@ function BlogCensor( { blogdata }) {
                         <td>Cách không bị stress</td>
                         <td>
                             <img src='https://drive.google.com/uc?id=1rxPivgNOIy8VOAuDAG4ohRciZT9S_mWX' className='circle' />
-                            <p>vietcv</p>
+                            <p className='blog-author'>vietcv</p>
                         </td>
                         <td>02/10/2021</td>
                         <td>
@@ -59,7 +59,7 @@ function BlogCensor( { blogdata }) {
                         </td>
                         <td>
                             <Link to='/' className='check'>
-                                <i class="fas fa-check-circle"></i>
+                                <i className="fas fa-check-circle"></i>
                             </Link>
                         </td>
                     </tr>
@@ -68,7 +68,7 @@ function BlogCensor( { blogdata }) {
                         <td>DISC bí kíp giao tiếp trong làm việc nhóm</td>
                         <td>
                             <img src='https://drive.google.com/uc?id=1rxPivgNOIy8VOAuDAG4ohRciZT9S_mWX' className='circle' />
-                            <p>Fsoft_LongVH13</p>
+                            <p className='blog-author'>Fsoft_LongVH13</p>
                         </td>
                         <td>04/10/2021</td>
                         <td>
@@ -80,7 +80,7 @@ function BlogCensor( { blogdata }) {
                         </td>
                         <td>
                             <Link to='/' className='check'>
-                                <i class="fas fa-check-circle"></i>
+                                <i className="fas fa-check-circle"></i>
                             </Link>
                         </td>
                     </tr>
@@ -89,7 +89,7 @@ function BlogCensor( { blogdata }) {
                         <td>Lỗi ngớ ngẩn trong lập trình C++</td>
                         <td>
                             <img src='https://drive.google.com/uc?id=1rxPivgNOIy8VOAuDAG4ohRciZT9S_mWX' className='circle' />
-                            <p>MinhNguyet</p>
+                            <p className='blog-author'>MinhNguyet</p>
                         </td>
                         <td>05/10/2021</td>
                         <td>
@@ -101,7 +101,7 @@ function BlogCensor( { blogdata }) {
                         </td>
                         <td>
                             <Link to='/' className='check'>
-                                <i class="fas fa-check-circle"></i>
+                                <i className="fas fa-check-circle"></i>
                             </Link>
                         </td>
                     </tr>
@@ -110,7 +110,7 @@ function BlogCensor( { blogdata }) {
                         <td>Ngôn ngữ lập trình là tất cả đối với Development?</td>
                         <td>
                             <img src='https://drive.google.com/uc?id=1rxPivgNOIy8VOAuDAG4ohRciZT9S_mWX' className='circle' />
-                            <p>vietcv</p>
+                            <p className='blog-author'>vietcv</p>
                         </td>
                         <td>05/10/2021</td>
                         <td>
@@ -122,7 +122,7 @@ function BlogCensor( { blogdata }) {
                         </td>
                         <td>
                             <Link to='/' className='check'>
-                                <i class="fas fa-check-circle"></i>
+                                <i className="fas fa-check-circle"></i>
                             </Link>
                         </td>
                     </tr>
@@ -131,7 +131,7 @@ function BlogCensor( { blogdata }) {
                         <td>Cách nấu ăn ngon</td>
                         <td>
                             <img src='https://drive.google.com/uc?id=1rxPivgNOIy8VOAuDAG4ohRciZT9S_mWX' className='circle' />
-                            <p>vietcv</p>
+                            <p className='blog-author'>vietcv</p>
                         </td>
                         <td>07/10/2021</td>
                         <td>
@@ -143,7 +143,7 @@ function BlogCensor( { blogdata }) {
                         </td>
                         <td>
                             <Link to='/' className='check'>
-                                <i class="fas fa-check-circle"></i>
+                                <i className="fas fa-check-circle"></i>
                             </Link>
                         </td>
                     </tr>

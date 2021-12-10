@@ -9,8 +9,7 @@
   
   .listtable {
     border-collapse: collapse;
-    width: 1500px;
-    max-width: 1500px;
+    width: 75vw;
     border-radius: 10px;
     overflow: hidden;
   }
@@ -19,8 +18,8 @@
     border: 1px solid #ffffff;
     text-align: left;
     padding: 8px;
-    font-size: 25px;
-    height: 70px;
+    font-size: 22px;
+    height: 60px;
   }
   .listtable-row td:nth-child(2) {
     white-space: nowrap;
@@ -38,17 +37,15 @@
     width: 50px;
   }
   .listtable-row th:nth-child(4) {
-    width: 200px;
+    width: 150px;
   }
   .listtable-row th:nth-child(5) {
-    width: 250px;
+    width: 150px;
   }
-
-
   .listtable-body tr td {
     text-align: center;
-    font-size: 22px;
-    height: 70px;
+    font-size: 20px;
+    height: 50px;
   }
   .listtable-body tr:nth-child(odd) {
     background-color: rgb(205, 235, 253);
@@ -57,7 +54,7 @@
     background-color: white;
   }
  .view-btn {
-    font-size: 25px;
+    font-size: 20px;
     background-color: var(--primary);
     color: white;
     white-space: nowrap;

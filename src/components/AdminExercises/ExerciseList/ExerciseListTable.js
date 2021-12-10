@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./ExerciseListTable.css"
+import "../../AdminCourses/CourseList/CourseListTable.css"
 
 function ExerciseListTable( {exercisedata}) {
     return (
