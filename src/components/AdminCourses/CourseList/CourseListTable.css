@@ -55,7 +55,7 @@
   }
  .view-btn {
     font-size: 20px;
-    background-color: var(--primary);
+    background-color: #E8505B;
     color: white;
     white-space: nowrap;
     overflow: hidden;
