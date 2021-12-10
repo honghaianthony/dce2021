@@ -1,33 +1,52 @@
 
 .Register__container{
-    width: 100%;
-    height: 100vh;
+    /* width: 100%; */
+    /* height: 100vh; */
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    
-}
+    padding:20px 20px 10px 20px;
+    }
+    .img-content-left_register img{
+        width:100%;
+        /* margin-top:10%; */
+        height: 650px;
+        object-fit: contain;
+        /* height:70%; */
+        /* flex-shrink: 0; */
+    }
+    .img-content-left_register{
+        width: 50%;
+        /* background-image: url("../assets/images/background-login.png"); */
+        /* background-position: left;
+        background-repeat: no-repeat;
+        background-size: cover; */
+        /* position: absolute; */
+    }
 .Register_content{
-    width:50%;
-    border:1px solid #0D25FF;
-    position: absolute;
-    top:50px;
-    border-radius: 5px;
+    width:30%;
+    border:1px solid #000;
+    /* position: absolute; */
+    /* top:15px; */
+    border-radius: 15px;
+    padding:0 30px;
+    right:0;
+    margin-left: 10%;
 }
 .Top_Register_title{
     display:flex;
     justify-content: center;
-    margin-bottom: 15px;
-    padding:10px;
+    /* margin-bottom: 15px; */
+    padding:5px;
 }
 .Top_Register_title span{
-    font-size: 35px;
-    font-weight: 600;
-    color: #0D25FF;
+    font-size: 30px;
+    font-weight: 700;
+    color: #000;
 }
 .Top_Register_title_line{
     border: 1px solid #0D25FF;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 /* .Name_register{
     display: flex;
@@ -35,18 +54,19 @@
     width: 100%;
 } */
 .form_register{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     width: 100%;
 }
 .register_input{
-    width:60%;
+    width:100%;
     margin-bottom: 15px;
     box-sizing: border-box;
-    padding:5px;
+    padding:8px;
     border-radius: 5px;
+    border:1px solid #000;
 }
 .submit__register{
     display: flex;
@@ -57,8 +77,8 @@
 }
 
 .btn-submit-register{
-    width:60%;
-    margin-bottom: 15px;
+    width:100%;
+    margin-bottom: 20px;
     font-size: 20px;
     padding: 10px 0px;
     cursor: pointer;
@@ -67,7 +87,6 @@
     border:none;
     color: #fff;
     font-weight: 700;
-    margin-top: 15px;
 }
 .btn-submit-register:hover{
     background-color: #ccc;
@@ -75,4 +94,10 @@
     font-weight: 700;
     font-size: 20px;
 
+}
+.label-register_container{
+    display:flex;
+    margin-bottom: 4px;
+    font-weight: 600;
+    font-size: 16px;
 }
