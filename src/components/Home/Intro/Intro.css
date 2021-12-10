@@ -9,11 +9,12 @@
     margin-left: auto;
   }
   
-  .future-img {
+  .future-img-1 {
     width: 80%;
-    margin-top: 150px;
+    margin-top: 350px;
     vertical-align: middle;
     border: 0;
+    align-items: center;
   }
   
   /* H2 CSS */
@@ -26,6 +27,7 @@
     margin-block-end: 0.83em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+    color: #172b4d;
   }
   
   .title-section{
@@ -80,8 +82,8 @@
   }
   
   
-  .list-key-features{
-    margin: 0 0 0 15%;
+  .list-key-futures{
+    margin: 0 0 0 15px;
     padding: 0;
     display: block;
     list-style: none;
@@ -92,17 +94,17 @@
     padding-inline-start: 40px;
   }
   
-  .list-key-features li{
+  .list-key-futures li{
     display: inline-block;
     width: 100%;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
     list-style: none;
     text-align: -webkit-match-parent;
   }
   
   
   
-  .list-key-features .heading-key{
+  .list-key-futures .heading-key{
     display: flex;
     align-items: center;
     margin-bottom: 15px;
@@ -111,8 +113,8 @@
   
   
 
-  .list-key-features .heading-key h3{
-    font-size: 2em;
+  .list-key-futures .heading-key h3{
+    font-size: 1em;
     margin: 0 0 0 15px;
     display: block;
     margin-block-start: 1em;

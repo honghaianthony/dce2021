@@ -13,7 +13,7 @@ function Intro() {
   
       <div className="row">
           <div className="col-xs-12 col-sm-5 col-md-6">
-              <img  src={anh1} className="future-img" alt="Giới thiệu sơ lược về DCE" /> 
+              <img  src={anh1} className="future-img-1" alt="Giới thiệu sơ lược về DCE" /> 
           </div>
   
           <div className="col-xs-12 col-sm-7 col-md-6">
