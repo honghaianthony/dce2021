@@ -53,7 +53,7 @@ function NavigationUser() {
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
               <Link
-                to="./HomeLogin"
+                to="/HomeLogin"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
@@ -62,7 +62,7 @@ function NavigationUser() {
             </li>
             <li className="nav-item">
               <Link
-                to="./Courses"
+                to="/courses"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
@@ -71,7 +71,7 @@ function NavigationUser() {
             </li>
             <li className="nav-item">
               <Link
-                to="./exercises"
+                to="/exercises"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
@@ -79,7 +79,7 @@ function NavigationUser() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="./" className="nav-links" onClick={closeMobileMenu}>
+              <Link to="/blogs" className="nav-links" onClick={closeMobileMenu}>
                 Blog
               </Link>
             </li>

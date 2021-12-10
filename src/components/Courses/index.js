@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { Route, useRouteMatch, useParams } from "react-router-dom";
 import "./Courses.css";
 import CourseItem from "./CourseItem";
 import SearchFilter from "../Search/index";
 import coursesApi from "../../apis/coursesApi";
+import { Course } from "../../pages";
 
 function CoursesMain() {
+  const { url } = useRouteMatch();
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState(data);
   const [search, setSearch] = useState("");
@@ -30,7 +33,7 @@ function CoursesMain() {
   const listCourse = () => {
     if (filteredData.length > 0) {
       return filteredData.map((item, index) => {
-        let path = "/course/" + item.id;
+        let path = "/courses/" + item.id;
         return (
           <CourseItem
             key={index}

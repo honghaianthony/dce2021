@@ -54,8 +54,11 @@ export default function App() {
           <Route path="/register">
             <Register />
           </Route>
-          <Route path="/courses">
+          <Route exact path="/courses">
             <Courses />
+          </Route>
+          <Route exact path={`/courses/:courseId`}>
+            <Course />
           </Route>
           <Route path="/exercises">
             <Exercises />
@@ -63,10 +66,6 @@ export default function App() {
           <Route path="/exercise">
             <Exercise />
           </Route>
-          <Route path="/course">
-            <Course />
-          </Route>
-          {/* trùng với exercise nhưng có thể để lại */}
           <Route path="/lesson">
             <Lesson />
           </Route>
