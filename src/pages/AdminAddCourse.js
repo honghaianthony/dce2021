@@ -39,11 +39,13 @@ function AdminAddCourse() {
               </div>
               <div className="InputTime_AddCourse">
                 <form>
-                  <textarea
+                  <input
                     name="time"
                     id="timeCourse"
                     placeholder="Nhập thời gian để hoàn thành khóa học"
-                  ></textarea>
+                    className="timeCourse"
+                    type="date"
+                  ></input>
                 </form>
               </div>
             </div>

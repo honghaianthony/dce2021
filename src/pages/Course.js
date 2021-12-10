@@ -7,7 +7,6 @@ import Lessons from "../components/Courses/Course/Lessons";
 import avatar from "../assets/images/giao.jpg";
 
 import coursesApi from "../apis/coursesApi";
-
 function Course() {
   const [data, setData] = useState(null);
   useEffect(async () => {
@@ -24,10 +23,10 @@ function Course() {
             <div className="myCourseInfoLeft__Container">
               <CourseInfo
                 nameCourse={data.courseName}
-                avatar={avatar}
-                nameMember="Nguyễn Văn A"
+                // avatar={avatar}
+                // nameMember="Nguyễn Văn A"
                 // numStarts="4.6"
-                numRates="100"
+                numRates={data.rate}
                 decription={data.decription}
               />
             </div>

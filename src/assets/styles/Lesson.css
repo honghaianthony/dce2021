@@ -37,11 +37,11 @@
 {
     width: 100%;
 }
-.discuss
+.discuss-lesson
 {
     background-color:#050295;
 }
-.discuss-icon
+.discuss-icon-lesson
 {
     background-color:#050295;
     border: none;
@@ -58,29 +58,29 @@
     font-size: 30px;
     color: #fff;
 }
-.discuss-icon-on .fa-clipboard
+.discuss-icon-on-lesson .fa-clipboard
 {
     font-size: 30px;
     color:#000;
 }
-.discuss-icon:hover .fa-rocketchat
+.discuss-icon-lesson:hover .fa-rocketchat
 {
     transform: scale(1.08);
     cursor: pointer;
 }
-.discuss-icon-on
+.discuss-icon-on-lesson
 {
     background-color:#fff;
     border: 1px solid #000;
     padding: 10px 5px;
     width:100%;
 }
-.discuss-icon-on .fa-rocketchat
+.discuss-icon-on-lesson .fa-rocketchat
 {
     font-size: 30px;
     color:#000;
 }
-.discuss-icon-on:hover .fa-rocketchat
+.discuss-icon-on-lesson:hover .fa-rocketchat
 {
     transform: scale(1.08);
     cursor: pointer;
@@ -458,7 +458,7 @@
     justify-content: center;
 }
 .Input__noted_container button{
-    width: 10%;
+    width: 20%;
     cursor: pointer;
     background: #452BE2;
     border: none;

@@ -8,14 +8,14 @@ function CourseInfo({nameCourse,avatar,nameMember,numRates,decription}) {
                 <h2 className="nameCourse">{nameCourse}</h2>
             </div>
             <div className="center__CourseInfo">
-                <div className="couseInfo__user">
+                {/* <div className="couseInfo__user">
                     <div className="courseInfo__Avatar">
                         <img className="courseInfo__AvatarImg" src={avatar} alt="Ảnh đại diện" />
                     </div>
                     <div className="courseInfo_NameMemeber">
                         <span>{nameMember}</span>
                     </div>
-                </div>
+                </div> */}
                 <div className="courseInfo__StartRates">
                     <div className="start__img">
                         <img src={start} alt="ngôi sao" />

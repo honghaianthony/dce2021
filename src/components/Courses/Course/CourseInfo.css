@@ -10,7 +10,7 @@
 }
 .center__CourseInfo{
     display:flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 .couseInfo__user{
     display:flex;
