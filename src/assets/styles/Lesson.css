@@ -46,6 +46,7 @@
     background-color:#050295;
     border: none;
     padding: 10px 5px;
+    width:100%;
 }
 .fa-rocketchat
 {
@@ -70,8 +71,9 @@
 .discuss-icon-on
 {
     background-color:#fff;
-    border: none;
+    border: 1px solid #000;
     padding: 10px 5px;
+    width:100%;
 }
 .discuss-icon-on .fa-rocketchat
 {
