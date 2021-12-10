@@ -52,7 +52,11 @@ function NavigationUser() {
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
-              <Link to="./Home" className="nav-links" onClick={closeMobileMenu}>
+              <Link
+                to="./HomeLogin"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
                 Trang chủ
               </Link>
             </li>

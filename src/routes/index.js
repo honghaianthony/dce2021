@@ -1,39 +1,45 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Home from "../pages/Home";
-import Login from "../pages/Login";
-import Courses from "../pages/Courses";
-import Exercises from "../pages/Exercises";
-import Exercise from "../pages/Exercise";
-import Blogs from "../pages/Blogs";
-import HomeLogin from "../pages/HomeLogin";
-import Blog from "../pages/Blog";
-import Censor from "../pages/Censor";
-import Account from "../pages/Account";
-import Course from "../pages/Course";
-import Lesson from "../pages/Lesson";
-import TestCallApi from "../pages/TestCallApi";
-import AdminMemberList from "../pages/AdminMembersList";
-import AdminCourseList from "../pages/AdminCourseList";
-import AdminExerciseList from "../pages/AdminExerciseList";
-import UploadTest from "../pages/UploadTest";
-// import AdminAddCourseDetail from "../pages/AdminCourse/AddCourse/AddCourseDetail";
-// import AdminAddCourse from "../pages/AdminCourse/AdminAddCourse";
-import AdminAddCourseDetail from "../pages/AdminAddCourseDetail";
-import AdminAddCourse from "../pages/AdminAddCourse";
-import Register from "../pages/Register";
-import AdminUpdateCourse from "../pages/AdminUpdateCourse";
-import ForgotPassword from "../pages/ForgotPassword";
+import PrivateRoute from "./PrivateRoute";
+import {
+  Home,
+  HomeLogin,
+  Login,
+  Courses,
+  Exercises,
+  Exercise,
+  Blogs,
+  Blog,
+  Censor,
+  Account,
+  Course,
+  Lesson,
+  AdminMemberList,
+  AdminCourseList,
+  AdminExerciseList,
+  AdminAddCourseDetail,
+  AdminAddCourse,
+  Register,
+  AdminUpdateCourse,
+  ForgotPassword,
+  TestCallApi,
+  UploadTest,
+  AddBlog,
+} from "../pages";
 import UpdateLesson from "../components/AdminCourses/AddCourse/UpdateCourse/UpdateLesson";
 import UpdateExercise from "../components/AdminExercises/AddExercise/UpdateExercise/UpdateExercise";
 import AddExercise from "../components/AdminExercises/AddExercise/AddExercise/AddExercise";
 import AddLesson from "../components/AdminCourses/AddCourse/AddCourse/AddLesson";
-import AddBlog from "../pages/AddBlog";
+
+import { useStore, actions } from "../store";
 
 export default function App() {
+  const [state, dispatch] = useStore();
+  useEffect(() => {
+    dispatch(actions.reload());
+  }, []);
   return (
     //   định nghĩa các route
-
     <Router>
       <div>
         {/* A <Switch> looks through its children <Route>s and
@@ -41,6 +47,12 @@ export default function App() {
         <Switch>
           <Route path="/login">
             <Login />
+          </Route>
+          <PrivateRoute path="/HomeLogin">
+            <HomeLogin />
+          </PrivateRoute>
+          <Route path="/register">
+            <Register />
           </Route>
           <Route path="/courses">
             <Courses />
@@ -70,9 +82,6 @@ export default function App() {
           <Route path="/censor">
             <Censor />
           </Route>
-          <Route path="/HomeLogin">
-            <HomeLogin />
-          </Route>
           <Route path="/Account">
             <Account />
           </Route>
@@ -84,9 +93,6 @@ export default function App() {
           </Route>
           <Route path="/adminupdatecourse">
             <AdminUpdateCourse />
-          </Route>
-          <Route path="/register">
-            <Register />
           </Route>
           <Route path="/forgotpassword">
             <ForgotPassword />
