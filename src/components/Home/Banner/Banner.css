@@ -30,10 +30,10 @@
     color: aliceblue;
     text-align: center;
 }
-.Banner-button button
+.Banner-button-start button
 {
-    color:#fff;
-    font-size: 18px;
+    color:#fff ;
+    font-size: 18px ;
     font-weight: 700;
     line-height: 1.27;
     padding: 18px 25px;
@@ -43,7 +43,7 @@
     cursor: pointer;
     
 }
-button:hover
+.Banner-button-start button:hover
 {
     background-color: #f31606;
     color: #000;

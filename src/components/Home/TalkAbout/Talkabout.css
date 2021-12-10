@@ -79,7 +79,7 @@
     font-size: 20px;
     font-weight: 600;
     color:#E8505B;
-    margin-top:20px;
+    margin:10px
 }
 .Slider-item-avt
 {
@@ -103,10 +103,11 @@
     font-weight: 600;
     color:#50e850;   
     display: inline-block;
-   margin: 10px 0;
+   margin: 5px 0;
 }
 .Slider-item-think
 {
+    margin: 10px;
     font-size: 16px;
     /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
 }

@@ -2,6 +2,8 @@ import './AddExercise.css';
 import react from 'react';
 import { useState,useEffect} from 'react';
 import TestCase from  './TestCase.js';
+import AdminAddCourse from '../../../../pages/AdminAddCourse';
+import AdminLayout from '../../../../layouts/AdminLayout';
 function AddExercise()
 {
     
@@ -20,7 +22,8 @@ function AddExercise()
     console.log(arrTestCase);
     
     return(
-        <div className="AddExercise-container">
+        <AdminLayout>
+            <div className="AddExercise-container">
             <div className="AddExercise-main">
                 <div className="AddExercise-left"></div>
                 <div className="AddExercise-right">
@@ -49,7 +52,7 @@ function AddExercise()
                                 </div>
                                 <div className="row-AddExercise">
                                     <h3 className="add-test-case"  onClick={handleAdd}><i class="fas fa-plus"></i>Thêm testcase mới</h3>
-                                    <input type="text" onChange={(event)=>setSountTestcase(event.target.value)} className={addShow === "show" ? "hide":"show"} placeholder="Nhập số lượng testcase"/>
+                                    <input id ="input-count-testcase"type="text" onChange={(event)=>setSountTestcase(event.target.value)} className={addShow === "show" ? "hide":"show"} placeholder="Nhập số lượng testcase"/>
                                     <div className="add-testcase">                                 
                                     {arrTestCase.map((testCaseIndex) =>(
                                            <TestCase
@@ -72,6 +75,8 @@ function AddExercise()
             </div>
 
         </div>
+        </AdminLayout>
+        
     )
 }
 
