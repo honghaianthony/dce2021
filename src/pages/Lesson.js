@@ -1,7 +1,9 @@
 import React from 'react'
-import { useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import reactDom from "react-dom";
 import "../assets/styles/Lesson.css"
+import TodoNoted from '../components/Lesson/TodoNoted';
+// const TODO_APP_STORAGE_KEY = "TODO_APP";
 function Lesson() {
     const [display,setdisplay]=useState("off");
     const setcomment = () =>
@@ -13,7 +15,33 @@ function Lesson() {
     {
         setdisplay2(display2 === "off" ? "on" : "off");
     }
+    const [todoList, setTodoList] = useState([]);
+    const [textInput, setTextInput] = useState("");
+    const onTextInputChange = useCallback((e) => {
+        setTextInput(e.target.value);
+      }, []);
+      const onAddBtnClick = useCallback(
+        (e) => {
+          // them text input vao danh sach todoList
+          setTodoList([
+            { name: textInput},
+            ...todoList,
+          ]);
     
+          setTextInput("");
+        },
+        [textInput, todoList]
+      );
+    //   useEffect(() => {
+    //     const storagedTodoList = localStorage.getItem(TODO_APP_STORAGE_KEY);
+    //     if (storagedTodoList) {
+    //       setTodoList(JSON.parse(storagedTodoList));
+    //     }
+    //   }, []);
+    
+    //   useEffect(() => {
+    //     localStorage.setItem(TODO_APP_STORAGE_KEY, JSON.stringify(todoList));
+    //   }, [todoList]);
     return (
         <>
             <div className="exercise-container">
@@ -183,7 +211,7 @@ function Lesson() {
                              <i class="far fa-clipboard"></i>
                             </button>
                         </div>
-                        <div className="Noted__container">
+                        {/* <div className="Noted__container">
                             <div className="Noted__container_Top">
                                 <h2>Những ghi chú đã có</h2>
                             </div>
@@ -199,6 +227,32 @@ function Lesson() {
                         </div>
                         <div className="submit_noted">
                             <button className="submit_noted">Hoàn tất</button>
+                        </div> */}
+                        <div className="Noted__container">
+                            <div className="Noted__container_title">
+                               <h3>Danh sách các ghi chú </h3>
+                            </div>
+                            <div className="Noted_container_content">
+                                <div className="Input__noted_container">
+                                    <input
+                                        name="add-todo"
+                                        placeholder="thêm ghi chú mới..."
+                                        value={textInput}
+                                        onChange={onTextInputChange}
+                                        className="input__noted"
+                                    >
+                                    </input>
+                                    <button 
+                                    // isDisabled={!textInput}
+                                    onClick={onAddBtnClick}
+                                    >
+                                        Thêm
+                                    </button>
+                                </div>
+                                <div className="TodoNoted_list">
+                                     <TodoNoted todoList={todoList} />
+                                </div>
+                            </div>
                         </div>
                     </div> 
                                       
