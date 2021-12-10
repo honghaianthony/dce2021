@@ -28,7 +28,7 @@ function Login() {
   return (
     <>
       {state.isAuthenticated ? (
-        history.push("/")
+        history.push("/HomeLogin")
       ) : (
         <section className="login">
           <div className="img-content-left">

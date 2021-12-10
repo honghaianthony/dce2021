@@ -39,9 +39,6 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/users">
-            <Users />
-          </Route>
           <Route path="/login">
             <Login />
           </Route>
@@ -57,6 +54,7 @@ export default function App() {
           <Route path="/course">
             <Course />
           </Route>
+          {/* trùng với exercise nhưng có thể để lại */}
           <Route path="/lesson">
             <Lesson />
           </Route>
@@ -127,8 +125,4 @@ export default function App() {
       </div>
     </Router>
   );
-}
-
-function Users() {
-  return <h2>Users</h2>;
 }
