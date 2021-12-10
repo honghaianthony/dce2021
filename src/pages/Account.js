@@ -1,5 +1,5 @@
 import MainLayout from "../layouts/MainLayout";
-import UserInfo from "../components/UserInfo/index";
+import UserInfo from "../components/HomeDCE/UserInfo/index";
 
 function Account() {
   return (

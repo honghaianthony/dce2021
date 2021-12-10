@@ -2,14 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./BlogListTable.css"
 
-function BlogListTable( {coursedata}) {
+function BlogListTable({ coursedata }) {
     return (
         <div className="listtable-container">
             <table className="listtable">
                 <thead className="listtable-header">
                     <tr className="listtable-row">
                         <th>ID</th>
-                        <th>Tên khoá học</th>
+                        <th>Tên Blog</th>
                         <th>Admin</th>
                         <th>Ngày tạo</th>
                         <th>Update</th>
@@ -39,9 +39,9 @@ function BlogListTable( {coursedata}) {
 
                     <tr>
                         <td>1</td>
-                        <td>Lập trình hướng đối tượng trong C++</td>
+                        <td>Lập trình hướng đối tượng trong C++ khó không??</td>
                         <td>
-                            <p>nnkd</p>
+                            <p>Lunar Moon</p>
                         </td>
                         <td>02/10/2021</td>
                         <td>02/10/2021</td>
@@ -55,7 +55,7 @@ function BlogListTable( {coursedata}) {
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td>Truyền thông và Mạng máy tính</td>
+                        <td>Truyền thông và Mạng máy tính là gì??</td>
                         <td>
                             <p>nnmc</p>
                         </td>
@@ -73,7 +73,7 @@ function BlogListTable( {coursedata}) {
                         <td>3</td>
                         <td>Phần mềm máy tính</td>
                         <td>
-                            <p>dnhh</p>
+                            <p>Lunar Moon</p>
                         </td>
                         <td>02/10/2021</td>
                         <td>02/10/2021</td>
@@ -87,9 +87,9 @@ function BlogListTable( {coursedata}) {
                     </tr>
                     <tr>
                         <td>4</td>
-                        <td>Phần cứng máy tính</td>
+                        <td>Sự thú vị của phần cứng máy tính</td>
                         <td>
-                            <p>tbc</p>
+                            <p>Lunar Moon</p>
                         </td>
                         <td>02/10/2021</td>
                         <td>02/10/2021</td>
@@ -103,9 +103,9 @@ function BlogListTable( {coursedata}) {
                     </tr>
                     <tr>
                         <td>5</td>
-                        <td>C cho người mới bắt đầu</td>
+                        <td>C nên bắt đầu code như thế nào?</td>
                         <td>
-                            <p>tng</p>
+                            <p>Lunar Moon</p>
                         </td>
                         <td>02/10/2021</td>
                         <td>02/10/2021</td>
@@ -119,9 +119,9 @@ function BlogListTable( {coursedata}) {
                     </tr>
                     <tr>
                         <td>6</td>
-                        <td>C++ cho người mới bắt đầu</td>
+                        <td>C++ không hề khó</td>
                         <td>
-                            <p>dkd</p>
+                            <p>Lunar Moon</p>
                         </td>
                         <td>02/10/2021</td>
                         <td>02/10/2021</td>
@@ -135,9 +135,9 @@ function BlogListTable( {coursedata}) {
                     </tr>
                     <tr>
                         <td>7</td>
-                        <td>Làm quen với SQL</td>
+                        <td>SQL và MySQL có gì khác nhau?</td>
                         <td>
-                            <p>van</p>
+                            <p>Lunar Moon</p>
                         </td>
                         <td>02/10/2021</td>
                         <td>02/10/2021</td>
@@ -151,9 +151,9 @@ function BlogListTable( {coursedata}) {
                     </tr>
                     <tr>
                         <td>8</td>
-                        <td>Javascript căn bản</td>
+                        <td>Javascript căn bản rất đơn giản</td>
                         <td>
-                            <p>nva</p>
+                            <p>Lunar Moon</p>
                         </td>
                         <td>02/10/2021</td>
                         <td>02/10/2021</td>
@@ -167,9 +167,9 @@ function BlogListTable( {coursedata}) {
                     </tr>
                     <tr>
                         <td>9</td>
-                        <td>Python cơ bản</td>
+                        <td>Python cơ bản rất đơn giản</td>
                         <td>
-                            <p>nnmc</p>
+                            <p>Lunar Moon</p>
                         </td>
                         <td>02/10/2021</td>
                         <td>02/10/2021</td>
@@ -183,9 +183,9 @@ function BlogListTable( {coursedata}) {
                     </tr>
                     <tr>
                         <td>10</td>
-                        <td>C# cơ bản</td>
+                        <td>C# cơ bản rất đơn giản</td>
                         <td>
-                            <p>nnkd</p>
+                            <p>Lunar Moon</p>
                         </td>
                         <td>02/10/2021</td>
                         <td>02/10/2021</td>
