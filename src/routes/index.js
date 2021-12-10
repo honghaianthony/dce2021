@@ -27,6 +27,8 @@ import UpdateLesson from "../components/AdminCourses/AddCourse/UpdateCourse/Upda
 import UpdateExercise from "../components/AdminExercises/AddExercise/UpdateExercise/UpdateExercise";
 import AddExercise from "../components/AdminExercises/AddExercise/AddExercise/AddExercise";
 import AddLesson from"../components/AdminCourses/AddCourse/AddCourse/AddLesson";
+import AddBlog from "../pages/AddBlog";
+
 export default function App() {
   return (
     //   định nghĩa các route
@@ -63,15 +65,21 @@ export default function App() {
           <Route path="/blog">
             <Blog />
           </Route>
+          <Route path="/addblog">
+            <AddBlog />
+          </Route>
           <Route path="/censor">
             <Censor />
           </Route>
           <Route path="/HomeLogin">
             <HomeLogin />
-            <Route path="/Account">
+            {/* <Route path="/Account">
+              <Account />
+            </Route> */}
+          </Route>
+          <Route path="/Account">
               <Account />
             </Route>
-          </Route>
           <Route path="/adminaddcoursedetail">
             <AdminAddCourseDetail/>
           </Route>
