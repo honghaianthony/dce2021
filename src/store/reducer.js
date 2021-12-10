@@ -24,13 +24,17 @@ function reducer(state, action) {
       return initState;
     case RELOAD:
       const token = localStorage.getItem("token");
-      const infoReload = jwt_decode(token);
-      return {
-        isAuthenticated: true,
-        userId: infoReload.userId,
-        username: infoReload.username,
-        role: infoReload.role,
-      };
+      if (token) {
+        const infoReload = jwt_decode(token);
+        return {
+          isAuthenticated: true,
+          userId: infoReload.userId,
+          username: infoReload.username,
+          role: infoReload.role,
+        };
+      } else {
+        return initState;
+      }
     default:
       throw new Error("Invalid action");
   }
