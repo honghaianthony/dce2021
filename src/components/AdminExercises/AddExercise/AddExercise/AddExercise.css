@@ -65,15 +65,20 @@
 {
     margin-bottom: 15px;
 }
-.AddExercise-right input,textarea
+.AddExercise-right input
 {
-    width: 98%;
-    padding: 8px 10px;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+}
+.AddExercise-right textarea
+{
+    width: 100%;
+    padding: 10px;
     margin: 5px 0;
 }
 .AddExercise-right select
 {
-    width: 100%;
     padding: 8px 10px;
     margin: 5px 0;
 }

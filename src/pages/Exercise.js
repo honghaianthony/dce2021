@@ -1,9 +1,17 @@
 import MainLayout from "../layouts/MainLayout";
 import "../assets/styles/Exercise.css";
-import { useState } from "react";
+import { useState,useEffect} from "react";
 import reactDom from "react-dom";
-function Exercise()
+import ExerciseApi from "../apis/ExerciseApi";
+function Exercise(Exercise)
 {
+    /*api*/
+    /*const [exercise,setExercise]=useState([]);
+    useEffect( async(id) => {
+       const res= await ExerciseApi.getAllExerciseById(id);
+       setExercise(res.data);
+    }, [])
+    /*api*/
     const [display,setdisplay]=useState("off");
     const setcomment = () =>
     {
@@ -15,7 +23,7 @@ function Exercise()
             <div className="exercise-container">
                 <div className="exercise-name">
                     <a href=""><i class="fas fa-angle-left"></i></a>
-                    <p>Bài tập 1</p>
+                    <p>{Exercise.title}</p>
                 </div>
                 <div className="exercise-main">
                     <div className="content">
@@ -27,13 +35,12 @@ function Exercise()
                         <div className="content-and-comment">
                             <div className={display === "on" ? "main-content-off" : "main-content"}>
                             <div className="content-header">
-                                <div className="level">Đơn giản</div>
+                                <div className="level">{Exercise.level}</div>
                                 <div className="point">100 Points</div>
                             </div>
                             <div className="content-disc">
                                 <p>
-                                Một số được gọi là composite number khi nó không phải là số nguyên tố và là số nguyên dương lớn hơn 1(ví dụ 4, 6, 8, 9, ...). 
-                                Cho một số nguyên dương n, hãy tính số lượng số composite number để tạo thành số n nhiều nhất có thể. Nếu không thể tạo ra được n, hãy trả về -1.
+                                {Exercise.content}
                                 </p>
                             </div>
                             <div className="content-input">

@@ -78,7 +78,7 @@ function UpdateExercise()
                                 </div>
                                 <div className="row-updateExercise">
                                     <h3 className="add-test-case" onClick={handleAdd}><i class="fas fa-plus"></i>Thêm testcase mới</h3>  
-                                    <input type="text" onChange={(event)=>setSountTestcase(event.target.value)} className={addShow === "show" ? "hide":"show"} placeholder="Nhập số lượng testcase"/>
+                                    <input type="text" onChange={(event)=>setSountTestcase(event.target.value)} id="input-count-testcase" className={addShow === "show" ? "hide":"show"} placeholder="Nhập số lượng testcase"/>
                                     <div className="add-testcase">                                 
                                     {arrTestCase.map((testCaseIndex) =>(
                                            <TestCase

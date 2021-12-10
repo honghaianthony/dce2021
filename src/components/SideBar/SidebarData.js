@@ -42,7 +42,7 @@ export const SidebarData = [
   },
   {
     title: 'Quản lý bài luyện tập',
-    path: '',
+    path: '/adminAddExercise',
     icon: <IoIcons.IoIosPaper />,
     iconClosed: <RiIcons.RiArrowDownSLine />,
     iconOpened: <RiIcons.RiArrowUpSLine />,
@@ -50,19 +50,19 @@ export const SidebarData = [
     subNav: [
       {
         title: 'Danh sách luyện tập',
-        path: '',
+        path: '/adminAddExercise',
         icon: <BiIcons.BiTable />,
         cName: 'sub-nav'
       },
       {
         title: 'Thêm bài',
-        path: '',
+        path: '/adminAddExercise',
         icon: <CgIcons.CgAdd />,
         cName: 'sub-nav'
       },
       {
         title: 'Chỉnh sửa',
-        path: '',
+        path: '/adminUpdateExersise',
         icon: <BiIcons.BiEditAlt />
       }
     ]
