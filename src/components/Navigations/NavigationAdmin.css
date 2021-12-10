@@ -22,13 +22,16 @@
 }
 
 .navbar-logo {
-  color: #2C31CF;
   justify-self: start;
   cursor: pointer;
   text-decoration: none;
   font-size: 2rem;
   display: flex;
   align-items: center;
+}
+
+.dce-logo {
+  max-width: 60px;
 }
 
 .fa-disease {

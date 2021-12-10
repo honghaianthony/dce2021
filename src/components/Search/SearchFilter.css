@@ -14,17 +14,25 @@
 
 .middle input {
   width: 500px;
-  background-color: white;
+  background-color: #ddedfd;
   border: none;
   padding: 15px;
   color: rgb(54, 52, 52);
-  font-weight: 300;
+  font-weight: 400;
+  font-size: 18px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
   outline: none;
 }
 
 input::placeholder {
-  font-weight: 400;
-  color: #9fb3c8;
+  font-weight: 500;
+  font-size: 18px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  color: #42424281;
 }
 
 .searchIcon {
@@ -33,7 +41,7 @@ input::placeholder {
   justify-content: center;
   display: flex;
   align-items: center;
-  background-color: white;
+  background-color: #ddedfd;
   color: black;
   border-radius: 0 5px 5px 0;
 }

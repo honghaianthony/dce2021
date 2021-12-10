@@ -72,19 +72,15 @@
   margin: 16px 0;
 }
 
-.footer-icons-items span {
-  text-decoration: none;
-  margin-bottom: 16px;
-  color: #2C31CF;
-  cursor: default;
-  font-size: 2rem;
+.dce-logo-large {
+  max-width: 80px;
 }
 
 .footer-icons-items a {
   margin-right: 35px;
 }
 
-.footer-icons-items h2 {
+.contact-us {
   margin: 16px 0;
   cursor: default;
 }
@@ -138,8 +134,22 @@
     width: 300px;
     box-sizing: border-box;
   }
-  .footer-icons-items a {
-    margin-left: 35px;
+
+  .dce-logo-large {
+    display: flex;
+    margin: auto;
   }
 
+  .contact-us {
+    text-align: center;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+  }
+
+  .footer-icons-items a {
+    margin-left: 40px;
+  }
 }
