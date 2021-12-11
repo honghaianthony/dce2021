@@ -136,6 +136,7 @@
     padding:5px;
     border-radius: 5px;
     box-sizing: border-box;
+    
 
     /* align-items: center; */
     /* text-align: center; */
@@ -159,6 +160,10 @@
 .btn_Submit_AdminUpdateCourse button:hover{
     transform: scale(1.2);
     background-color: #050295;
+}
+.InputTime_UpdateCourse{
+
+    margin-bottom: 20px;
 }
 .InputTime_UpdateCourse input {
     width: 100%;

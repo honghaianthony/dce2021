@@ -34,7 +34,7 @@
     justify-content: flex-start;
     align-items: flex-start;
 } */
-.InputName_AddCourse,.InputDescription_AddCourse{
+.InputName_AddCourse,.InputDescription_AddCourse,.InputTime_AddCourse{
     margin-bottom: 20px;
 }
 .InputName_AddCourse input{
@@ -61,6 +61,7 @@
     padding:5px;
     border-radius: 5px;
     box-sizing: border-box;
+    
 
     /* align-items: center; */
     /* text-align: center; */

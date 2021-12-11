@@ -6,7 +6,6 @@ import CourseInfo from "../components/Courses/Course/CourseInfo";
 import CourseDes from "../components/Courses/Course/CourseDes";
 import Lessons from "../components/Courses/Course/Lessons";
 import avatar from "../assets/images/giao.jpg";
-
 import coursesApi from "../apis/coursesApi";
 function Course() {
   const [data, setData] = useState(null);
@@ -16,6 +15,7 @@ function Course() {
     const res = await coursesApi.getCourseById(courseId);
     setData(res);
   }, [courseId]);
+  console.log(data)
   return (
     <>
       <MainLayout>

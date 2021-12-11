@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link } from "react-router-dom";
 import './AddCourseItem2.css'
 function AddCourseItem2(data) {
     // return (
@@ -36,9 +37,11 @@ function AddCourseItem2(data) {
             <div className="Item2_container">
                     <div className="AddCourseItem2_left">
                         <div className="btn_edit_AddCourseItem">
-                            <button  type="button">
-                                <i class="fas fa-pencil-alt "></i>
-                            </button>
+                            <Link to="/adminUpdateLesson">
+                                <button  type="button">
+                                    <i class="fas fa-pencil-alt "></i>
+                                </button>
+                            </Link>
                         </div>
                         <div className="Name_course_AddCourseItem2">
                             <span>Bài {data.id}: {data.name}</span>
