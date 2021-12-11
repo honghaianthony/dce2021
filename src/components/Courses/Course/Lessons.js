@@ -1,113 +1,58 @@
-import React from 'react'
-import './Lessons.css'
-import { useState,useEffect } from "react";
-import CourseItemInfo from './CourseItemInfo'
-import LessonApi from '../../../apis/LessonApi'
+import React from "react";
+import "./Lessons.css";
+import CourseItemInfo from "./CourseItemInfo";
 function ListCourse() {
-    const courses=
-    [
-        {
-            id:'1',
-            title:'Lớp và Đối Tượng',
-            decription:'Ngôn ngữ C++ được phát triển từ C lên, nó được bổ sung thêm tính hướng đối tượng. Các lớp (class) là tính năng trung tâm của C++ mà hỗ trợ lập trình hướng đối tượng và thường được gọi là các kiểu người dùng tự định nghĩa'
-        },
-        {
-            id:'2',
-            title:'Biến Tĩnh Và Phương Thức Tĩnh',
-            decription:'Biến tĩnh (static variables) là biến được tạo ra duy nhất một lần khi gọi hàm lần đầu tiên và nó sẽ tiếp tục tồn trong suốt vòng đời của chương trình. Đây là sự khác biệt giữa biến tĩnh và biến cục bộ.'
-        },
-        {
-            id:'3',
-            title:'Tính Đóng gói',
-            decription:'Tính đóng gói - Data encapsulation là một kỹ thuật đóng gói dữ liệu, và các hàm mà sử dụng chúng và trừu tượng hóa dữ liệu là một kỹ thuật chỉ trưng bày tới các Interface và ẩn Implementation Detail (chi tiết trình triển khai) tới người sử dụng.'
-        },
-        {
-            id:'4',
-            title:'Tính Kế Thừa',
-            decription:'Tính kế thừa là một trong những đặc tính quan trọng nhất của lập trình hướng đối tượng. Nó là khả năng lấy một thuộc tính, đặc tính của một lớp cha để áp dụng lên lớp con.'
-        },
-        {
-            id:'5',
-            title:'Tính Đa Hình Kế Thừa',
-            decription:'Đa hình (polymorphism) nghĩa là có nhiều hình thái khác nhau. Tiêu biểu là, đa hình xuất hiện khi có một cấu trúc cấp bậc của các lớp và chúng là liên quan với nhau bởi tính kế thừa.'
-        },
-        {
-            id:'6',
-            title:'Mối Quan Hệ Giữa Các Đối Tượng',
-            decription:'Quan hệ một một (1-1), quan hệ một nhiều(1-n), quan hệ nhiều nhiều'
-        },
-        // {
-        //     id:'7',
-        //     title:'Bài Tập Trắc Nghiệm',
-        //     decription:'Bài tập này sẽ đưa ra các bài trắc nghiệm để kiểm tra mức độ hiểu biết của bạn.'
-        // },
-        // {
-        //     id:'8',
-        //     title:'Bài Tập Rèn Luyện',
-        //     decription:'Bài tập này sẽ đưa ra các bài tập ứng dụng để kiểm tra mức độ hiểu biết của bạn và ứng dụng kiến thức đó vào bài tập.'
-        // }
-    ]
-    // const [listLesson,setListLesson]=useState([]);
-    //     useEffect( async () => {
-    //         const res = await LessonApi.getAllLessonByCourseid(1);
-    //         setListLesson(res.data);           
-    //     }, [])
-    const [listLesson, setListLesson] = useState(null);
-    useEffect(async () => {
-    const res = await LessonApi.getAllLesson(1);
-    setListLesson(res);
-    }, []);
-        console.log(listLesson)
-        // const listLesson =() =>
-        // {
-        //     if(listLesson.length >0)
-        //     {
-        //         return listLesson.map((item,index)=>
-        //         {
-        //             return(
-        //                 <CourseItemInfo
-        //                 key={index}
-        //                 id={item.id}
-        //                 title ={item.lessonName}
-        //                 decription={item.description}
-        //                 />
-        //             );
-        //         });
-        //     }
-        //     else
-        //     {
-        //         return <h2>Loading..</h2>
-        //     }
-        // }
-    return (
-        <div className="ListCourse__Container">
-            {listLesson ===null ?(<h1>Loading</h1>):
-            (
-                listLesson.map((item,index)=>
-                {
-                    return(
-                        <CourseItemInfo
-                        key={index}
-                        id={item.id}
-                        title ={item.lessonName}
-                        decription={item.description}
-                        />
-                    );
-                })
-            )
-                // courses.map(
-                //     (CourseItem=>(
-                //         <CourseItemInfo className="CourseItemInfo"
-                //             key={CourseItem.id}
-                //             title={CourseItem.title}
-                //             decription={CourseItem.decription}
-                //         />
-                //     ))
-                // )
-                // listLesson()
-            }
-        </div>
-    )
+  const courses = [
+    {
+      id: "1",
+      title: "Lớp và Đối Tượng",
+      decription:
+        "Ngôn ngữ C++ được phát triển từ C lên, nó được bổ sung thêm tính hướng đối tượng. Các lớp (class) là tính năng trung tâm của C++ mà hỗ trợ lập trình hướng đối tượng và thường được gọi là các kiểu người dùng tự định nghĩa",
+    },
+    {
+      id: "2",
+      title: "Biến Tĩnh Và Phương Thức Tĩnh",
+      decription:
+        "Biến tĩnh (static variables) là biến được tạo ra duy nhất một lần khi gọi hàm lần đầu tiên và nó sẽ tiếp tục tồn trong suốt vòng đời của chương trình. Đây là sự khác biệt giữa biến tĩnh và biến cục bộ.",
+    },
+    {
+      id: "3",
+      title: "Tính Đóng gói",
+      decription:
+        "Tính đóng gói - Data encapsulation là một kỹ thuật đóng gói dữ liệu, và các hàm mà sử dụng chúng và trừu tượng hóa dữ liệu là một kỹ thuật chỉ trưng bày tới các Interface và ẩn Implementation Detail (chi tiết trình triển khai) tới người sử dụng.",
+    },
+    {
+      id: "4",
+      title: "Tính Kế Thừa",
+      decription:
+        "Tính kế thừa là một trong những đặc tính quan trọng nhất của lập trình hướng đối tượng. Nó là khả năng lấy một thuộc tính, đặc tính của một lớp cha để áp dụng lên lớp con.",
+    },
+    {
+      id: "5",
+      title: "Tính Đa Hình Kế Thừa",
+      decription:
+        "Đa hình (polymorphism) nghĩa là có nhiều hình thái khác nhau. Tiêu biểu là, đa hình xuất hiện khi có một cấu trúc cấp bậc của các lớp và chúng là liên quan với nhau bởi tính kế thừa.",
+    },
+    {
+      id: "6",
+      title: "Mối Quan Hệ Giữa Các Đối Tượng",
+      decription:
+        "Quan hệ một một (1-1), quan hệ một nhiều(1-n), quan hệ nhiều nhiều",
+    },
+  ];
+  return (
+    <div className="ListCourse__Container">
+      {courses.map((CourseItem) => (
+        <CourseItemInfo
+          className="CourseItemInfo"
+          key={CourseItem.id}
+          title={CourseItem.title}
+          decription={CourseItem.decription}
+          path={`/lesson/${CourseItem.id}`}
+        />
+      ))}
+    </div>
+  );
 }
 
-export default ListCourse
+export default ListCourse;
