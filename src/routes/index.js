@@ -68,6 +68,9 @@ export default function App() {
           <Route exact path={`/blogs/:blogId`}>
             <Blog />
           </Route>
+          <Route exact path="/addblog">
+            <AddBlog />
+          </Route>
           <Route path="/exercises">
             <Exercises />
           </Route>
@@ -76,9 +79,6 @@ export default function App() {
           </Route>
           <Route path="/lesson">
             <Lesson />
-          </Route>
-          <Route path="/addblog">
-            <AddBlog />
           </Route>
           <Route path="/censor">
             <Censor />

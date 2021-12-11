@@ -20,16 +20,18 @@ function BlogsMain() {
   const trendMap = () => {
     return trendBlogs.map((item) => {
       return (
-        <BlogItem
-          key={blogs[item].id}
-          src={blogs[item].coverImage}
-          title={blogs[item].title}
-          description={blogs[item].description}
-          author={`${blogs[item].User.lastName} ${blogs[item].User.firstName}`}
-          time={new Date(blogs[item].updatedAt).toLocaleDateString()}
-          //view='134'
-          path={`/blogs/${blogs[item].id}`}
-        />
+        blogs[item] && (
+          <BlogItem
+            key={blogs[item].id}
+            src={blogs[item].coverImage}
+            title={blogs[item].title}
+            description={blogs[item].description}
+            author={`${blogs[item].User.lastName} ${blogs[item].User.firstName}`}
+            time={new Date(blogs[item].updatedAt).toLocaleDateString()}
+            //view='134'
+            path={`/blogs/${blogs[item].id}`}
+          />
+        )
       );
     });
   };
@@ -83,7 +85,7 @@ function BlogsMain() {
               />
             </div>
           </div>
-          {blogs.length > 3 && (
+          {blogs.length > 1 && (
             <div className="blog-trend">
               <h3 className="blog-category">Xu hướng</h3>
               <div className="blog-trend-items">{trendMap()}</div>
