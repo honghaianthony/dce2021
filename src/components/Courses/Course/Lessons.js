@@ -1,6 +1,8 @@
 import React from 'react'
 import './Lessons.css'
+import { useState,useEffect } from "react";
 import CourseItemInfo from './CourseItemInfo'
+import LessonApi from '../../../apis/LessonApi'
 function ListCourse() {
     const courses=
     [
@@ -45,18 +47,64 @@ function ListCourse() {
         //     decription:'Bài tập này sẽ đưa ra các bài tập ứng dụng để kiểm tra mức độ hiểu biết của bạn và ứng dụng kiến thức đó vào bài tập.'
         // }
     ]
+    // const [listLesson,setListLesson]=useState([]);
+    //     useEffect( async () => {
+    //         const res = await LessonApi.getAllLessonByCourseid(1);
+    //         setListLesson(res.data);           
+    //     }, [])
+    const [listLesson, setListLesson] = useState(null);
+    useEffect(async () => {
+    const res = await LessonApi.getAllLesson(1);
+    setListLesson(res);
+    }, []);
+        console.log(listLesson)
+        // const listLesson =() =>
+        // {
+        //     if(listLesson.length >0)
+        //     {
+        //         return listLesson.map((item,index)=>
+        //         {
+        //             return(
+        //                 <CourseItemInfo
+        //                 key={index}
+        //                 id={item.id}
+        //                 title ={item.lessonName}
+        //                 decription={item.description}
+        //                 />
+        //             );
+        //         });
+        //     }
+        //     else
+        //     {
+        //         return <h2>Loading..</h2>
+        //     }
+        // }
     return (
         <div className="ListCourse__Container">
-            {
-                courses.map(
-                    (CourseItem=>(
-                        <CourseItemInfo className="CourseItemInfo"
-                            key={CourseItem.id}
-                            title={CourseItem.title}
-                            decription={CourseItem.decription}
+            {listLesson ===null ?(<h1>Loading</h1>):
+            (
+                listLesson.map((item,index)=>
+                {
+                    return(
+                        <CourseItemInfo
+                        key={index}
+                        id={item.id}
+                        title ={item.lessonName}
+                        decription={item.description}
                         />
-                    ))
-                )
+                    );
+                })
+            )
+                // courses.map(
+                //     (CourseItem=>(
+                //         <CourseItemInfo className="CourseItemInfo"
+                //             key={CourseItem.id}
+                //             title={CourseItem.title}
+                //             decription={CourseItem.decription}
+                //         />
+                //     ))
+                // )
+                // listLesson()
             }
         </div>
     )
