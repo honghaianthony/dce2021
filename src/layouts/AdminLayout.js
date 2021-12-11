@@ -2,13 +2,13 @@ import NavigationAdmin from "../components/Navigations/NavigationAdmin";
 import Footer from "../components/Footer/index";
 import SideBar from "../components/SideBar/index"
 
-function AdminLayout ({children}) {
+function AdminLayout({ children }) {
     return (
         <>
-        <NavigationAdmin/>
-        <SideBar />
-        {children}
-        <Footer/>
+            <NavigationAdmin />
+            <SideBar />
+            {children}
+            <Footer />
         </>
     )
 }

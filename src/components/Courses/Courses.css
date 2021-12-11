@@ -75,28 +75,20 @@
   .courses__wrapper {
     position: relative;
     margin: 0 -1rem 0;
-  }
-  
-  .courses__items {
-    margin-bottom: 24px;
-    padding-inline-start: 0px;
-    padding-block-end: 40px;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 20px;
   }
   
   .courses__item {
-    display: flex;
-    flex: 1;
-    margin: 2rem 1rem;
+    margin: 1.5rem 1rem;
     border-radius: 10px;
   }
   
   .courses__item__link {
-    display: flex;
-    flex-flow: column;
     width: 100%;
     min-width: 260px;
+    max-width: 350px;
     box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
     -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
     filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
