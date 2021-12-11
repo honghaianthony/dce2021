@@ -1,8 +1,36 @@
 import React from "react";
 import "./Info.css";
-import anh1 from "../../assets/images/avata.jpg";
+import anh1 from "../../../assets/images/avata.jpg";
+// import axiosInstance from "../../../apis/axiosInstance";
+
 
 function Info() {
+  // const [data, setData] = useState([]);
+  // useEffect(async () => {
+  //   const res = await axiosInstance();
+  //   setData(res);
+  // }, []);
+
+  // const listAccount = () => {
+  //   if (data.length > 0) {
+  //     return data.map((item, index) => {
+  //       let path = "/user/" + item.id;
+  //       return (
+  //         <>
+  //           key = {index}
+  //           src = {item.image}
+  //           text = {item.firstName}
+  //           text = {item.lastName}
+  //           text = {item.phone}
+  //           date = {item.dateOfBirth}
+  //         </>
+
+  //       );
+  //     });
+  //   } else {
+  //     return <h2>Loading</h2>;
+  //   }
+  // };
   return (
     <>
       <div className="container">
@@ -33,6 +61,32 @@ function Info() {
                     <div className="col-md-2 col-xs-12">
                       <div className="ImgPreview">
                         <img src={anh1} alt="Anh dai dien" />
+                      </div>
+                    </div>
+
+                    {/* <ul>{listAccount}</ul> */}
+
+                    <div className="row">
+                      <div className="col-lg-3 col-sm-4 col-xs-12">
+                        <div className="form-group">First Name</div>
+                      </div>
+
+                      <div className="col-lg-9 col-sm-8 col-xs-12">
+                        <div className="form-group">
+                          <div className="span-display">Lunar</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="row">
+                      <div className="col-lg-3 col-sm-4 col-xs-12">
+                        <div className="form-group">Last Name</div>
+                      </div>
+
+                      <div className="col-lg-9 col-sm-8 col-xs-12">
+                        <div className="form-group">
+                          <div className="span-display">Moon</div>
+                        </div>
                       </div>
                     </div>
 
@@ -87,41 +141,7 @@ function Info() {
                         </div>
                       </div>
 
-                      <div className="row">
-                        <div className="col-lg-3 col-sm-4 col-xs-12">
-                          <div className="form-group">Họ và tên</div>
-                        </div>
 
-                        <div className="col-lg-9 col-sm-8 col-xs-12">
-                          <div className="form-group">
-                            <div className="span-display">Lunar Moon</div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="row">
-                        <div className="col-lg-3 col-sm-4 col-xs-12">
-                          <div className="form-group">Quốc gia</div>
-                        </div>
-
-                        <div className="col-lg-9 col-sm-8 col-xs-12">
-                          <div className="form-group">
-                            <div className="span-display">Việt Nam</div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="row">
-                        <div className="col-lg-3 col-sm-4 col-xs-12">
-                          <div className="form-group">Thành phố</div>
-                        </div>
-
-                        <div className="col-lg-9 col-sm-8 col-xs-12">
-                          <div className="form-group">
-                            <div className="span-display">Đồng Nai</div>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>
