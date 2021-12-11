@@ -15,11 +15,11 @@
     flex-direction: column;
   }
   .exerciselist-title1 {
-    width: 1500px;
+    width: 70vw;
     text-align: left;
-    font-size: 35px;
+    font-size: 30px;
     margin-bottom: 20px;
-    margin-left: 330px;
+    margin-left: 255px;
     color: black;
   }
   

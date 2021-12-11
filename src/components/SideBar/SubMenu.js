@@ -34,7 +34,8 @@ const DropdownLink = styled(Link)`
   text-decoration: none;
   color: #f5f5f5;
   font-size: 18px;
-
+  overflow: hidden;
+  
   &:hover {
     background: #632ce4;
     cursor: pointer;

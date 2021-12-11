@@ -38,13 +38,13 @@ function Navigation() {
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
-              <Link to='./Home' className='nav-links' onClick={closeMobileMenu}>
+              <Link to='./home' className='nav-links' onClick={closeMobileMenu}>
                 Trang chủ
               </Link>
             </li>
             <li className='nav-item'>
               <Link
-                to='./Courses'
+                to='./courses'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
@@ -71,7 +71,7 @@ function Navigation() {
             </li>
             <li>
               <Link
-                to='./Login'
+                to='./register'
                 className='nav-links-mobile'
                 onClick={closeMobileMenu}
               >
@@ -81,13 +81,25 @@ function Navigation() {
           </ul>
           <ul className="button-container">
             <li>
-              <img src='/images/flag.png' alt='Ngôn ngữ'/>
+              <img src='/images/flag.png' alt='Ngôn ngữ' />
             </li>
             <li>
-              {button && <Button buttonStyle='btn--outline'>Đăng nhập</Button>}
+              {button &&
+                <Link to='/login'>
+                  <Button buttonStyle='btn--outline'>
+                    Đăng nhập
+                  </Button>
+                </Link>
+              }
             </li>
             <li>
-              {button && <Button buttonStyle='btn--primary'>Đăng ký</Button>}
+              {button &&
+                <Link to='/register'>
+                  <Button buttonStyle='btn--primary'>
+                    Đăng ký
+                  </Button>
+                </Link>
+              }
             </li>
           </ul>
         </div>

@@ -1,8 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./ExerciseListTable.css"
+import ExerciseApi from "../../../apis/ExerciseApi";
+import "../../AdminCourses/CourseList/CourseListTable.css"
 
-function ExerciseListTable( {exercisedata}) {
+function getFormattedDate(date) {
+    var start = new Date(date);
+    let year = start.getFullYear();
+    let month = (1 + start.getMonth()).toString().padStart(2, '0');
+    let day = start.getDate().toString().padStart(2, '0');
+    return month + '/' + day + '/' + year;
+}
+
+function ExerciseListTable() {
+    const [data, setListExercise] = useState([]);
+    useEffect(async () => {
+        const res = await ExerciseApi.getAllExercise();
+        setListExercise(res.data);
+    }, [])
+    const listExercises = () => {
+        if (data.length > 0) {
+            return data.map((item, index) => {
+                return (
+                    <tr>
+                        <td>{item.id}</td>
+                        <td>{item.exerciseName}</td>
+                        <td>
+                            <p>vietcv</p>
+                        </td>
+                        <td>{getFormattedDate(item.createdAt)}</td>
+                        <td>{getFormattedDate(item.updatedAt)}</td>
+                        <td>
+                            <Link to='./'>
+                                <button className='view-btn'>
+                                    Xem chi tiết
+                                </button>
+                            </Link>
+                        </td>
+                    </tr>
+                );
+            });
+        }
+        else {
+            return <h2>Loading..</h2>
+        }
+    }
     return (
         <div className="listtable-container">
             <table className="listtable">
@@ -10,7 +51,7 @@ function ExerciseListTable( {exercisedata}) {
                     <tr className="listtable-row">
                         <th>ID</th>
                         <th>Tên bài luyện tập</th>
-                        <th>Admin</th>
+                        <th>Tác giả</th>
                         <th>Ngày tạo</th>
                         <th>Update</th>
                         <th>Xem</th>
@@ -18,185 +59,7 @@ function ExerciseListTable( {exercisedata}) {
                 </thead>
 
                 <tbody className="listtable-body">
-                    {/* {exercisedata.map((exercisedata) => (
-                        <tr>
-                            <td>{exercisedata.id}</td>
-                            <td>{exercisedata.name}</td>
-                            <td>
-                                <p>vietcv</p>
-                            </td>
-                            <td>02/10/2021</td>
-                            <td>02/10/2021</td>
-                            <td>
-                                <Link to='./'>
-                                    <button className='view-btn'>
-                                        Xem chi tiết
-                                    </button>
-                                </Link>
-                            </td>
-                        </tr>
-                    ))} */}
-
-                    <tr>
-                        <td>1</td>
-                        <td>Lập trình hướng đối tượng trong C++</td>
-                        <td>
-                            <p>nnkd</p>
-                        </td>
-                        <td>02/10/2021</td>
-                        <td>02/10/2021</td>
-                        <td>
-                            <Link to='./'>
-                                <button className='view-btn'>
-                                    Xem chi tiết
-                                </button>
-                            </Link>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Truyền thông và Mạng máy tính</td>
-                        <td>
-                            <p>nnmc</p>
-                        </td>
-                        <td>02/10/2021</td>
-                        <td>02/10/2021</td>
-                        <td>
-                            <Link to='./'>
-                                <button className='view-btn'>
-                                    Xem chi tiết
-                                </button>
-                            </Link>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Phần mềm máy tính</td>
-                        <td>
-                            <p>dnhh</p>
-                        </td>
-                        <td>02/10/2021</td>
-                        <td>02/10/2021</td>
-                        <td>
-                            <Link to='./'>
-                                <button className='view-btn'>
-                                    Xem chi tiết
-                                </button>
-                            </Link>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Phần cứng máy tính</td>
-                        <td>
-                            <p>tbc</p>
-                        </td>
-                        <td>02/10/2021</td>
-                        <td>02/10/2021</td>
-                        <td>
-                            <Link to='./'>
-                                <button className='view-btn'>
-                                    Xem chi tiết
-                                </button>
-                            </Link>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>C cho người mới bắt đầu</td>
-                        <td>
-                            <p>tng</p>
-                        </td>
-                        <td>02/10/2021</td>
-                        <td>02/10/2021</td>
-                        <td>
-                            <Link to='./'>
-                                <button className='view-btn'>
-                                    Xem chi tiết
-                                </button>
-                            </Link>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>C++ cho người mới bắt đầu</td>
-                        <td>
-                            <p>dkd</p>
-                        </td>
-                        <td>02/10/2021</td>
-                        <td>02/10/2021</td>
-                        <td>
-                            <Link to='./'>
-                                <button className='view-btn'>
-                                    Xem chi tiết
-                                </button>
-                            </Link>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>Làm quen với SQL</td>
-                        <td>
-                            <p>van</p>
-                        </td>
-                        <td>02/10/2021</td>
-                        <td>02/10/2021</td>
-                        <td>
-                            <Link to='./'>
-                                <button className='view-btn'>
-                                    Xem chi tiết
-                                </button>
-                            </Link>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>Javascript căn bản</td>
-                        <td>
-                            <p>nva</p>
-                        </td>
-                        <td>02/10/2021</td>
-                        <td>02/10/2021</td>
-                        <td>
-                            <Link to='./'>
-                                <button className='view-btn'>
-                                    Xem chi tiết
-                                </button>
-                            </Link>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td>Python cơ bản</td>
-                        <td>
-                            <p>nnmc</p>
-                        </td>
-                        <td>02/10/2021</td>
-                        <td>02/10/2021</td>
-                        <td>
-                            <Link to='./'>
-                                <button className='view-btn'>
-                                    Xem chi tiết
-                                </button>
-                            </Link>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td>C# cơ bản</td>
-                        <td>
-                            <p>nnkd</p>
-                        </td>
-                        <td>02/10/2021</td>
-                        <td>02/10/2021</td>
-                        <td>
-                            <Link to='./'>
-                                <button className='view-btn'>
-                                    Xem chi tiết
-                                </button>
-                            </Link>
-                        </td>
-                    </tr>
+                    {listExercises()}
                 </tbody>
             </table>
         </div>

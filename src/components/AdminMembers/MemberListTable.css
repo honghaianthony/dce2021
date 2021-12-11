@@ -9,8 +9,7 @@
   
   .memberlisttable {
     border-collapse: collapse;
-    width: 1500px;
-    max-width: 1500px;
+    width: 75vw;
     border-radius: 10px;
     overflow: hidden;
   }
@@ -19,8 +18,8 @@
     border: 1px solid #ffffff;
     text-align: left;
     padding: 8px;
-    font-size: 25px;
-    height: fit-content;
+    font-size: 22px;
+    height: 60px;
   }
   .memberlisttable-row td:nth-child(2) {
     white-space: nowrap;
@@ -43,12 +42,10 @@
   .memberlisttable-row th:nth-child(5) {
     width: 250px;
   }
-
-
   .memberlisttable-body td {
     text-align: center;
-    font-size: 22px;
-    height: 70px;
+    font-size: 20px;
+    height: 50px;
   }
   .memberlisttable-body td:nth-child(3) {
       line-height: 35px;
