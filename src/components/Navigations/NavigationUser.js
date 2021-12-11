@@ -35,7 +35,6 @@ function NavigationUser() {
   window.addEventListener("resize", showButton);
   const handleLogout = () => {
     dispatch(actions.logout());
-    console.log("logout");
   };
   return (
     <>

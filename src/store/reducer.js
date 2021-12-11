@@ -6,6 +6,7 @@ const initState = {
   userId: -1,
   username: null,
   role: -1,
+  fullname: "",
 };
 
 function reducer(state, action) {
@@ -18,6 +19,7 @@ function reducer(state, action) {
         userId: info.userId,
         username: info.username,
         role: info.role,
+        fullname: info.fullname,
       };
     case LOGOUT:
       localStorage.removeItem("token");
@@ -31,6 +33,7 @@ function reducer(state, action) {
           userId: infoReload.userId,
           username: infoReload.username,
           role: infoReload.role,
+          fullname: infoReload.fullname,
         };
       } else {
         return initState;

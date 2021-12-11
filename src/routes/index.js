@@ -60,6 +60,12 @@ export default function App() {
           <Route exact path={`/courses/:courseId`}>
             <Course />
           </Route>
+          <Route exact path="/blogs">
+            <Blogs />
+          </Route>
+          <Route exact path={`/blogs/:blogId`}>
+            <Blog />
+          </Route>
           <Route path="/exercises">
             <Exercises />
           </Route>
@@ -68,12 +74,6 @@ export default function App() {
           </Route>
           <Route path="/lesson">
             <Lesson />
-          </Route>
-          <Route path="/blogs">
-            <Blogs />
-          </Route>
-          <Route path="/blog">
-            <Blog />
           </Route>
           <Route path="/addblog">
             <AddBlog />
