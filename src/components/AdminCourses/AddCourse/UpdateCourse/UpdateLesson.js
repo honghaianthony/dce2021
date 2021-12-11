@@ -39,7 +39,7 @@ function UpdateLesson()
                             <p>Nội dung bài học</p>
                             <form >
                                 <div className="row-updateLesson">
-                                    <label className="uplesson-label" for="nameLesson">Tên bài tập </label>
+                                    <label className="uplesson-label" for="nameLesson">Tên bài học </label>
                                     <input type="text" name="name" id="nameLesson" value="Tên bài học hiện tại"/>
                                 </div>
                                 <div className="row-updateLesson">

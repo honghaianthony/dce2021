@@ -7,14 +7,15 @@
 {
     text-align: left;
     padding: 20px 0px 20px 150px;
-    
+    color: #050295;
 }
 .exercises-path a
 {
   display:inline-block;
   margin: 5px;
   text-decoration: none;
-  color:#000;
+  font-size: 16px;
+  color: #050295;
 }
 .exercises-path a:hover
 {
@@ -23,7 +24,25 @@
 }
 .exercises-banner
 {
+    background-image: url(/src/assets/images/footer-banner-bg.png);
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content:center
+}
+.exercises-banner h3
+{
+    color: #fff;
+    font-size: 40px;
+    margin-top: 60px;
+    margin-right: 100px;
+    font-family: cursive;
+}
 
+.exercises-banner img
+{
+    margin-bottom: 100px;
+    display: block;
 }
 .exercises-search
 {

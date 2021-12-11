@@ -13,7 +13,7 @@
 {
     font-size: 24px;
     font-weight:500;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 .exer-type
 {
@@ -22,10 +22,12 @@
 }
 .exer-level
 {
-    margin-top: 10px;
     font-size: 20px;
+    font-weight:600;
     color: rgb(65, 236, 117);
     margin-bottom: 50px;
+    margin-top: -20px;
+
 }
 .container-btn-start
 {
@@ -43,8 +45,8 @@
     border-radius: 5px;
     text-decoration: none;
 }
-.btn-start:hover
+.container-btn-start:hover a
 {
     cursor: pointer;
-    transform: scale(1.08);
+    transform: scale(1.5) !important;
 }
