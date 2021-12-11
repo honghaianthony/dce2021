@@ -30,7 +30,6 @@ import UpdateLesson from "../components/AdminCourses/AddCourse/UpdateCourse/Upda
 import UpdateExercise from "../components/AdminExercises/AddExercise/UpdateExercise/UpdateExercise";
 import AddExercise from "../components/AdminExercises/AddExercise/AddExercise/AddExercise";
 import AddLesson from "../components/AdminCourses/AddCourse/AddCourse/AddLesson";
-import AddBlog from "../pages/AddBlog";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -130,6 +129,17 @@ export default function App() {
             <Home />
           </Route>
         </Switch>
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </div>
     </Router>
   );
