@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "./Navigation.css";
 
 function Navigation() {
-  // Hook: useState()
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -18,8 +17,6 @@ function Navigation() {
       setButton(true);
     }
   };
-
-  //Hook: useEffect()
   useEffect(() => {
     showButton();
   }, []);

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "./Button";
 import { Link } from "react-router-dom";
 import { useDetectClickOutside } from "react-detect-click-outside";
 import * as BsIcons from "react-icons/bs";
@@ -7,7 +6,6 @@ import "./NavigationUser.css";
 import { useStore, actions } from "../../store";
 
 function NavigationUser() {
-  // Hook: useState()
   const [state, dispatch] = useStore();
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
@@ -28,7 +26,6 @@ function NavigationUser() {
       setButton(true);
     }
   };
-  //Hook: useEffect()
   useEffect(() => {
     showButton();
   }, []);

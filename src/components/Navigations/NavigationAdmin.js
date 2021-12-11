@@ -6,7 +6,6 @@ import * as BsIcons from 'react-icons/bs';
 import './NavigationAdmin.css';
 
 function NavigationAdmin() {
-  // Hook: useState()
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const [profileSelected, setProfileSelected] = useState(false);
@@ -27,7 +26,6 @@ function NavigationAdmin() {
     }
   };
 
-  //Hook: useEffect()
   useEffect(() => {
     showButton();
   }, []);
@@ -39,20 +37,20 @@ function NavigationAdmin() {
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-          <img src="https://firebasestorage.googleapis.com/v0/b/dce2021.appspot.com/o/images%2F1639105423707-logoDCE.png?alt=media&token=05afc33e-ef75-4e9e-9247-a9c48f95bea4" className="dce-logo" />
+            <img src="https://firebasestorage.googleapis.com/v0/b/dce2021.appspot.com/o/images%2F1639105423707-logoDCE.png?alt=media&token=05afc33e-ef75-4e9e-9247-a9c48f95bea4" className="dce-logo" />
           </Link>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
-              <Link to='./Home' className='nav-links' onClick={closeMobileMenu}>
+              <Link to='/' className='nav-links' onClick={closeMobileMenu}>
                 Trang chủ
               </Link>
             </li>
             <li className='nav-item'>
               <Link
-                to='./Courses'
+                to='/courses'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
@@ -61,7 +59,7 @@ function NavigationAdmin() {
             </li>
             <li className='nav-item'>
               <Link
-                to='./exercises'
+                to='/exercises'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
@@ -70,7 +68,7 @@ function NavigationAdmin() {
             </li>
             <li className='nav-item'>
               <Link
-                to='./'
+                to='/blogs'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
@@ -79,7 +77,7 @@ function NavigationAdmin() {
             </li>
             <li className='nav-item'>
               <Link
-                to='./'
+                to='/censor'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
@@ -88,7 +86,7 @@ function NavigationAdmin() {
             </li>
             <li className='nav-item'>
               <Link
-                to='./'
+                to='/adminmemberlist'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
