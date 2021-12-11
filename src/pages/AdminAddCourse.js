@@ -1,18 +1,20 @@
 import React from "react";
 import "../assets/styles/AdminAddCourse.css";
 import Navigation from "../components/Navigations/Navigation";
+import AdminLayout from "../layouts/AdminLayout"
 function AdminAddCourse() {
   return (
-    <div className="AdminAddCourse">
-      <Navigation />
+    <AdminLayout>
+      {/* <Navigation /> */}
+      <div className="AdminAddCourse__">
       <div className="top_decription_link">
         <h2>Trang chủ - Quản lý khóa học</h2>
       </div>
       <div className="Container_____AdminAdCourse">
         <div className="center_AdminAddCourse__container">
-          <div className="center_menu_AdminAddCourse">
+          {/* <div className="center_menu_AdminAddCourse">
             <p>Hello</p>
-          </div>
+          </div> */}
           <div className="center_content_AdminAddCourse">
             <div className="top_decription_centercontent">
               <p>Tạo khóa học mới</p>
@@ -44,7 +46,8 @@ function AdminAddCourse() {
                     id="timeCourse"
                     placeholder="Nhập thời gian để hoàn thành khóa học"
                     className="timeCourse"
-                    type="date"
+                    type="number"
+                    min="0"
                   ></input>
                 </form>
               </div>
@@ -55,7 +58,9 @@ function AdminAddCourse() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+
+    </AdminLayout>
   );
 }
 

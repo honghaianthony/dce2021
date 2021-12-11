@@ -4,6 +4,7 @@ import "../assets/styles/AdminUpdateCourse.css";
 // import AddCourseItem from "../components/AddCourseItem";
 import AddCourseItem from "../components/AdminCourses/AddCourse/AddCourse/AddCourseItem"
 import { useState } from "react/cjs/react.development";
+import AdminLayout from "../layouts/AdminLayout";
 function AdminUpdateCourse() {
   const listAddCourse = [
     {
@@ -36,17 +37,17 @@ function AdminUpdateCourse() {
     setItem2("");
   };
   return (
-    <div className="Update__AdminCourse">
-      <Navigation />
+    <AdminLayout>
+      {/* <Navigation /> */}
       <div className="top_decription_link">
         <h2>Trang chủ - Quản lý khóa học</h2>
       </div>
       <div className="Update__AdminCourse__Container">
         <div className="Update__container">
           <div className="center_AdminUpdateCourse__container">
-            <div className="center_menu_AdminUpdateCourse">
+            {/* <div className="center_menu_AdminUpdateCourse">
               <p>Hello</p>
-            </div>
+            </div> */}
             <div className="center_content_AdminUpdateCourse">
                <div className="top_decription_centercontent">
                   <p>Tạo khóa học mới</p>
@@ -81,7 +82,8 @@ function AdminUpdateCourse() {
                       // placeholder="Nhập thời gian để hoàn thành khóa học"
                       value="Thời gian của khóa học hiện tại"
                       className="timeCourse"
-                      type="date"
+                      // type="number"
+                      min="0"
                     ></input>
                   </form>
                 </div>
@@ -93,7 +95,7 @@ function AdminUpdateCourse() {
           </div>
         </div>
       </div>
-    </div>
+    </AdminLayout>
   );
 }
 

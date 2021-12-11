@@ -4,10 +4,11 @@
 .center_AdminUpdateCourse__container{
     width:100%;
     display: flex;
-    justify-content: start;
+    justify-content: end;
 }
 .Update__container{
     padding:0px 30px;
+    margin-bottom: 310px;
 }
 .center_menu_AdminUpdateCourse{
     width:30%;
@@ -86,7 +87,7 @@
 
 /*****/
 .center_content_AdminUpdateCourse{
-    width:70%;
+    width:75%;
 
 }
 .Container_____AdminUpdateCourse{

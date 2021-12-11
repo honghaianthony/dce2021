@@ -5,6 +5,7 @@ import "../assets/styles/AdminAddCourseDetail.css";
 // import AddCourseItem2 from "../components/AddCourseItem";
 import AddCourseItem2 from "../components/AdminCourses/AddCourse/AddCourse/AddCourseItem2"
 import { useState } from "react/cjs/react.development";
+import AdminLayout from "../layouts/AdminLayout";
 function AdminAddCourseDetail() {
   const listAddCourse2 = [
     {
@@ -32,16 +33,16 @@ function AdminAddCourseDetail() {
   //         // setItem(currentItem)
   //       };
   return (
-    <div>
-      <Navigation />
+    <AdminLayout>
+      
       <div className="route_container">
         <h3>Trang chủ - Quản lý Khóa học</h3>
       </div>
       <div className="center_AddCourseDetail_container">
         <div className="container_AdminAddCourse_detail">
-          <div className="center_menu_AdminAddCourse">
+          {/* <div className="center_menu_AdminAddCourse">
             <p>Hello</p>
-          </div>
+          </div> */}
           <div className="center_AddCourse_right">
             <div className="center_AddCourse_Top">
               <h2>Thêm nội dung khóa học</h2>
@@ -68,7 +69,7 @@ function AdminAddCourseDetail() {
           </div>
         </div>
       </div>
-    </div>
+    </AdminLayout>
   );
 }
 
