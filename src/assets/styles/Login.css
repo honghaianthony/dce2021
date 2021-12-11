@@ -3,6 +3,7 @@
     display:flex;
     justify-content: space-between;
     padding:40px;
+    position: relative;
     /* width: 90%; */
     /* margin-left: auto; */
     /* margin-right: auto; */
@@ -28,6 +29,25 @@
     object-fit: contain;
     /* height:70%; */
     /* flex-shrink: 0; */
+}
+.btn_back_login{
+    position: absolute;
+    cursor: pointer;
+    top:20px;
+    left:20px;
+}
+.btn_back_login button{
+    background-color: #2C31CF;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    padding:8px;
+    color:#fff;
+    cursor: pointer;
+}
+.btn_back_login button:hover{
+    background-color: #ccc;
+    color:#000;
 }
 .img-content-left{
     width: 60%;

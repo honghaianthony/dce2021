@@ -1,4 +1,10 @@
-.exercise-name
+.lesson-container
+{
+    display: block;
+    overflow: hidden;
+    height: 100vh;
+}
+.lesson-name
 {
     background-color:#050295;
     display: block;
@@ -8,7 +14,7 @@
     padding:0 30px;
     font-size: 16px;
 }
-.exercise-name>p
+.lesson-name>p
 {
     display: inline-block;
 }
@@ -18,88 +24,126 @@
     font-size: 20px;
     color: #fff;
 }
+.fa-angle-right{
+    position: absolute;
+    right: 30px;
+    color: #fff;
+    top: 15px;
+    font-size: 20px;
+
+}
+.fa-angle-right:hover
+{
+    transform: scale(1.2);
+    color: chartreuse;
+}
 .fa-angle-left:hover
 {
     transform: scale(1.2);
     color: chartreuse;
 }
 
-.exercise-main
+.lesson-main
 {
     display: flex;
 }
-.content
+.lesson-main .content-lesson
 {
     width: 40%;
     display: flex;
+    height: 100vh;
 }
-.content-and-comment
+.lesson-main .content-and-comment-lesson
 {
     width: 100%;
+    height: 100vh;
 }
-.discuss-lesson
+.lesson-main .discuss-lesson
 {
     background-color:#050295;
+    height: 100vh;
+    width: 10%;
+    display:flex;
+    flex-direction: column;
 }
-.discuss-icon-lesson
+.lesson-main .discuss-icon-lesson
 {
     background-color:#050295;
     border: none;
     padding: 10px 5px;
-    width:100%;
 }
-.fa-rocketchat
+.lesson-main .fa-rocketchat
 {
     font-size: 30px;
     color: #fff;
 }
-.fa-clipboard{
+.lesson-main .fa-clipboard
+{
+    font-size: 30px;
+    color: #fff;
     cursor: pointer;
-    font-size: 30px;
-    color: #fff;
+    align-items: center;
+    display:flex;
+    justify-content: center;
 }
-.discuss-icon-on-lesson .fa-clipboard
-{
-    font-size: 30px;
-    color:#000;
-}
-.discuss-icon-lesson:hover .fa-rocketchat
+.discuss-icon-lesson:hover .fa-clipboard
 {
     transform: scale(1.08);
     cursor: pointer;
 }
+.discuss-icon-lesson:hover .fa-clipboard
+{
+    transform: scale(1.08);
+    cursor: pointer;
+}
+
 .discuss-icon-on-lesson
 {
     background-color:#fff;
-    border: 1px solid #000;
+    border: none;
     padding: 10px 5px;
-    width:100%;
 }
 .discuss-icon-on-lesson .fa-rocketchat
 {
     font-size: 30px;
     color:#000;
 }
+
 .discuss-icon-on-lesson:hover .fa-rocketchat
 {
     transform: scale(1.08);
     cursor: pointer;
 }
-
-.main-content
+.discuss-icon-on-lesson .fa-clipboard
+{
+    font-size: 30px;
+    color:#000;
+}
+.discuss-icon-on-lesson:hover .fa-clipboard
+{
+    transform: scale(1.08);
+    cursor: pointer;
+}
+.main-content-lesson
 {
     padding: 10px;
     display: block;
     overflow: auto;  
 }
-.main-content-off
+.main-content-lesson-off
 {
     display: none;
 }
-.main-content .content-header
+.main-content-lesson .content-header-lesson
 {
     display: flex;
     justify-content: space-between;
+}
+.content-and-comment-lesson
+{
+    display: block;
+    overflow: auto;
+    height: 715px;
 }
  .level
 {
@@ -111,7 +155,7 @@
     font-size: 18px;  
     display: inline-block;  
 }
- .point
+ .point-lesson
 {
     display: inline-block;  
     color: #42FF00;
@@ -119,41 +163,34 @@
     font-size: 20px;  
     font-weight:bold;
 }
-.content-disc
+.content-disc-lesson
 {
   font-size: 16px;
   text-align: justify;
 }
-.content-Lesson> p:nth-child(4),.content-disc p:nth-child(2){
-    padding:0 10px;
-    font-weight: 500;
-}
-.content-input,.content-output,.content-Lesson
+.content-input-lesson,.content-output-lesson
 {
     text-align: left;
 }
-.content-Lesson h2,.content-input h2,.content-output h2{
-    color:#000;
-}
-
 /*RIGHT*/
-.code
+.code-lesson
 {
     width: 60%;
     background-color: #232432;
     color: #fff;
+    height: 100vh;
 }
-.intro
+.intro-lesson
 {
     text-align: left;
     padding-left: 15px;
     position: relative;
 }
-.refresh-btn,.intro-content
+.refresh-btn-lesson,.intro-content-lesson
 {
     display: inline-block;
 }
-.refresh-btn
+.refresh-btn-lesson
 {
     position: absolute;
     right: 10px;
@@ -163,33 +200,32 @@
     border-radius: 10px;
     border: none;
 }
-.refresh-btn:hover
+.refresh-btn-lesson:hover
 {
  transform: scale(1.08);
  cursor: pointer;
 }
 
-.place-code
+.place-code-lesson
 {
     padding: 10px;
     margin: -10px 0;
-
+    width: 96%;
 }
-#code-of-exser
+#code-of-exser-lesson
 {
     background-color: #232432;
     color: #fff;
     font-size: 20px;
     display: block;
-    height: 350px;
+    height: 250px;
     width: 100% ;
     border: 2px #fff solid;
     border-radius: 10px;
 }
-.testcase-lesson
+.code-lesson .testcase-lesson
 {
     padding-left: 15px;
-    /* margin-top: -20px; */
 }
 .testcase-header-lesson
 {
@@ -235,51 +271,52 @@
 {
     padding: 10px;
     text-align: right;
+    margin-top: 30px;
 }
-.run-btn,.submit-btn
+.testcase-button-lesson .run-btn-lesson, .testcase-button-lesson .submit-btn-lesson
 {
-    padding: 4px 0;
+    padding: 10px 10px;
     border:none;
     border-radius: 5px;
     font-size: 16px;
     margin: 0 10px;
     width: 110px;
 }
-.run-btn:hover,.submit-btn:hover
+.run-btn-lesson:hover,.submit-btn-lesson:hover
 {
     transform: scale(1.08);
     cursor: pointer;
 }
-.run-btn
+.run-btn-lesson
 {
     background-color: #452BE2;
     color: #fff;
 }
-.submit-btn
+.submit-btn-lesson
 {
     background-color: #42FF00;
     color: #fff;
 }
 /*comment*/
 
-.comment-section-off
+.comment-section-off-lesson
 {
   width: 100%;
   display: none;
 }
-.comment-section-on
+.comment-section-on-lesson
 {
     width: 100%;
     display: block;
 }
-.number-comments
+.number-comments-lesson
 {
     text-align: left;
     padding-left: 30px;
     font-size: 16px;
     font-weight: 500;
 }
-.write-comment
+.write-comment-lesson
 {
     padding: 20px;
     text-align: left; 
@@ -289,18 +326,18 @@
     font-size: 50px;
     color: #3b3c54;
 }
-.comment-and-button
+.comment-and-button-lesson
 {
     border-bottom: #3b3c54 1px solid;  
     width: 100%;
     padding: 10px 0;
     text-align: right;
 }
-.place-write-comment
+.place-write-comment-lesson
 {
     width: 100%; 
 }
-#place-write-comment
+#place-write-comment-lesson
 {
    width: 100%;
    height: 100px;
@@ -308,7 +345,7 @@
    background-color:#f1eeee;
 }
 
-.post-comment-btn
+.post-comment-btn-lesson
 {
     background-color: #452BE2;
     color: #fff;
@@ -318,30 +355,30 @@
     padding: 8px 20px;
     margin-top: 5px;
 }
-.post-comment-btn:hover
+.post-comment-btn-lesson:hover
 {
     transform: scale(1.08);
     cursor: pointer;
 }
-.others-comment
+.others-comment-lesson
 {
     padding: 20px;
     
 }
-.other-commnet
+.other-commnet-lesson
 {
     margin-top: 30px;
     text-align: left;
 }
-.user-comment,.user-infor
+.user-comment-lesson,.user-infor-lesson
 {
     display: flex;
 }
-.user-infor
+.user-infor-lesson
 {
     margin-left: 10px;
 }
-.user-infor a
+.user-infor-lesson a
 {
     padding-top:16px ;
     text-decoration: none;
@@ -349,33 +386,33 @@
     margin-right: 20px;
    
 }
-.user-infor p
+.user-infor-lesson p
 {
     color:  #898989;
     font-size: 16px;
 }
-.content-of-comment
+.content-of-comment-lesson
 {
     padding:0 10px;
     text-align: justify;
     border-bottom: solid 1px #3b3c54 ;
 }
-
 /* .content{display: none;} */
 /* .code{ display: none;} */
 .ListNode__Container{
     display:flex;
     width:100%;
+    height:100vh;
 }
 .discuss-list{
-    width:5%;
+    width:4%;
     display:flex;
     flex-direction: column;
-    height: 80vh;
+    height: 100vh;
     background-color: #050295;
 }
 .Noted__container{
-    width:95%;
+    width:40%;
     /* height: 80vh; */
     border:1px solid;
     position: relative;
@@ -384,9 +421,9 @@
     width:100%;
 }
 .Note_Fill_Container{
-    width:55%;
+    width:40%;
     display: flex;
-    height: 80vh;
+    height: 100vh;
 }
 #note-of-lesson{
     width: 100%;
@@ -472,6 +509,7 @@
 .Input__noted_container button:hover{
     transform: scale(1.08);
     cursor: pointer;
+    color: #000;
 }
 .TodoNoted_list{
     margin-top: 20px;

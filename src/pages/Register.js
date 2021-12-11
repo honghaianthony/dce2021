@@ -1,7 +1,7 @@
 import React from "react";
 import "../assets/styles/Register.css";
 import { useStore, actions } from "../store";
-import { useHistory } from "react-router-dom";
+import {Link, useHistory } from "react-router-dom";
 import authApi from "../apis/authApi";
 // import Hinhlaptrinh2 from "../assets/images/Hinhlaptrinh2.png"
 import hinhlaptrinh2 from "../assets/images/Hinhlaptrinh2.png";
@@ -30,6 +30,9 @@ function Register() {
       ) : (
         <div className="Register__container">
           <div className="img-content-left_register">
+            <Link to="/" className="btn_back_login">
+                  <button>Trở về trang chủ</button> 
+            </Link>
             <img src={hinhlaptrinh2} alt="Hình minh họa" />
           </div>
           <div className="Register_content">

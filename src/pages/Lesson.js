@@ -39,16 +39,19 @@ function Lesson() {
   //   }, [todoList]);
   return (
     <>
-      <div className="exercise-container">
-        <div className="exercise-name">
+      <div className="lesson-container">
+        <div className="lesson-name">
           <Link to="/">
             <i class="fas fa-angle-left"></i>
           </Link>
           <p>Biến và các dữ liệu: Biến và cách khai báo</p>
+          <Link to="/">
+            <i class="fas fa-angle-right"></i>
+          </Link>
         </div>
-        <div className="exercise-main">
-          <div className={display2 === "on" ? "content-off" : "content"}>
-            <div className="discuss">
+        <div className="lesson-main">
+          <div className={display2 === "on" ? "content-off" : "content-lesson"}>
+            <div className="discuss-lesson">
               <button
                 type="button"
                 className={
@@ -72,17 +75,17 @@ function Lesson() {
                 <i class="far fa-clipboard"></i>
               </button>
             </div>
-            <div className="content-and-comment">
+            <div className="content-and-comment-lesson">
               <div
                 className={
-                  display === "on" ? "main-content-off" : "main-content"
+                  display === "on" ? "main-content-lesson-off" : "main-content-lesson"
                 }
               >
-                <div className="content-header">
+                <div className="content-header-lesson">
                   {/* <div className="level">Đơn giản</div> */}
-                  <div className="point">100 Points</div>
+                  <div className="point-lesson">100 Points</div>
                 </div>
-                <div className="content-disc">
+                <div className="content-disc-lesson">
                   <p>
                     Bạn hãy viết chương trình khai báo 2 biến a và b kiểu số
                     nguyên, sau đó gán giá trị cho a = 254, b = 343 và hiển thị
@@ -91,7 +94,7 @@ function Lesson() {
                   <p>a+b=P</p>
                   <p>Với P là tổng của hai biến a và b</p>
                 </div>
-                <div className="content-Lesson">
+                <div className="content-Lesson-lesson">
                   <h2>Lý Thuyết</h2>
                   <p>
                     Biến trong lập trình được dùng để đại diện cho một giá trị
@@ -107,11 +110,11 @@ function Lesson() {
                   </p>
                   <p>int tên_biến;</p>
                 </div>
-                <div className="content-input">
+                <div className="content-input-lesson">
                   <h2>Input:</h2>
                   <p>0</p>
                 </div>
-                <div className="content-output">
+                <div className="content-output-lesson">
                   <h2>Output:</h2>
                   <p>"a + b = 597"</p>
                 </div>
@@ -119,43 +122,43 @@ function Lesson() {
               <div
                 className={
                   display === "on"
-                    ? "comment-section-on"
-                    : "comment-section-off"
+                    ? "comment-section-on-lesson"
+                    : "comment-section-off-lesson"
                 }
               >
-                <div className="number-comments">
+                <div className="number-comments-lesson">
                   <p>2 bình luận</p>
                 </div>
-                <div className="write-comment">
+                <div className="write-comment-lesson">
                   <div className="comment-icon">
                     <i class="fas fa-user-circle"></i>
                   </div>
-                  <div className="comment-and-button">
-                    <div className="place-write-comment">
+                  <div className="comment-and-button-lesson">
+                    <div className="place-write-comment-lesson">
                       <textarea
-                        id="place-write-comment"
+                        id="place-write-comment-lesson"
                         name="place-write-comment"
                         placeholder="Viết bình luận của bạn"
                       ></textarea>
                     </div>
 
-                    <button type="button" className="post-comment-btn">
+                    <button type="button" className="post-comment-btn-lesson">
                       Đăng
                     </button>
                   </div>
                 </div>
-                <div className="others-comment">
-                  <div className="other-commnet">
-                    <div className="user-comment">
+                <div className="others-comment-lesson">
+                  <div className="other-commnet-lesson">
+                    <div className="user-comment-lesson">
                       <div className="comment-icon">
                         <i class="fas fa-user-circle"></i>
                       </div>
-                      <div className="user-infor">
+                      <div className="user-infor-lesson">
                         <a href="">Nguyễn Văn A</a>
                         <p>20-11-2021</p>
                       </div>
                     </div>
-                    <div className="content-of-comment">
+                    <div className="content-of-comment-lesson">
                       <p>
                         Sao bài này lại mức độ trung bình nhỉ? Chỉ cần làm vài
                         phép toán ra nháp rồi suy ra là ta có công thức chung
@@ -163,8 +166,8 @@ function Lesson() {
                       </p>
                     </div>
                   </div>
-                  <div className="other-commnet">
-                    <div className="user-comment">
+                  <div className="other-commnet-lesson">
+                    <div className="user-comment-lesson">
                       <div className="comment-icon">
                         <i class="fas fa-user-circle"></i>
                       </div>
@@ -173,7 +176,7 @@ function Lesson() {
                         <p>20-11-2021</p>
                       </div>
                     </div>
-                    <div className="content-of-comment">
+                    <div className="content-of-comment-lesson">
                       <p>
                         Sao bài này lại mức độ trung bình nhỉ? Chỉ cần làm vài
                         phép toán ra nháp rồi suy ra là ta có công thức chung
@@ -181,17 +184,17 @@ function Lesson() {
                       </p>
                     </div>
                   </div>
-                  <div className="other-commnet">
-                    <div className="user-comment">
+                  <div className="other-commnet-lesson">
+                    <div className="user-comment-lesson">
                       <div className="comment-icon">
                         <i class="fas fa-user-circle"></i>
                       </div>
-                      <div className="user-infor">
+                      <div className="user-infor-lesson">
                         <a href="">Nguyễn Văn A</a>
                         <p>20-11-2021</p>
                       </div>
                     </div>
-                    <div className="content-of-comment">
+                    <div className="content-of-comment-lesson">
                       <p>
                         Sao bài này lại mức độ trung bình nhỉ? Chỉ cần làm vài
                         phép toán ra nháp rồi suy ra là ta có công thức chung
@@ -204,15 +207,15 @@ function Lesson() {
             </div>
           </div>
 
-          <div className={display2 === "on" ? "code-off" : "code"}>
-            <div className="intro">
-              <p className="intro-content">Code in here</p>
-              <button type="button" className="refresh-btn">
+          <div className={display2 === "on" ? "code-off" : "code-lesson"}>
+            <div className="intro-lesson">
+              <p className="intro-content-lesson">Code in here</p>
+              <button type="button" className="refresh-btn-lesson">
                 Làm mới
               </button>
             </div>
-            <div className="place-code">
-              <textarea id="code-of-exser" name="code-of-exser"></textarea>
+            <div className="place-code-lesson">
+              <textarea id="code-of-exser-lesson" name="code-of-exser"></textarea>
             </div>
             <div className="testcase-lesson">
               <div className="testcase-header-lesson">
@@ -235,10 +238,10 @@ function Lesson() {
                 </div>
               </div>
               <div className="testcase-button-lesson">
-                <button type="button" className="run-btn">
+                <button type="button" className="run-btn-lesson">
                   Chạy thử
                 </button>
-                <button type="button" className="submit-btn">
+                <button type="button" className="submit-btn-lesson">
                   Nộp bài
                 </button>
               </div>
@@ -317,6 +320,46 @@ function Lesson() {
                 </div>
               </div>
             </div>
+            <div className={display2 === "off" ? "code-off" : "code-lesson"}>
+              <div className="intro-lesson">
+                <p className="intro-content-lesson">Code in here</p>
+                <button type="button" className="refresh-btn-lesson">
+                  Làm mới
+                </button>
+              </div>
+              <div className="place-code-lesson">
+                <textarea id="code-of-exser-lesson" name="code-of-exser"></textarea>
+              </div>
+              <div className="testcase-lesson">
+                <div className="testcase-header-lesson">
+                  <p>TEST CASE</p>
+                </div>
+                <div className="testcase-content-lesson">
+                  <div className="testcase-number-lesson">
+                    <ul>
+                      <li>Kiểm thử 1</li>
+                      <li>Kiểm thử 2</li>
+                      <li>Kiểm thử 2</li>
+                    </ul>
+                  </div>
+                  <div className="testcase-display-lesson">
+                    <p>Đầu vào:</p>
+                    <p>Đầu ra:</p>
+                    <p>Đầu ra mong muốn:</p>
+                    <p>Thời gian thực hiện:</p>
+                    <p>Tin nhắn:</p>
+                  </div>
+                </div>
+                <div className="testcase-button-lesson">
+                  <button type="button" className="run-btn-lesson">
+                    Chạy thử
+                  </button>
+                  <button type="button" className="submit-btn-lesson">
+                    Nộp bài
+                  </button>
+                </div>
+              </div>
+          </div>
           </div>
         </div>
       </div>
