@@ -12,7 +12,7 @@
 .center_menu_AdminUpdateCourse{
     width:30%;
 }
-.center_content_AdminUpdateCourse{
+/* .center_content_AdminUpdateCourse{
     width:70%;
 }
 .center_content_AdminUpdateCourse_title{
@@ -81,8 +81,104 @@
 }
 .center_container_btn_deleteAll i{
     font-size: 30px;
+} */
+
+
+/*****/
+.center_content_AdminUpdateCourse{
+    width:70%;
+
 }
-.center_container_btn_deleteAll button:hover{
+.Container_____AdminUpdateCourse{
+    padding:0px 20px;
+}
+.top_decription_centercontent{
+    display: flex;
+    /* margin-bottom: 15px; */
+}
+
+.top_decription_centercontent p{
+    font-size: 25px;
+    font-weight: 600;
+    margin: 0px 0px 10px 0px;
+}
+/* .middle_decription_centercontent {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+} */
+.InputName_UpdateCourse,.InputDescription_UpdateCourse{
+    margin-bottom: 20px;
+}
+.InputName_UpdateCourse input{
+    width:100%;
+    font-size: 20px;
+    padding:5px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border:1px solid #000;
+}
+.InputDescription_UpdateCourse textarea{
+    width:100%;
+    height:300px;
+    font-size: 20px;
+    padding:5px;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+}
+.InputTime_UpdateCourse textarea{
+    width:100%;
+    height:100px;
+    font-size: 20px;
+    padding:5px;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+    /* align-items: center; */
+    /* text-align: center; */
+}
+.btn_Submit_AdminUpdateCourse{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+.btn_Submit_AdminUpdateCourse button{
+    padding:5px 10px;
+    width:150px;
+    height:40px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    background-color: #050295;
+    color: #fff;
+    font-weight: 500;
+}
+.btn_Submit_AdminUpdateCourse button:hover{
+    transform: scale(1.2);
+    background-color: #050295;
+}
+.InputTime_UpdateCourse input {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid#000;
+    box-sizing: border-box;
+    padding:5px;
+    font-size: 20px;
+}
+.btn_Submit_AdminUpdateCourse input{
+    width: 130px !important;
+    padding: 10px;
+    background-color: #1E266D;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+}
+.btn_Submit_AdminUpdateCourse input:hover{
     opacity: 500;
     background-color: #ccc;
+    color:#000;
+    cursor: pointer;
 }
