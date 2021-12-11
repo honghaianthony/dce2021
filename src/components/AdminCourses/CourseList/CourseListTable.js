@@ -3,6 +3,13 @@ import { Link } from "react-router-dom";
 import "./CourseListTable.css"
 import coursesApi from "../../../apis/coursesApi";
 
+function getFormattedDate(date) {
+    var start = new Date(date);
+    let year = start.getFullYear();
+    let month = (1 + start.getMonth()).toString().padStart(2, '0');
+    let day = start.getDate().toString().padStart(2, '0');
+    return month + '/' + day + '/' + year;
+}
 
 function CourseListTable() {
     const [data, setListCourse] = useState([]);
@@ -20,8 +27,8 @@ function CourseListTable() {
                         <td>
                             <p>vietcv</p>
                         </td>
-                        <td>{item.createdAt}</td>
-                        <td>{item.updatedAt}</td>
+                        <td>{getFormattedDate(item.createdAt)}</td>
+                        <td>{getFormattedDate(item.updatedAt)}</td>
                         <td>
                             <Link to='./'>
                                 <button className='view-btn'>
