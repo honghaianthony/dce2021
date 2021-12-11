@@ -56,11 +56,17 @@ export default function App() {
           <Route path="/register">
             <Register />
           </Route>
+          <Route path="/forgotpassword">
+            <ForgotPassword />
+          </Route>
           <Route exact path="/courses">
             <Courses />
           </Route>
           <Route exact path={`/courses/:courseId`}>
             <Course />
+          </Route>
+          <Route exact path="/lesson/:lessonId">
+            <Lesson />
           </Route>
           <Route exact path="/blogs">
             <Blogs />
@@ -77,9 +83,6 @@ export default function App() {
           <Route path="/exercise">
             <Exercise />
           </Route>
-          <Route path="/lesson">
-            <Lesson />
-          </Route>
           <Route path="/censor">
             <Censor />
           </Route>
@@ -94,9 +97,6 @@ export default function App() {
           </Route>
           <Route path="/adminupdatecourse">
             <AdminUpdateCourse />
-          </Route>
-          <Route path="/forgotpassword">
-            <ForgotPassword />
           </Route>
           <Route path="/adminUpdateLesson">
             <UpdateLesson />

@@ -54,7 +54,7 @@ function Course() {
               </div>
             </div>
             <div className="course__CenterContent">
-              <Lessons />
+              <Lessons courseId={courseId} />
             </div>
           </div>
         )}
