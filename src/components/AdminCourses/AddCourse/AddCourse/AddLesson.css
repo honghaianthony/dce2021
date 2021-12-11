@@ -84,10 +84,10 @@
 }
 #desLesson
 {
-   height: 100px;
+    height: 100px;
 }
 #contentLesson
-{
+{ 
    height: 200px;
 }
 .add-test-case
@@ -97,6 +97,7 @@
     font-style: italic; 
     color: #5f5c5c; 
     font-weight: 500;
+    width: 20%;
 }
 .add-test-case:hover
 {

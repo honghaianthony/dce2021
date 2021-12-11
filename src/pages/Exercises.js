@@ -3,6 +3,7 @@ import "../assets/styles/Exercises.css";
 import Frameexercise from "../components/Exercises/index";
 import ExerciseApi from "../apis/ExerciseApi";
 import { useState,useEffect } from "react";
+import { Link } from "react-router-dom";
 function Exercises()
 {
     const exercises =
@@ -114,12 +115,13 @@ function Exercises()
         <MainLayout>
         <div className="exercises-container">
             <div className="exercises-path">
-                <a href="">Home</a>
+                <Link to="/">Home</Link>
                 <i class="fas fa-angle-right"></i>
-                <a href="">Exercises</a>
+                <Link to="/exercises">Exercises</Link>
             </div>
             <div className="exercises-banner">
-                <img src="../assets/images/banner-exercise.jpg"></img>
+            <h3>TIME FOR TRAINING</h3>
+            <img className="decor__img" src="/images/courses/decor.png" />
             </div>
             <div className="exercises-search">
             <form className="form-search-execise" action="/action_page.php">

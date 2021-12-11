@@ -1,3 +1,9 @@
+.exercise-container
+{
+    display: block;
+    overflow: hidden;
+    height: 100vh;
+}
 .exercise-name
 {
     background-color:#050295;
@@ -28,26 +34,30 @@
 {
     display: flex;
 }
-.content
+.exercise-main .content
 {
     width: 40%;
     display: flex;
+    height: 100vh;
 }
-.content-and-comment
+.exercise-main .content-and-comment
 {
     width: 100%;
+    height: 100vh;
 }
-.discuss
+.exercise-main .discuss
 {
     background-color:#050295;
+    height: 100vh;
+    width: 10%;
 }
-.discuss-icon
+.exercise-main .discuss-icon
 {
     background-color:#050295;
     border: none;
     padding: 10px 5px;
 }
-.fa-rocketchat
+.exercise-main .fa-rocketchat
 {
     font-size: 30px;
     color: #fff;
@@ -129,6 +139,7 @@
     width: 60%;
     background-color: #232432;
     color: #fff;
+    height: 100vh;
 }
 .intro
 {
@@ -160,7 +171,7 @@
 {
     padding: 10px;
     margin: -10px 0;
-
+    width: 96%;
 }
 #code-of-exser
 {
@@ -173,10 +184,9 @@
     border: 2px #fff solid;
     border-radius: 10px;
 }
-.testcase
+.code .testcase
 {
     padding-left: 15px;
-    margin-top: -20px;
 }
 .testcase-header
 {
@@ -222,10 +232,11 @@
 {
     padding: 10px;
     text-align: right;
+    margin-top: 30px;
 }
-.run-btn,.submit-btn
+.testcase-button .run-btn, .testcase-button .submit-btn
 {
-    padding: 4px 0;
+    padding: 10px 10px;
     border:none;
     border-radius: 5px;
     font-size: 16px;

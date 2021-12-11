@@ -11,9 +11,14 @@ const conformExercise = async (exercise) =>
 {
     return await axiosInstance.post(`/exercises/confirm-do-exercise`,exercise);
 }
+const createExercise = async (exercise) =>
+{
+    return await axiosInstance.post(`/exercises/create-new-exercise`,exercise);
+}
 export default 
 {
     getAllExercise,
     getAllExerciseById,
-    conformExercise
+    conformExercise,
+    createExercise
 }
