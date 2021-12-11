@@ -52,10 +52,10 @@ function Lesson() {
                 <div className="exercise-main">
                     <div className={display2 === "on" ? "content-off" : "content"}>
                         <div className="discuss">
-                            <button type="button" className={display === "on" ? "discuss-icon-on" : "discuss-icon"} onClick={setcomment}>
+                            <button type="button" className={display === "on" ? "discuss-icon-on-lesson" : "discuss-icon-lesson"} onClick={setcomment}>
                                 <i class="fab fa-rocketchat"></i>
                             </button>
-                            <button type="button" className={display2==="on" ? "discuss-icon-on" : "discuss-icon"} onClick={handledisplay2}>
+                            <button type="button" className={display2==="on" ? "discuss-icon-on-lesson" : "discuss-icon-lesson"} onClick={handledisplay2}>
                              <i class="far fa-clipboard"></i>
                             </button>
                         </div>
@@ -204,10 +204,10 @@ function Lesson() {
                     </div> 
                     <div className={display2 === "on" ? "ListNode__Container" : "ListNode__Container-off"}>
                         <div className="discuss-list">
-                            <button type="button" className={display2 === "on" ? "discuss-icon" : "discuss-icon-on"} onClick={handledisplay2}>
+                            <button type="button" className={display2 === "on" ? "discuss-icon-lesson" : "discuss-icon-on-lesson"} onClick={handledisplay2}>
                                 <i class="fab fa-rocketchat"></i>
                             </button>
-                            <button type="button" className={display2==="on" ? "discuss-icon-on" : "discuss-icon"} onClick={handledisplay2}>
+                            <button type="button" className={display2==="on" ? "discuss-icon-on-lesson" : "discuss-icon-lesson"} onClick={handledisplay2}>
                              <i class="far fa-clipboard"></i>
                             </button>
                         </div>

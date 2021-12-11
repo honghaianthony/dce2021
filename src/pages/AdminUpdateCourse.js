@@ -48,70 +48,48 @@ function AdminUpdateCourse() {
               <p>Hello</p>
             </div>
             <div className="center_content_AdminUpdateCourse">
-              <div className="center_content_AdminUpdateCourse_title">
-                <p>Chỉnh sửa khóa học</p>
-              </div>
-              <div className="center_content_AdminUpdateCourse__find">
-                <form action="">
-                  <label className="upCourse_label" htmlFor="idCourse">
-                    ID khóa học
-                  </label>
-                  <input
-                    type="text"
-                    name="id"
-                    id="Up_idCourse"
-                    placeholder="Nhập ID khóa học cần sửa"
-                  />
-                  <div className="btn_updateCourse_find">
+               <div className="top_decription_centercontent">
+                  <p>Tạo khóa học mới</p>
+                </div>
+              <div className="middle_decription_centercontent">
+                <div className="InputName_UpdateCourse">
+                    <form action="">
+                      <input
+                        type="text"
+                        name="id"
+                        id="idCourse"
+                        // placeholder="Nhập tên khóa học mới"
+                        value="Tên khóa học hiện tại"
+                      />
+                    </form>
+                </div>
+                <div className="InputDescription_UpdateCourse">
+                  <form>
+                    <textarea
+                      name="description"
+                      id="decriptionCourse"
+                      // placeholder="Nhập mô tả"
+                      value="Mô tả của khóa học hiện tại"
+                    ></textarea>
+                  </form>
+                </div>
+                <div className="InputTime_UpdateCourse">
+                  <form>
                     <input
-                      type="submit"
-                      className="btn_search_updateCourse"
-                      value="Tìm"
-                    />
-                  </div>
-                </form>
-              </div>
-              <div className="center_content_AdminUpdateCourse__bottom">
-                <div className="center_content_AdminUpdateCourse__nametitle">
-                  <span>Lập Trình Hướng Đối tượng</span>
-                </div>
-                <div className="center_container_btn_deleteAll">
-                  <button type="submit">
-                    <i class="fas fa-times"></i>
-                  </button>
+                      name="time"
+                      id="timeCourse"
+                      // placeholder="Nhập thời gian để hoàn thành khóa học"
+                      value="Thời gian của khóa học hiện tại"
+                      className="timeCourse"
+                      type="date"
+                    ></input>
+                  </form>
                 </div>
               </div>
-              {/* {
-                                 items.map((item,index)=>(
-                                    <div className="listAddCourse__Container" key={item.id}> */}
-              {/* <div className="listAddCourse__Container">
-                                        <AddCourseItem 
-                                            // id={item.id}
-                                            // name={item.name}
-                                            data={items}
-                                            // props={item}
-                                            handleDeleteClick={handleDeleteClick}
-                                        />   
-                                    </div> */}
-              {/* </div>         
-                                  ))
-                            } */}
-              {listAddCourse.map((item, index) => (
-                <div className="listAddCourse__Container" key={item.id}>
-                  <AddCourseItem id={item.id} name={item.name} />
-                </div>
-              ))}
-              <div className="listAddCourse_BtnAdd">
-                <div className="btn_iconAdd">
-                  <button>
-                    <i class="fas fa-plus"></i>
-                  </button>
-                </div>
-                <div className="btnAdd_Decription">
-                  <span>Thêm Bài Học Mới</span>
-                </div>
-              </div>
+            <div className="btn_Submit_AdminUpdateCourse">
+              <input type="submit" value="cập nhật"></input>
             </div>
+          </div>
           </div>
         </div>
       </div>
