@@ -29,106 +29,119 @@ import UpdateExercise from "../components/AdminExercises/AddExercise/UpdateExerc
 import AddExercise from "../components/AdminExercises/AddExercise/AddExercise/AddExercise";
 import AddLesson from "../components/AdminCourses/AddCourse/AddCourse/AddLesson";
 import AddBlog from "../pages/AddBlog";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function App() {
-  return (
-    //   định nghĩa các route
+    return (
+        //   định nghĩa các route
 
-    <Router>
-      <div>
-        {/* A <Switch> looks through its children <Route>s and
+        <Router>
+            <div>
+                {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/users">
-            <Users />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/courses">
-            <Courses />
-          </Route>
-          <Route path="/exercises">
-            <Exercises />
-          </Route>
-          <Route path="/exercise">
-            <Exercise />
-          </Route>
-          <Route path="/course">
-            <Course />
-          </Route>
-          <Route path="/lesson">
-            <Lesson />
-          </Route>
-          <Route path="/blogs">
-            <Blogs />
-          </Route>
-          <Route path="/blog">
-            <Blog />
-          </Route>
-          <Route path="/addblog">
-            <AddBlog />
-          </Route>
-          <Route path="/censor">
-            <Censor />
-          </Route>
-          <Route path="/HomeLogin">
-            <HomeLogin />
-          </Route>
-          <Route path="/Account">
-            <Account />
-          </Route>
-          <Route path="/adminaddcoursedetail">
-            <AdminAddCourseDetail />
-          </Route>
-          <Route path="/adminaddcourse">
-            <AdminAddCourse />
-          </Route>
-          <Route path="/adminupdatecourse">
-            <AdminUpdateCourse />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/forgotpassword">
-            <ForgotPassword />
-          </Route>
-          <Route path="/adminUpdateLesson">
-            <UpdateLesson />
-          </Route>
-          <Route path="/adminUpdateExersise">
-            <UpdateExercise />
-          </Route>
-          <Route path="/adminAddLesson">
-            <AddLesson />
-          </Route>
-          <Route path="/adminAddExercise">
-            <AddExercise />
-          </Route>
-          <Route path="/admincourselist">
-            <AdminCourseList />
-          </Route>
-          <Route path="/adminexerciselist">
-            <AdminExerciseList />
-          </Route>
-          <Route path="/adminmemberlist">
-            <AdminMemberList />
-          </Route>
-          <Route path="/testcallapi">
-            <TestCallApi />
-          </Route>
-          <Route path="/upload">
-            <UploadTest />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-  );
+                <Switch>
+                    <Route path="/users">
+                        <Users />
+                    </Route>
+                    <Route path="/login">
+                        <Login />
+                    </Route>
+                    <Route path="/courses">
+                        <Courses />
+                    </Route>
+                    <Route path="/exercises">
+                        <Exercises />
+                    </Route>
+                    <Route path="/exercise">
+                        <Exercise />
+                    </Route>
+                    <Route path="/course">
+                        <Course />
+                    </Route>
+                    <Route path="/lesson">
+                        <Lesson />
+                    </Route>
+                    <Route path="/blogs">
+                        <Blogs />
+                    </Route>
+                    <Route path="/blog">
+                        <Blog />
+                    </Route>
+                    <Route path="/addblog">
+                        <AddBlog />
+                    </Route>
+                    <Route path="/censor">
+                        <Censor />
+                    </Route>
+                    <Route path="/HomeLogin">
+                        <HomeLogin />
+                    </Route>
+                    <Route path="/Account">
+                        <Account />
+                    </Route>
+                    <Route path="/adminaddcoursedetail">
+                        <AdminAddCourseDetail />
+                    </Route>
+                    <Route path="/adminaddcourse">
+                        <AdminAddCourse />
+                    </Route>
+                    <Route path="/adminupdatecourse">
+                        <AdminUpdateCourse />
+                    </Route>
+                    <Route path="/register">
+                        <Register />
+                    </Route>
+                    <Route path="/forgotpassword">
+                        <ForgotPassword />
+                    </Route>
+                    <Route path="/adminUpdateLesson">
+                        <UpdateLesson />
+                    </Route>
+                    <Route path="/adminUpdateExersise">
+                        <UpdateExercise />
+                    </Route>
+                    <Route path="/adminAddLesson">
+                        <AddLesson />
+                    </Route>
+                    <Route path="/adminAddExercise">
+                        <AddExercise />
+                    </Route>
+                    <Route path="/admincourselist">
+                        <AdminCourseList />
+                    </Route>
+                    <Route path="/adminexerciselist">
+                        <AdminExerciseList />
+                    </Route>
+                    <Route path="/adminmemberlist">
+                        <AdminMemberList />
+                    </Route>
+                    <Route path="/testcallapi">
+                        <TestCallApi />
+                    </Route>
+                    <Route path="/upload">
+                        <UploadTest />
+                    </Route>
+                    <Route path="/">
+                        <Home />
+                    </Route>
+                </Switch>
+                <ToastContainer
+                    position="bottom-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                />
+            </div>
+        </Router>
+    );
 }
 
 function Users() {
-  return <h2>Users</h2>;
+    return <h2>Users</h2>;
 }
