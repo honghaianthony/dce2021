@@ -22,3 +22,4 @@ export { default as TestCallApi } from "./TestCallApi";
 export { default as UploadTest } from "./UploadTest";
 export { default as AddBlog } from "./AddBlog";
 export { default as AdminAddBlog } from "./AdminAddBlog";
+export { default as AdminBlogList } from "./AdminBlogList";

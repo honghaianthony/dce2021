@@ -26,6 +26,7 @@ import {
   UploadTest,
   AddBlog,
   AdminAddBlog,
+  AdminBlogList,
 } from "../pages";
 import UpdateLesson from "../components/AdminCourses/AddCourse/UpdateCourse/UpdateLesson";
 import UpdateExercise from "../components/AdminExercises/AddExercise/UpdateExercise/UpdateExercise";
@@ -120,6 +121,9 @@ export default function App() {
           </Route>
           <Route path="/adminAddExercise">
             <AddExercise />
+          </Route>
+          <Route path="/adminbloglist">
+            <AdminBlogList />
           </Route>
           <Route path="/adminaddblog">
             <AdminAddBlog />

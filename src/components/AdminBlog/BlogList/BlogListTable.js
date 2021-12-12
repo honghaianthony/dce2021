@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./BlogListTable.css"
+import "./BlogListTable.css";
+import AdminPath from "../AdminPath/AdminPath";
 
 function BlogListTable({ coursedata }) {
     return (
         <div className="listtable-container">
+            <AdminPath />
             <table className="listtable">
                 <thead className="listtable-header">
                     <tr className="listtable-row">

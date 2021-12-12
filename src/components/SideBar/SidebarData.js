@@ -77,7 +77,7 @@ export const SidebarData = [
     subNav: [
       {
         title: "Danh sách blog",
-        path: "",
+        path: "/adminbloglist",
         icon: <BiIcons.BiTable />,
         cName: "sub-nav",
       },
