@@ -63,6 +63,11 @@
     font-size: 25px;
     cursor: pointer;
 }
+.btn_edit_AddCourseItem button:hover,.btn_delete_AddCourseItem2 button:hover{
+    cursor:pointer;
+    color: red;
+
+}
 .btn_edit_AddCourseItem2 button,.btn_delete_AddCourseItem2 button{
     width:40px;
     height:40px;
