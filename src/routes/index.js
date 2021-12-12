@@ -57,36 +57,49 @@ export default function App() {
           <Route path="/register">
             <Register />
           </Route>
+          <Route path="/forgotpassword">
+            <ForgotPassword />
+          </Route>
           <Route exact path="/courses">
             <Courses />
           </Route>
           <Route exact path={`/courses/:courseId`}>
             <Course />
           </Route>
+          <PrivateRoute exact path="/lesson/:lessonId">
+            <Lesson />
+          </PrivateRoute>
           <Route exact path="/blogs">
             <Blogs />
           </Route>
           <Route exact path={`/blogs/:blogId`}>
             <Blog />
           </Route>
-          <Route exact path="/addblog">
+          <PrivateRoute exact path="/addblog">
             <AddBlog />
-          </Route>
-          <Route exact path="/exercises">
+          </PrivateRoute>
+          <PrivateRoute exact path="/adminmemberlist">
+            <AdminMemberList />
+          </PrivateRoute>
+          <PrivateRoute exact path="/admincourselist">
+            <AdminCourseList />
+          </PrivateRoute>
+          <PrivateRoute exact path="/adminexerciselist">
+            <AdminExerciseList />
+          </PrivateRoute>
+
+          <Route path="/exercises">
             <Exercises />
           </Route>
           <Route exact path={`/exercises/:exerciseId`}>
             <Exercise />
           </Route>
-          <Route path="/lesson">
-            <Lesson />
-          </Route>
           <Route path="/censor">
             <Censor />
           </Route>
-          <Route path="/Account">
+          <PrivateRoute path="/me">
             <Account />
-          </Route>
+          </PrivateRoute>
           <Route path="/adminaddcoursedetail">
             <AdminAddCourseDetail />
           </Route>
@@ -95,9 +108,6 @@ export default function App() {
           </Route>
           <Route path="/adminupdatecourse">
             <AdminUpdateCourse />
-          </Route>
-          <Route path="/forgotpassword">
-            <ForgotPassword />
           </Route>
           <Route path="/adminUpdateLesson">
             <UpdateLesson />
@@ -110,15 +120,6 @@ export default function App() {
           </Route>
           <Route path="/adminAddExercise">
             <AddExercise />
-          </Route>
-          <Route path="/admincourselist">
-            <AdminCourseList />
-          </Route>
-          <Route path="/adminexerciselist">
-            <AdminExerciseList />
-          </Route>
-          <Route path="/adminmemberlist">
-            <AdminMemberList />
           </Route>
           <Route path="/adminaddblog">
             <AdminAddBlog />

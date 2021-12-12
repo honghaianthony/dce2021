@@ -1,20 +1,13 @@
-// import React from 'react'
 import React, { useState } from "react";
 import hinhlaptrinh from "../assets/images/background-login.png";
 import { Link, useHistory } from "react-router-dom";
 import { useStore, actions } from "../store";
 import authApi from "../apis/authApi";
 
-// import "./Login.css"
 import "../assets/styles/Login.css";
 function Login() {
-  const [isCreateAccount, setIsCreateAccount] = useState(false);
   const [state, dispatch] = useStore();
   const history = useHistory();
-
-  const toggleCreateAccount = () => {
-    setIsCreateAccount(!isCreateAccount);
-  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -37,7 +30,6 @@ function Login() {
             </Link>
             <img src={hinhlaptrinh} alt="Hình minh họa" />
           </div>
-          {/* {!isCreateAccount && ( */}
           <div className="form-content">
             <div className="form-content-top">
               <div className="login-text">
@@ -48,11 +40,13 @@ function Login() {
               action=""
               method="POST"
               className="login-form"
-              onSubmit={handleLogin}
+              onSubmit={async (e) => {
+                await handleLogin(e);
+              }}
             >
               <div className="form-middle">
                 <div className="from-group">
-                  <label className="label-login" for="username">
+                  <label className="label-login" htmlFor="username">
                     Tên đăng nhập
                   </label>
                   <input
@@ -65,7 +59,10 @@ function Login() {
                   />
                 </div>
                 <div className="from-group">
-                  <label className="label-login label-password" for="password">
+                  <label
+                    className="label-login label-password"
+                    htmlFor="password"
+                  >
                     Mật khẩu
                   </label>
                   <input
@@ -108,33 +105,16 @@ function Login() {
             </form>
             <div className="form-bottom">
               <Link to="/forgotpassword" className="forgot-pass">
-                  Quên mật khẩu?
+                Quên mật khẩu?
               </Link>
               <div className="become-member">
                 <p>Chưa phải là thành viên?</p>
-                
-                  <Link to="/register" className="sign-up-now"> 
-                    Đăng ký ngay
-                 
+                <Link to="/register" className="sign-up-now">
+                  Đăng ký ngay
                 </Link>
               </div>
             </div>
           </div>
-
-          {/* )} */}
-          {/* pop up create account */}
-          {/* {isCreateAccount && (
-                <div className="modal">
-                    <div className="login-overlay" onClick={toggleCreateAccount}></div>
-                    <div className="register-form">
-                        <div className="register-title">Đăng ký</div>
-                        <form action="/register" method="POST">
-
-                        </form>
-                    </div>
-                    
-                </div>
-                )} */}
         </section>
       )}
     </>
