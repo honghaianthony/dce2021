@@ -21,3 +21,4 @@ export { default as ForgotPassword } from "./ForgotPassword";
 export { default as TestCallApi } from "./TestCallApi";
 export { default as UploadTest } from "./UploadTest";
 export { default as AddBlog } from "./AddBlog";
+export { default as AdminAddBlog } from "./AdminAddBlog";

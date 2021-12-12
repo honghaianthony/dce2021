@@ -152,7 +152,7 @@ function BlogDetail() {
                 {comment.length > 0 && renderComment()}
               </div>
               {showMoreCmt < comment.length && (
-                <button
+                <button className="blog-comment-show-more"
                   onClick={() => {
                     setShowMoreCmt(showMoreCmt + 5);
                   }}

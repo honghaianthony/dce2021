@@ -69,7 +69,7 @@ export const SidebarData = [
   },
   {
     title: 'Quản lý blog',
-    path: '',
+    path: '/adminaddblog',
     icon: <FaIcons.FaBlogger />,
     iconClosed: <RiIcons.RiArrowDownSLine />,
     iconOpened: <RiIcons.RiArrowUpSLine />,
