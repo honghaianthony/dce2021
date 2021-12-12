@@ -2,7 +2,7 @@ import './AddExercise.css';
 import './TestCase.css';
 import { useState,useEffect} from 'react';
 
-function TestCase(Testcaseitem,handleChangeInput,handleChangeOutput)
+function TestCase({id,handleChangeInput,handleChangeOutput})
 {
     /*const[input,setInput]=useState("");
     const[output,setOutput]=useState("");
@@ -12,7 +12,7 @@ function TestCase(Testcaseitem,handleChangeInput,handleChangeOutput)
     return(
         <>
             <div className="testcase-option">
-                <label className="addExercise-label" for="testExercise">Testcase {Testcaseitem.id}</label>              
+                <label className="addExercise-label" for="testExercise">Testcase {id} </label>              
                 <div className="delete-icon">
                     <p><i class="fas fa-trash-alt"></i>Xóa TestCase</p>
                 </div>
@@ -22,12 +22,12 @@ function TestCase(Testcaseitem,handleChangeInput,handleChangeOutput)
                       name="input" 
                       id="in-testExercise" 
                       placeholder="input bài học hiện tại"
-                      onChange={handleChangeInput}/>
+                      onChange={(e)=>handleChangeInput(e.target.value)}/>
             <textarea type="text" 
                       name="output"
                       id="out-testExercise" 
                       placeholder="input bài học hiện tại"
-                      onChange={handleChangeOutput}/>
+                      onChange={(e)=>handleChangeOutput(e.target.value)}/>
            </div>
         </>                        
     )

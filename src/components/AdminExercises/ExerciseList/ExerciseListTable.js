@@ -11,7 +11,7 @@ function getFormattedDate(date) {
     return month + '/' + day + '/' + year;
 }
 
-function ExerciseListTable() {
+function ExerciseListTable(path) {
     const [data, setListExercise] = useState([]);
     useEffect(async () => {
         const res = await ExerciseApi.getAllExercise();
@@ -30,7 +30,7 @@ function ExerciseListTable() {
                         <td>{getFormattedDate(item.createdAt)}</td>
                         <td>{getFormattedDate(item.updatedAt)}</td>
                         <td>
-                            <Link to='./'>
+                            <Link to={path}>
                                 <button className='view-btn'>
                                     Xem chi tiết
                                 </button>

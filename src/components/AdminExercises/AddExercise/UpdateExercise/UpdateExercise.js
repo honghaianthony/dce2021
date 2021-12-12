@@ -1,21 +1,15 @@
 import "../UpdateExercise/UpdateExercise.css"
 import TestCase  from "../AddExercise/TestCase";
-import react from 'react';
+import ExerciseApi from "../../../../apis/ExerciseApi";
 // import {getAllCourses} from '../apis/coursesApi'
 import { useEffect,useState } from 'react';
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 
 function UpdateExercise()
 {
-   /* const handleSubmit =(e)=>{
-        e.preventDefault();
-
-    }
-    const [data,setData]=useState([]);
-    useEffect(async ()=>{
-        const rep = await getAllCourses();
-        setData(rep);
-    },[])*/
+    const [exercise,setExercise]=useState("");
+    const {exerciseId} =useParams();
     const [addShow,setAddShow] = useState("show");
     const[countTestcase,setSountTestcase]=useState();
     const arrTestCase=[];

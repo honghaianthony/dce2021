@@ -9,25 +9,39 @@
     text-align: center;
     box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 }
+.exer-containner a{
+    text-decoration: none;
+}
 .exer-title
 {
     font-size: 24px;
     font-weight:500;
-    margin-top: 30px;
+    margin-top: 35px;
 }
 .exer-type
 {
     font-size: 20px;
     font-style: italic;  
 }
-.exer-level
+.exer-level-simple,.exer-level-normal,.exer-level-hard
 {
     font-size: 20px;
-    font-weight:600;
-    color: rgb(65, 236, 117);
-    margin-bottom: 50px;
+    font-weight:600; 
+    margin-top: 20px;  
+    margin-bottom: 60px;
     margin-top: -20px;
-
+}
+.exer-level-simple
+{
+    color: rgb(65, 236, 117);
+}
+.exer-level-normal{
+   
+    color:gold; 
+}
+.exer-level-hard
+{ 
+    color: rgb(247, 6, 6);
 }
 .container-btn-start
 {
@@ -48,5 +62,6 @@
 .container-btn-start:hover a
 {
     cursor: pointer;
-    transform: scale(1.5) !important;
+    background-color:orange;
+    
 }

@@ -71,10 +71,10 @@ export default function App() {
           <Route exact path="/addblog">
             <AddBlog />
           </Route>
-          <Route path="/exercises">
+          <Route exact path="/exercises">
             <Exercises />
           </Route>
-          <Route path="/exercise">
+          <Route exact path={`/exercises/:exerciseId`}>
             <Exercise />
           </Route>
           <Route path="/lesson">
@@ -101,7 +101,7 @@ export default function App() {
           <Route path="/adminUpdateLesson">
             <UpdateLesson />
           </Route>
-          <Route path="/adminUpdateExersise">
+          <Route exact path="/adminUpdateExersise/:exerciseId">
             <UpdateExercise />
           </Route>
           <Route path="/adminAddLesson">

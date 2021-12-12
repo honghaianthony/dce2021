@@ -82,31 +82,48 @@ function Exercises()
             }
         ]
         const [listExercise,setListExercise]=useState([]);
+        const [filterExercise,setFilterExercis]= useState(listExercise);
+        const [search,setSearch]=useState("");
         useEffect( async () => {
             const res = await ExerciseApi.getAllExercise();
             setListExercise(res.data);           
         }, [])
-        console.log(listExercise);
+        
+        useEffect(() => {
+           setFilterExercis(listExercise);
+        }, [listExercise])
+
+        useEffect(() => {
+           const newListExercise = listExercise.filter((item) =>
+           {
+                return(
+                    item.exerciseName.toLowerCase().search(search.toLowerCase()) !== -1 
+                );
+           });
+           setFilterExercis(newListExercise);
+        }, [search]);
+
         const listExercises =() =>
         {
-            if(listExercise.length >0)
+            if(filterExercise.length >0)
             {
-                return listExercise.map((item,index)=>
+                return filterExercise.map((item,index)=>
                 {
+                    let pathExer = "/exercises/" + item.id;
                     return(
                         <Frameexercise
                         key={index}
                         id={item.id}
                         title ={item.exerciseName}
                         level={item.level}
+                        path ={pathExer}
                         />
                     );
                 });
             }
-            else
-            {
-                return <h2>Loading..</h2>
-            }
+            else {
+                return <div className="loader"></div>;
+              }
         }
         console.log(listExercises)
         console.log(listExercise)
@@ -125,7 +142,12 @@ function Exercises()
             </div>
             <div className="exercises-search">
             <form className="form-search-execise" action="/action_page.php">
-                <input  className="form-search-exer" type="text" placeholder="Tìm kiếm bài luyện tập.." name="search"/>
+                <input  className="form-search-exer" 
+                        type="text" 
+                        placeholder="Tìm kiếm bài luyện tập.." 
+                        name="search"
+                        value={search}
+                        onChange={(e)=>{setSearch(e.target.value)}}/>
                 <button className="icon-search-exer" type="submit"><i class="fa fa-search"></i></button>
             </form>
             </div>
