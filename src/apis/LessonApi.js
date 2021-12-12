@@ -12,8 +12,15 @@ const getLessonById = async (id) => {
 const getAllLessonTest = async (id) => {
   return await axiosInstance.get(`lessons/get-all-lessons-test?lessonId=${id}`);
 };
+
+const getAllLessonComment = async (id) => {
+  return await axiosInstance.get(
+    `lessons/get-all-lessons-comment?lessonId=${id}`
+  );
+};
 export default {
   getAllLesson,
   getLessonById,
   getAllLessonTest,
+  getAllLessonComment,
 };

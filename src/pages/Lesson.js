@@ -4,11 +4,17 @@ import { Link, useParams } from "react-router-dom";
 import "../assets/styles/Lesson.css";
 import LessonApi from "../apis/LessonApi";
 import compileApi from "../apis/compileApi";
+import { useStore } from "../store";
+import { io } from "socket.io-client";
 
 function Lesson() {
+  const [state, dispatch] = useStore();
   const [data, setData] = useState(null);
   const [testCase, setTestCase] = useState([]);
+  const [comment, setComment] = useState([]);
+  const [commentInput, setCommentInput] = useState("");
   const [realOutput, setRealOutput] = useState("");
+  const [showMoreCmt, setShowMoreCmt] = useState(5);
   const [testCaseShow, setTestCaseShow] = useState({
     id: 0,
     lessonId: 0,
@@ -19,16 +25,23 @@ function Lesson() {
   const [code, setCode] = useState("");
   const { lessonId } = useParams();
 
+  //socket.io
+  const socket = io("http://localhost:3000");
+  useEffect(() => {
+    socket.emit("join-room", lessonId);
+    socket.on("receive-comment-lesson", (data) => {
+      setComment([...comment, data]);
+    });
+  }, [lessonId, socket]);
+
   useEffect(async () => {
     const res = await LessonApi.getLessonById(lessonId);
     setData(res);
     const test = await LessonApi.getAllLessonTest(lessonId);
-    // setTestCase(test);
-  }, [lessonId]);
-  useEffect(async () => {
-    const test = await LessonApi.getAllLessonTest(lessonId);
     setTestCase(test);
-  }, []);
+    const cmt = await LessonApi.getAllLessonComment(lessonId);
+    setComment(cmt);
+  }, [lessonId]);
 
   const [display, setdisplay] = useState("off");
   const setcomment = () => {
@@ -77,7 +90,45 @@ function Lesson() {
     };
     const response = await compileApi.postCompile(body);
     console.log(response);
-    setRealOutput(response.output);
+    if (response.output) {
+      setRealOutput(response.output);
+    } else {
+      setRealOutput(response.error);
+    }
+  };
+
+  const renderComment = () => {
+    return comment
+      .map((item, index) => {
+        return (
+          index > comment.length - showMoreCmt && (
+            <div className="other-commnet-lesson">
+              <div className="user-comment-lesson">
+                <div className="comment-icon">
+                  <i class="fas fa-user-circle"></i>
+                </div>
+                <div className="user-infor-lesson">
+                  <p className="username">{`${item.User.lastName} ${item.User.firstName}`}</p>
+                  <p>{new Date(item.updatedAt).toLocaleDateString()}</p>
+                </div>
+              </div>
+              <div className="content-of-comment-lesson">
+                <p>{item.content}</p>
+              </div>
+            </div>
+          )
+        );
+      })
+      .reverse();
+  };
+
+  const sendComment = () => {
+    const comment = commentInput;
+    socket.emit("send-comment-lesson", comment, state.userId, blogId);
+    setCommentInput("");
+  };
+  const handleCommentChange = (e) => {
+    setCommentInput(e.target.value);
   };
 
   return (
@@ -143,11 +194,12 @@ function Lesson() {
                       }
                     >
                       <div className="number-comments-lesson">
-                        <p>2 bình luận</p>
+                        <p>{comment.length} bình luận</p>
                       </div>
                       <div className="write-comment-lesson">
                         <div className="comment-icon">
                           <i class="fas fa-user-circle"></i>
+                          <p>{state.fullname}</p>
                         </div>
                         <div className="comment-and-button-lesson">
                           <div className="place-write-comment-lesson">
@@ -155,72 +207,32 @@ function Lesson() {
                               id="place-write-comment-lesson"
                               name="place-write-comment"
                               placeholder="Viết bình luận của bạn"
+                              value={commentInput}
+                              onChange={handleCommentChange}
                             ></textarea>
                           </div>
 
                           <button
                             type="button"
                             className="post-comment-btn-lesson"
+                            onClick={sendComment}
                           >
                             Đăng
                           </button>
                         </div>
                       </div>
                       <div className="others-comment-lesson">
-                        <div className="other-commnet-lesson">
-                          <div className="user-comment-lesson">
-                            <div className="comment-icon">
-                              <i class="fas fa-user-circle"></i>
-                            </div>
-                            <div className="user-infor">
-                              <a href="">Nguyễn Văn A</a>
-                              <p>20-11-2021</p>
-                            </div>
-                          </div>
-                          <div className="content-of-comment-lesson">
-                            <p>
-                              Sao bài này lại mức độ trung bình nhỉ? Chỉ cần làm
-                              vài phép toán ra nháp rồi suy ra là ta có công
-                              thức chung rồi mà
-                            </p>
-                          </div>
-                        </div>
-                        <div className="other-commnet">
-                          <div className="user-comment">
-                            <div className="comment-icon">
-                              <i class="fas fa-user-circle"></i>
-                            </div>
-                            <div className="user-infor">
-                              <a href="">Nguyễn Văn A</a>
-                              <p>20-11-2021</p>
-                            </div>
-                          </div>
-                          <div className="content-of-comment">
-                            <p>
-                              Sao bài này lại mức độ trung bình nhỉ? Chỉ cần làm
-                              vài phép toán ra nháp rồi suy ra là ta có công
-                              thức chung rồi mà
-                            </p>
-                          </div>
-                        </div>
-                        <div className="other-commnet">
-                          <div className="user-comment">
-                            <div className="comment-icon">
-                              <i class="fas fa-user-circle"></i>
-                            </div>
-                            <div className="user-infor">
-                              <a href="">Nguyễn Văn A</a>
-                              <p>20-11-2021</p>
-                            </div>
-                          </div>
-                          <div className="content-of-comment">
-                            <p>
-                              Sao bài này lại mức độ trung bình nhỉ? Chỉ cần làm
-                              vài phép toán ra nháp rồi suy ra là ta có công
-                              thức chung rồi mà
-                            </p>
-                          </div>
-                        </div>
+                        {comment.length > 0 && renderComment()}
+                        {showMoreCmt < comment.length && (
+                          <button
+                            className="blog-comment-show-more"
+                            onClick={() => {
+                              setShowMoreCmt(showMoreCmt + 5);
+                            }}
+                          >
+                            Xem thêm bình luận
+                          </button>
+                        )}
                       </div>
                     </div>
 

@@ -286,11 +286,11 @@
   text-align: right;
 }
 .place-write-comment-lesson {
-  width: 100%;
+  width: 90%;
 }
 #place-write-comment-lesson {
-  width: 100%;
-  height: 100px;
+  width: 90%;
+  height: 70px;
   border-radius: 5px;
   background-color: #f1eeee;
 }
@@ -303,6 +303,7 @@
   font-size: 16px;
   padding: 8px 20px;
   margin-top: 5px;
+  margin-right: 10px;
 }
 .post-comment-btn-lesson:hover {
   transform: scale(1.08);
@@ -322,9 +323,7 @@
 .user-infor-lesson {
   margin-left: 10px;
 }
-.user-infor-lesson a {
-  padding-top: 16px;
-  text-decoration: none;
+.user-infor-lesson .username {
   color: #4d96ff;
   margin-right: 20px;
 }
@@ -460,4 +459,12 @@
 .content-lesson {
   display: inline-block;
   /* flex-direction: column; */
+}
+
+.comment-icon {
+  display: flex;
+}
+
+.comment-icon p {
+  padding-left: 10px;
 }
