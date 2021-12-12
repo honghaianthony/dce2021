@@ -3,12 +3,18 @@
     background-color: rgb(209, 221, 231);
     display: block;
 }
-.exercises-path
+.exercises-path 
 {
     text-align: left;
     padding: 20px 0px 20px 150px;
     color: #050295;
 }
+.exercises-path .exercises-path 
+{
+    position:static;
+    color: #050295;
+}
+
 .exercises-path a
 {
   display:inline-block;

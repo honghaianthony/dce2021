@@ -13,7 +13,6 @@ function Exercise(Exercise)
     }
     /*api*/
     const [data,setData]=useState(null);
-    const [listTestcaseId,setListTestcaseId]=useState([]);
     const [listTestcase,setListTestcase]=useState([]);
     const {exerciseId} =useParams();
 
@@ -22,16 +21,11 @@ function Exercise(Exercise)
        setData(res);
     }, [exerciseId])
     
-    /*useEffect( async () => {
-        const res =await ExerciseApi.getTestCaseById(exerciseId);
-        setListTestcaseId(res);        
-    }, [exerciseId])
-    console.log(listTestcaseid)*/
     useEffect( async() => {
         const res = await ExerciseApi.getAllTestCase();
         setListTestcase(res);
     }, [])
-    console.log(listTestcase);
+    console.log(data);
 
     return (
         <>
