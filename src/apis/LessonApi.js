@@ -24,7 +24,7 @@ const getAllLessonComment = async (id) => {
 export default {
   getAllLesson,
   getLessonById,
-  deleteLessonById
+  deleteLessonById,
   getAllLessonTest,
   getAllLessonComment,
 };
