@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const SidebarLink = styled(Link)`
   display: flex;
@@ -26,7 +26,7 @@ const SidebarLabel = styled.span`
 `;
 
 const DropdownLink = styled(Link)`
-  background: #376BB4;
+  background: #376bb4;
   height: 60px;
   padding-left: 3rem;
   display: flex;
@@ -35,7 +35,7 @@ const DropdownLink = styled(Link)`
   color: #f5f5f5;
   font-size: 18px;
   overflow: hidden;
-  
+
   &:hover {
     background: #632ce4;
     cursor: pointer;
@@ -54,7 +54,10 @@ const SubMenu = ({ item }) => {
 
   return (
     <>
-      <SidebarLink to={item.path} onClick={item.subNav && showSubnav}>
+      <SidebarLink
+        to={item.path !== "" && item.path}
+        onClick={item.subNav && showSubnav}
+      >
         <div>
           {item.icon}
           <SidebarLabel>{item.title}</SidebarLabel>
@@ -63,8 +66,8 @@ const SubMenu = ({ item }) => {
           {item.subNav && subnav
             ? item.iconOpened
             : item.subNav
-              ? item.iconClosed
-              : null}
+            ? item.iconClosed
+            : null}
         </div>
       </SidebarLink>
       {subnav &&

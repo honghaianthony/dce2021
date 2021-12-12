@@ -65,18 +65,28 @@ export default function App() {
           <Route exact path={`/courses/:courseId`}>
             <Course />
           </Route>
-          <Route exact path="/lesson/:lessonId">
+          <PrivateRoute exact path="/lesson/:lessonId">
             <Lesson />
-          </Route>
+          </PrivateRoute>
           <Route exact path="/blogs">
             <Blogs />
           </Route>
           <Route exact path={`/blogs/:blogId`}>
             <Blog />
           </Route>
-          <Route exact path="/addblog">
+          <PrivateRoute exact path="/addblog">
             <AddBlog />
-          </Route>
+          </PrivateRoute>
+          <PrivateRoute exact path="/adminmemberlist">
+            <AdminMemberList />
+          </PrivateRoute>
+          <PrivateRoute exact path="/admincourselist">
+            <AdminCourseList />
+          </PrivateRoute>
+          <PrivateRoute exact path="/adminexerciselist">
+            <AdminExerciseList />
+          </PrivateRoute>
+
           <Route path="/exercises">
             <Exercises />
           </Route>
@@ -86,9 +96,9 @@ export default function App() {
           <Route path="/censor">
             <Censor />
           </Route>
-          <Route path="/Account">
+          <PrivateRoute path="/me">
             <Account />
-          </Route>
+          </PrivateRoute>
           <Route path="/adminaddcoursedetail">
             <AdminAddCourseDetail />
           </Route>
@@ -109,15 +119,6 @@ export default function App() {
           </Route>
           <Route path="/adminAddExercise">
             <AddExercise />
-          </Route>
-          <Route path="/admincourselist">
-            <AdminCourseList />
-          </Route>
-          <Route path="/adminexerciselist">
-            <AdminExerciseList />
-          </Route>
-          <Route path="/adminmemberlist">
-            <AdminMemberList />
           </Route>
           <Route path="/testcallapi">
             <TestCallApi />

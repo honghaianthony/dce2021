@@ -1,86 +1,103 @@
 .add-blog-container {
-    display: block;
-    background-color: rgb(229, 237, 243);
-    padding: 10px 50px;
+  display: block;
+  background-color: rgb(229, 237, 243);
+  padding: 10px 50px;
 }
 
 /* add blog */
 
 .add-blog-title {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 #add-blog-title {
-    width: 99%;
-    text-align: left;
-    padding: 5px 0 10px 10px;
-    border-radius: 5px;
-    border-color: #898989;
+  width: 99%;
+  text-align: left;
+  padding: 5px 0 10px 10px;
+  border-radius: 5px;
+  border-color: #898989;
 }
 
 #add-blog-title::placeholder {
-    font-size: 16px;
-    margin: 10px;
+  font-size: 16px;
+  margin: 10px;
 }
 
 .add-blog-description {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 #add-blog-description {
-    width: 99%;
-    text-align: left;
-    padding: 5px 0 10px 10px;
-    border-radius: 5px;
-    border-color: #898989;
+  width: 99%;
+  text-align: left;
+  padding: 5px 0 10px 10px;
+  border-radius: 5px;
+  border-color: #898989;
 }
 
 #add-blog-description::placeholder {
-    font-size: 16px;
-    margin: 10px;
+  font-size: 16px;
+  margin: 10px;
 }
 
 .add-blog-cover-image {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 #add-blog-cover-image {
-    width: 99%;
-    text-align: left;
-    padding: 5px 0 10px 10px;
-    border-radius: 5px;
-    border-color: #898989;
+  width: 99%;
+  text-align: left;
+  padding: 5px 0 10px 10px;
+  border-radius: 5px;
+  border-color: #898989;
 }
 
 #add-blog-cover-image::placeholder {
-    font-size: 16px;
-    margin: 10px;
+  font-size: 16px;
+  margin: 10px;
 }
 
 /* add blog content */
 
 .add-blog-content {
-    min-height: 400px;
-    height: 500px;
+  min-height: 400px;
+  height: 500px;
 }
 
 /* add blog button */
 
 .add-blog-button {
-    text-align: right;
-    margin: 10px 0;
+  text-align: right;
+  margin: 10px 0;
 }
 
 .add-blog-btn {
-    font-size: 16px;
-    padding: 8px 20px;
-    border-radius: 5px;
-    border: solid 1px #333;
-    cursor: pointer;
-    text-align: center;
+  font-size: 16px;
+  padding: 8px 20px;
+  border-radius: 5px;
+  border: solid 1px #333;
+  cursor: pointer;
+  text-align: center;
 }
 
 .add-blog-btn:hover {
-    background-color: #1e266d;
-    color: #f1f1f1;
+  background-color: #1e266d;
+  color: #f1f1f1;
+}
+
+.upload-image {
+  position: relative;
+  width: 500px;
+}
+
+.upload-image .preview-image {
+  width: 500px;
+}
+
+.upload-image i {
+  position: absolute;
+  top: 35px;
+  right: 15px;
+  z-index: 1;
+  box-shadow: 0 0 10px 5px #fff;
 }

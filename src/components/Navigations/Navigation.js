@@ -70,8 +70,8 @@ function Navigation() {
             </li>
             <li>
               <Link
-                to='/register'
-                className='nav-links-mobile'
+                to="/register"
+                className="nav-links-mobile"
                 onClick={closeMobileMenu}
               >
                 Đăng ký
@@ -79,26 +79,22 @@ function Navigation() {
             </li>
           </ul>
           <ul className="button-container">
-            <li>
+            {/* <li>
               <img src="/images/flag.png" alt="Ngôn ngữ" />
+            </li> */}
+            <li>
+              {button && (
+                <Link to="/login">
+                  <Button buttonStyle="btn--outline">Đăng nhập</Button>
+                </Link>
+              )}
             </li>
             <li>
-              {button &&
-                <Link to='/login'>
-                  <Button buttonStyle='btn--outline'>
-                    Đăng nhập
-                  </Button>
+              {button && (
+                <Link to="/register">
+                  <Button buttonStyle="btn--primary">Đăng ký</Button>
                 </Link>
-              }
-            </li>
-            <li>
-              {button &&
-                <Link to='/register'>
-                  <Button buttonStyle='btn--primary'>
-                    Đăng ký
-                  </Button>
-                </Link>
-              }
+              )}
             </li>
           </ul>
         </div>

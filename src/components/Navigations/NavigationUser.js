@@ -5,6 +5,7 @@ import { useDetectClickOutside } from "react-detect-click-outside";
 import * as BsIcons from "react-icons/bs";
 import "./NavigationUser.css";
 import { useStore, actions } from "../../store";
+import Profile from "./Profile";
 
 function NavigationUser() {
   // Hook: useState()
@@ -84,9 +85,9 @@ function NavigationUser() {
             </li>
           </ul>
           <ul className="button-container">
-            <li>
+            {/* <li>
               <img src="/images/flag.png" alt="Ngôn ngữ" />
-            </li>
+            </li> */}
             <li>
               <BsIcons.BsBell className="notification" />
             </li>
@@ -101,20 +102,7 @@ function NavigationUser() {
                 className="avatar"
                 src="https://i.pinimg.com/564x/e6/4b/ec/e64beca1b9921925b59671bbf74b9837.jpg"
               />
-              {profileSelected && (
-                <div className="menu-starter">
-                  <div className="menu">
-                    <div className="options">
-                      <span>
-                        <p> Thông tin của tôi </p>
-                      </span>
-                      <span className="logout" onClick={handleLogout}>
-                        Thoát
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              )}
+              {profileSelected && <Profile />}
             </li>
           </ul>
         </div>

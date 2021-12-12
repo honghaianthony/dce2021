@@ -70,7 +70,7 @@ function HomeDCE() {
     return exercises.map((item, index) => {
       return (
         index < 3 && (
-          <article className="col-xs-12 col-sm-4 training-item">
+          <article className="col-xs-12 col-sm-4 training-item" key={item.id}>
             <Link to={`/exercises`} className="wrap-training-content">
               <div className="task-item-detail">
                 <h3 className="task-title">{item.exerciseName}</h3>
@@ -172,7 +172,7 @@ function HomeDCE() {
           <div className="wrap-cl-tabs-control">
             <span className="mobile-dropdown-control">
               <select className="mobile-dropdown-control-select">
-                <option value="#suggest-courses" selected>
+                <option value="#suggest-courses" defaultValue={true}>
                   Khoá học giợi ý
                 </option>
                 <option value="#recent-courses"> Đang học</option>
@@ -185,7 +185,6 @@ function HomeDCE() {
             <ul className="cl-tabs-control">
               <li>
                 <a
-                  onClick="initSlick();"
                   href="#suggest-courses"
                   className="cl-tab-control-item active"
                 >
@@ -194,18 +193,13 @@ function HomeDCE() {
               </li>
 
               <li>
-                <a
-                  onClick="initSlick();"
-                  href="#recent-courses"
-                  className="cl-tab-control-item"
-                >
+                <a href="#recent-courses" className="cl-tab-control-item">
                   Đang học
                 </a>
               </li>
 
               <li>
                 <a
-                  onClick="initSlick();"
                   href="#finish-courses"
                   className="cl-tab-control-item disabled"
                 >
