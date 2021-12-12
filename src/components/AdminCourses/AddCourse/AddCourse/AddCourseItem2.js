@@ -37,7 +37,7 @@ function AddCourseItem2(data) {
             <div className="Item2_container">
                     <div className="AddCourseItem2_left">
                         <div className="btn_edit_AddCourseItem">
-                            <Link to="/adminUpdateLesson">
+                            <Link to={`/adminUpdateLesson/:lessonId`}>
                                 <button  type="button">
                                     <i class="fas fa-pencil-alt "></i>
                                 </button>

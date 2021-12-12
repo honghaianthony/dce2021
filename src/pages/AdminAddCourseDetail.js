@@ -8,6 +8,7 @@ import React, { useState,useEffect } from "react";
 import AdminLayout from "../layouts/AdminLayout";
 import { useParams } from "react-router-dom";
 import coursesApi from "../apis/coursesApi";
+import LessonApi from "../apis/LessonApi";
 function AdminAddCourseDetail() {
   const listAddCourse2 = [
     {
@@ -27,11 +28,11 @@ function AdminAddCourseDetail() {
   const { courseId } = useParams();
 
   useEffect(async () => {
-    const res = await coursesApi.getCourseById(courseId);
+    const res = await LessonApi.getAllLesson(courseId);
     setDataCourse(res);
   }, [courseId]);
   
-  console.log(dataCourse);
+  // console.log(dataCourse);
   // const [items,setItem]=useState(listAddCourse2)
   //     const handleDeleteClick = (id) => {
   //         const index = items.findIndex((item) => item.id === id);
