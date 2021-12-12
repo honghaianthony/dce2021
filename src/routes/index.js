@@ -32,6 +32,7 @@ import UpdateLesson from "../components/AdminCourses/AddCourse/UpdateCourse/Upda
 import UpdateExercise from "../components/AdminExercises/AddExercise/UpdateExercise/UpdateExercise";
 import AddExercise from "../components/AdminExercises/AddExercise/AddExercise/AddExercise";
 import AddLesson from "../components/AdminCourses/AddCourse/AddCourse/AddLesson";
+import AddTestCase from"../components/AdminExercises/AddExercise/AddExercise/AddTestCase";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Lessoncopy from "../pages/Lessoncopy";
@@ -92,7 +93,6 @@ export default function App() {
           <Route exact path="/exercises">
             <Exercises />
           </Route>
-
           <Route exact path={`/exercises/:exerciseId`}>
             <Exercise />
           </Route>
@@ -125,6 +125,9 @@ export default function App() {
           </Route>
           <Route path="/adminbloglist">
             <AdminBlogList />
+          </Route>
+          <Route path="/adminAddTestCase">
+            <AddTestCase />
           </Route>
           <Route path="/adminaddblog">
             <AdminAddBlog />

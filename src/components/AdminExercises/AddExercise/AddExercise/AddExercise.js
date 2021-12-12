@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import TestCase from "./TestCase.js";
 import AdminLayout from "../../../../layouts/AdminLayout";
 import ExerciseApi from "../../../../apis/ExerciseApi";
+import Sidebar from "../../../SideBar/index";
+import MainLayout from "../../../../layouts/MainLayout"
 import { Link } from 'react-router-dom';
 
 function AddExercise() {
@@ -65,10 +67,12 @@ function AddExercise() {
     arrTestCase.push(i + 1);
   }
   return (
-    <AdminLayout>
+      <MainLayout>
       <div className="AddExercise-container">
         <div className="AddExercise-main">
-          <div className="AddExercise-left"></div>
+          <div className="AddExercise-left">
+            <Sidebar/>
+          </div>
           <div className="AddExercise-right">
             <div className="AddExercise-right-title">
               <p>Tạo bài luyện tập mới</p>
@@ -106,14 +110,14 @@ function AddExercise() {
                       onChange={(event) => setExerContent(event.target.value)}
                     />
                   </div>
-                  <div className="row-AddExercise">
+                  {/* <div className="row-AddExercise">
                     <h2>Kết Quả Mong Muốn</h2>
                     <TestCase
                         handleChangeInput={setInput}
                         
                         handleChangeOutput={setOutput}
                     />
-                  </div>                 
+                  </div>                  */}
                   <div className="row-AddExercise">
                       <div className="button-AddExercise">                     
                             <input
@@ -124,7 +128,7 @@ function AddExercise() {
                     </div>  
                   </div>
                 </form>
-                <div className="row-AddExercise">
+                {/* <div className="row-AddExercise">
                     <h3 className="add-test-case" onClick={handleAdd}>
                       <i class="fas fa-plus"></i>Thêm testcase mới
                     </h3>
@@ -136,40 +140,40 @@ function AddExercise() {
                       placeholder="Nhập số lượng testcase"
                     />
                     <div className="add-testcase">
-                      <form onSubmit={handleSubmitTestCase}> 
-                        <input
-                            id="input-count-testcase"
-                            className={addShow === "show" ? "hide" : "show"}
-                            type="text"
-                            name="exerciseId"
-                            placeholder="Nhập id bài luyện tập"
-                            onChange={(event) => setExerId(event.target.value)}  
-                        />
-                        {arrTestCase.map((testCaseIndex) => (
-                        <>
-                        <TestCase id={testCaseIndex} 
-                                  key={testCaseIndex} 
-                                  handleChangeInput={setInputTestCase}
-                                  handleChangeOutput={setOutputTestCase}
-                        />
-                        </>
-                       ))}
-                        <div className="button-AddExercise">                     
-                            <input
-                              type="submit"
-                              className="button-add-AddExercise"
-                              value="Thêm Testcase"
-                            />
-                          </div>  
-                      </form>
-                    </div>
-                  </div> 
+                            <form onSubmit={handleSubmitTestCase}> 
+                              <input
+                                  id="input-count-testcase"
+                                  className={addShow === "show" ? "hide" : "show"}
+                                  type="text"
+                                  name="exerciseId"
+                                  placeholder="Nhập id bài luyện tập"
+                                  onChange={(event) => setExerId(event.target.value)}  
+                              />
+                              {arrTestCase.map((testCaseIndex) => (
+                              <>
+                              <TestCase id={testCaseIndex} 
+                                        key={testCaseIndex} 
+                                        handleChangeInput={setInputTestCase}
+                                        handleChangeOutput={setOutputTestCase}
+                              />
+                              </>
+                            ))}
+                              <div className="button-AddExercise">                     
+                                  <input
+                                    type="submit"
+                                    className="button-add-AddExercise"
+                                    value="Thêm Testcase"
+                                  />
+                                </div>  
+                            </form>
+                    </div>  
+                   </div>  */}
               </div>
             </div>
           </div>
         </div>
       </div>
-    </AdminLayout>
+      </MainLayout>
   );
 }
 

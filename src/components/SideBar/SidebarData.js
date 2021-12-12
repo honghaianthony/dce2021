@@ -61,6 +61,12 @@ export const SidebarData = [
         cName: "sub-nav",
       },
       {
+        title: "Thêm TestCase",
+        path: "/adminAddTestCase",
+        icon: <CgIcons.CgAdd />,
+        cName: "sub-nav",
+      },
+      {
         title: "Chỉnh sửa",
         path: "/adminUpdateExersise",
         icon: <BiIcons.BiEditAlt />,

@@ -2,10 +2,6 @@ import "./Frameexercise.css";
 import { Link } from 'react-router-dom';
 function Frameexercise(exercise)
 {
-    function handleClick(id) 
-    {
-        console.log(id);
-    }
     return(
         
         <div className="exer-containner">
