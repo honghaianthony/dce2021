@@ -32,18 +32,18 @@ function AdminAddCourseDetail() {
     setDataCourse(res);
   }, [courseId]);
   
-  // console.log(dataCourse);
-  // const [items,setItem]=useState(listAddCourse2)
+  console.log(dataCourse);
+  // const [items,setItem]=useState(dataCourse)
   //     const handleDeleteClick = (id) => {
   //         const index = items.findIndex((item) => item.id === id);
   //         if(index <0 )return;
   //         const newItems = [...items];
   //         newItems.splice(index, 1);
   //         setItem(newItems);
-  //         // let currentItem= items;
-  //         // currentItem=currentItem.filter((i)=>i.id !== id)
-  //         // setItem(currentItem)
-  //       };
+          // let currentItem= items;
+          // currentItem=currentItem.filter((i)=>i.id !== id)
+          // setItem(currentItem)
+        // };
   return (
     <>
     <AdminLayout>
@@ -65,7 +65,11 @@ function AdminAddCourseDetail() {
               </div>
               {dataCourse.map((item, index) => (
                 <div className="listAddCourse__Container" key={index}>
-                  <AddCourseItem2 id={item.id} name={item.lessonName} />
+                  <AddCourseItem2 
+                  id={item.id} 
+                  name={item.lessonName}
+                  // item={dataCourse}
+                  />
                 </div>
               ))}
               

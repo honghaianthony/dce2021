@@ -23,9 +23,9 @@ function AdminAddCourse() {
     }
     const res = await coursesApi.createCourse(Course);
     if (res) {
-      toast.success("Xóa thành công");
+      toast.success("Thêm thành công");
     } else {
-      toast.error("Xóa thất bại");
+      toast.error("Thêm thất bại");
     }
   }
   return (
