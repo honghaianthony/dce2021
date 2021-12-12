@@ -13,10 +13,13 @@ const createCourse = async (course) =>
 const deleteCourseById = async (id) => {
   return await axiosInstance.get(`courses/delete-courses?id=${id}`);
 };
-
+const updateCourseById = async (course) => {
+  return await axiosInstance.put(`courses/update-courses`,course);
+};
 export default {
   getAllCourses,
   getCourseById,
   createCourse,
   deleteCourseById,
+  updateCourseById
 };

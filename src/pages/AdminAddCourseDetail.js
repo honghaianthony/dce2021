@@ -8,6 +8,7 @@ import React, { useState,useEffect } from "react";
 import AdminLayout from "../layouts/AdminLayout";
 import { useParams } from "react-router-dom";
 import coursesApi from "../apis/coursesApi";
+import LessonApi from "../apis/LessonApi";
 function AdminAddCourseDetail() {
   const listAddCourse2 = [
     {
@@ -27,22 +28,22 @@ function AdminAddCourseDetail() {
   const { courseId } = useParams();
 
   useEffect(async () => {
-    const res = await coursesApi.getCourseById(courseId);
+    const res = await LessonApi.getAllLesson(courseId);
     setDataCourse(res);
   }, [courseId]);
   
   console.log(dataCourse);
-  // const [items,setItem]=useState(listAddCourse2)
+  // const [items,setItem]=useState(dataCourse)
   //     const handleDeleteClick = (id) => {
   //         const index = items.findIndex((item) => item.id === id);
   //         if(index <0 )return;
   //         const newItems = [...items];
   //         newItems.splice(index, 1);
   //         setItem(newItems);
-  //         // let currentItem= items;
-  //         // currentItem=currentItem.filter((i)=>i.id !== id)
-  //         // setItem(currentItem)
-  //       };
+          // let currentItem= items;
+          // currentItem=currentItem.filter((i)=>i.id !== id)
+          // setItem(currentItem)
+        // };
   return (
     <>
     <AdminLayout>
@@ -64,7 +65,11 @@ function AdminAddCourseDetail() {
               </div>
               {dataCourse.map((item, index) => (
                 <div className="listAddCourse__Container" key={index}>
-                  <AddCourseItem2 id={item.id} name={item.lessonName} />
+                  <AddCourseItem2 
+                  id={item.id} 
+                  name={item.lessonName}
+                  // item={dataCourse}
+                  />
                 </div>
               ))}
               

@@ -102,13 +102,13 @@ export default function App() {
           <PrivateRoute path="/me">
             <Account />
           </PrivateRoute>
-          <Route path="/adminaddcoursedetail">
+          <Route path={`/adminaddcoursedetail/:courseId`}>
             <AdminAddCourseDetail />
           </Route>
           <Route path="/adminaddcourse">
             <AdminAddCourse />
           </Route>
-          <Route path="/adminupdatecourse">
+          <Route path={`/adminupdatecourse/:courseId`}>
             <AdminUpdateCourse />
           </Route>
           <Route path="/adminUpdateLesson">

@@ -95,7 +95,22 @@
 }
 .top_decription_centercontent{
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
     /* margin-bottom: 15px; */
+}
+.top_decription_centercontent button{
+    width:60px;
+    padding:5px;
+    background-color: #b21010;
+    color: #fff;
+    border-radius: 5px;
+    border:1px solid #000;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 .top_decription_centercontent p{
