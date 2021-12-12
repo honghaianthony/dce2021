@@ -8,11 +8,7 @@ import coursesApi from "../apis/coursesApi";
 import "../components/AdminCourses/CourseList/CourseListTable.css";
 
 function getFormattedDate(date) {
-    var start = new Date(date);
-    let year = start.getFullYear();
-    let month = (1 + start.getMonth()).toString().padStart(2, '0');
-    let day = start.getDate().toString().padStart(2, '0');
-    return month + '/' + day + '/' + year;
+    return new Date(date).toLocaleDateString();
 }
 
 function AdminCourseList() {
@@ -42,7 +38,6 @@ function AdminCourseList() {
     const listCourses = () => {
         if (filteredData.length > 0) {
             return filteredData.map((item, index) => {
-                // let path="/adminupdatecourse/";
                 return (
                     <tr>
                         <td>{item.id}</td>
@@ -53,8 +48,8 @@ function AdminCourseList() {
                         <td>{getFormattedDate(item.createdAt)}</td>
                         <td>{getFormattedDate(item.updatedAt)}</td>
                         <td>
-                            <Link to= {`/adminupdatecourse/${item.id}`}>
-                                <button className='view-btn'>
+                            <Link to={`/adminupdatecourse/${item.id}`}>
+                                <button className='view-btns'>
                                     Xem chi tiết
                                 </button>
                             </Link>
@@ -83,10 +78,11 @@ function AdminCourseList() {
                     <h2 className='courselist-title'> Danh sách khoá học </h2>
                     <Search placeholder='Nhập tên khoá học cần tìm' className='courselist-search' value={search}
                         onChange={setSearch} />
-                    <div className="listtable-container">
-                        <table className="listtable">
-                            <thead className="listtable-header">
-                                <tr className="listtable-row">
+                    <h2 className='courselist-title1'>Thông tin khoá học</h2>
+                    <div className="listtables-container">
+                        <table className="listtables">
+                            <thead className="listtables-header">
+                                <tr className="listtables-row">
                                     <th>ID</th>
                                     <th>Tên khoá học</th>
                                     <th>Admin</th>
@@ -95,7 +91,7 @@ function AdminCourseList() {
                                     <th>Xem</th>
                                 </tr>
                             </thead>
-                            <tbody className="listtable-body">
+                            <tbody className="listtables-body">
                                 {listCourses()}
                             </tbody>
                         </table>

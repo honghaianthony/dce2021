@@ -9,11 +9,7 @@ import usersApi from "../apis/usersApi";
 import "../components/AdminCourses/CourseList/CourseListTable.css"
 
 function getFormattedDate(date) {
-    var start = new Date(date);
-    let year = start.getFullYear();
-    let month = (1 + start.getMonth()).toString().padStart(2, '0');
-    let day = start.getDate().toString().padStart(2, '0');
-    return month + '/' + day + '/' + year;
+    return new Date(date).toLocaleDateString();
 }
 
 function AdminExerciseList() {
@@ -59,7 +55,7 @@ function AdminExerciseList() {
                         <td>{getFormattedDate(item.updatedAt)}</td>
                         <td>
                             <Link to='/'>
-                                <button className='view-btn'>
+                                <button className='view-btns'>
                                     Xem chi tiết
                                 </button>
                             </Link>
@@ -90,10 +86,10 @@ function AdminExerciseList() {
                     <Search placeholder='Nhập tên bài tập cần tìm' className='exerciselist-search' value={search}
                         onChange={setSearch} />
                     <h2 className='exerciselist-title1'>Thông tin bài luyện tập</h2>
-                    <div className="listtable-container">
-                        <table className="listtable">
-                            <thead className="listtable-header">
-                                <tr className="listtable-row">
+                    <div className="listtables-container">
+                        <table className="listtables">
+                            <thead className="listtables-header">
+                                <tr className="listtables-row">
                                     <th>ID</th>
                                     <th>Tên bài luyện tập</th>
                                     <th>Tác giả</th>
@@ -103,7 +99,7 @@ function AdminExerciseList() {
                                 </tr>
                             </thead>
 
-                            <tbody className="listtable-body">
+                            <tbody className="listtables-body">
                                 {listExers()}
                             </tbody>
                         </table>

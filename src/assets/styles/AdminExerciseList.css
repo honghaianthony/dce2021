@@ -1,3 +1,7 @@
+.exerciselist{
+  margin-left: 300px;
+  padding: 10px, 30px;
+}
 .exerciselist-container {
     display: flex;
     flex-direction: column;
@@ -6,7 +10,6 @@
   }
   .exerciselist-title {
     text-align: center;
-    margin-left: 330px;
     font-size: 35px;
     color: black;
   }
@@ -15,19 +18,19 @@
     flex-direction: column;
   }
   .exerciselist-title1 {
-    width: 70vw;
+    width: 100%;
     text-align: left;
     font-size: 30px;
-    margin-bottom: 20px;
-    margin-left: 255px;
-    color: black;
+    color: #494949;
+    margin-bottom: 0;
+    margin-left: 60px;
   }
   
   /* Exercise list path */
   
   .exerciselist-path {
       text-align: left;
-      padding: 40px 30px;  
+      padding: 20px 30px;  
       font-size: 16px;
       background-color: white;
       height: 50px;

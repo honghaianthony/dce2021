@@ -8,11 +8,7 @@ import usersApi from "../apis/usersApi"
 import "../components/AdminMembers/MemberListTable.css"
 
 function getFormattedDate(date) {
-    var start = new Date(date);
-    let year = start.getFullYear();
-    let month = (1 + start.getMonth()).toString().padStart(2, '0');
-    let day = start.getDate().toString().padStart(2, '0');
-    return month + '/' + day + '/' + year;
+    return new Date(date).toLocaleDateString();
 }
 
 function AdminMemberList() {
