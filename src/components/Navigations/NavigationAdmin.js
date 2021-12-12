@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 import { useDetectClickOutside } from "react-detect-click-outside";
 import * as BsIcons from 'react-icons/bs';
 import './NavigationAdmin.css';
+import { useStore, actions } from "../../store";
 
 function NavigationAdmin() {
+  const [state, dispatch] = useStore();
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const [profileSelected, setProfileSelected] = useState(false);
@@ -31,7 +33,9 @@ function NavigationAdmin() {
   }, []);
 
   window.addEventListener('resize', showButton);
-
+  const handleLogout = () => {
+    dispatch(actions.logout());
+  };
   return (
     <>
       <nav className='navbar'>
@@ -121,7 +125,7 @@ function NavigationAdmin() {
                       <Link to="/" >
                         <p> Tạo bài luyện tập</p>
                       </Link>
-                      <span>
+                      <span onClick={handleLogout}>
                         <p> Thoát </p>
                       </span>
                     </div>
