@@ -10,6 +10,7 @@
   width: 85vw;
   border-radius: 10px;
   overflow: hidden;
+  margin-bottom: 30px;
 }
 .blogtable-row th,
 .blogtable-row td {

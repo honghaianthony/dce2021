@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 import { useDetectClickOutside } from "react-detect-click-outside";
 import * as BsIcons from 'react-icons/bs';
 import './NavigationAdmin.css';
+import { useStore, actions } from "../../store";
 
 function NavigationAdmin() {
-  // Hook: useState()
+  const [state, dispatch] = useStore();
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const [profileSelected, setProfileSelected] = useState(false);
@@ -27,32 +28,33 @@ function NavigationAdmin() {
     }
   };
 
-  //Hook: useEffect()
   useEffect(() => {
     showButton();
   }, []);
 
   window.addEventListener('resize', showButton);
-
+  const handleLogout = () => {
+    dispatch(actions.logout());
+  };
   return (
     <>
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-          <img src="https://firebasestorage.googleapis.com/v0/b/dce2021.appspot.com/o/images%2F1639105423707-logoDCE.png?alt=media&token=05afc33e-ef75-4e9e-9247-a9c48f95bea4" className="dce-logo" />
+            <img src="https://firebasestorage.googleapis.com/v0/b/dce2021.appspot.com/o/images%2F1639105423707-logoDCE.png?alt=media&token=05afc33e-ef75-4e9e-9247-a9c48f95bea4" className="dce-logo" />
           </Link>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
-              <Link to='./Home' className='nav-links' onClick={closeMobileMenu}>
+              <Link to='/' className='nav-links' onClick={closeMobileMenu}>
                 Trang chủ
               </Link>
             </li>
             <li className='nav-item'>
               <Link
-                to='./Courses'
+                to='/courses'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
@@ -61,7 +63,7 @@ function NavigationAdmin() {
             </li>
             <li className='nav-item'>
               <Link
-                to='./exercises'
+                to='/exercises'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
@@ -70,7 +72,7 @@ function NavigationAdmin() {
             </li>
             <li className='nav-item'>
               <Link
-                to='./'
+                to='/blogs'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
@@ -79,7 +81,7 @@ function NavigationAdmin() {
             </li>
             <li className='nav-item'>
               <Link
-                to='./'
+                to='/censor'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
@@ -88,7 +90,7 @@ function NavigationAdmin() {
             </li>
             <li className='nav-item'>
               <Link
-                to='./'
+                to='/adminmemberlist'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
@@ -114,12 +116,18 @@ function NavigationAdmin() {
                 <div className="menu-starter">
                   <div className="menu">
                     <div className="options">
-                      <span>
+                      <Link to="/account">
                         <p> Thông tin của tôi </p>
-                      </span>
-                      <Link to="./">
-                        <span className="logout">Thoát</span>
                       </Link>
+                      <Link to="/addblog">
+                        <p> Tạo bài blog </p>
+                      </Link>
+                      <Link to="/" >
+                        <p> Tạo bài luyện tập</p>
+                      </Link>
+                      <span onClick={handleLogout}>
+                        <p> Thoát </p>
+                      </span>
                     </div>
                   </div>
                 </div>

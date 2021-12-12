@@ -10,7 +10,7 @@ import * as BsIcons from 'react-icons/bs';
 export const SidebarData = [
   {
     title: 'Quản lý thành viên',
-    path: '',
+    path: '/adminmemberlist',
     icon: <FiIcons.FiUsers />,
   },
   {
@@ -29,20 +29,20 @@ export const SidebarData = [
       },
       {
         title: 'Thêm khoá học',
-        path: '',
+        path: '/adminaddcourse',
         icon: <CgIcons.CgAdd />,
         cName: 'sub-nav'
       },
       {
         title: 'Chỉnh sửa khoá học',
-        path: '',
+        path: '/adminupdatecourse',
         icon: <BiIcons.BiEditAlt />
       }
     ]
   },
   {
     title: 'Quản lý bài luyện tập',
-    path: '/adminAddExercise',
+    path: '/adminexerciselist',
     icon: <IoIcons.IoIosPaper />,
     iconClosed: <RiIcons.RiArrowDownSLine />,
     iconOpened: <RiIcons.RiArrowUpSLine />,
@@ -50,7 +50,7 @@ export const SidebarData = [
     subNav: [
       {
         title: 'Danh sách luyện tập',
-        path: '/adminAddExercise',
+        path: '/adminexerciselist',
         icon: <BiIcons.BiTable />,
         cName: 'sub-nav'
       },

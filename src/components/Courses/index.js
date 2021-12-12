@@ -72,7 +72,7 @@ function CoursesMain() {
       <div className="courses">
         <div className="courses__container">
           <div className="courses__wrapper">
-            <ul className="courses__items">{listCourse()}</ul>
+            {listCourse()}
           </div>
         </div>
       </div>

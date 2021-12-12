@@ -151,10 +151,7 @@
 .options a:hover {
   background-color: #f5f5f5;
 }
-.logout {
-  margin-left: 20px;
-  color: #3B3C54;
-}
+
 
 
 @media screen and (max-width: 960px) {
