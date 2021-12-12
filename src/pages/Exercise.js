@@ -1,29 +1,49 @@
-import MainLayout from "../layouts/MainLayout";
 import "../assets/styles/Exercise.css";
+import { Link } from "react-router-dom";
 import { useState,useEffect} from "react";
-import reactDom from "react-dom";
 import ExerciseApi from "../apis/ExerciseApi";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 function Exercise(Exercise)
 {
-    /*api*/
-    /*const [exercise,setExercise]=useState([]);
-    useEffect( async(id) => {
-       const res= await ExerciseApi.getAllExerciseById(id);
-       setExercise(res.data);
-    }, [])
-    /*api*/
+    
     const [display,setdisplay]=useState("off");
     const setcomment = () =>
     {
         setdisplay(display === "off" ? "on" : "off");
     }
-    console.log(display);
+    /*api*/
+    const [data,setData]=useState(null);
+    const [listTestcaseId,setListTestcaseId]=useState([]);
+    const [listTestcase,setListTestcase]=useState([]);
+    const {exerciseId} =useParams();
+
+    useEffect( async () => {
+       const res = await ExerciseApi.getAllExerciseById(exerciseId);
+       setData(res);
+    }, [exerciseId])
+    
+    /*useEffect( async () => {
+        const res =await ExerciseApi.getTestCaseById(exerciseId);
+        setListTestcaseId(res);        
+    }, [exerciseId])
+    console.log(listTestcaseid)*/
+    useEffect( async() => {
+        const res = await ExerciseApi.getAllTestCase();
+        setListTestcase(res);
+    }, [])
+    console.log(listTestcase);
+
     return (
         <>
-            <div className="exercise-container">
+            { data === null ? (<h1>Loading</h1>):
+                (
+                    <div className="exercise-container">
                 <div className="exercise-name">
-                    <a href=""><i class="fas fa-angle-left"></i></a>
-                    <p>{Exercise.title}</p>
+                    <Link to="/exercises">
+                         <i class="fas fa-angle-left"></i>
+                    </Link>
+                    
+                    <p>{data.exerciseName}</p>
                 </div>
                 <div className="exercise-main">
                     <div className="content">
@@ -35,25 +55,26 @@ function Exercise(Exercise)
                         <div className="content-and-comment">
                             <div className={display === "on" ? "main-content-off" : "main-content"}>
                             <div className="content-header">
-                                <div className="level">{Exercise.level}</div>
+                                <div className={(data.level === 1 ? "level-simple" : (data.level === 2 ? "level-normal" : "level-hard"))}>
+                                    {(data.level === 1 ? "Đơn giản" : (data.level === 2 ? "Trung bình" : "Khó"))}
+                                </div>
                                 <div className="point">100 Points</div>
                             </div>
                             <div className="content-disc">
                                 <p>
-                                {Exercise.content}
+                                {data.content}
                                 </p>
                             </div>
                             <div className="content-input">
                                 <h2>Input:</h2>
-                                <p>[Thời gian chạy] 0.5s với C++, 3s với Java và C#, 4s với Python, Go và JavaScript. 
-                                    <br/>
-                                    [Đầu vào]  Long long n1   n 1018.
+                                <p>
+                                    {data.input}
                                 </p>
                             </div>
                             <div className="content-output">
                                 <h2>Output:</h2>
                                 <p>
-                                 Số lượng số composite lớn nhất
+                                    {data.output}
                                 </p>
                             </div>
                             </div> 
@@ -123,7 +144,7 @@ function Exercise(Exercise)
                             </div> 
                         </div>
                     </div>
-                    <div className="code">
+                    <div className="exercise-code">
                             <div className="intro">
                                 <p className="intro-content">Code in here</p>
                                 <button type="button" className="refresh-btn">Làm mới</button>
@@ -159,7 +180,8 @@ function Exercise(Exercise)
                         </div>
                     </div>                    
                 </div> 
-            </div>                        
+            </div>              
+            )}             
         </>
     )
 }

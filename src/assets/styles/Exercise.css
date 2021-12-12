@@ -17,12 +17,14 @@
 .exercise-name>p
 {
     display: inline-block;
+    margin-left: -20px;
 }
 .fa-angle-left
 { 
-    margin-right: 50px;
     font-size: 20px;
     color: #fff;
+    display: inline-block;
+    margin-left: -10px;
 }
 .fa-angle-left:hover
 {
@@ -56,6 +58,7 @@
     background-color:#050295;
     border: none;
     padding: 10px 5px;
+    width: 100%;
 }
 .exercise-main .fa-rocketchat
 {
@@ -73,6 +76,7 @@
     background-color:#fff;
     border: none;
     padding: 10px 5px;
+    width: 100%;
 }
 .discuss-icon-on .fa-rocketchat
 {
@@ -104,17 +108,29 @@
 {
     display: block;
     overflow: auto;
-    height: 715px;
 }
- .level
+ .level-simple,.level-normal,.level-hard
 {
     border: none;
     border-radius: 50px;
-    background-color: #FF5C00;
-    color: #fff;
     padding: 5px 30px;
     font-size: 18px;  
     display: inline-block;  
+}
+.level-simple
+{
+    background-color: rgb(65, 236, 117);
+    color: #fff;
+}
+.level-normal
+{
+    background-color:gold;
+    color: #fff;
+}
+.level-hard
+{
+    background-color: rgb(247, 6, 6);
+    color: #fff;
 }
  .point
 {
@@ -134,12 +150,14 @@
     text-align: left;
 }
 /*RIGHT*/
-.code
+.exercise-code
 {
     width: 60%;
     background-color: #232432;
     color: #fff;
     height: 100vh;
+    display: block;
+    overflow: hidden;
 }
 .intro
 {
@@ -179,12 +197,12 @@
     color: #fff;
     font-size: 20px;
     display: block;
-    height: 250px;
+    height: 230px;
     width: 100% ;
     border: 2px #fff solid;
     border-radius: 10px;
 }
-.code .testcase
+.exercise-code .testcase
 {
     padding-left: 15px;
 }
@@ -300,7 +318,7 @@
 }
 #place-write-comment
 {
-   width: 100%;
+   width: 90%;
    height: 100px;
    border-radius: 5px;
    background-color:#f1eeee;
