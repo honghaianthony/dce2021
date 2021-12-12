@@ -102,11 +102,17 @@ function NavigationUser() {
                 <div className="menu-starter">
                   <div className="menu">
                     <div className="options">
-                      <span>
+                      <Link to="/account">
                         <p> Thông tin của tôi </p>
-                      </span>
-                      <span className="logout" onClick={handleLogout}>
-                        Thoát
+                      </Link>
+                      <Link to="/addblog" >
+                        Tạo bài blog
+                      </Link>
+                      <Link to="/" >
+                        <p> Tạo bài luyện tập</p>
+                      </Link>
+                      <span onClick={handleLogout}>
+                        <p> Thoát </p>
                       </span>
                     </div>
                   </div>

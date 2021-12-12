@@ -102,12 +102,18 @@ function NavigationCensor() {
                 <div className="menu-starter">
                   <div className="menu">
                     <div className="options">
-                      <span>
+                      <Link to="/account">
                         <p> Thông tin của tôi </p>
-                      </span>
-                      <Link to="/">
-                        <span className="logout">Thoát</span>
                       </Link>
+                      <Link to="/addblog" >
+                        <p> Tạo bài blog</p>
+                      </Link>
+                      <Link to="/" >
+                        <p> Tạo bài luyện tập</p>
+                      </Link>
+                      <span>
+                        <p>Thoát</p>
+                      </span>
                     </div>
                   </div>
                 </div>
