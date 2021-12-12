@@ -152,13 +152,16 @@ function BlogDetail() {
                 {comment.length > 0 && renderComment()}
               </div>
               {showMoreCmt < comment.length && (
-                <button className="blog-comment-show-more"
-                  onClick={() => {
-                    setShowMoreCmt(showMoreCmt + 5);
-                  }}
-                >
-                  Xem thêm bình luận
-                </button>
+                <div className="blog-comment-show-more">
+                  <button 
+                    onClick={() => {
+                      setShowMoreCmt(showMoreCmt + 5);
+                    }}
+                  >
+                    Xem thêm bình luận <i class="fa fa-angle-down" aria-hidden="true"></i>
+                  </button>
+                </div>
+                
               )}
             </div>
           </div>
