@@ -4,6 +4,8 @@ import Navigation from "../components/Navigations/Navigation";
 import AdminLayout from "../layouts/AdminLayout"
 import coursesApi from "../apis/coursesApi";
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
+
 function AdminAddCourse() {
   const [addNameCourse,setAddNameCourse]=useState("");
   const [addDesriptionCourse,setAddDescriptionCourse]=useState("")
@@ -20,6 +22,11 @@ function AdminAddCourse() {
       image:addImageCourse
     }
     const res = await coursesApi.createCourse(Course);
+    if (res) {
+      toast.success("Xóa thành công");
+    } else {
+      toast.error("Xóa thất bại");
+    }
   }
   return (
     <AdminLayout>
