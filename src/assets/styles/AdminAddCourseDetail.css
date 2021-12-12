@@ -8,7 +8,7 @@
 .center_AddCourse_Top{
     display: flex;
     align-items: flex-start;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 .center_AddCourse_Top h2{
     color: #000;
@@ -17,6 +17,8 @@
 .container_AdminAddCourse_detail{
     display:flex;
     padding:0 15px;
+    justify-content: end;
+    margin-bottom: 400px;
 }
 .center_AddCourseDetail_container{
     width:100%;

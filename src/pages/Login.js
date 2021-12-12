@@ -32,6 +32,9 @@ function Login() {
       ) : (
         <section className="login">
           <div className="img-content-left">
+            <Link to="/" className="btn_back_login">
+                  <button>Trở về trang chủ</button> 
+            </Link>
             <img src={hinhlaptrinh} alt="Hình minh họa" />
           </div>
           {/* {!isCreateAccount && ( */}
@@ -104,17 +107,15 @@ function Login() {
               </div>
             </form>
             <div className="form-bottom">
-              <Link to="/forgotpassword">
-                <div className="forgot-pass">
-                  <a href="#">Quên mật khẩu?</a>
-                </div>
+              <Link to="/forgotpassword" className="forgot-pass">
+                  Quên mật khẩu?
               </Link>
               <div className="become-member">
                 <p>Chưa phải là thành viên?</p>
-                <Link to="/register">
-                  <a href="#" className="sign-up-now">
+                
+                  <Link to="/register" className="sign-up-now"> 
                     Đăng ký ngay
-                  </a>
+                 
                 </Link>
               </div>
             </div>
