@@ -244,6 +244,20 @@
     color: #f1f1f1;
 }
 
+.blog-comment-show-more {
+    font-size: 16px;
+    padding: 8px 20px;
+    border-radius: 5px;
+    border: solid 1px #333;
+    cursor: pointer;
+    text-align: center;
+}
+
+.blog-comment-show-more:hover {
+    background-color: #1e266d;
+    color: #f1f1f1;
+}
+
 /* blog cmt others */
 
 /* .blog-comment-others {
