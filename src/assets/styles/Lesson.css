@@ -355,6 +355,7 @@
   /* height: 80vh; */
   border: 1px solid;
   position: relative;
+  text-align: center;
 }
 .Noted__container_Top {
   width: 100%;
@@ -467,4 +468,37 @@
 
 .comment-icon p {
   padding-left: 10px;
+}
+
+.lesson-comment-show-more {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  font-size: 16px;
+  padding: 8px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.5s;
+  border: none;
+}
+
+.lesson-comment-show-more:hover {
+  color: #1e266d;
+  font-weight: 700;
+}
+
+.note-area {
+  width: 90%;
+  min-height: 270px;
+  border-radius: 5px;
+  background-color: #f1eeee;
+}
+
+.save-note-off {
+  background-color: #007bff;
+}
+.save-note-on {
+  color: #007bff;
+  border-color: #007bff;
+  background-color: #fff;
 }

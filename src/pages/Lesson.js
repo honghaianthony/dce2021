@@ -13,7 +13,10 @@ function Lesson() {
   const [testCase, setTestCase] = useState([]);
   const [comment, setComment] = useState([]);
   const [commentInput, setCommentInput] = useState("");
-  const [realOutput, setRealOutput] = useState("");
+  const [note, setNote] = useState("");
+  const [allow, setAllow] = useState(false);
+  const [savedNote, setSavedNote] = useState(true);
+  const [realOutput, setRealOutput] = useState(" ");
   const [showMoreCmt, setShowMoreCmt] = useState(5);
   const [testCaseShow, setTestCaseShow] = useState({
     id: 0,
@@ -41,6 +44,10 @@ function Lesson() {
     setTestCase(test);
     const cmt = await LessonApi.getAllLessonComment(lessonId);
     setComment(cmt);
+    const getnote = await LessonApi.getLessonNote(lessonId);
+    if (getnote !== null) {
+      setNote(getnote.content);
+    }
   }, [lessonId]);
 
   const [display, setdisplay] = useState("off");
@@ -54,6 +61,10 @@ function Lesson() {
   useEffect(() => {
     setRealOutput("");
   }, [testCaseShow]);
+
+  useEffect(() => {
+    setSavedNote(false);
+  }, [note]);
 
   const listTestCase = () => {
     if (testCase.length > 0) {
@@ -89,9 +100,11 @@ function Lesson() {
       lang: lang,
     };
     const response = await compileApi.postCompile(body);
-    console.log(response);
     if (response.output) {
       setRealOutput(response.output);
+      if (response.output.localeCompare(testCaseShow.output)) {
+        setAllow(true);
+      }
     } else {
       setRealOutput(response.error);
     }
@@ -131,6 +144,16 @@ function Lesson() {
     setCommentInput(e.target.value);
   };
 
+  const handleSaveNote = async () => {
+    const body = {
+      lessonId: lessonId,
+      content: note,
+    };
+    const success = await LessonApi.updateNote(body);
+    if (success.errCode === 0) {
+      setSavedNote(true);
+    }
+  };
   return (
     <>
       {data ? (
@@ -225,7 +248,7 @@ function Lesson() {
                         {comment.length > 0 && renderComment()}
                         {showMoreCmt < comment.length && (
                           <button
-                            className="blog-comment-show-more"
+                            className="lesson-comment-show-more"
                             onClick={() => {
                               setShowMoreCmt(showMoreCmt + 5);
                             }}
@@ -248,6 +271,29 @@ function Lesson() {
                         <div className="Noted__container_title">
                           <h3>Ghi chú </h3>
                         </div>
+                        <textarea
+                          className="note-area"
+                          value={note}
+                          onChange={(e) => {
+                            setNote(e.target.value);
+                          }}
+                        ></textarea>
+                        {savedNote ? (
+                          <button
+                            type="button"
+                            className={"save-note-on btn btn-outline-primary"}
+                          >
+                            Lưu
+                          </button>
+                        ) : (
+                          <button
+                            type="button"
+                            className={"save-note-off btn btn-primary"}
+                            onClick={handleSaveNote}
+                          >
+                            Lưu
+                          </button>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -300,9 +346,11 @@ function Lesson() {
                       >
                         Chạy thử
                       </button>
-                      <button type="button" className="submit-btn-lesson">
-                        Nộp bài
-                      </button>
+                      {allow && (
+                        <button type="button" className="submit-btn-lesson">
+                          Nộp bài
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>

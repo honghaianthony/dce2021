@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../assets/styles/Register.css";
 import { useStore, actions } from "../store";
-import {Link, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import authApi from "../apis/authApi";
 // import Hinhlaptrinh2 from "../assets/images/Hinhlaptrinh2.png"
 import hinhlaptrinh2 from "../assets/images/Hinhlaptrinh2.png";
@@ -44,7 +44,7 @@ function Register() {
         <div className="Register__container">
           <div className="img-content-left_register">
             <Link to="/" className="btn_back_login">
-                  <button>Trở về trang chủ</button> 
+              <button>Trở về trang chủ</button>
             </Link>
             <img src={hinhlaptrinh2} alt="Hình minh họa" />
           </div>
@@ -64,8 +64,8 @@ function Register() {
                   </label>
                   <input
                     type="text"
-                    name="firstname"
-                    id="firstname"
+                    name="lastname"
+                    id="lastname"
                     placeholder="họ..."
                     className="register_input"
                   />
@@ -77,8 +77,8 @@ function Register() {
                   </label>
                   <input
                     type="text"
-                    name="lastname"
-                    id="lastname"
+                    name="firstname"
+                    id="firstname"
                     placeholder="tên..."
                     className="register_input"
                   />

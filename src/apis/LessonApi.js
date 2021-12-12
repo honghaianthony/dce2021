@@ -21,10 +21,20 @@ const getAllLessonComment = async (id) => {
     `lessons/get-all-lessons-comment?lessonId=${id}`
   );
 };
+const getLessonNote = async (id) => {
+  return await axiosInstance.get(`note/get-note-by-id?id=${id}`);
+};
+
+const updateNote = async (data) => {
+  return await axiosInstance.put(`note/update-note`, data);
+};
+
 export default {
   getAllLesson,
   getLessonById,
   deleteLessonById,
   getAllLessonTest,
   getAllLessonComment,
+  getLessonNote,
+  updateNote,
 };
