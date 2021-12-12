@@ -7,7 +7,6 @@ import "./NavigationAdmin.css";
 import Profile from "./Profile";
 
 function NavigationAdmin() {
-  const [state, dispatch] = useStore();
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const [profileSelected, setProfileSelected] = useState(false);

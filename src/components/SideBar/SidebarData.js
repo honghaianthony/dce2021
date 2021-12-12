@@ -83,7 +83,7 @@ export const SidebarData = [
       },
       {
         title: "Thêm blog",
-        path: "",
+        path: "/adminaddblog",
         icon: <CgIcons.CgAdd />,
         cName: "sub-nav",
       },

@@ -23,6 +23,9 @@ function Profile() {
               Đăng Blog
             </Link>
           </span>
+          <Link to="/adminAddExercise" className="option-item">
+            Tạo bài luyện tập
+          </Link>
           <span className="logout" onClick={handleLogout}>
             Thoát
           </span>

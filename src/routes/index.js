@@ -87,10 +87,10 @@ export default function App() {
           <PrivateRoute exact path="/adminexerciselist">
             <AdminExerciseList />
           </PrivateRoute>
-
           <Route path="/exercises">
             <Exercises />
           </Route>
+
           <Route exact path={`/exercises/:exerciseId`}>
             <Exercise />
           </Route>

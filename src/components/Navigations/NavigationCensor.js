@@ -7,7 +7,6 @@ import "./NavigationCensor.css";
 import Profile from "./Profile";
 
 function NavigationCensor() {
-  const [state, dispatch] = useStore();
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const [profileSelected, setProfileSelected] = useState(false);
@@ -77,7 +76,11 @@ function NavigationCensor() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/censor" className="nav-links" onClick={closeMobileMenu}>
+              <Link
+                to="/censor"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
                 Kiểm duyệt
               </Link>
             </li>

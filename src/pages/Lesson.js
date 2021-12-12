@@ -86,7 +86,9 @@ function Lesson() {
                   {/* content */}
                   <div
                     className={
-                      display === "on" ? "main-content-lesson-off" : "main-content-lesson"
+                      display === "on"
+                        ? "main-content-lesson-off"
+                        : "main-content-lesson"
                     }
                   >
                     <div className="content-Lesson">{data.content}</div>
@@ -116,7 +118,10 @@ function Lesson() {
                           ></textarea>
                         </div>
 
-                        <button type="button" className="post-comment-btn-lesson">
+                        <button
+                          type="button"
+                          className="post-comment-btn-lesson"
+                        >
                           Đăng
                         </button>
                       </div>
@@ -189,7 +194,10 @@ function Lesson() {
                   </button>
                 </div>
                 <div className="place-code-lesson">
-                  <textarea id="code-of-exser-lesson" name="code-of-exser"></textarea>
+                  <textarea
+                    id="code-of-exser-lesson"
+                    name="code-of-exser"
+                  ></textarea>
                 </div>
                 <div className="testcase-lesson">
                   <div className="testcase-header-lesson">
@@ -304,7 +312,10 @@ function Lesson() {
                 </button>
               </div>
               <div className="place-code-lesson">
-                <textarea id="code-of-exser-lesson" name="code-of-exser"></textarea>
+                <textarea
+                  id="code-of-exser-lesson"
+                  name="code-of-exser"
+                ></textarea>
               </div>
               <div className="testcase-lesson">
                 <div className="testcase-header-lesson">
@@ -335,6 +346,7 @@ function Lesson() {
                   </button>
                 </div>
               </div>
+            </div>
           </div>
         </>
       ) : (
