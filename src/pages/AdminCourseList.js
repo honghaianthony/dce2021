@@ -42,6 +42,7 @@ function AdminCourseList() {
     const listCourses = () => {
         if (filteredData.length > 0) {
             return filteredData.map((item, index) => {
+                // let path="/adminupdatecourse/";
                 return (
                     <tr>
                         <td>{item.id}</td>
@@ -52,7 +53,7 @@ function AdminCourseList() {
                         <td>{getFormattedDate(item.createdAt)}</td>
                         <td>{getFormattedDate(item.updatedAt)}</td>
                         <td>
-                            <Link to='/'>
+                            <Link to= {`/adminupdatecourse/${item.id}`}>
                                 <button className='view-btn'>
                                     Xem chi tiết
                                 </button>
