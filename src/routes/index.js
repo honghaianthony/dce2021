@@ -33,6 +33,7 @@ import AddExercise from "../components/AdminExercises/AddExercise/AddExercise/Ad
 import AddLesson from "../components/AdminCourses/AddCourse/AddCourse/AddLesson";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Lessoncopy from "../pages/Lessoncopy";
 
 import { useStore, actions } from "../store";
 
@@ -66,9 +67,9 @@ export default function App() {
           <Route exact path={`/courses/:courseId`}>
             <Course />
           </Route>
-          <PrivateRoute exact path="/lesson/:lessonId">
+          <Route exact path="/lesson/:lessonId">
             <Lesson />
-          </PrivateRoute>
+          </Route>
           <Route exact path="/blogs">
             <Blogs />
           </Route>
@@ -87,7 +88,7 @@ export default function App() {
           <PrivateRoute exact path="/adminexerciselist">
             <AdminExerciseList />
           </PrivateRoute>
-          <Route path="/exercises">
+          <Route exact path="/exercises">
             <Exercises />
           </Route>
 

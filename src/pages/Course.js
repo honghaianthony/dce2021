@@ -7,15 +7,33 @@ import CourseDes from "../components/Courses/Course/CourseDes";
 import Lessons from "../components/Courses/Course/Lessons";
 import avatar from "../assets/images/giao.jpg";
 import coursesApi from "../apis/coursesApi";
+import usersApi from "../apis/usersApi";
+
 function Course() {
   const [data, setData] = useState(null);
+  const [isRegister, setIsregister] = useState(false);
   const { courseId } = useParams();
 
   useEffect(async () => {
     const res = await coursesApi.getCourseById(courseId);
     setData(res);
+    const register = await usersApi.getUserCourseByCourseId(courseId);
+    if (register !== null) {
+      setIsregister(true);
+    }
   }, [courseId]);
-  console.log(data)
+  const handleRegister = async () => {
+    if (!isRegister) {
+      const body = {
+        courseId: courseId,
+        isCompleted: false,
+      };
+      const success = await usersApi.createUserCourse(body);
+      if (success.errCode == 0) {
+        setIsregister(true);
+      }
+    }
+  };
   return (
     <>
       <MainLayout>
@@ -31,7 +49,7 @@ function Course() {
                   nameMember="Nguyễn Văn A"
                   // numStarts="4.6"
                   numRates="100"
-                  decription={data.decription}
+                  description={data.description}
                 />
               </div>
               <div className="myCourseInfoRight__Container">
@@ -48,13 +66,15 @@ function Course() {
                     <h2>Miễn Phí</h2>
                   </div>
                   <div className="MyCourseInfoDecription-btnBottom">
-                    <button>Đăng Ký Ngay</button>
+                    <button disabled={isRegister} onClick={handleRegister}>
+                      Đăng Ký Ngay
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
             <div className="course__CenterContent">
-              <Lessons courseId={courseId} />
+              <Lessons courseId={courseId} isReg={isRegister} />
             </div>
           </div>
         )}

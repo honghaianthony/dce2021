@@ -6,8 +6,16 @@ const getAllUsers = async () => {
 const getUserById = async (id) => {
   return await axiosInstance.get(`users/get-user-by-id?id=${id}`);
 };
+const getUserCourseByCourseId = async (courseId) => {
+  return await axiosInstance.get(`users/get-user-course-by-id?id=${courseId}`);
+};
+const createUserCourse = async (data) => {
+  return await axiosInstance.post(`users/create-new-user-course`, data);
+};
 
 export default {
   getAllUsers,
   getUserById,
+  getUserCourseByCourseId,
+  createUserCourse,
 };

@@ -11,15 +11,19 @@ function ListCourse(props) {
   }, []);
   return (
     <div className="ListCourse__Container">
-      {data.map((CourseItem) => (
-        <CourseItemInfo
-          className="CourseItemInfo"
-          key={CourseItem.id}
-          title={CourseItem.lessonName}
-          decription={CourseItem.description}
-          path={`/lesson/${CourseItem.id}`}
-        />
-      ))}
+      {props.isReg && (
+        <>
+          {data.map((CourseItem) => (
+            <CourseItemInfo
+              className="CourseItemInfo"
+              key={CourseItem.id}
+              title={CourseItem.lessonName}
+              decription={CourseItem.description}
+              path={`/lesson/${CourseItem.id}`}
+            />
+          ))}
+        </>
+      )}
     </div>
   );
 }

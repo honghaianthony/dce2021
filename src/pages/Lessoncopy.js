@@ -3,31 +3,13 @@ import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import "../assets/styles/Lesson.css";
 import LessonApi from "../apis/LessonApi";
-import compileApi from "../apis/compileApi";
 
 function Lesson() {
   const [data, setData] = useState(null);
-  const [testCase, setTestCase] = useState([]);
-  const [realOutput, setRealOutput] = useState("");
-  const [testCaseShow, setTestCaseShow] = useState({
-    id: 0,
-    lessonId: 0,
-    input: "",
-    output: "",
-  });
-  const [lang, setLang] = useState("C++");
-  const [code, setCode] = useState("");
   const { lessonId } = useParams();
-
   useEffect(async () => {
     const res = await LessonApi.getLessonById(lessonId);
     setData(res);
-    const test = await LessonApi.getAllLessonTest(lessonId);
-    // setTestCase(test);
-  }, [lessonId]);
-  useEffect(async () => {
-    const test = await LessonApi.getAllLessonTest(lessonId);
-    setTestCase(test);
   }, []);
 
   const [display, setdisplay] = useState("off");
@@ -38,47 +20,6 @@ function Lesson() {
   const handledisplay2 = () => {
     setdisplay2(display2 === "off" ? "on" : "off");
   };
-  useEffect(() => {
-    setRealOutput("");
-  }, [testCaseShow]);
-
-  const listTestCase = () => {
-    if (testCase.length > 0) {
-      return testCase.map((item, index) => {
-        return (
-          <li key={item.id} onClick={() => setTestCaseShow(item)}>
-            Test case {index + 1}
-          </li>
-        );
-      });
-    } else {
-      return <li>Không có test case</li>;
-    }
-  };
-
-  const showTestCase = (item, real) => {
-    return (
-      <div className="testcase-display-lesson">
-        <p>Đầu vào: {item.input}</p>
-        <p>Đầu ra: {real}</p>
-        <p>Đầu ra mong muốn: {item.output}</p>
-        {/* <p>Thời gian thực hiện:</p>
-      <p>Tin nhắn:</p> */}
-      </div>
-    );
-  };
-
-  const handleSubmit = async () => {
-    const body = {
-      code: code,
-      input: testCaseShow.input,
-      inputRadio: true,
-      lang: lang,
-    };
-    const response = await compileApi.postCompile(body);
-    console.log(response);
-    setRealOutput(response.output);
-  };
 
   return (
     <>
@@ -87,7 +28,7 @@ function Lesson() {
           <div className="lesson-container">
             {/* header */}
             <div className="lesson-name">
-              <Link to="/courses">
+              <Link to="/">
                 <i class="fas fa-angle-left"></i>
               </Link>
               <p>{data.lessonName}</p>
@@ -244,20 +185,7 @@ function Lesson() {
                 {/* code */}
                 <div className={"code-lesson"}>
                   <div className="intro-lesson">
-                    <p className="intro-content-lesson">
-                      Code in here
-                      <select
-                        className="lang-select"
-                        value={lang}
-                        onChange={(e) => setLang(e.target.value)}
-                      >
-                        <option value="C++">C++</option>
-                        <option value="C">C</option>
-                        <option value="Java">Java</option>
-                        <option value="Python">Python</option>
-                      </select>
-                    </p>
-
+                    <p className="intro-content-lesson">Code in here</p>
                     <button type="button" className="refresh-btn-lesson">
                       Làm mới
                     </button>
@@ -266,8 +194,6 @@ function Lesson() {
                     <textarea
                       id="code-of-exser-lesson"
                       name="code-of-exser"
-                      value={code}
-                      onChange={(e) => setCode(e.target.value)}
                     ></textarea>
                   </div>
                   <div className="testcase-lesson">
@@ -276,16 +202,22 @@ function Lesson() {
                     </div>
                     <div className="testcase-content-lesson">
                       <div className="testcase-number-lesson">
-                        <ul>{listTestCase()}</ul>
+                        <ul>
+                          <li>Kiểm thử 1</li>
+                          <li>Kiểm thử 2</li>
+                          <li>Kiểm thử 2</li>
+                        </ul>
                       </div>
-                      {showTestCase(testCaseShow, realOutput)}
+                      <div className="testcase-display-lesson">
+                        <p>Đầu vào:</p>
+                        <p>Đầu ra:</p>
+                        <p>Đầu ra mong muốn:</p>
+                        <p>Thời gian thực hiện:</p>
+                        <p>Tin nhắn:</p>
+                      </div>
                     </div>
                     <div className="testcase-button-lesson">
-                      <button
-                        type="button"
-                        className="run-btn-lesson"
-                        onClick={handleSubmit}
-                      >
+                      <button type="button" className="run-btn-lesson">
                         Chạy thử
                       </button>
                       <button type="button" className="submit-btn-lesson">
