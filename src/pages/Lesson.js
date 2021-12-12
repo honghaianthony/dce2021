@@ -124,7 +124,7 @@ function Lesson() {
 
   const sendComment = () => {
     const comment = commentInput;
-    socket.emit("send-comment-lesson", comment, state.userId, blogId);
+    socket.emit("send-comment-lesson", comment, state.userId, lessonId);
     setCommentInput("");
   };
   const handleCommentChange = (e) => {
