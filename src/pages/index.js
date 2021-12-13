@@ -23,3 +23,4 @@ export { default as UploadTest } from "./UploadTest";
 export { default as AddBlog } from "./AddBlog";
 export { default as AdminAddBlog } from "./AdminAddBlog";
 export { default as AdminBlogList } from "./AdminBlogList";
+export { default as AdminUpdateBlog } from "./AdminUpdateBlog";

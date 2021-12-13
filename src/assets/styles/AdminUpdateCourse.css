@@ -1,6 +1,11 @@
 .AdminUpdateCourse__container{
     margin-left: 320px;
 }
+
+.AdminUpdateCourse__container .admin-path {
+    margin-left: 20px;
+    margin-top: 10px;
+}
 .Update__AdminCourse__Container{
     width:100%;
 }
@@ -10,7 +15,7 @@
     justify-content: start;
 }
 .Update__container{
-    padding:0px 30px;
+    padding: 10px 30px;
     margin-bottom: 310px;
 }
 .center_menu_AdminUpdateCourse{

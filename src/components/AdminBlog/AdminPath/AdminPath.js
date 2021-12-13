@@ -10,8 +10,8 @@ function AdminPath() {
                 <span>Trang chủ</span>
             </Link>
             <i className='icon-angle-right'><FaAngleRight/></i>
-            <Link to='/admin' className='admin-link'>
-                <span>Quản lý</span>
+            <Link to='/adminbloglist' className='admin-link'>
+                <span>Quản lý blog</span>
             </Link>
         </div>
     );

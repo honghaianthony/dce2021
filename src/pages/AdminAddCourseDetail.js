@@ -10,7 +10,8 @@ import { useParams } from "react-router-dom";
 import coursesApi from "../apis/coursesApi";
 import LessonApi from "../apis/LessonApi";
 import {Link } from "react-router-dom";
-import AdminPath from "../components/AdminBlog/AdminPath/AdminPath";
+import { FaAngleRight } from 'react-icons/fa';
+
 function AdminAddCourseDetail() {
   const listAddCourse2 = [
     {
@@ -54,7 +55,15 @@ function AdminAddCourseDetail() {
         ) : (
       <div className="AdminAddCourseDetail___Container">
         {/* <div className="route_container"> */}
-          <AdminPath/>
+        <div className='admin-path'>
+          <Link to='/' className='admin-link'>
+              <span>Trang chủ</span>
+          </Link>
+          <i className='icon-angle-right'><FaAngleRight/></i>
+          <Link to='/admincourselist' className='admin-link'>
+              <span>Quản lý khóa học</span>
+          </Link>
+        </div>
         {/* </div> */}
         <div className="center_AddCourseDetail_container">
           <div className="container_AdminAddCourse_detail">

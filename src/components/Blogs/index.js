@@ -4,19 +4,62 @@ import "./BlogsMain.css";
 import BlogItem from "./BlogItem";
 import BlogPath from "./BlogPath";
 import blogsApi from "../../apis/blogsApi";
+import Search from "../Search/index";
 
 function BlogsMain() {
   const [blogs, setBlogs] = useState([]);
+  const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState(data);
+  const [search, setSearch] = useState("");
+
   useEffect(async () => {
     const res = await blogsApi.getAllBlogs();
     setBlogs(res);
   }, []);
+
+  useEffect(() => {
+      setFilteredData(data);
+  }, [data]);
+
+  useEffect(() => {
+      const newData = data.filter((item) => {
+          return (
+            item.title.toLowerCase().search(search.toLowerCase()) !== -1 ||
+            item.description.toLowerCase().search(search.toLowerCase()) !== -1
+          );
+      });
+      setFilteredData(newData);
+  }, [search]);
+
   const idArray = blogs.map((item, index) => {
     return index;
   });
   let firstItem = 0;
   let trendBlogs = [1, 2, 3];
   idArray.splice(0, 4);
+
+  const listBlog = () => {
+    if (filteredData.length > 0) {
+      return filteredData.map((item, index) => {
+        let path = "/blogs/" + item.id;
+        return (
+          <BlogItem
+            key={index}
+            src={item.coverImage}
+            title={item.title}
+            description={item.description}
+            author={`${item.User.lastName} ${item.User.firstName}`}
+            time={new Date(item.updatedAt).toLocaleDateString()}
+            //view='134'
+            path={path}
+          />
+        );
+      });
+    } else {
+      return <div className="loader"></div>;
+    }
+  };
+
   const trendMap = () => {
     return trendBlogs.map((item) => {
       return (
@@ -55,21 +98,12 @@ function BlogsMain() {
   return (
     <div className="blogs-container">
       <BlogPath />
-      <div className="blogs-search">
-        <form className="form-search" action="/action_page.php">
-          <input
-            className="form-control"
-            type="text"
-            placeholder="Nhập nội dung tìm kiếm"
-            name="search"
-          />
-          <span className="icon-search" type="submit">
-            <i className="icon-fa-search">
-              <FaSistrix />
-            </i>
-          </span>
-        </form>
-      </div>
+      <Search
+        placeholder="Nhập bài blog cần tìm"
+        className="blogs-search"
+        value={search}
+        onChange={setSearch}
+      />
       {blogs.length > 0 ? (
         <div className="blog-list">
           <div className="blog-feature">
