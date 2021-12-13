@@ -5,7 +5,6 @@ import AdminPath from "../AdminPath/AdminPath";
 import blogsApi from "../../../apis/blogsApi";
 import Search from "../../Search/index";
 
-
 function getFormattedDate(date) {
     return new Date(date).toLocaleDateString();
 }
@@ -17,6 +16,7 @@ function BlogListTable() {
     
     useEffect(async () => {
         const res = await blogsApi.getAllBlogs();
+        console.log(res);
         setListBlogs(res);
     }, []);
 
@@ -41,14 +41,14 @@ function BlogListTable() {
                     <tr key={index}>
                         <td>{item.id}</td>
                         <td>{item.title}</td>
-                        <td>
-                            <p>nnmchau</p>
-                        </td>
+                        <td>{item.User.userName}</td>
                         <td>{getFormattedDate(item.createdAt)}</td>
                         <td>{getFormattedDate(item.updatedAt)}</td>
                         <td>
-                            <Link to={`/adminupdateblog/${item.id}`}>
-                                <button className="view-btn">Xem chi tiết</button>
+                            <Link to={`/blogs/${item.id}`}>
+                                <button className="view-btn">
+                                    Xem chi tiết
+                                </button>
                             </Link>
                         </td>
                     </tr>
@@ -86,5 +86,3 @@ function BlogListTable() {
 }
 
 export default BlogListTable;
-
-

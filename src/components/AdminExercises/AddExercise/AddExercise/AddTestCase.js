@@ -91,19 +91,43 @@ function AddTestCase()
                                 ))}
                                 <div className="button-AddExercise">                     
                                     <input
-                                        type="submit"
-                                        className="button-add-AddExercise"
-                                        value="Thêm Testcase"
+                                        id="input-count-testcase"
+                                        type="text"
+                                        onChange={(event) =>
+                                            setSountTestcase(event.target.value)
+                                        }
+                                        placeholder="Nhập số lượng testcase"
                                     />
-                                </div>  
-                            </div>
-                        </div> 
-                    </form>
-                </div>  
-            </div>  
-        </div>
-      </div>
-      </MainLayout>
+                                    <div className="add-testcase">
+                                        {arrTestCase.map((testCaseIndex) => (
+                                            <>
+                                                <TestCase
+                                                    key={testCaseIndex}
+                                                    id={testCaseIndex}
+                                                    handleChangeInput={
+                                                        setInputTestCase
+                                                    }
+                                                    handleChangeOutput={
+                                                        setOutputTestCase
+                                                    }
+                                                />
+                                            </>
+                                        ))}
+                                        <div className="button-AddExercise">
+                                            <input
+                                                type="submit"
+                                                className="button-add-AddExercise"
+                                                value="Thêm Testcase"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </AdminLayout>
     );
-};
+}
 export default AddTestCase;

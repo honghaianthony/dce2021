@@ -1,8 +1,9 @@
 .add-adminblog-container {
     display: block;
     background-color: #fff;
-    padding: 20px 50px;
-    margin-left: 300px;
+    padding: 10px 50px;
+    width: 60%;
+    margin-left: 500px;
 }
 
 /* add blog */

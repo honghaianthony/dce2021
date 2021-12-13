@@ -9,27 +9,28 @@ import { toast } from "react-toastify";
 import { Link } from 'react-router-dom';
 
 function AddExercise() {
-  const [addShow, setAddShow] = useState("show");
-  const [countTestcase, setSountTestcase] = useState();
-  const [exerName, setExerName] = useState("");
-  const [exerContent, setExerContent] = useState("");
-  const [exerLevel, setExerLevel] = useState(1);
-  const [input, setInput] = useState("");
-  const [output, setOutput] = useState("");
-  const [exerId,setExerId]=useState("");
-  const [inputTestCase, setInputTestCase] = useState("");
-  const [outputTesCase, setOutputTestCase] = useState("");
+    const [addShow, setAddShow] = useState("show");
+    const [countTestcase, setSountTestcase] = useState();
+    const [exerName, setExerName] = useState("");
+    const [exerContent, setExerContent] = useState("");
+    const [exerLevel, setExerLevel] = useState(1);
+    const [input, setInput] = useState("");
+    const [output, setOutput] = useState("");
+    const [exerId, setExerId] = useState("");
+    const [inputTestCase, setInputTestCase] = useState("");
+    const [outputTesCase, setOutputTestCase] = useState("");
 
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const Exer = {
-      userId: 1,
-      exerciseName: exerName,
-      input: input,
-      output: output,
-      content: exerContent,
-      level: exerLevel,
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const Exer = {
+            userId: 1,
+            exerciseName: exerName,
+            input: input,
+            output: output,
+            content: exerContent,
+            level: exerLevel,
+        };
+        const res = await ExerciseApi.createExercise(Exer);
     };
     const res = await ExerciseApi.createExercise(Exer);
     if (res) {
@@ -71,58 +72,68 @@ function AddExercise() {
         }
         const res = await ExerciseApi.createExercise(Exer)
     }, [])*/
-  const arrTestCase = [];
-  const handleAdd = () => {
-    setAddShow(addShow === "show" ? "hide" : "show");
-  };
-  for (var i = 0; i < countTestcase; i++) {
-    arrTestCase.push(i + 1);
-  }
-  return (
-      <MainLayout>
-      <div className="AddExercise-container">
-        <div className="AddExercise-main">
-          <div className="AddExercise-left">
-            <Sidebar/>
-          </div>
-          <div className="AddExercise-right">
-            <div className="AddExercise-right-title">
-              <p>Tạo bài luyện tập mới</p>
-            </div>
+    const arrTestCase = [];
+    const handleAdd = () => {
+        setAddShow(addShow === "show" ? "hide" : "show");
+    };
+    for (var i = 0; i < countTestcase; i++) {
+        arrTestCase.push(i + 1);
+    }
+    return (
+        <AdminLayout>
+            <div className="AddExercise-container">
+                <div className="AddExercise-main">
+                    <div className="AddExercise-left">
+                        <Sidebar />
+                    </div>
+                    <div className="AddExercise-right">
+                        <div className="AddExercise-right-title">
+                            <p>Tạo bài luyện tập mới</p>
+                        </div>
 
-            <div className="row-AddExercise">
-              <div class="form-add-AddExercise">
-                <form onSubmit={handleSubmit}>
-                  <div className="row-AddExercise">
-                    <input
-                      type="text"
-                      name="exerName"
-                      id="nameExercise"
-                      placeholder="Nhập tên bài luyện tập mới"
-                      onChange={(event) => setExerName(event.target.value)}
-                    />
-                  </div>
-                  <div className="row-AddExercise">
-                    <select
-                      name="level"
-                      id="levelExercise"
-                      placeholder="Chọn level"
-                      onChange={(event) => setExerLevel(event.target.value)}
-                    >
-                      <option value="1">Đơn giản</option>
-                      <option value="2">Trung bình</option>
-                    </select>
-                  </div>
-                  <div className="row-AddExercise">
-                    <textarea
-                      type="text"
-                      name="content"
-                      id="contentExercise"
-                      placeholder="Thêm nội dung bài luyện tập"
-                      onChange={(event) => setExerContent(event.target.value)}
-                    />
-                  </div>
-                  {/* <div className="row-AddExercise">
+                        <div className="row-AddExercise">
+                            <div class="form-add-AddExercise">
+                                <form onSubmit={handleSubmit}>
+                                    <div className="row-AddExercise">
+                                        <input
+                                            type="text"
+                                            name="exerName"
+                                            id="nameExercise"
+                                            placeholder="Nhập tên bài luyện tập mới"
+                                            onChange={(event) =>
+                                                setExerName(event.target.value)
+                                            }
+                                        />
+                                    </div>
+                                    <div className="row-AddExercise">
+                                        <select
+                                            name="level"
+                                            id="levelExercise"
+                                            placeholder="Chọn level"
+                                            onChange={(event) =>
+                                                setExerLevel(event.target.value)
+                                            }
+                                        >
+                                            <option value="1">Đơn giản</option>
+                                            <option value="2">
+                                                Trung bình
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div className="row-AddExercise">
+                                        <textarea
+                                            type="text"
+                                            name="content"
+                                            id="contentExercise"
+                                            placeholder="Thêm nội dung bài luyện tập"
+                                            onChange={(event) =>
+                                                setExerContent(
+                                                    event.target.value
+                                                )
+                                            }
+                                        />
+                                    </div>
+                                    {/* <div className="row-AddExercise">
                     <h2>Kết Quả Mong Muốn</h2>
                     <TestCase
                         handleChangeInput={setInput}
@@ -130,17 +141,17 @@ function AddExercise() {
                         handleChangeOutput={setOutput}
                     />
                   </div>                  */}
-                  <div className="row-AddExercise">
-                      <div className="button-AddExercise">                     
-                            <input
-                              type="submit"
-                              className="button-add-AddExercise"
-                              value="Thêm"
-                            />
-                    </div>  
-                  </div>
-                </form>
-                {/* <div className="row-AddExercise">
+                                    <div className="row-AddExercise">
+                                        <div className="button-AddExercise">
+                                            <input
+                                                type="submit"
+                                                className="button-add-AddExercise"
+                                                value="Thêm"
+                                            />
+                                        </div>
+                                    </div>
+                                </form>
+                                {/* <div className="row-AddExercise">
                     <h3 className="add-test-case" onClick={handleAdd}>
                       <i class="fas fa-plus"></i>Thêm testcase mới
                     </h3>
@@ -180,13 +191,13 @@ function AddExercise() {
                             </form>
                     </div>  
                    </div>  */}
-              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-      </MainLayout>
-  );
+        </AdminLayout>
+    );
 }
 
 export default AddExercise;
