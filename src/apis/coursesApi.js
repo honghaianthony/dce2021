@@ -11,7 +11,7 @@ const createCourse = async (course) =>
     return await axiosInstance.post(`/courses/create-new-courses`,course);
 }
 const deleteCourseById = async (id) => {
-  return await axiosInstance.get(`courses/delete-courses?id=${id}`);
+  return await axiosInstance.delete(`courses/delete-courses?id=${id}`);
 };
 const updateCourseById = async (course) => {
   return await axiosInstance.put(`courses/update-courses`,course);

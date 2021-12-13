@@ -1,3 +1,6 @@
+.AdminAddCourseDetail___Container{
+    margin-left: 320px;
+}
 .route_container{
     display: flex;
     align-items: flex-start;
@@ -17,7 +20,7 @@
 .container_AdminAddCourse_detail{
     display:flex;
     padding:0 15px;
-    justify-content: end;
+    justify-content: start;
     margin-bottom: 400px;
 }
 .center_AddCourseDetail_container{
@@ -27,13 +30,16 @@
     width:30%;
 }
 .center_AddCourse_right{
-    width:70%;
+    width:100%;
 }
 .listAddCourse_BtnAdd {
     display: flex;
     align-items: center;
     padding: 20px 15px;
     border: 1px solid #000;
+    cursor: pointer;
+}
+.listAddCourse_BtnAdd button:hover{
     cursor: pointer;
 }
 .btnAdd_Decription{
@@ -73,4 +79,9 @@ transform: scale(1.1);
 color: #1E266D;
 color:#fff;
 
+}
+.btnAdd_Decription:hover,.btn_iconAdd button:hover{
+    color: red;
+    cursor: pointer;
+    
 }

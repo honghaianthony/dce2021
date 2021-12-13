@@ -1,17 +1,20 @@
-.top_decription_link h2{ 
+.AdminAddCourse__{
+    margin-left: 320px;
+}
+.top_decription_link{ 
     color:#000;
-    text-align: start;
+    text-align: center;
 }
 .center_AdminAddCourse__container{
     width:100%;
     display: flex;
-    justify-content: end;
+    justify-content: start;
 }
 .center_menu_AdminAddCourse{
     width:30%;
 }
 .center_content_AdminAddCourse{
-    width:75%;
+    width:100%;
 
 }
 .Container_____AdminAdCourse{
@@ -70,7 +73,11 @@
     display: flex;
     justify-content: flex-end;
     margin-top: 15px;
+
 }
+/* .btn_Submit_AdminAddCourse img{
+    width: 500px;
+} */
 .btn_Submit_AdminAddCourse button{
     padding:5px 10px;
     width:150px;

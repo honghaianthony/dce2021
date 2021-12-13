@@ -7,8 +7,9 @@ import { useEffect, useState } from "react/cjs/react.development";
 import AdminLayout from "../layouts/AdminLayout";
 import coursesApi from "../apis/coursesApi";
 import { useParams } from "react-router-dom";
-import { RiH1 } from "react-icons/ri";
 import { toast } from "react-toastify";
+import { uploadFile, deleteFile } from "../firebase/util";/*** */
+import AdminPath from "../components/AdminBlog/AdminPath/AdminPath";
 
 function AdminUpdateCourse() {
   const listAddCourse = [
@@ -38,13 +39,14 @@ function AdminUpdateCourse() {
     // currentItem=currentItem.filter((i)=>i.id !== id)
     // setItem(currentItem)
   };
-  // const handleDeleteAllClick = () => {
-  //   setItem2("");
-  // };
   const [data, setDataCourse] = useState(null)
-  
+
   const [dataDelete, deleteData] = useState()
   const { courseId } = useParams();
+  const [image, setImage] = useState(null); /*** */
+  const [progress, setProgress] = useState(0); /*** */
+  const [url, setUrl] = useState("");/*** */
+
   /**đổ dữ liệu */
   useEffect(async () => {
     const res = await coursesApi.getCourseById(courseId);
@@ -60,12 +62,14 @@ function AdminUpdateCourse() {
     } else {
       toast.error("Xóa thất bại");
     }
+    console.log(res);
   }
+
   /**sửa */
-  const [courseName,setCourseName]=useState();
-  const [courseDes,setCourseDes]=useState();
-  const [courseTime,setCourseTime]=useState();
-  const [courseImg,setCourseImg]=useState();
+  const [courseName, setCourseName] = useState();
+  const [courseDes, setCourseDes] = useState();
+  const [courseTime, setCourseTime] = useState();
+  const [courseImg, setCourseImg] = useState();
   useEffect(async () => {
     const res = await coursesApi.getCourseById(courseId);
     setCourseName(res.courseName);
@@ -82,15 +86,15 @@ function AdminUpdateCourse() {
     const res = await coursesApi.getCourseById(courseId);
     setCourseImg(res.image);
   }, [courseId]);
-  const handleChangeData=async(e)=>{
+  const handleChangeData = async (e) => {
     e.preventDefault();
-    const newCourse={
-      id:courseId,
-      courseName:courseName,
-      description:courseDes,
-      rate:0,
-      time:courseTime,
-      image:courseImg
+    const newCourse = {
+      id: courseId,
+      courseName: courseName,
+      description: courseDes,
+      rate: 0,
+      time: courseTime,
+      image: courseImg
     }
     const res = await coursesApi.updateCourseById(newCourse);
     if (res) {
@@ -99,24 +103,41 @@ function AdminUpdateCourse() {
       toast.error("Cập nhật thất bại");
     }
   }
-  // const [editTodo,setEditTodo]=useState(data.courseName)
-  // const handleSetNewName=(event)=>{
-  //   event.preventDefault();
-  //   let editTodoCopy={...editTodo}
-  //   editTodoCopy=event.target.value;
-  //   setEditTodo(editTodoCopy);
-    // data.courseName=editTodo;
-    // console.log(newName)
-  // }
-  // console.log(editTodo)
+  useEffect(() => {
+    if (image !== null) {
+      uploadFile(
+        image,
+        (progress) => {
+          setProgress(progress);
+        },
+        (url) => {
+          setUrl(url);
+        }
+      );
+    }
+  }, [image]); /*** */
+  const deleteImage = () => {
+    deleteFile(
+      url,
+      () => {
+        toast.success("Xóa thành công");
+        setProgress(0);
+        setUrl("");
+        document.getElementById("add-blog-cover-image").value = null;
+      },
+      (error) => {
+        toast.error("Lỗi!!!");
+      }
+    );
+  };/*** */
   return (
     <>
       <AdminLayout>
         {data === null ? (<div className="loader"></div>) : (
           <div className="AdminUpdateCourse__container">
-            <div className="top_decription_link">
-              <h2>Trang chủ - Quản lý khóa học</h2>
-            </div>
+            {/* <div className="top_decription_link"> */}
+              <AdminPath />
+            {/* </div> */}
             <div className="Update__AdminCourse__Container">
               <div className="Update__container">
 
@@ -125,9 +146,9 @@ function AdminUpdateCourse() {
                     <form onSubmit={handleChangeData} >
                       <div className="top_decription_centercontent">
                         <p>Tạo khóa học mới</p>
-                        <div className="btn_delete_container">
-                          <button type="button" onClick={handleDelete}>Xóa</button>
-                        </div>
+                          <div className="btn_delete_container">
+                            <button type="button" onClick={handleDelete}>Xóa</button>
+                          </div>
                       </div>
                       <div className="middle_decription_centercontent">
                         <div className="InputName_UpdateCourse">
@@ -138,7 +159,7 @@ function AdminUpdateCourse() {
                               id="idCourse"
                               // placeholder="Nhập tên khóa học mới"
                               value={courseName}
-                              onChange={(event)=>setCourseName(event.target.value)}
+                              onChange={(event) => setCourseName(event.target.value)}
                             />
                           </form>
                         </div>
@@ -149,7 +170,7 @@ function AdminUpdateCourse() {
                               id="decriptionCourse"
                               // placeholder="Nhập mô tả"
                               value={courseDes}
-                              onChange={(event)=>setCourseDes(event.target.value)}
+                              onChange={(event) => setCourseDes(event.target.value)}
                             ></textarea>
                           </form>
                         </div>
@@ -161,7 +182,7 @@ function AdminUpdateCourse() {
                               // placeholder="Nhập thời gian để hoàn thành khóa học"
                               value={courseTime}
                               className="timeCourse"
-                              onChange={(event)=>setCourseTime(event.target.value)}
+                              onChange={(event) => setCourseTime(event.target.value)}
                               // type="number"
                               min="0"
                             ></input>
@@ -175,16 +196,18 @@ function AdminUpdateCourse() {
                               // placeholder="Nhập thời gian để hoàn thành khóa học"
                               value={courseImg}
                               className="timeCourse"
-                              onChange={(event)=>setCourseImg(event.target.value)}
+                              onChange={(event) => setCourseImg(event.target.value)}
                               // type="number"
                               min="0"
-                            ></input>
+                            />
                           </form>
                         </div>
                       </div>
-                      <div className="btn_Submit_AdminUpdateCourse">
-                        <button type="submit" value="cập nhật">Cập nhật</button>
-                      </div>
+                      
+                        <div className="btn_Submit_AdminUpdateCourse">
+                          <button type="submit" value="cập nhật">Cập nhật</button>
+                        </div>
+                      
                     </form>
                   </div>
 

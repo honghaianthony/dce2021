@@ -9,6 +9,8 @@ import AdminLayout from "../layouts/AdminLayout";
 import { useParams } from "react-router-dom";
 import coursesApi from "../apis/coursesApi";
 import LessonApi from "../apis/LessonApi";
+import {Link } from "react-router-dom";
+import AdminPath from "../components/AdminBlog/AdminPath/AdminPath";
 function AdminAddCourseDetail() {
   const listAddCourse2 = [
     {
@@ -51,9 +53,9 @@ function AdminAddCourseDetail() {
           <h1>Loading</h1>
         ) : (
       <div className="AdminAddCourseDetail___Container">
-        <div className="route_container">
-          <h3>Trang chủ - Quản lý Khóa học</h3>
-        </div>
+        {/* <div className="route_container"> */}
+          <AdminPath/>
+        {/* </div> */}
         <div className="center_AddCourseDetail_container">
           <div className="container_AdminAddCourse_detail">
             {/* <div className="center_menu_AdminAddCourse">
@@ -73,19 +75,20 @@ function AdminAddCourseDetail() {
                 </div>
               ))}
               
-              <div className="listAddCourse_BtnAdd">
-                <div className="btn_iconAdd">
+              <Link to="/adminAddLesson" className="listAddCourse_BtnAdd">
+                {/* <div className="btn_iconAdd">
                   <button>
                     <i class="fas fa-plus"></i>
+                    
                   </button>
-                </div>
+                </div> */}
                 <div className="btnAdd_Decription">
-                  <span>Thêm Bài Học Mới</span>
+                  <span><i class="fas fa-plus"></i>    Thêm Bài Học Mới</span>
                 </div>
-              </div>
-              <div className="btn_AddCourse__container">
+              </Link>
+              <Link to={`/courses/${courseId}`} className="btn_AddCourse__container">
                 <button>Tạo Khóa Học</button>
-              </div>
+              </Link>
             </div>
           </div>
         </div>
@@ -96,20 +99,3 @@ function AdminAddCourseDetail() {
 }
 
 export default AdminAddCourseDetail;
-{/* <div className="listAddCourse2__Container">
-                                        <AddCourseItem2 
-                                            // id={item.id}
-                                            // name={item.name}
-                                            data={items}
-                                            // props={item}
-                                            handleDeleteClick={handleDeleteClick}
-                                        />   
-                        </div> */}
-            {/* {
-                            items.map((item)=>(
-                                <AddCourseItem2
-                                data={item}
-                                handleDeleteClick={handleDeleteClick}
-                                />
-                            ))
-                        } */}
