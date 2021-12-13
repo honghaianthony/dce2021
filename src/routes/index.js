@@ -95,6 +95,7 @@ export default function App() {
           <PrivateRoute exact path="/adminexerciselist">
             <AdminExerciseList />
           </PrivateRoute>
+
           <Route exact path="/update-exercises/:exerciseId">
             <UpdateExercise />
           </Route>
@@ -149,6 +150,7 @@ export default function App() {
           <Route path="/upload">
             <UploadTest />
           </Route>
+
           <Route path="/">
             <Home />
           </Route>
