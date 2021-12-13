@@ -17,9 +17,14 @@ const createUserCourse = async (data) => {
   });
 };
 
+const updateRole = async (data) => {
+  return await axiosInstance.put(`users/update-users-role`, data);
+};
+
 export default {
   getAllUsers,
   getUserById,
   getUserCourseByCourseId,
   createUserCourse,
+  updateRole,
 };

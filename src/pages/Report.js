@@ -6,16 +6,17 @@ import { FaAngleRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import usersApi from "../apis/usersApi";
 import "../components/AdminMembers/MemberListTable.css";
-import { toast } from "react-toastify";
 
 function getFormattedDate(date) {
   return new Date(date).toLocaleDateString();
 }
 
-function AdminMemberList() {
+function Report() {
   const [data, setListMember] = useState([]);
   const [filteredData, setFilteredData] = useState(data);
   const [search, setSearch] = useState("");
+  const [month, setMonth] = useState(1);
+  const [year, setYear] = useState(2021);
   useEffect(async () => {
     const res = await usersApi.getAllUsers();
     setListMember(res);
@@ -28,7 +29,8 @@ function AdminMemberList() {
   useEffect(() => {
     const newData = data.filter((item) => {
       return (
-        item.userName.toLowerCase().search(search.toLowerCase()) !== -1 ||
+        (item.role === 1 &&
+          item.userName.toLowerCase().search(search.toLowerCase()) !== -1) ||
         item.email.toLowerCase().search(search.toLowerCase()) !== -1 ||
         (item.id + "").indexOf(search) !== -1
       );
@@ -45,40 +47,12 @@ function AdminMemberList() {
             <td>{item.userName}</td>
             <td>{item.email}</td>
             <td>{getFormattedDate(item.createdAt)}</td>
-            <td>
-              <div className="member-role-container">
-                <select
-                  className="member-role"
-                  value={item.role}
-                  onChange={async (e) => {
-                    await updateRole(item.id, e.target.value, index);
-                  }}
-                >
-                  <option value="1">Người dùng</option>
-                  <option value="2">Admin</option>
-                  <option value="3">Kiểm duyệt viên</option>
-                </select>
-              </div>
-            </td>
+            <td>Thành viên</td>
           </tr>
         );
       });
     } else {
       return <div className="loader"></div>;
-    }
-  };
-  const updateRole = async (id, role, index) => {
-    const body = {
-      id: id,
-      role: role,
-    };
-    let response = await usersApi.updateRole(body);
-    if (response.errCode === 0) {
-      toast.success("Cập nhật thành công!");
-      const res2 = await usersApi.getAllUsers();
-      setListMember(res2);
-    } else {
-      toast.error("Cập nhật thất bại!");
     }
   };
 
@@ -97,13 +71,26 @@ function AdminMemberList() {
           </Link>
         </div>
         <div className="courselist-container">
-          <h2 className="courselist-title"> Quản lý thành viên </h2>
-          <Search
-            placeholder="Nhập tên tài khoản cần tìm"
-            className="courselist-search"
-            value={search}
-            onChange={setSearch}
-          />
+          <h2 className="courselist-title">
+            Thống kê báo cáo số lượng thành viên
+          </h2>
+          <div className="filter-member">
+            <select>
+              <option value="1">Tháng 1</option>
+              <option value="2">Tháng 2</option>
+              <option value="3">Tháng 3</option>
+              <option value="4">Tháng 4</option>
+              <option value="5">Tháng 5</option>
+              <option value="6">Tháng 6</option>
+              <option value="7">Tháng 7</option>
+              <option value="8">Tháng 8</option>
+              <option value="9">Tháng 9</option>
+              <option value="10">Tháng 10</option>
+              <option value="11">Tháng 11</option>
+              <option value="12">Tháng 12</option>
+            </select>
+            <select></select>
+          </div>
           <h2 className="courselist-title1">Thông tin thành viên</h2>
           <div className="memberlisttable-container">
             <table className="memberlisttable">
@@ -113,7 +100,7 @@ function AdminMemberList() {
                   <th>Tên tài khoản</th>
                   <th>Email</th>
                   <th>Ngày tham gia</th>
-                  <th>Role</th>
+                  <th>Vai trò</th>
                 </tr>
               </thead>
 
@@ -125,4 +112,4 @@ function AdminMemberList() {
     </AdminLayout>
   );
 }
-export default AdminMemberList;
+export default Report;
