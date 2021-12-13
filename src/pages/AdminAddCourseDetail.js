@@ -87,7 +87,7 @@ function AdminAddCourseDetail() {
                 </div>
               </Link>
               <Link to={`/courses/${courseId}`} className="btn_AddCourse__container">
-                <button>Tạo Khóa Học</button>
+                <button>Xem Khóa Học</button>
               </Link>
             </div>
           </div>
