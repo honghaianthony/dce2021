@@ -120,7 +120,13 @@
     font-weight: 600;
     cursor: pointer;
 }
-
+.top_decription_centercontent button:hover{
+    opacity: 700;
+    /* background-color: #ccc; */
+    color: #fff;
+    transform: scale(1.2);
+    background-color: #b21010;
+}
 .top_decription_centercontent p{
     font-size: 25px;
     font-weight: 600;

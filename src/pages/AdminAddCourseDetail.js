@@ -36,17 +36,7 @@ function AdminAddCourseDetail() {
   }, [courseId]);
   
   console.log(dataCourse);
-  // const [items,setItem]=useState(dataCourse)
-  //     const handleDeleteClick = (id) => {
-  //         const index = items.findIndex((item) => item.id === id);
-  //         if(index <0 )return;
-  //         const newItems = [...items];
-  //         newItems.splice(index, 1);
-  //         setItem(newItems);
-          // let currentItem= items;
-          // currentItem=currentItem.filter((i)=>i.id !== id)
-          // setItem(currentItem)
-        // };
+  
   return (
     <>
     <AdminLayout>
@@ -85,18 +75,12 @@ function AdminAddCourseDetail() {
               ))}
               
               <Link to="/adminAddLesson" className="listAddCourse_BtnAdd">
-                {/* <div className="btn_iconAdd">
-                  <button>
-                    <i class="fas fa-plus"></i>
-                    
-                  </button>
-                </div> */}
                 <div className="btnAdd_Decription">
                   <span><i class="fas fa-plus"></i>    Thêm Bài Học Mới</span>
                 </div>
               </Link>
               <Link to={`/courses/${courseId}`} className="btn_AddCourse__container">
-                <button>Tạo Khóa Học</button>
+                <button>Xem Khóa Học</button>
               </Link>
             </div>
           </div>

@@ -12,6 +12,8 @@ import { uploadFile, deleteFile } from "../firebase/util";/*** */
 import { Link } from 'react-router-dom'
 import { FaAngleRight } from 'react-icons/fa';
 
+import AdminPath from "../components/AdminBlog/AdminPath/AdminPath";
+import { useHistory } from "react-router-dom";
 function AdminUpdateCourse() {
   const listAddCourse = [
     {
@@ -47,6 +49,7 @@ function AdminUpdateCourse() {
   const [image, setImage] = useState(null); /*** */
   const [progress, setProgress] = useState(0); /*** */
   const [url, setUrl] = useState("");/*** */
+  // const [data, setData] = useState([]);
 
   /**đổ dữ liệu */
   useEffect(async () => {
@@ -87,6 +90,7 @@ function AdminUpdateCourse() {
     const res = await coursesApi.getCourseById(courseId);
     setCourseImg(res.image);
   }, [courseId]);
+  let history = useHistory();
   const handleChangeData = async (e) => {
     e.preventDefault();
     const newCourse = {
@@ -95,9 +99,9 @@ function AdminUpdateCourse() {
       description: courseDes,
       rate: 0,
       time: courseTime,
-      image: courseImg
+      image: courseImg,
     }
-    const res = await coursesApi.updateCourseById(newCourse);
+    const res = await coursesApi.updateCourseById(newCourse).then(history.push(`/adminaddcoursedetail/${courseId}`));
     if (res) {
       toast.success("Cập nhật thành công");
     } else {

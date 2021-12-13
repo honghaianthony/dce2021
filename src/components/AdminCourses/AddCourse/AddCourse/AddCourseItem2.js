@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 function AddCourseItem2(data) {
     //   const { lessonId } = useParams();
     const [dataDelete, deleteData] = useState()
+//   const [data, setDataLesson] = useState(null)
     const handleDelete = async (e) => {
         e.preventDefault();
         const res = await LessonApi.deleteLessonById(data.id);
@@ -19,14 +20,17 @@ function AddCourseItem2(data) {
         }
         console.log(res)
     }
-
+    // useEffect(async () => {
+    //     const res = await LessonApi.getLessonById(data.id);
+    //     setDataCourse(res);
+    //   }, [courseId]);
     return (
         <div className="AddCourseItem2_container">
 
             <div className="Item2_container">
                 <div className="AddCourseItem2_left">
                     <div className="btn_edit_AddCourseItem">
-                        <Link to={`/adminUpdateLesson/:lessonId`}>
+                        <Link to={`/adminUpdateLesson/${data.id}`}>
                             <button type="button">
                                 <i class="fas fa-pencil-alt "></i>
                             </button>

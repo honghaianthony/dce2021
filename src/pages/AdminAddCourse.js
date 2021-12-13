@@ -8,6 +8,8 @@ import { uploadFile, deleteFile } from "../firebase/util";/*** */
 import {withRouter} from "react-router-dom";
 import { Link } from 'react-router-dom'
 import { FaAngleRight } from 'react-icons/fa';
+import AdminPath from "../components/AdminBlog/AdminPath/AdminPath";
+import { useHistory } from "react-router-dom";
 function AdminAddCourse() {
   const [addNameCourse, setAddNameCourse] = useState("");
   const [addDesriptionCourse, setAddDescriptionCourse] = useState("")
@@ -17,6 +19,15 @@ function AdminAddCourse() {
   const [progress, setProgress] = useState(0); /*** */
   const [image, setImage] = useState(null); /*** */
   const [url, setUrl] = useState("");/*** */
+  const [data, setData] = useState([]);
+  // const [search, setSearch] = useState("");
+  let history = useHistory();
+  useEffect(async () => {
+    const res2 = await coursesApi.getAllCourses();
+    setData(res2.slice(-1)[0].id);
+  }, []);
+  let currentIdCourse=data+1
+  console.log(currentIdCourse)
   const handleSubmitAdd = async (e) => {
     e.preventDefault();
     const Course = {
@@ -26,14 +37,24 @@ function AdminAddCourse() {
       time: addTimeCourse,
       image: url
     }
-    const res = await coursesApi.createCourse(Course);
+    
+    const res = await coursesApi.createCourse(Course).then(history.push(`/adminaddcoursedetail/${currentIdCourse}`));
     if (res) {
       toast.success("Thêm khóa học thành công. Tiếp tục thêm nội dung cho khóa học");
+      
     } else {
       toast.error("Thêm khóa học thất bại");
     }
     
   }
+  
+  
+  // useEffect(()=>{
+    
+  // },[])
+  
+
+
   const imageChange = (e) => {
     if (e.target.files[0]) {
       setImage(e.target.files[0]);
