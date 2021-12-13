@@ -4,6 +4,7 @@ import TestCase from "./TestCase.js";
 import ExerciseApi from "../../../../apis/ExerciseApi";
 import Sidebar from "../../../SideBar/index";
 import MainLayout from "../../../../layouts/MainLayout"
+import { toast } from "react-toastify";
 function AddTestCase()
 {
   const [addShow, setAddShow] = useState("show");
@@ -20,7 +21,7 @@ function AddTestCase()
   const handleSubmitTestCase = async (e) =>
   {
     e.preventDefault();
-    for(var i=0; i<countTestcase;i++)
+    for(var i=0; i<1;i++)
     {
         const testCase =
         {
@@ -29,13 +30,19 @@ function AddTestCase()
           output : outputTesCase,
         }
         const res = await ExerciseApi.createTestCase(testCase);
+        if (res) {
+            toast.success("Thêm thành công");
+          } else {
+            toast.error("Thêm thất bại");
+          }
     };
+    
   };
   const arrTestCase = [];
   const handleAdd = () => {
     setAddShow(addShow === "show" ? "hide" : "show");
   };
-  for (var i = 0; i < countTestcase; i++) {
+  for (var i = 0; i < 1; i++) {
     arrTestCase.push(i + 1);
   }
     return(
@@ -70,12 +77,7 @@ function AddTestCase()
                             <h3 className="add-new-test-case" onClick={handleAdd}>
                                 <i class="fas fa-plus"></i>Testcase
                             </h3>
-                            <input
-                            id="input-count-testcase"
-                            type="text"
-                            onChange={(event) => setSountTestcase(event.target.value)}
-                            placeholder="Nhập số lượng testcase"
-                            />
+                           
                             <div className="add-testcase">
                                 {arrTestCase.map((testCaseIndex) => (
                                 <>
