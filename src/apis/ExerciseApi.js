@@ -19,6 +19,10 @@ const getAllTestCase = async() =>
 {   
     return await axiosInstance.get(`/exercises/get-all-exercises-test`);
 }
+const getTestCaseByExerciseId = async(id) =>
+{   
+    return await axiosInstance.get(`/exercises/get-all-exercises-test-by-exerciseId?exerciseId=${id}`);
+}
 const createTestCase = async(testcase) =>
 {
     return await axiosInstance.post(`/exercises/create-new-exercise-test`,testcase)
@@ -32,5 +36,6 @@ export default {
   deleteExercise,
     getAllTestCase,
     getTestCaseById,
-    createTestCase
+    createTestCase,
+    getTestCaseByExerciseId
 };

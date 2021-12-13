@@ -48,6 +48,7 @@ function AdminExerciseList() {
     const listExers = () => {
         if (filteredData.length > 0) {
             return filteredData.map((item, index) => {
+                let pathExer = "/exercises/" + item.id;
                 return (
                     <tr>
                         <td>{item.id}</td>
@@ -58,7 +59,7 @@ function AdminExerciseList() {
                         <td>{getFormattedDate(item.createdAt)}</td>
                         <td>{getFormattedDate(item.updatedAt)}</td>
                         <td>
-                            <Link to='/'>
+                            <Link to={pathExer}>
                                 <button className='view-btn'>
                                     Xem chi tiết
                                 </button>

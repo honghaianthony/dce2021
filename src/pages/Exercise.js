@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { useState,useEffect} from "react";
 import ExerciseApi from "../apis/ExerciseApi";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import compileApi from "../apis/compileApi";
+import { useStore } from "../store";
+import { io } from "socket.io-client";
 function Exercise(Exercise)
 {
     
@@ -12,24 +15,75 @@ function Exercise(Exercise)
         setdisplay(display === "off" ? "on" : "off");
     }
     /*api*/
-    const [data,setData]=useState(null);
-    const [listTestcase,setListTestcase]=useState([]);
+    const [exercise,setExercise]=useState(null);
+    const [testCase, setTestCase] = useState([]);
+    const [realOutput, setRealOutput] = useState("");
+    const [testCaseShow, setTestCaseShow] = useState({
+        id: 0,
+        lessonId: 0,
+        input: "",
+        output: "",
+      });
+    const [lang, setLang] = useState("C++");
+    const [code, setCode] = useState("");
     const {exerciseId} =useParams();
+    const socket = io("http://localhost:3000");
 
     useEffect( async () => {
        const res = await ExerciseApi.getAllExerciseById(exerciseId);
-       setData(res);
-    }, [exerciseId])
+       setExercise(res);
+        const testCase = await ExerciseApi.getTestCaseByExerciseId(exerciseId);
+        setTestCase(testCase.data);
+    }, [exerciseId]);
+
+    useEffect(() => {
+        setRealOutput("");
+      }, [testCaseShow]);
     
-    useEffect( async() => {
-        const res = await ExerciseApi.getAllTestCase();
-        setListTestcase(res);
-    }, [])
-    console.log(data);
+      const listTestCase = () => {
+        if (testCase.length > 0) {
+          return testCase.map((item, index) => {
+            return (
+              <li key={item.id} onClick={() => setTestCaseShow(item)}>
+                Test case {index + 1}
+              </li>
+            );
+          });
+        } else {
+          return <li>Không có test case</li>;
+        }
+    };
+    const showTestCase = (item, real) => {
+        return (
+          <div className="testcase-display-lesson">
+            <p>Đầu vào: {item.input}</p>
+            <p>Đầu ra: {real}</p>
+            <p>Đầu ra mong muốn: {item.output}</p>
+            {/* <p>Thời gian thực hiện:</p>
+          <p>Tin nhắn:</p> */}
+          </div>
+        );
+      };
+    const handleSubmit = async () => {
+        const body = {
+          code: code,
+          input: testCaseShow.input,
+          inputRadio: true,
+          lang: lang,
+    };
+    const response = await compileApi.postCompile(body);
+    console.log(response);
+        if (response.output) {
+          setRealOutput(response.output);
+        } else {
+          setRealOutput(response.error);
+        }
+      };
+      
 
     return (
         <>
-            { data === null ? (<h1>Loading</h1>):
+            { exercise === null ? (<h1>Loading</h1>):
                 (
                     <div className="exercise-container">
                 <div className="exercise-name">
@@ -37,7 +91,7 @@ function Exercise(Exercise)
                          <i class="fas fa-angle-left"></i>
                     </Link>
                     
-                    <p>{data.exerciseName}</p>
+                    <p>{exercise.exerciseName}</p>
                 </div>
                 <div className="exercise-main">
                     <div className="content">
@@ -49,26 +103,26 @@ function Exercise(Exercise)
                         <div className="content-and-comment">
                             <div className={display === "on" ? "main-content-off" : "main-content"}>
                             <div className="content-header">
-                                <div className={(data.level === 1 ? "level-simple" : (data.level === 2 ? "level-normal" : "level-hard"))}>
-                                    {(data.level === 1 ? "Đơn giản" : (data.level === 2 ? "Trung bình" : "Khó"))}
+                                <div className={(exercise.level === 1 ? "level-simple" : (exercise.level === 2 ? "level-normal" : "level-hard"))}>
+                                    {(exercise.level === 1 ? "Đơn giản" : (exercise.level === 2 ? "Trung bình" : "Khó"))}
                                 </div>
                                 <div className="point">100 Points</div>
                             </div>
                             <div className="content-disc">
                                 <p>
-                                {data.content}
+                                {exercise.content}
                                 </p>
                             </div>
                             <div className="content-input">
                                 <h2>Input:</h2>
                                 <p>
-                                    {data.input}
+                                    {exercise.input}
                                 </p>
                             </div>
                             <div className="content-output">
                                 <h2>Output:</h2>
                                 <p>
-                                    {data.output}
+                                    {exercise.output}
                                 </p>
                             </div>
                             </div> 
@@ -140,11 +194,26 @@ function Exercise(Exercise)
                     </div>
                     <div className="exercise-code">
                             <div className="intro">
-                                <p className="intro-content">Code in here</p>
+                                <p className="intro-content">Code in here
+                                <select
+                                    className="lang-select"
+                                    value={lang}
+                                    onChange={(e) => setLang(e.target.value)}
+                                >
+                                    <option value="C++">C++</option>
+                                    <option value="C">C</option>
+                                    <option value="Java">Java</option>
+                                    <option value="Python">Python</option>
+                                </select>
+                                </p>
                                 <button type="button" className="refresh-btn">Làm mới</button>
                             </div>
                             <div className="place-code">
-                                <textarea id="code-of-exser" name="code-of-exser">
+                                <textarea 
+                                        id="code-of-exser"
+                                        name="code-of-exser"
+                                        value={code}
+                                        onChange={(e) => setCode(e.target.value)}>
                                 </textarea>
                             </div>
                         <div className="testcase">                           
@@ -153,22 +222,15 @@ function Exercise(Exercise)
                                 </div>
                                 <div className="testcase-content">
                                     <div className="testcase-number">
-                                        <ul>
-                                            <li>Kiểm thử 1</li>
-                                            <li>Kiểm thử 2</li>
-                                            <li>Kiểm thử 2</li>
-                                        </ul>
+                                         <ul>{listTestCase()}</ul>
                                     </div>
-                                    <div className="testcase-display">
-                                        <p>Đầu vào:</p>
-                                        <p>Đầu ra:</p>
-                                        <p>Đầu ra mong muốn:</p>
-                                        <p>Thời gian thực hiện:</p>
-                                        <p>Tin nhắn:</p>
-                                    </div>
+                                    {showTestCase(testCaseShow, realOutput)}
                                 </div>
                                 <div className="testcase-button">
-                                    <button type="button" className="run-btn">Chạy thử</button>
+                                    <button type="button" 
+                                            className="run-btn"
+                                            onClick={handleSubmit}
+                                    >Chạy thử</button>
                                     <button type="button" className="submit-btn">Nộp bài</button>
                                 </div>
                         </div>
