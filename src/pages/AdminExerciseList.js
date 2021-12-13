@@ -44,6 +44,7 @@ function AdminExerciseList() {
     const listExers = () => {
         if (filteredData.length > 0) {
             return filteredData.map((item, index) => {
+                let pathExer = "/exercises/" + item.id;
                 return (
                     <tr>
                         <td>{item.id}</td>

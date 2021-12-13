@@ -2,7 +2,7 @@ import './AddExercise.css';
 import './TestCase.css';
 import { useState,useEffect} from 'react';
 
-function TestCase({id,handleChangeInput,handleChangeOutput})
+function TestCase({id,handleChangeInput,handleChangeOutput,input,output})
 {
     /*const[input,setInput]=useState("");
     const[output,setOutput]=useState("");
@@ -22,11 +22,13 @@ function TestCase({id,handleChangeInput,handleChangeOutput})
                       name="input" 
                       id="in-testExercise" 
                       placeholder="input bài học hiện tại"
+                      value={input}
                       onChange={(e)=>handleChangeInput(e.target.value)}/>
             <textarea type="text" 
                       name="output"
                       id="out-testExercise" 
                       placeholder="input bài học hiện tại"
+                      value={output}
                       onChange={(e)=>handleChangeOutput(e.target.value)}/>
            </div>
         </>                        
