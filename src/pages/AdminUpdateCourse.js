@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { uploadFile, deleteFile } from "../firebase/util";/*** */
 import AdminPath from "../components/AdminBlog/AdminPath/AdminPath";
-
+import { useHistory } from "react-router-dom";
 function AdminUpdateCourse() {
   const listAddCourse = [
     {
@@ -46,6 +46,7 @@ function AdminUpdateCourse() {
   const [image, setImage] = useState(null); /*** */
   const [progress, setProgress] = useState(0); /*** */
   const [url, setUrl] = useState("");/*** */
+  // const [data, setData] = useState([]);
 
   /**đổ dữ liệu */
   useEffect(async () => {
@@ -86,6 +87,7 @@ function AdminUpdateCourse() {
     const res = await coursesApi.getCourseById(courseId);
     setCourseImg(res.image);
   }, [courseId]);
+  let history = useHistory();
   const handleChangeData = async (e) => {
     e.preventDefault();
     const newCourse = {
@@ -94,9 +96,9 @@ function AdminUpdateCourse() {
       description: courseDes,
       rate: 0,
       time: courseTime,
-      image: courseImg
+      image: courseImg,
     }
-    const res = await coursesApi.updateCourseById(newCourse);
+    const res = await coursesApi.updateCourseById(newCourse).then(history.push(`/adminaddcoursedetail/${courseId}`));
     if (res) {
       toast.success("Cập nhật thành công");
     } else {
@@ -145,7 +147,7 @@ function AdminUpdateCourse() {
                   <div className="center_content_AdminUpdateCourse">
                     <form onSubmit={handleChangeData} >
                       <div className="top_decription_centercontent">
-                        <p>Tạo khóa học mới</p>
+                        <p>Chỉnh sửa khóa học</p>
                           <div className="btn_delete_container">
                             <button type="button" onClick={handleDelete}>Xóa</button>
                           </div>
