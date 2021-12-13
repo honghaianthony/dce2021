@@ -7,6 +7,7 @@ import Sidebar from "../../../SideBar/index";
 import MainLayout from "../../../../layouts/MainLayout";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import { FaAngleRight } from "react-icons/fa";
 
 function AddExercise() {
   const [addShow, setAddShow] = useState("show");
@@ -36,6 +37,7 @@ function AddExercise() {
     } else {
       toast.error("Thêm thất bại");
     }
+    console.log(res);
   };
 
   const handleSubmitTestCase = async (e) => {
@@ -81,7 +83,18 @@ function AddExercise() {
             <Sidebar />
           </div>
           <div className="AddExercise-right">
-            <div className="AddExercise-right-title">
+            <div className="exerciselist-path addTestcase-path">
+              <Link to="/" className="exerciselist-link ">
+                <span>Quản lý bài luyện tập</span>
+              </Link>
+              <i className="icon-angle-right">
+                <FaAngleRight />
+              </i>
+              <Link to="/adminexerciselist" className="exerciselist-link">
+                <span>Thêm bài luyện tập</span>
+              </Link>
+            </div>
+            <div className="AddExercise-right-title title-center">
               <p>Tạo bài luyện tập mới</p>
             </div>
 
@@ -89,15 +102,21 @@ function AddExercise() {
               <div class="form-add-AddExercise">
                 <form onSubmit={handleSubmit}>
                   <div className="row-AddExercise">
+                    <label className="addExercise-label" for="nameExercise">
+                      Tên bài tập
+                    </label>
                     <input
                       type="text"
                       name="exerName"
                       id="nameExercise"
-                      placeholder="Nhập tên bài luyện tập mới"
+                      placeholder="Nhập tên bài luyện tập"
                       onChange={(event) => setExerName(event.target.value)}
                     />
                   </div>
                   <div className="row-AddExercise">
+                    <label className="addExercise-label" for="levelExercise">
+                      Level
+                    </label>
                     <select
                       name="level"
                       id="levelExercise"
@@ -109,6 +128,9 @@ function AddExercise() {
                     </select>
                   </div>
                   <div className="row-AddExercise">
+                    <label className="addExercise-label" for="contentExercise">
+                      Content
+                    </label>
                     <textarea
                       type="text"
                       name="content"
