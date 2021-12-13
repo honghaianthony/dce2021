@@ -87,7 +87,7 @@ function HomeDCE() {
               </div>
 
               <ul className="task-info-info">
-                <li className="6581/7280">
+                <li className="so-luong">
                   <i>
                     <img src={anh9} alt="người" />
                     <span className="span-user-submit">30/40</span>

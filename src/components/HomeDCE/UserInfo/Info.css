@@ -13,6 +13,18 @@
     
 }
 
+.ImgPreview .anh-thong-tin{
+    width: 80px;
+  height: 80px;
+  position: relative;
+  border-radius: 50%;
+  display: block;
+  align-items: center;
+  margin-left: 50px;
+}
+
+
+
 .row{
     margin-right: -15px;
     margin-left: -15px;
@@ -26,7 +38,7 @@
 
 /* ----------------------------------------------------------------------- */
 
-.col-xs-12, .col-md-3, .col-md-9, .col-md-2, .col-sm-4, .col-sm-8, .col-lg-3 , .col-lg-9{
+.col-xs-12, .col-md-3, .col-md-9, .col-md-2, .col-sm-5, .col-sm-8, .col-lg-3 , .col-lg-9{
     position: relative;
     min-height: 1px;
     padding-right: 15px;
@@ -102,8 +114,9 @@
     vertical-align: middle;
 }
 
-.col-sm-4, .col-sm-8{
+.col-sm-5, .col-sm-8{
     float: left;
+    background: white;
 }
 
 .col-lg-3, .col-lg-9{
