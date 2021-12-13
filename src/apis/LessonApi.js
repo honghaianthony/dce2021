@@ -12,7 +12,7 @@ const deleteLessonById = async (id) => {
   return await axiosInstance.delete(`lessons/delete-lessons?id=${id}`);
 };
 
-const getAllLessonTest = async (id) => {
+const getAllLessonTestById = async (id) => {
   return await axiosInstance.get(`lessons/get-all-lessons-test?lessonId=${id}`);
 };
 
@@ -39,16 +39,27 @@ const getLessonNote = async (id) => {
 const updateNote = async (data) => {
   return await axiosInstance.put(`note/update-note`, data);
 };
-
+const updateLessonById=async(lesson)=>{
+  return await axiosInstance.put(`lessons/update-lessons`,lesson)
+}
+const updateLessonTestById=async(lesson)=>{
+  return await axiosInstance.put(`lessons/update-lessons-test`,lesson)
+}
+const getLessonTestByLessonId=async(id)=>{
+  return await axiosInstance.get(`lessons/get-all-lessons-test-by-lessonId?lessonId=${id}`)
+}
 export default {
   getAllLesson,
   getLessonById,
   deleteLessonById,
-  getAllLessonTest,
+  getAllLessonTestById,
   getAllLessonComment,
   getLessonNote,
   updateNote,
   createLesson,
   createLessonTest,
-  getLessonByCourseId
+  getLessonByCourseId,
+  updateLessonById,
+  updateLessonTestById,
+  getLessonTestByLessonId
 };

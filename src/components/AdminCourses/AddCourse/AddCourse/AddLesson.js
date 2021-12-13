@@ -7,6 +7,7 @@ import coursesApi from '../../../../apis/coursesApi'
 import { useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
+import AdminLayout from '../../../../layouts/AdminLayout';
 function AddLesson() {
     const [addShow, setAddShow] = useState("show");
     const [name, setName] = useState("");
@@ -73,6 +74,7 @@ function AddLesson() {
     console.log(countTestcase);
     console.log(arrTestCase);
     return (
+        <AdminLayout>
         <div className="AddLesson-container">
             <div className="AddLesson-main">
                 <div className="AddLesson-left"></div>
@@ -155,7 +157,7 @@ function AddLesson() {
             </div>
 
         </div>
-
+        </AdminLayout>                          
     )
 }
 export default AddLesson;
