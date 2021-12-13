@@ -53,6 +53,7 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
+
           <Route path="/login">
             <Login />
           </Route>
@@ -96,6 +97,9 @@ export default function App() {
             <AdminExerciseList />
           </PrivateRoute>
 
+          <Route path="/adminAddLesson/:courseId">
+            <AddLesson />
+          </Route>
           <Route exact path="/update-exercises/:exerciseId">
             <UpdateExercise />
           </Route>
@@ -150,7 +154,10 @@ export default function App() {
           <Route path="/upload">
             <UploadTest />
           </Route>
-
+          
+          <Route path="/adminUpdateLesson/:lessonId">
+            <UpdateLesson />
+          </Route>
           <Route path="/">
             <Home />
           </Route>

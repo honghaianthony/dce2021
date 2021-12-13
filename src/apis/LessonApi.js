@@ -21,9 +21,21 @@ const getAllLessonComment = async (id) => {
     `lessons/get-all-lessons-comment?lessonId=${id}`
   );
 };
+const getLessonByCourseId=async(id)=>{
+  return await axiosInstance.get(
+    `lessons/get-all-lessons-by-courseId?courseId=${id}`
+  );
+  }
+const createLesson =async(lesson)=>{
+  return await axiosInstance.post(`/lessons/create-new-lesson`,lesson)
+}
+const createLessonTest =async(lesson)=>{
+  return await axiosInstance.post(`/lessons/create-new-lesson-test`,lesson)
+}
 const getLessonNote = async (id) => {
   return await axiosInstance.get(`note/get-note-by-id?id=${id}`);
 };
+
 const updateNote = async (data) => {
   return await axiosInstance.put(`note/update-note`, data);
 };
@@ -36,4 +48,7 @@ export default {
   getAllLessonComment,
   getLessonNote,
   updateNote,
+  createLesson,
+  createLessonTest,
+  getLessonByCourseId
 };
