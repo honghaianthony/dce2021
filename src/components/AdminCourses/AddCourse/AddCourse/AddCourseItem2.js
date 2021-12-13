@@ -15,9 +15,11 @@ function AddCourseItem2(data) {
         deleteData(res);
         if (res) {
             toast.success("Xóa thành công");
+            window.location.reload(false);
         } else {
             toast.error("Xóa thất bại");
         }
+        
         console.log(res)
     }
     // useEffect(async () => {
