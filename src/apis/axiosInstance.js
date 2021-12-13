@@ -2,7 +2,7 @@ import axios from "axios";
 
 const token = localStorage.getItem("token");
 const axiosInstance = axios.create({
-  baseURL: "https://dce-uit.herokuapp.com/",
+  baseURL: "https://dce-uit.herokuapp.com/api",
   // baseURL: "http://localhost:3000/api",
 });
 
