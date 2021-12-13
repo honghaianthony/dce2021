@@ -2,7 +2,8 @@ import axios from "axios";
 
 const token = localStorage.getItem("token");
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000/api",
+  baseURL: "https://dce-uit.herokuapp.com/",
+  // baseURL: "http://localhost:3000/api",
 });
 
 axiosInstance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
