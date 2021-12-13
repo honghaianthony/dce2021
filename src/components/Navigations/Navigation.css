@@ -132,9 +132,8 @@
 
   .dce-logo {
     position: absolute;
-    top: 0;
+    top: 5px;
     left: 0;
-    transform: translate(25%, 30%);
   }
 
   .button-container {

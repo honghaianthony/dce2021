@@ -13,21 +13,17 @@ function Profile() {
     <div className="menu-starter">
       <div className="menu">
         <div className="options">
-          <span>
-            <Link to={"/me"} className="option-item">
-              Thông tin của tôi
-            </Link>
-          </span>
-          <span>
-            <Link to={"/addblog"} className="option-item">
-              Đăng Blog
-            </Link>
-          </span>
-          <Link to="/adminAddExercise" className="option-item">
-            Tạo bài luyện tập
+          <Link to={"/me"} >
+            <p> Thông tin của tôi </p>
           </Link>
-          <span className="logout" onClick={handleLogout}>
-            Thoát
+          <Link to={"/addblog"} >
+            <p> Đăng blog </p>
+          </Link>
+          <Link to="/adminAddExercise" >
+            <p>Tạo bài luyện tập</p>
+          </Link>
+          <span onClick={handleLogout}>
+            <p> Thoát </p>
           </span>
         </div>
       </div>
