@@ -4,7 +4,6 @@ import "./BlogListTable.css";
 // import AdminPath from "../AdminPath/AdminPath";
 import blogsApi from "../../../apis/blogsApi";
 
-
 function getFormattedDate(date) {
     return new Date(date).toLocaleDateString();
 }
@@ -13,6 +12,7 @@ function BlogListTable() {
     const [data, setListBlogs] = useState([]);
     useEffect(async () => {
         const res = await blogsApi.getAllBlogs();
+        console.log(res);
         setListBlogs(res);
     }, []);
     const listBlogs = () => {
@@ -21,15 +21,15 @@ function BlogListTable() {
                 return (
                     <tr key={index}>
                         <td>{item.id}</td>
-                        <td>{item.blogName}</td>
-                        <td>
-                            <p>nguyet</p>
-                        </td>
+                        <td>{item.title}</td>
+                        <td>{item.User.userName}</td>
                         <td>{getFormattedDate(item.createdAt)}</td>
                         <td>{getFormattedDate(item.updatedAt)}</td>
                         <td>
                             <Link to={`/blogs/${item.id}`}>
-                                <button className="view-btn">Xem chi tiết</button>
+                                <button className="view-btn">
+                                    Xem chi tiết
+                                </button>
                             </Link>
                         </td>
                     </tr>
@@ -59,5 +59,3 @@ function BlogListTable() {
 }
 
 export default BlogListTable;
-
-
