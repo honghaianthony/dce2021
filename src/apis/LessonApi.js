@@ -5,6 +5,11 @@ const getAllLesson = async (id) => {
     `/lessons/get-all-lessons-by-courseId?courseId=${id}`
   );
 };
+const getAllLessonFindCourseId=async()=>{
+  return await axiosInstance.get(
+    `/lessons/get-all-lessons`
+  )
+}
 const getLessonById = async (id) => {
   return await axiosInstance.get(`lessons/get-lesson-by-id?id=${id}`);
 };
@@ -61,5 +66,6 @@ export default {
   getLessonByCourseId,
   updateLessonById,
   updateLessonTestById,
-  getLessonTestByLessonId
+  getLessonTestByLessonId,
+  getAllLessonFindCourseId
 };

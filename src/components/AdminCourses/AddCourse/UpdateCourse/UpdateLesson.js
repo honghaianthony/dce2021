@@ -7,6 +7,7 @@ import Adminlayout from '../../../../layouts/AdminLayout'
 import { useEffect } from 'react/cjs/react.development';
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
 
 function UpdateLesson()
 {
@@ -57,6 +58,9 @@ function UpdateLesson()
         console.log(res3[0].id)
     },[lessonId])
     // console.log(idTest)
+    let history=useHistory();
+    
+    /**/
     const handleChangeDataLesson=async(e)=>{
         e.preventDefault();
         const newLesson={
@@ -75,11 +79,12 @@ function UpdateLesson()
         const res5=await LessonApi.updateLessonTestById(newLessonTest)
         console.log(newLessonTest)
         if (res4&&res5) {
-            toast.success("Thêm thành công");
+            toast.success("Cập nhật thành công");
         } else {
-            toast.error("Thêm thất bại");
+            toast.error("Cập nhật thất bại");
         }
     }
+    
     // console.log(lessonId)
     // const handleChangeDataLesson=async(e)=>{
     //     e.preventDefault();
