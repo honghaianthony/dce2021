@@ -102,7 +102,7 @@ export const SidebarData = [
   },
   {
     title: "Thống kê",
-    path: "",
+    path: "/report",
     icon: <BsIcons.BsCardList />,
   },
 ];
