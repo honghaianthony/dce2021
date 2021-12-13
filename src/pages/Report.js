@@ -5,10 +5,11 @@ import { FaAngleRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import usersApi from "../apis/usersApi";
 import "../components/AdminMembers/MemberListTable.css";
-import ReactExport from "react-data-export";
+import ReactExport from "react-export-excel";
 
 const ExcelFile = ReactExport.ExcelFile;
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
+const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
 
 function getFormattedDate(date) {
   return new Date(date).toLocaleDateString();
@@ -51,48 +52,34 @@ function Report() {
     setFilteredData(newData);
   }, [month, year]);
 
-  const style = { font: { sz: "18", bold: true } };
-  const DataSet = [
-    {
-      columns: [
-        {
-          title: "Id",
-          style: style,
-          width: { wpx: 20 },
-        },
-        {
-          title: "Tên tài khoản",
-          style: style,
-          width: { wpx: 90 },
-        },
-        {
-          title: "Email",
-          style: style,
-          width: { wpx: 800 },
-        },
-        {
-          title: "Ngày tham gia",
-          style: style,
-          width: { wpx: 80 },
-        },
-        {
-          title: "Vai trò",
-          style: style,
-          width: { wpx: 50 },
-        },
-      ],
-      data: filteredData.map((data) => [
-        { value: data.id, style: { font: { sz: "14" } } },
-        { value: data.username, style: { font: { sz: "14" } } },
-        { value: data.email, style: { font: { sz: "14" } } },
-        {
-          value: getFormattedDate(data.createdAt),
-          style: { font: { sz: "14" } },
-        },
-        { value: "Thành viên", style: { font: { sz: "14" } } },
-      ]),
-    },
-  ];
+  // const dataSet = [
+  //   {
+  //     columns: [
+  //       {
+  //         value: "Id",
+  //         widthPx: 60,
+  //         widthCh: 20,
+  //         fill: { patternType: "solid", bgColor: { rgb: "1e266d" } },
+  //       },
+  //       { value: "Tên người dùng", widthPx: 60, widthCh: 20 },
+  //       { value: "Email", widthPx: 60, widthCh: 20 },
+  //       { value: "Ngày tham gia", widthPx: 60, widthCh: 20 },
+  //       { value: "Vai trò", widthPx: 60, widthCh: 20 },
+  //     ],
+  //     data: [
+  //       filteredData.map((item) => {
+  //         return [
+  //           item.id,
+  //           item.userName,
+  //           item.email,
+  //           getFormattedDate(item.createdAt),
+  //           "Thành viên",
+  //         ];
+  //       }),
+  //     ],
+  //   },
+  // ];
+
   const listUsers = () => {
     if (filteredData.length > 0) {
       return filteredData.map((item, index) => {
@@ -180,18 +167,20 @@ function Report() {
             </select>
             {filteredData.length !== 0 ? (
               <ExcelFile
-                filename="Report"
-                // filename={`Báo cáo tháng ${month}/${year}`}
+                filename={`Báo cáo tháng ${month}/${year}`}
                 element={
                   <button type="button" className="export-btn">
                     Xuất báo cáo
                   </button>
                 }
               >
-                <ExcelSheet
-                  dataSet={DataSet}
-                  name={`Báo cáo tháng ${month}/${year}`}
-                />
+                <ExcelSheet data={filteredData} name="Report">
+                  <ExcelColumn label="Id" value="id" />
+                  <ExcelColumn label="Tên tài khoản" value="userName" />
+                  <ExcelColumn label="Email" value="email" />
+                  <ExcelColumn label="Ngày tham gia" value="createdAt" />
+                  <ExcelColumn label="Vai trò" value={() => "Thành viên"} />
+                </ExcelSheet>
               </ExcelFile>
             ) : null}
           </div>
