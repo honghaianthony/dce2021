@@ -9,7 +9,8 @@ import coursesApi from "../apis/coursesApi";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { uploadFile, deleteFile } from "../firebase/util";/*** */
-import AdminPath from "../components/AdminBlog/AdminPath/AdminPath";
+import { Link } from 'react-router-dom'
+import { FaAngleRight } from 'react-icons/fa';
 
 function AdminUpdateCourse() {
   const listAddCourse = [
@@ -136,7 +137,15 @@ function AdminUpdateCourse() {
         {data === null ? (<div className="loader"></div>) : (
           <div className="AdminUpdateCourse__container">
             {/* <div className="top_decription_link"> */}
-              <AdminPath />
+            <div className='admin-path'>
+              <Link to='/' className='admin-link'>
+                  <span>Trang chủ</span>
+              </Link>
+              <i className='icon-angle-right'><FaAngleRight/></i>
+              <Link to='/admincourselist' className='admin-link'>
+                  <span>Quản lý khóa học</span>
+              </Link>
+            </div>
             {/* </div> */}
             <div className="Update__AdminCourse__Container">
               <div className="Update__container">
@@ -145,7 +154,7 @@ function AdminUpdateCourse() {
                   <div className="center_content_AdminUpdateCourse">
                     <form onSubmit={handleChangeData} >
                       <div className="top_decription_centercontent">
-                        <p>Tạo khóa học mới</p>
+                        <p>Chỉnh sửa khóa học</p>
                           <div className="btn_delete_container">
                             <button type="button" onClick={handleDelete}>Xóa</button>
                           </div>

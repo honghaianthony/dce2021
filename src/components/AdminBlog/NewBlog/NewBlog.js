@@ -1,5 +1,4 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
 import AdminPath from "../AdminPath/AdminPath";
 import "./NewBlog.css";
 // import MarkdownIt from "markdown-it";

@@ -6,7 +6,8 @@ import { useState, useEffect, useCallback } from "react";
 import { toast } from "react-toastify";
 import { uploadFile, deleteFile } from "../firebase/util";/*** */
 import {withRouter} from "react-router-dom";
-import AdminPath from "../components/AdminBlog/AdminPath/AdminPath";
+import { Link } from 'react-router-dom'
+import { FaAngleRight } from 'react-icons/fa';
 function AdminAddCourse() {
   const [addNameCourse, setAddNameCourse] = useState("");
   const [addDesriptionCourse, setAddDescriptionCourse] = useState("")
@@ -80,7 +81,15 @@ function AdminAddCourse() {
       {/* <Navigation /> */}
       <div className="AdminAddCourse__">
         {/* <div className="top_decription_link"> */}
-          <AdminPath />
+        <div className='admin-path'>
+          <Link to='/' className='admin-link'>
+              <span>Trang chủ</span>
+          </Link>
+          <i className='icon-angle-right'><FaAngleRight/></i>
+          <Link to='/admincourselist' className='admin-link'>
+              <span>Quản lý khóa học</span>
+          </Link>
+        </div>
         {/* </div> */}
         <div className="Container_____AdminAdCourse">
           <div className="center_AdminAddCourse__container">

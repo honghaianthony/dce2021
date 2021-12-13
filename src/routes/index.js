@@ -27,6 +27,7 @@ import {
   AddBlog,
   AdminAddBlog,
   AdminBlogList,
+  AdminUpdateBlog,
 } from "../pages";
 import UpdateLesson from "../components/AdminCourses/AddCourse/UpdateCourse/UpdateLesson";
 import UpdateExercise from "../components/AdminExercises/AddExercise/UpdateExercise/UpdateExercise";
@@ -138,6 +139,9 @@ export default function App() {
           </Route>
           <Route path="/adminaddblog">
             <AdminAddBlog />
+          </Route>
+          <Route path="/adminupdateblog">
+            <AdminUpdateBlog />
           </Route>
           <Route path="/testcallapi">
             <TestCallApi />
