@@ -94,6 +94,9 @@ export default function App() {
           <PrivateRoute exact path="/adminexerciselist">
             <AdminExerciseList />
           </PrivateRoute>
+          <Route exact path="/update-exercises/:exerciseId">
+            <UpdateExercise />
+          </Route>
           <Route exact path="/exercises">
             <Exercises />
           </Route>
@@ -148,7 +151,7 @@ export default function App() {
         </Switch>
         <ToastContainer
           position="bottom-right"
-          autoClose={5000}
+          autoClose={2000}
           hideProgressBar={false}
           newestOnTop={false}
           closeOnClick
