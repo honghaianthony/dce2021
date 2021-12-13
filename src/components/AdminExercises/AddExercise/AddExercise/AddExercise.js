@@ -5,6 +5,7 @@ import AdminLayout from "../../../../layouts/AdminLayout";
 import ExerciseApi from "../../../../apis/ExerciseApi";
 import Sidebar from "../../../SideBar/index";
 import MainLayout from "../../../../layouts/MainLayout"
+import { toast } from "react-toastify";
 import { Link } from 'react-router-dom';
 
 function AddExercise() {
@@ -31,6 +32,11 @@ function AddExercise() {
       level: exerLevel,
     };
     const res = await ExerciseApi.createExercise(Exer);
+    if (res) {
+      toast.success("Thêm thành công");
+    } else {
+      toast.error("Thêm thất bại");
+    }
   };
 
   const handleSubmitTestCase = async (e) =>
@@ -45,7 +51,13 @@ function AddExercise() {
         output : outputTesCase,
       }
       const res = await ExerciseApi.createTestCase(testCase);
+      if (res) {
+        toast.success("Thêm thành công");
+      } else {
+        toast.error("Thêm thất bại");
+      }
     };
+    
   };
   /*api*/
   /*useEffect( async() => {
