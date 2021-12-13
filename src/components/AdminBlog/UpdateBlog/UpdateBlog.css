@@ -1,18 +1,17 @@
-.add-adminblog-container {
+.update-adminblog-container {
     display: block;
     background-color: #fff;
-    padding: 10px 50px;
-    width: 60%;
-    margin-left: 500px;
+    padding: 20px 50px;
+    margin-left: 300px;
 }
 
-/* add blog */
+/* update blog */
 
-.add-blog-title {
+.update-blog-title {
     margin-bottom: 20px;
 }
 
-#add-blog-title {
+#update-blog-title {
     width: 99%;
     text-align: left;
     padding: 5px 0 10px 10px;
@@ -20,16 +19,16 @@
     border-color: #898989;
 }
 
-#add-blog-title::placeholder {
+#update-blog-title::placeholder {
     font-size: 16px;
     margin: 10px;
 }
 
-.add-blog-description {
+.update-blog-description {
     margin-bottom: 20px;
 }
 
-#add-blog-description {
+#update-blog-description {
     width: 99%;
     text-align: left;
     padding: 5px 0 10px 10px;
@@ -37,16 +36,16 @@
     border-color: #898989;
 }
 
-#add-blog-description::placeholder {
+#update-blog-description::placeholder {
     font-size: 16px;
     margin: 10px;
 }
 
-.add-blog-cover-image {
+.update-blog-cover-image {
     margin-bottom: 20px;
 }
 
-#add-blog-cover-image {
+#update-blog-cover-image {
     width: 99%;
     text-align: left;
     padding: 5px 0 10px 0px;
@@ -54,27 +53,27 @@
     border-color: #898989;
 }
 
-#add-blog-cover-image::placeholder {
+#update-blog-cover-image::placeholder {
     font-size: 16px;
     margin: 10px;
 }
 
-/* add blog content */
+/* update blog content */
 
-.add-blog-content {
+.update-blog-content {
     min-height: 400px;
     height: 450px;
 }
 
-/* add blog button */
+/* update blog button */
 
-.add-blog-button {
+.update-blog-button {
     text-align: right;
     margin-top: 0;
     margin-bottom: 10px;
 }
 
-.add-blog-btn {
+.update-blog-btn {
     font-size: 16px;
     padding: 8px 20px;
     border-radius: 5px;
@@ -83,7 +82,7 @@
     text-align: center;
 }
 
-.add-blog-btn:hover {
+.update-blog-btn:hover {
     background-color: #1e266d;
     color: #f1f1f1;
 }

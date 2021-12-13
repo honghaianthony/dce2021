@@ -112,7 +112,7 @@ function HomeDCE() {
 
           <div className="profile-user">
             <div className="col-xs-12 col-md-4">
-              <div className="mian-user-info">
+              <div className="main-user-info">
                 <div className="user-ava">
                   <img
                     src="https://firebasestorage.googleapis.com/v0/b/dce2021.appspot.com/o/images%2F1639215255401-Anonymous-Avatar.png?alt=media&token=be8c5e92-271b-4d0e-85ff-53ae1abfb6f8"

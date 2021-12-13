@@ -10,7 +10,8 @@ import { useParams } from "react-router-dom";
 import coursesApi from "../apis/coursesApi";
 import LessonApi from "../apis/LessonApi";
 import {Link } from "react-router-dom";
-import AdminPath from "../components/AdminBlog/AdminPath/AdminPath";
+import { FaAngleRight } from 'react-icons/fa';
+
 function AdminAddCourseDetail() {
   const listAddCourse2 = [
     {
@@ -35,17 +36,7 @@ function AdminAddCourseDetail() {
   }, [courseId]);
   
   console.log(dataCourse);
-  // const [items,setItem]=useState(dataCourse)
-  //     const handleDeleteClick = (id) => {
-  //         const index = items.findIndex((item) => item.id === id);
-  //         if(index <0 )return;
-  //         const newItems = [...items];
-  //         newItems.splice(index, 1);
-  //         setItem(newItems);
-          // let currentItem= items;
-          // currentItem=currentItem.filter((i)=>i.id !== id)
-          // setItem(currentItem)
-        // };
+  
   return (
     <>
     <AdminLayout>
@@ -54,7 +45,15 @@ function AdminAddCourseDetail() {
         ) : (
       <div className="AdminAddCourseDetail___Container">
         {/* <div className="route_container"> */}
-          <AdminPath/>
+        <div className='admin-path'>
+          <Link to='/' className='admin-link'>
+              <span>Trang chủ</span>
+          </Link>
+          <i className='icon-angle-right'><FaAngleRight/></i>
+          <Link to='/admincourselist' className='admin-link'>
+              <span>Quản lý khóa học</span>
+          </Link>
+        </div>
         {/* </div> */}
         <div className="center_AddCourseDetail_container">
           <div className="container_AdminAddCourse_detail">
@@ -76,18 +75,12 @@ function AdminAddCourseDetail() {
               ))}
               
               <Link to="/adminAddLesson" className="listAddCourse_BtnAdd">
-                {/* <div className="btn_iconAdd">
-                  <button>
-                    <i class="fas fa-plus"></i>
-                    
-                  </button>
-                </div> */}
                 <div className="btnAdd_Decription">
                   <span><i class="fas fa-plus"></i>    Thêm Bài Học Mới</span>
                 </div>
               </Link>
               <Link to={`/courses/${courseId}`} className="btn_AddCourse__container">
-                <button>Tạo Khóa Học</button>
+                <button>Xem Khóa Học</button>
               </Link>
             </div>
           </div>

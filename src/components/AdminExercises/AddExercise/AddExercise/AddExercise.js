@@ -4,8 +4,9 @@ import TestCase from "./TestCase.js";
 import AdminLayout from "../../../../layouts/AdminLayout";
 import ExerciseApi from "../../../../apis/ExerciseApi";
 import Sidebar from "../../../SideBar/index";
-import MainLayout from "../../../../layouts/MainLayout"
-import { Link } from 'react-router-dom';
+import MainLayout from "../../../../layouts/MainLayout";
+import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 function AddExercise() {
   const [addShow, setAddShow] = useState("show");
@@ -15,10 +16,9 @@ function AddExercise() {
   const [exerLevel, setExerLevel] = useState(1);
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
-  const [exerId,setExerId]=useState("");
+  const [exerId, setExerId] = useState("");
   const [inputTestCase, setInputTestCase] = useState("");
   const [outputTesCase, setOutputTestCase] = useState("");
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,21 +31,28 @@ function AddExercise() {
       level: exerLevel,
     };
     const res = await ExerciseApi.createExercise(Exer);
+    if (res) {
+      toast.success("Thêm thành công");
+    } else {
+      toast.error("Thêm thất bại");
+    }
   };
 
-  const handleSubmitTestCase = async (e) =>
-  {
+  const handleSubmitTestCase = async (e) => {
     e.preventDefault();
-    for(var i=0; i<countTestcase;i++)
-    {
-      const testCase =
-      {
-        exerciseId : exerId,
-        input : inputTestCase,
-        output : outputTesCase,
-      }
+    for (var i = 0; i < countTestcase; i++) {
+      const testCase = {
+        exerciseId: exerId,
+        input: inputTestCase,
+        output: outputTesCase,
+      };
       const res = await ExerciseApi.createTestCase(testCase);
-    };
+      if (res) {
+        toast.success("Thêm thành công");
+      } else {
+        toast.error("Thêm thất bại");
+      }
+    }
   };
   /*api*/
   /*useEffect( async() => {
@@ -67,11 +74,11 @@ function AddExercise() {
     arrTestCase.push(i + 1);
   }
   return (
-      <MainLayout>
+    <AdminLayout>
       <div className="AddExercise-container">
         <div className="AddExercise-main">
           <div className="AddExercise-left">
-            <Sidebar/>
+            <Sidebar />
           </div>
           <div className="AddExercise-right">
             <div className="AddExercise-right-title">
@@ -119,13 +126,13 @@ function AddExercise() {
                     />
                   </div>                  */}
                   <div className="row-AddExercise">
-                      <div className="button-AddExercise">                     
-                            <input
-                              type="submit"
-                              className="button-add-AddExercise"
-                              value="Thêm"
-                            />
-                    </div>  
+                    <div className="button-AddExercise">
+                      <input
+                        type="submit"
+                        className="button-add-AddExercise"
+                        value="Thêm"
+                      />
+                    </div>
                   </div>
                 </form>
                 {/* <div className="row-AddExercise">
@@ -173,7 +180,7 @@ function AddExercise() {
           </div>
         </div>
       </div>
-      </MainLayout>
+    </AdminLayout>
   );
 }
 

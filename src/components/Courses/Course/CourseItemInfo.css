@@ -28,6 +28,9 @@
     font-weight: 600;
     text-align: justify;
 }
+.CourseItemInfo__Container a{
+    text-decoration: none;
+}
 /*ĐT*/
 @media (max-width:46.1875em){
     .btnCourseItemInfo__Container button{

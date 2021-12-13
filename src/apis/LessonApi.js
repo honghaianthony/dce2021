@@ -24,7 +24,6 @@ const getAllLessonComment = async (id) => {
 const getLessonNote = async (id) => {
   return await axiosInstance.get(`note/get-note-by-id?id=${id}`);
 };
-
 const updateNote = async (data) => {
   return await axiosInstance.put(`note/update-note`, data);
 };

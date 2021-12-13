@@ -75,11 +75,21 @@ function AdminMemberList() {
     let response = await usersApi.updateRole(body);
     if (response.errCode === 0) {
       toast.success("Cập nhật thành công!");
-      const res2 = await usersApi.getAllUsers();
-      setListMember(res2);
+      // const res2 = await usersApi.getAllUsers();
+      // setListMember(res2);
+      setRoleUI(index, role);
     } else {
       toast.error("Cập nhật thất bại!");
     }
+  };
+
+  const setRoleUI = (index, role) => {
+    let temp = Array.from(data);
+    temp[index] = {
+      ...temp[index],
+      role: role,
+    };
+    setListMember(temp);
   };
 
   return (

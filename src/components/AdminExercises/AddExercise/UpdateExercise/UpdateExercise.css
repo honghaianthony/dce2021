@@ -66,6 +66,29 @@
     font-weight: 600;
     font-size: 20px;
 }
+.UpdateExercise-right-title
+{
+    display:  flex;
+    justify-content: space-between;
+}
+.UpdateExercise-right-title button
+{ 
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: red 1px solid;
+    background-color: white;
+}
+.UpdateExercise-right-title button:hover
+{
+    transform: scale(1.08);
+    cursor: pointer;
+    background-color: red;
+    color: #fff;
+}
+.UpdateExercise-right-title .btn_delete_container
+{
+    margin: 30px 0 0 0;
+}
 .UpdateExercise-right-title p
 {
     font-weight: 600;

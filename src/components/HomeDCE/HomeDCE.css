@@ -14,8 +14,7 @@
   padding: 30px 0;
   margin-bottom: 30px;
   background-color: #1E266D;
-  color: white;
-  
+  color: white; 
   padding-left: 15px;
   padding-right: 15px;
   margin-left: auto;
@@ -23,16 +22,16 @@
 }
 
 
-.welcome-user{
-  margin: 0;
+.wrap-block-user .welcome-user{
+  margin-left: 150px;
   font-size: 18px;
   line-height: 1.26;
   font-weight: 600;
   display: block;
-  margin-block-start: 0.83em;
+  /* margin-block-start: 0.83em;
   margin-block-end: 0.83em;
   margin-inline-start: 0px;
-  margin-inline-end: 0px;
+  margin-inline-end: 0px; */
 }
 
 .welcome-user span{
@@ -57,12 +56,14 @@
 }
 
 .profile-user{
-  margin-right: -15px;
-  margin-left: -15px;
+  /* margin-right: -15px;
+  margin-left: -15px; */
+  margin-left: 150px;
   /* display: flex;
   flex-wrap: wrap;  */
   /* justify-content: space-between;  */
   margin-top: 25px;
+  text-align: center;
 }
 
 .col-xs-12, .col-sm-6, .col-md-6, .col-sm-7, .col-sm-4, .col-md-4, .col-md-8, .col-lg-3, .col-lg-7, .col-lg-5{
@@ -78,18 +79,18 @@
   width: 30%;
 }
 
-.mian-user-info{
-  margin: 0;
-  background-color: #25308E;
-  padding: 15px 20px 20px;
+.main-user-info{
+  background-color: #575fa8e3;
+  padding: 15px 20px 20px 15px;
   border-radius: 5px;
   width: 300px;
-  height: 200px;
+  height: fit-content;
+  margin-bottom: 30px;
 }
 
 .user-ava .future-img{
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   position: relative;
   border-radius: 50%;
   display: block;
@@ -111,6 +112,10 @@
   font-size: 20px;
 }
 
+.user-process .name {
+  padding-bottom: 30px;
+}
+
 /* BEN PHAI */
 
 .col-md-8{
@@ -118,7 +123,7 @@
 }
 
 .detail-user{
-  padding-left: 600px;
+  padding-left: 500px;
   padding-top: 70px;
 }
 
@@ -134,14 +139,19 @@
 
 .detail-progress-item{
   margin-bottom: 20px;
+  margin-right: 100px;
+}
+
+.detail-progress-item h4{
+ font-size: 24px;
 }
 
 .detail-progress-item .detail-progress-content{
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
   margin-bottom: 10px;
-  padding-right: 50px;
+  padding-right: 20px;
 }
 
 .detail-progress-item .result {
@@ -152,7 +162,7 @@
 
 .item-progress-bar{
   height: 5px;
-  width: 200px;
+  width: 300px;
   overflow: hidden;
   border-radius: 10px;
   position: relative;

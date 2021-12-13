@@ -4,7 +4,7 @@ import "./CourseItemInfo.css";
 function CourseItemInfo(CouseItem) {
   return (
     <div className="CourseItemInfo__Container">
-      <Link to={CouseItem.path}>
+      <Link to={CouseItem.path} classname="link_CourseIteminfo">
         <div className="btnCourseItemInfo__Container">
           <button className="btn-CourseItemInfo">{CouseItem.title}</button>
         </div>
