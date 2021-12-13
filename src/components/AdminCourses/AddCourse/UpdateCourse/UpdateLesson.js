@@ -34,14 +34,28 @@ function UpdateLesson()
     const [lessonDescription,setLessonDescription]=useState("");
     const [input,setInput]=useState("")
     const [output,setOutput]=useState("")
-    useEffect(async()=>{
-        const res=await LessonApi.getLessonById(lessonId)
-        const res2=await LessonApi.getAllLessonTestById(lessonId)
+    useEffect(async () => {
+        const res = await LessonApi.getLessonById(lessonId);
         setLessonName(res.lessonName)
+    }, [lessonId]);
+    useEffect(async () => {
+        const res = await LessonApi.getLessonById(lessonId);
         setLessonContent(res.content)
+        
+    }, [lessonId]);
+    useEffect(async () => {
+        const res = await LessonApi.getLessonById(lessonId);
         setLessonDescription(res.description)
+    }, [lessonId]);
+    
+    const [idTest,setIdTest]=useState()
+    useEffect(async()=>{
+        // const res=await LessonApi.getLessonById(lessonId)
+        const res2=await LessonApi.getAllLessonTestById(lessonId)
+        // setIdTest(res2.id)
         setInput(res2.input)
         setOutput(res2.output)
+        console.log(res2)
     },[lessonId])
     /*sửa*/
     // console.log(courseId)
@@ -51,12 +65,11 @@ function UpdateLesson()
     //     setData2(res.id)
     // }, [courseId])
     // console.log(data2)
-    const [idTest,setIdTest]=useState(0)
-    useEffect(async()=>{
-        const res3=await LessonApi.getLessonTestByLessonId(lessonId)
-        setIdTest(res3[0].id)
-        console.log(res3[0].id)
-    },[lessonId])
+    // useEffect(async()=>{
+    //     const res3=await LessonApi.getAllLessonTestById(lessonId)
+    //     setIdTest(res3[0].id)
+    //     console.log(res3[0].id)
+    // },[lessonId])
     // console.log(idTest)
     let history=useHistory();
     
@@ -80,6 +93,9 @@ function UpdateLesson()
         console.log(newLessonTest)
         if (res4&&res5) {
             toast.success("Cập nhật thành công");
+            // history.goBack();
+            // window.history.back()
+
         } else {
             toast.error("Cập nhật thất bại");
         }
@@ -107,7 +123,7 @@ function UpdateLesson()
                     <div className="row-updateLesson">
                     <div class="form-update-updateLesson">
                             <p>Nội dung bài học</p>
-                            <form onSubmit={handleChangeDataLesson}>
+                            <form onSubmit={handleChangeDataLesson} >
                                 <div className="row-updateLesson">
                                     <label className="uplesson-label" for="nameLesson">Tên bài học </label>
                                     <input type="text"

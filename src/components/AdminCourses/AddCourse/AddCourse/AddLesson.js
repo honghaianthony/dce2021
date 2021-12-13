@@ -5,7 +5,7 @@ import TestCase from '../../../AdminExercises/AddExercise/AddExercise/TestCase.j
 import LessonApi from '../../../../apis/LessonApi';
 import coursesApi from '../../../../apis/coursesApi'
 import { useParams } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import { useHistory,useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import AdminLayout from '../../../../layouts/AdminLayout';
 function AddLesson() {
@@ -40,6 +40,7 @@ function AddLesson() {
     //         toast.error("Thêm thất bại");
     //     }
     // }
+    const location = useLocation();
     const handleSubmit = async (event) => {
         event.preventDefault();
         const Lesson = {

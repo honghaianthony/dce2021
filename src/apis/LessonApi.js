@@ -50,9 +50,9 @@ const updateLessonById=async(lesson)=>{
 const updateLessonTestById=async(lesson)=>{
   return await axiosInstance.put(`lessons/update-lessons-test`,lesson)
 }
-const getLessonTestByLessonId=async(id)=>{
-  return await axiosInstance.get(`lessons/get-all-lessons-test-by-lessonId?lessonId=${id}`)
-}
+// const getLessonTestByLessonId=async(id)=>{
+//   return await axiosInstance.get(`lessons/get-all-lessons-test-by-lessonId?lessonId=${id}`)
+// }
 export default {
   getAllLesson,
   getLessonById,
@@ -66,6 +66,6 @@ export default {
   getLessonByCourseId,
   updateLessonById,
   updateLessonTestById,
-  getLessonTestByLessonId,
+  // getLessonTestByLessonId,
   getAllLessonFindCourseId
 };

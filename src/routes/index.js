@@ -118,14 +118,14 @@ export default function App() {
           <Route path={`/adminaddcoursedetail/:courseId`}>
             <AdminAddCourseDetail />
           </Route>
+          <Route path="/adminUpdateLesson/:lessonId">
+            <UpdateLesson />
+          </Route>
           <Route path="/adminaddcourse">
             <AdminAddCourse />
           </Route>
           <Route path={`/adminupdatecourse/:courseId`}>
             <AdminUpdateCourse />
-          </Route>
-          <Route path="/adminUpdateLesson/:lessonId">
-            <UpdateLesson />
           </Route>
           <Route exact path="/adminUpdateExersise/:exerciseId">
             <UpdateExercise />
