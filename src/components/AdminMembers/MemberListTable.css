@@ -1,64 +1,64 @@
 .memberlisttable-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 1rem;
-    margin-bottom: 20px;
-  }
-  
-  .memberlisttable {
-    border-collapse: collapse;
-    width: 75vw;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  .memberlisttable-row th,
-  .memberlisttable-row td {
-    border: 1px solid #ffffff;
-    text-align: left;
-    padding: 8px;
-    font-size: 22px;
-    height: 60px;
-  }
-  .memberlisttable-row td:nth-child(2) {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 720px;
-  }
-  .memberlisttable-row th {
-    background-color: #1E266D;
-    color: white;
-    font-weight: 500;
-    text-align: center;
-  }
-  .memberlisttable-row th:first-child {
-    width: 50px;
-  }
-  .memberlisttable-row th:nth-child(4) {
-    width: 200px;
-  }
-  .memberlisttable-row th:nth-child(5) {
-    width: 250px;
-  }
-  .memberlisttable-body td {
-    text-align: center;
-    font-size: 20px;
-    height: 50px;
-  }
-  .memberlisttable-body td:nth-child(3) {
-      line-height: 35px;
-  }
-  .memberlisttable-body tr:nth-child(odd) {
-    background-color: rgb(205, 235, 253);
-  }
-  .memberlisttable-body tr:nth-child(even) {
-    background-color: white;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 1rem;
+  margin-bottom: 20px;
+}
 
-  .member-role {
-    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+.memberlisttable {
+  border-collapse: collapse;
+  width: 75vw;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.memberlisttable-row th,
+.memberlisttable-row td {
+  border: 1px solid #ffffff;
+  text-align: left;
+  padding: 8px;
+  font-size: 22px;
+  height: 60px;
+}
+.memberlisttable-row td:nth-child(2) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 720px;
+}
+.memberlisttable-row th {
+  background-color: #1e266d;
+  color: white;
+  font-weight: 500;
+  text-align: center;
+}
+.memberlisttable-row th:first-child {
+  width: 50px;
+}
+.memberlisttable-row th:nth-child(4) {
+  width: 200px;
+}
+.memberlisttable-row th:nth-child(5) {
+  width: 250px;
+}
+.memberlisttable-body td {
+  text-align: center;
+  font-size: 20px;
+  height: 50px;
+}
+.memberlisttable-body td:nth-child(3) {
+  line-height: 35px;
+}
+.memberlisttable-body tr:nth-child(odd) {
+  background-color: rgb(205, 235, 253);
+}
+.memberlisttable-body tr:nth-child(even) {
+  background-color: white;
+}
+
+.member-role {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-    font-size: 22px;
-  }
+  font-size: 22px;
+}
