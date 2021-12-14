@@ -4,18 +4,18 @@ import SideBar from "../components/SideBar/index";
 import { useStore } from "../store";
 
 function AdminLayout({ children }) {
-    const [state, dispatch] = useStore();
-    return (
+  const [state, dispatch] = useStore();
+  return (
+    <>
+      {state.isAuthenticated && (
         <>
-            {state.isAuthenticated && state.role === 2 && (
-                <>
-                    <NavigationAdmin />
-                    <SideBar />
-                    {children}
-                </>
-            )}
+          <NavigationAdmin />
+          <SideBar />
+          {children}
         </>
-    );
+      )}
+    </>
+  );
 }
 
 export default AdminLayout;
