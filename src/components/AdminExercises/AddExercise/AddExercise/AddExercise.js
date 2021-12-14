@@ -6,7 +6,7 @@ import ExerciseApi from "../../../../apis/ExerciseApi";
 import Sidebar from "../../../SideBar/index";
 import MainLayout from "../../../../layouts/MainLayout";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { FaAngleRight } from "react-icons/fa";
 
 function AddExercise() {
@@ -21,6 +21,8 @@ function AddExercise() {
   const [inputTestCase, setInputTestCase] = useState("");
   const [outputTesCase, setOutputTestCase] = useState("");
 
+  const history = useHistory();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const Exer = {
@@ -34,6 +36,7 @@ function AddExercise() {
     const res = await ExerciseApi.createExercise(Exer);
     if (res) {
       toast.success("Thêm thành công");
+      history.push("/adminexerciselist");
     } else {
       toast.error("Thêm thất bại");
     }

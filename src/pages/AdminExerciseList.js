@@ -56,7 +56,7 @@ function AdminExerciseList() {
             <td>{getFormattedDate(item.updatedAt)}</td>
             <td>
               <Link to={pathExer}>
-                <button className="view-btns">Xem chi tiết</button>
+                <button className="view-btns">Chỉnh sửa</button>
               </Link>
             </td>
           </tr>

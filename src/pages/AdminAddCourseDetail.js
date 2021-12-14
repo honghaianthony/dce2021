@@ -3,14 +3,14 @@ import MainLayout from "../layouts/MainLayout";
 import Navigation from "../components/Navigations/Navigation";
 import "../assets/styles/AdminAddCourseDetail.css";
 // import AddCourseItem2 from "../components/AddCourseItem";
-import AddCourseItem2 from "../components/AdminCourses/AddCourse/AddCourse/AddCourseItem2"
-import React, { useState,useEffect } from "react";
+import AddCourseItem2 from "../components/AdminCourses/AddCourse/AddCourse/AddCourseItem2";
+import React, { useState, useEffect } from "react";
 import AdminLayout from "../layouts/AdminLayout";
 import { useParams } from "react-router-dom";
 import coursesApi from "../apis/coursesApi";
 import LessonApi from "../apis/LessonApi";
-import {Link } from "react-router-dom";
-import { FaAngleRight } from 'react-icons/fa';
+import { Link } from "react-router-dom";
+import { FaAngleRight } from "react-icons/fa";
 function AdminAddCourseDetail() {
   const listAddCourse2 = [
     {
@@ -33,59 +33,73 @@ function AdminAddCourseDetail() {
     const res = await LessonApi.getAllLesson(courseId);
     setDataCourse(res);
   }, [courseId]);
-  
+
   console.log(dataCourse);
-  
+
   return (
     <>
-    <AdminLayout>
-      {dataCourse === null ? (
+      <AdminLayout>
+        {dataCourse === null ? (
           <h1>Loading</h1>
         ) : (
-      <div className="AdminAddCourseDetail___Container">
-        {/* <div className="route_container"> */}
-        <div className='admin-path'>
-          <Link to='/' className='admin-link'>
-              <span>Trang chủ</span>
-          </Link>
-          <i className='icon-angle-right'><FaAngleRight/></i>
-          <Link to='/admincourselist' className='admin-link'>
-              <span>Quản lý khóa học</span>
-          </Link>
-        </div>
-        {/* </div> */}
-        <div className="center_AddCourseDetail_container">
-          <div className="container_AdminAddCourse_detail">
-            {/* <div className="center_menu_AdminAddCourse">
-              <p>Hello</p>
-            </div> */}
-            <div className="center_AddCourse_right">
-              <div className="center_AddCourse_Top">
-                <h2>Thêm nội dung khóa học</h2>
-              </div>
-              {dataCourse.map((item, index) => (
-                <div className="listAddCourse__Container" key={index}>
-                  <AddCourseItem2 
-                  id={item.id} 
-                  name={item.lessonName}
-                  // item={dataCourse}
-                  />
-                </div>
-              ))}
-              
-              <Link to={`/adminAddLesson/${courseId}`} className="listAddCourse_BtnAdd">
-                <div className="btnAdd_Decription">
-                  <span><i class="fas fa-plus"></i>    Thêm Bài Học Mới</span>
-                </div>
+          <div className="AdminAddCourseDetail___Container">
+            {/* <div className="route_container"> */}
+            <div className="admin-path">
+              <Link to="/" className="admin-link">
+                <span>Trang chủ</span>
               </Link>
-              <Link to={`/courses/${courseId}`} className="btn_AddCourse__container">
-                <button>Xem Khóa Học</button>
+              <i className="icon-angle-right">
+                <FaAngleRight />
+              </i>
+              <Link to="/admincourselist" className="admin-link">
+                <span>Quản lý khóa học</span>
               </Link>
             </div>
+            {/* </div> */}
+            <div className="center_AddCourseDetail_container">
+              <div className="container_AdminAddCourse_detail">
+                {/* <div className="center_menu_AdminAddCourse">
+              <p>Hello</p>
+            </div> */}
+                <div className="center_AddCourse_right">
+                  <div className="center_AddCourse_Top">
+                    <h2>Thêm nội dung khóa học</h2>
+                    <Link to={`../adminupdatecourse/${courseId}`}>
+                      Chỉnh sửa nội dung khóa học
+                    </Link>
+                  </div>
+                  {dataCourse.map((item, index) => (
+                    <div className="listAddCourse__Container" key={index}>
+                      <AddCourseItem2
+                        id={item.id}
+                        name={item.lessonName}
+                        // item={dataCourse}
+                      />
+                    </div>
+                  ))}
+
+                  <Link
+                    to={`/adminAddLesson/${courseId}`}
+                    className="listAddCourse_BtnAdd"
+                  >
+                    <div className="btnAdd_Decription">
+                      <span>
+                        <i class="fas fa-plus"></i> Thêm Bài Học Mới
+                      </span>
+                    </div>
+                  </Link>
+                  <Link
+                    to={`/courses/${courseId}`}
+                    className="btn_AddCourse__container"
+                  >
+                    <button>Xem Khóa Học</button>
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>)}
-    </AdminLayout>
+        )}
+      </AdminLayout>
     </>
   );
 }

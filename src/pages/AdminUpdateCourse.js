@@ -2,15 +2,15 @@ import React from "react";
 import Navigation from "../components/Navigations/Navigation";
 import "../assets/styles/AdminUpdateCourse.css";
 // import AddCourseItem from "../components/AddCourseItem";
-import AddCourseItem from "../components/AdminCourses/AddCourse/AddCourse/AddCourseItem"
+import AddCourseItem from "../components/AdminCourses/AddCourse/AddCourse/AddCourseItem";
 import { useEffect, useState } from "react/cjs/react.development";
 import AdminLayout from "../layouts/AdminLayout";
 import coursesApi from "../apis/coursesApi";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { uploadFile, deleteFile } from "../firebase/util";/*** */
-import { Link } from 'react-router-dom'
-import { FaAngleRight } from 'react-icons/fa';
+import { uploadFile, deleteFile } from "../firebase/util"; /*** */
+import { Link } from "react-router-dom";
+import { FaAngleRight } from "react-icons/fa";
 
 import AdminPath from "../components/AdminBlog/AdminPath/AdminPath";
 import { useHistory } from "react-router-dom";
@@ -42,12 +42,12 @@ function AdminUpdateCourse() {
     // currentItem=currentItem.filter((i)=>i.id !== id)
     // setItem(currentItem)
   };
-  const [data, setDataCourse] = useState(null)
+  const [data, setDataCourse] = useState(null);
 
-  const [dataDelete, deleteData] = useState()
+  const [dataDelete, deleteData] = useState();
   const [image, setImage] = useState(null); /*** */
   const [progress, setProgress] = useState(0); /*** */
-  const [url, setUrl] = useState("");/*** */
+  const [url, setUrl] = useState(""); /*** */
   // const [data, setData] = useState([]);
 
   /**đổ dữ liệu */
@@ -58,7 +58,9 @@ function AdminUpdateCourse() {
   /**xóa */
   const handleDelete = async (e) => {
     e.preventDefault();
-    const res = await coursesApi.deleteCourseById(courseId).then(history.push(`/admincourselist`));
+    const res = await coursesApi
+      .deleteCourseById(courseId)
+      .then(history.push(`/admincourselist`));
     deleteData(res);
     if (res) {
       toast.success("Xóa thành công");
@@ -66,7 +68,7 @@ function AdminUpdateCourse() {
       toast.error("Xóa thất bại");
     }
     console.log(res);
-  }
+  };
 
   /**sửa */
   const [courseName, setCourseName] = useState();
@@ -99,14 +101,16 @@ function AdminUpdateCourse() {
       rate: 0,
       time: courseTime,
       image: courseImg,
-    }
-    const res = await coursesApi.updateCourseById(newCourse).then(history.push(`/adminaddcoursedetail/${courseId}`));
+    };
+    const res = await coursesApi
+      .updateCourseById(newCourse)
+      .then(history.push(`/admincourselist`));
     if (res) {
       toast.success("Cập nhật thành công");
     } else {
       toast.error("Cập nhật thất bại");
     }
-  }
+  };
   useEffect(() => {
     if (image !== null) {
       uploadFile(
@@ -133,45 +137,52 @@ function AdminUpdateCourse() {
         toast.error("Lỗi!!!");
       }
     );
-  };/*** */
+  }; /*** */
   return (
     <>
       <AdminLayout>
-        {data === null ? (<div className="loader"></div>) : (
+        {data === null ? (
+          <div className="loader"></div>
+        ) : (
           <div className="AdminUpdateCourse__container">
             {/* <div className="top_decription_link"> */}
-            <div className='admin-path'>
-              <Link to='/' className='admin-link'>
-                  <span>Trang chủ</span>
+            <div className="admin-path">
+              <Link to="/" className="admin-link">
+                <span>Trang chủ</span>
               </Link>
-              <i className='icon-angle-right'><FaAngleRight/></i>
-              <Link to='/admincourselist' className='admin-link'>
-                  <span>Quản lý khóa học</span>
+              <i className="icon-angle-right">
+                <FaAngleRight />
+              </i>
+              <Link to="/admincourselist" className="admin-link">
+                <span>Quản lý khóa học</span>
               </Link>
             </div>
             {/* </div> */}
             <div className="Update__AdminCourse__Container">
               <div className="Update__container">
-
                 <div className="center_AdminUpdateCourse__container">
                   <div className="center_content_AdminUpdateCourse">
-                    <form onSubmit={handleChangeData} >
+                    <form onSubmit={handleChangeData}>
                       <div className="top_decription_centercontent">
                         <p>Chỉnh sửa khóa học</p>
-                          <div className="btn_delete_container">
-                            <button type="button" onClick={handleDelete}>Xóa</button>
-                          </div>
+                        <div className="btn_delete_container">
+                          <button type="button" onClick={handleDelete}>
+                            Xóa
+                          </button>
+                        </div>
                       </div>
                       <div className="middle_decription_centercontent">
                         <div className="InputName_UpdateCourse">
-                          <form >
+                          <form>
                             <input
                               type="text"
                               name="id"
                               id="idCourse"
                               // placeholder="Nhập tên khóa học mới"
                               value={courseName}
-                              onChange={(event) => setCourseName(event.target.value)}
+                              onChange={(event) =>
+                                setCourseName(event.target.value)
+                              }
                             />
                           </form>
                         </div>
@@ -182,7 +193,9 @@ function AdminUpdateCourse() {
                               id="decriptionCourse"
                               // placeholder="Nhập mô tả"
                               value={courseDes}
-                              onChange={(event) => setCourseDes(event.target.value)}
+                              onChange={(event) =>
+                                setCourseDes(event.target.value)
+                              }
                             ></textarea>
                           </form>
                         </div>
@@ -194,7 +207,9 @@ function AdminUpdateCourse() {
                               // placeholder="Nhập thời gian để hoàn thành khóa học"
                               value={courseTime}
                               className="timeCourse"
-                              onChange={(event) => setCourseTime(event.target.value)}
+                              onChange={(event) =>
+                                setCourseTime(event.target.value)
+                              }
                               // type="number"
                               min="0"
                             ></input>
@@ -208,26 +223,28 @@ function AdminUpdateCourse() {
                               // placeholder="Nhập thời gian để hoàn thành khóa học"
                               value={courseImg}
                               className="timeCourse"
-                              onChange={(event) => setCourseImg(event.target.value)}
+                              onChange={(event) =>
+                                setCourseImg(event.target.value)
+                              }
                               // type="number"
                               min="0"
                             />
                           </form>
                         </div>
                       </div>
-                      
-                        <div className="btn_Submit_AdminUpdateCourse">
-                          <button type="submit" value="cập nhật">Cập nhật</button>
-                        </div>
-                      
+
+                      <div className="btn_Submit_AdminUpdateCourse">
+                        <button type="submit" value="cập nhật">
+                          Cập nhật
+                        </button>
+                      </div>
                     </form>
                   </div>
-
                 </div>
               </div>
             </div>
-          </div>)}
-
+          </div>
+        )}
       </AdminLayout>
     </>
   );
