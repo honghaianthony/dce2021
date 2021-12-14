@@ -247,7 +247,14 @@ function Lesson() {
                           : "main-content-lesson"
                       }
                     >
-                      <div className="content-Lesson">{data.content}</div>
+                      <div
+                        className="content-Lesson"
+                        dangerouslySetInnerHTML={data.content.replace(
+                          /\r\n/g,
+                          "<br />"
+                        )}
+                      ></div>
+                      {/* <div className="content-Lesson">{data.content}</div> */}
                     </div>
 
                     {/* comment */}
