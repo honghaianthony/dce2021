@@ -68,13 +68,14 @@ function AddTestCase() {
               <form onSubmit={handleSubmitTestCase}>
                 <div className="row-AddExercise">
                   <label id="add-testcase-label" for="nameExercise">
-                  <i class="fas fa-check"></i>  Chọn bài tập muốn tạo TestCase
+                    <i class="fas fa-check"></i> Chọn bài tập muốn tạo TestCase
                   </label>
                   <select
                     name="id"
                     id="nameExercise"
                     onChange={(event) => setExerId(event.target.value)}
                   >
+                    <option value={""}></option>
                     {listExercise.map((exercise) => {
                       return (
                         <option value={exercise.id}>
@@ -85,8 +86,8 @@ function AddTestCase() {
                   </select>
                 </div>
                 <div className="row-AddExercise">
-                  <h3 className="add-new-test-case" >
-                  <i class="fas fa-pencil-alt"></i>Nhập thông tin Testcase
+                  <h3 className="add-new-test-case">
+                    <i class="fas fa-pencil-alt"></i>Nhập thông tin Testcase
                   </h3>
                   <div className="add-testcase">
                     {arrTestCase.map((testCaseIndex) => (
