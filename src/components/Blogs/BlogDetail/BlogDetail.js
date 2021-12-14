@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import BlogPath from "../BlogPath";
 import "./BlogDetail.css";
@@ -24,13 +24,15 @@ function BlogDetail() {
   }, []);
 
   //socket.io
-  const socket = io("http://localhost:3000");
+  const socket = useRef();
+  // const socket = io("http://localhost:3000");
   useEffect(() => {
-    socket.emit("join-room", blogId);
-    socket.on("receive-comment", (data) => {
+    socket.current = io("http://localhost:3000");
+    socket.current.emit("join-room", blogId);
+    socket.current.on("receive-comment", (data) => {
       setComment([...comment, data]);
     });
-  }, [blogId, socket]);
+  }, [blogId]);
 
   const renderComment = () => {
     return comment
@@ -63,7 +65,7 @@ function BlogDetail() {
   const sendComment = (e) => {
     e.preventDefault();
     const comment = commentInput;
-    socket.emit("send-comment", comment, state.userId, blogId);
+    socket.current.emit("send-comment", comment, state.userId, blogId);
     setCommentInput("");
   };
   const handleCommentChange = (e) => {
