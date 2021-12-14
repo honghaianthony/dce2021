@@ -7,6 +7,9 @@ import coursesApi from "../../../../apis/coursesApi";
 import { useParams } from "react-router-dom";
 import { useHistory, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
+import { FaAngleRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
 import AdminLayout from "../../../../layouts/AdminLayout";
 function AddLesson() {
   const [addShow, setAddShow] = useState("show");
@@ -81,6 +84,17 @@ function AddLesson() {
   return (
     <AdminLayout>
       <div className="AddLesson-container">
+        <div className="admin-path">
+          <Link to="/" className="admin-link">
+            <span>Trang chủ</span>
+          </Link>
+          <i className="icon-angle-right">
+            <FaAngleRight />
+          </i>
+          <Link to="/admincourselist" className="admin-link">
+            <span>Quản lý khóa học</span>
+          </Link>
+        </div>
         <div className="AddLesson-main">
           <div className="AddLesson-left"></div>
           <div className="AddLesson-right">

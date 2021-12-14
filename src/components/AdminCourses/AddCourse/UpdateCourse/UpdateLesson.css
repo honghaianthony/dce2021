@@ -1,6 +1,7 @@
 .UpdateLesson-container
 {
     padding: 50px;
+    margin-left: 320px;
 }
 .UpdateLesson-container h2
 {
@@ -55,13 +56,13 @@
 }
 .UpdateLesson-left
 {
-    width: 30%;
-    margin-right: 20px;
+    /* width: 30%; */
+    /* margin-right: 20px; */
 }
 .UpdateLesson-right
 {
-    width: 70%;
-    padding: 20px;
+    width: 100%;
+    /* padding: 20px; */
     text-align:left;
 }
 .uplesson-label

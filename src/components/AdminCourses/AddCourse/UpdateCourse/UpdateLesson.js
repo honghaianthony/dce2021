@@ -8,7 +8,8 @@ import { useEffect } from "react/cjs/react.development";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
-
+import { FaAngleRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 function UpdateLesson() {
   const [addShow, setAddShow] = useState("show");
   const [countTestcase, setSountTestcase] = useState();
@@ -113,6 +114,17 @@ function UpdateLesson() {
         <div className="loader"></div>
       ) : (
         <div className="UpdateLesson-container">
+          <div className="admin-path">
+            <Link to="/" className="admin-link">
+              <span>Trang chủ</span>
+            </Link>
+            <i className="icon-angle-right">
+              <FaAngleRight />
+            </i>
+            <Link to="/admincourselist" className="admin-link">
+              <span>Quản lý khóa học</span>
+            </Link>
+          </div>
           <div className="UpdateLesson-main">
             <div className="UpdateLesson-left"></div>
             <div className="UpdateLesson-right">

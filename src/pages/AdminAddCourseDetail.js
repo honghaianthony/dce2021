@@ -58,9 +58,6 @@ function AdminAddCourseDetail() {
             {/* </div> */}
             <div className="center_AddCourseDetail_container">
               <div className="container_AdminAddCourse_detail">
-                {/* <div className="center_menu_AdminAddCourse">
-              <p>Hello</p>
-            </div> */}
                 <div className="center_AddCourse_right">
                   <div className="center_AddCourse_Top">
                     <h2>Thêm nội dung khóa học</h2>
