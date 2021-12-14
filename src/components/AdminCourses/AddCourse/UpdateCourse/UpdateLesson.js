@@ -46,11 +46,11 @@ function UpdateLesson() {
     setLessonDescription(res.description);
   }, [lessonId]);
 
-  const [idTest, setIdTest] = useState();
+  const [idTest, setIdTest] = useState(0);
   useEffect(async () => {
     // const res=await LessonApi.getLessonById(lessonId)
     const res2 = await LessonApi.getAllLessonTestById(lessonId);
-    // setIdTest(res2.id)
+    setIdTest(res2.id);
     setInput(res2.input);
     setOutput(res2.output);
     console.log(res2);
