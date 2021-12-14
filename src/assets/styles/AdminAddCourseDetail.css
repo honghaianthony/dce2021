@@ -10,7 +10,8 @@
 
 .center_AddCourse_Top{
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: space-between;
     /* margin-bottom: 20px; */
 }
 .center_AddCourse_Top h2{
@@ -31,6 +32,19 @@
 }
 .center_AddCourse_right{
     width:100%;
+}
+button.btn_edit_updatecourse {
+    cursor: pointer;
+    padding: 10px;
+    background: #1E266D;
+    color: #fff;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+button:hover.btn_edit_updatecourse {
+    transform: scale(1.1);
+	color: #1E266D;
+	color:#fff;
 }
 .listAddCourse_BtnAdd {
     display: flex;
@@ -62,6 +76,7 @@
     margin-top: 20px;
     display: flex;
     justify-content: flex-end;
+
 }
 .btn_AddCourse__container button{
     width:fit-content;

@@ -65,7 +65,7 @@ function AdminAddCourseDetail() {
                   <div className="center_AddCourse_Top">
                     <h2>Thêm nội dung khóa học</h2>
                     <Link to={`../adminupdatecourse/${courseId}`}>
-                      Chỉnh sửa nội dung khóa học
+                      <button className="btn_edit_updatecourse">Chỉnh sửa  khóa học</button> 
                     </Link>
                   </div>
                   {dataCourse.map((item, index) => (
