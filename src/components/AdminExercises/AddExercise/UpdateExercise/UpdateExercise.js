@@ -21,7 +21,7 @@ function UpdateExercise() {
     const [input, setInput] = useState("");
     const [output, setOutput] = useState("");
     const [idTestCase, setIdTestCase] = useState();
-    const [countTestcase, setSountTestcase] = useState();
+    const [deleteTestcase, setDeleteTestcase] = useState();
     const arrTestCase = [];
     useEffect(async () => {
         const res = await ExerciseApi.getAllExerciseById(exerciseId);
@@ -39,8 +39,8 @@ function UpdateExercise() {
         const res = await ExerciseApi.getTestCaseByExerciseId(exerciseId);
         if(!res)
         {
-            setInput("");
-            setOutput("");
+            setInput("Chưa có Input");
+            setOutput("Chưa có Output");
         }
         else{
             setOutput(res.output);
@@ -87,7 +87,19 @@ function UpdateExercise() {
         console.log(res);
     }
     
-
+    const handleDeleteTestCase = async(e) =>
+    {
+        e.preventDefault();
+        const res =await ExerciseApi.deleteExerciseTest(idTestCase)
+        setDeleteTestcase(res);
+        console.log(res);
+        if (res) {
+            toast.success("Xóa testcase thành công");
+        } else {
+            toast.error("Xóa testcase thất bại");
+        }
+        console.log(res);
+    }
 
     return (
         <MainLayout>
@@ -101,7 +113,7 @@ function UpdateExercise() {
                         </div>
                         <div className="UpdateExercise-right">
                             <div className="exerciselist-path addTestcase-path">
-                                <Link to="/" className="exerciselist-link ">
+                                <Link to="/adminexerciselist" className="exerciselist-link ">
                                     <span>Quản lý bài luyện tập</span>
                                 </Link>
                                 <i className="icon-angle-right">
@@ -114,7 +126,7 @@ function UpdateExercise() {
                             <div className="UpdateExercise-right-title">
                                 <p>Chỉnh sửa bài luyện tập</p>
                                 <div className="btn_delete_container">
-                                    <button type="button" onClick={handleDelete}>Xóa</button>
+                                    <button type="button" onClick={handleDelete}>Xóa bài</button>
                                 </div>
                             </div>
 
@@ -164,8 +176,8 @@ function UpdateExercise() {
                                             <>
                                                 <div className="testcase-option">
                                                     <label className="addExercise-label" for="testExercise">Testcase  </label>
-                                                    <div className="delete-icon">
-                                                        <p><i class="fas fa-trash-alt"></i>Xóa TestCase</p>
+                                                    <div className="delete-testcase-icon">
+                                                         <button type="button" onClick={handleDeleteTestCase}>Xóa testcase</button>
                                                     </div>
                                                 </div>
                                                 <div className="in-out-Exercise">
