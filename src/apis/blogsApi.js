@@ -1,21 +1,31 @@
 import axiosInstance from "./axiosInstance";
 
 const getAllBlogs = async () => {
-  return await axiosInstance.get("blog/get-all-blogs");
+    return await axiosInstance.get("blog/get-all-blogs");
 };
 const getBlogById = async (id) => {
-  return await axiosInstance.get(`blog/get-blog-by-id?id=${id}`);
+    return await axiosInstance.get(`blog/get-blog-by-id?id=${id}`);
 };
 const getAllBlogCommentByBlogId = async (id) => {
-  return await axiosInstance.get(`blog/get-all-blog-comments?blogId=${id}`);
+    return await axiosInstance.get(`blog/get-all-blog-comments?blogId=${id}`);
 };
 const postBlog = async (data) => {
-  return await axiosInstance.post(`blog/create-new-blog`, data, {});
+    return await axiosInstance.post(`blog/create-new-blog`, data, {});
+};
+
+const updateBlogById = async (data) => {
+    return await axiosInstance.put(`/blog/update-blog`, data);
+};
+
+const deleteBlog = async (id) => {
+    return await axiosInstance.delete(`/blog/delete-blog?id=${id}`);
 };
 
 export default {
-  getAllBlogs,
-  getBlogById,
-  getAllBlogCommentByBlogId,
-  postBlog,
+    getAllBlogs,
+    getBlogById,
+    getAllBlogCommentByBlogId,
+    postBlog,
+    updateBlogById,
+    deleteBlog,
 };

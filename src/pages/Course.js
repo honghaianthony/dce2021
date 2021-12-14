@@ -66,9 +66,11 @@ function Course() {
                     <h2>Miễn Phí</h2>
                   </div>
                   <div className="MyCourseInfoDecription-btnBottom">
-                    <button disabled={isRegister} onClick={handleRegister}>
-                      Đăng Ký Ngay
-                    </button>
+                    {isRegister ? (
+                      <button>Đã đăng ký</button>
+                    ) : (
+                      <button onClick={handleRegister}>Đăng Ký Ngay</button>
+                    )}
                   </div>
                 </div>
               </div>

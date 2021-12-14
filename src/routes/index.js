@@ -34,6 +34,7 @@ import UpdateExercise from "../components/AdminExercises/AddExercise/UpdateExerc
 import AddExercise from "../components/AdminExercises/AddExercise/AddExercise/AddExercise";
 import AddLesson from "../components/AdminCourses/AddCourse/AddCourse/AddLesson";
 import AddTestCase from "../components/AdminExercises/AddExercise/AddExercise/AddTestCase";
+import UpdateBlogDetail from "../components/AdminBlog/UpdateBlog/UpdateBlogDetail";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Lessoncopy from "../pages/Lessoncopy";
@@ -96,6 +97,12 @@ export default function App() {
             <AdminExerciseList />
           </PrivateRoute>
 
+          <Route exact path="/adminAddLesson/:courseId">
+            <AddLesson />
+          </Route>
+          <Route exact path="/adminUpdateLesson/:lessonId">
+            <UpdateLesson />
+          </Route>
           <Route exact path="/update-exercises/:exerciseId">
             <UpdateExercise />
           </Route>
@@ -120,6 +127,9 @@ export default function App() {
           <Route path={`/adminupdatecourse/:courseId`}>
             <AdminUpdateCourse />
           </Route>
+          <Route path={`/adminupdateblog/:blogId`}>
+            <UpdateBlogDetail />
+          </Route>
           <Route path="/adminUpdateLesson">
             <UpdateLesson />
           </Route>
@@ -143,9 +153,6 @@ export default function App() {
           </Route>
           <Route path="/adminupdateblog">
             <AdminUpdateBlog />
-          </Route>
-          <Route path="/testcallapi">
-            <TestCallApi />
           </Route>
           <Route path="/upload">
             <UploadTest />

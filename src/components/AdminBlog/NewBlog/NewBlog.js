@@ -10,10 +10,12 @@ import { CKEditor } from "ckeditor4-react";
 import blogApi from "../../../apis/blogsApi";
 import { toast } from "react-toastify";
 import { uploadFile, deleteFile } from "../../../firebase/util";
+import { useHistory } from "react-router-dom";
 
 function NewBlog() {
   // Initialize a markdown parser
   let isAuth;
+  const history = useHistory();
   const [data, setData] = useState("");
   const [image, setImage] = useState(null);
   const [url, setUrl] = useState("");
@@ -79,6 +81,7 @@ function NewBlog() {
     const res = await blogApi.postBlog(dataBlog);
     if (res) {
       toast.success("Đăng bài blog thành công");
+      history.push("/adminbloglist");
     } else {
       toast.error("Đăng bài blog thất bại");
     }

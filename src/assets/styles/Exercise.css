@@ -197,7 +197,7 @@
     color: #fff;
     font-size: 20px;
     display: block;
-    height: 230px;
+    height: 320px;
     width: 100% ;
     border: 2px #fff solid;
     border-radius: 10px;
@@ -375,4 +375,11 @@
     padding:0 10px;
     text-align: justify;
     border-bottom: solid 1px #3b3c54 ;
+}
+.lang-select
+{
+    margin-left: 10px;
+    padding: 3px 5px;
+    border-radius: 5px;
+    cursor: pointer;
 }

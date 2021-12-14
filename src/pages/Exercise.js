@@ -33,22 +33,21 @@ function Exercise(Exercise)
        const res = await ExerciseApi.getAllExerciseById(exerciseId);
        setExercise(res);
         const testCase = await ExerciseApi.getTestCaseByExerciseId(exerciseId);
-        setTestCase(testCase.data);
+        setTestCase(testCase);
+        
     }, [exerciseId]);
 
     useEffect(() => {
         setRealOutput("");
       }, [testCaseShow]);
-    
+      
       const listTestCase = () => {
-        if (testCase.length > 0) {
-          return testCase.map((item, index) => {
+        if (testCase) {          
             return (
-              <li key={item.id} onClick={() => setTestCaseShow(item)}>
-                Test case {index + 1}
+              <li key={testCase.id} onClick={() => setTestCaseShow(testCase)}>
+                Test case {testCase.id}
               </li>
             );
-          });
         } else {
           return <li>Không có test case</li>;
         }
@@ -113,7 +112,7 @@ function Exercise(Exercise)
                                 {exercise.content}
                                 </p>
                             </div>
-                            <div className="content-input">
+                            {/* <div className="content-input">
                                 <h2>Input:</h2>
                                 <p>
                                     {exercise.input}
@@ -124,7 +123,7 @@ function Exercise(Exercise)
                                 <p>
                                     {exercise.output}
                                 </p>
-                            </div>
+                            </div> */}
                             </div> 
                             <div className={display === "on" ? "comment-section-on" : "comment-section-off"}>
                                 <div className="number-comments">
