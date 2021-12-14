@@ -8,12 +8,12 @@ import { toast } from "react-toastify";
 
 function AddCourseItem2(data) {
   //   const { lessonId } = useParams();
-  const [dataDelete, deleteData] = useState();
+  // const [dataDelete, deleteData] = useState();
   //   const [data, setDataLesson] = useState(null)
   const handleDelete = async (e) => {
     e.preventDefault();
     const res = await LessonApi.deleteLessonById(data.id);
-    deleteData(res);
+    // deleteData(res);
     if (res) {
       toast.success("Xóa thành công");
       window.location.reload(false);
