@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useParams, useHistory, Redirect } from "react-router-dom";
 import "../assets/styles/Lesson.css";
 import LessonApi from "../apis/LessonApi";
@@ -25,13 +25,14 @@ function Lesson() {
   const { lessonId } = useParams();
 
   //socket.io
-  const socket = io("https://dce-uit.herokuapp.com");
+  const socket = useRef();
   useEffect(() => {
-    socket.emit("join-room", lessonId);
-    socket.on("receive-comment-lesson", (data) => {
+    socket.current = io("http://localhost:3000");
+    socket.current.emit("join-room", lessonId);
+    socket.current.on("receive-comment-lesson", (data) => {
       setComment([...comment, data]);
     });
-  }, [lessonId, socket]);
+  }, [lessonId]);
 
   useEffect(async () => {
     const res = await LessonApi.getLessonById(lessonId);
@@ -177,7 +178,7 @@ function Lesson() {
 
   const sendComment = () => {
     const comment = commentInput;
-    socket.emit("send-comment-lesson", comment, state.userId, lessonId);
+    socket.current.emit("send-comment-lesson", comment, state.userId, lessonId);
     setCommentInput("");
   };
   const handleCommentChange = (e) => {
