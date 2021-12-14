@@ -31,7 +31,7 @@ function Lesson() {
     socket.on("receive-comment-lesson", (data) => {
       setComment([...comment, data]);
     });
-  }, [lessonId]);
+  }, [lessonId, socket]);
 
   useEffect(async () => {
     const res = await LessonApi.getLessonById(lessonId);
