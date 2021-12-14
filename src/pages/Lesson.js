@@ -25,7 +25,7 @@ function Lesson() {
   const { lessonId } = useParams();
 
   //socket.io
-  const socket = io("http://localhost:3000");
+  const socket = io("https://dce-uit.herokuapp.com");
   useEffect(() => {
     socket.emit("join-room", lessonId);
     socket.on("receive-comment-lesson", (data) => {
