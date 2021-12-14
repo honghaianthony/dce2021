@@ -9,7 +9,7 @@ import {withRouter} from "react-router-dom";
 import { Link } from 'react-router-dom'
 import { FaAngleRight } from 'react-icons/fa';
 import AdminPath from "../components/AdminBlog/AdminPath/AdminPath";
-import { useHistory } from "react-router-dom";
+import { useHistory,useLocation } from "react-router-dom";
 function AdminAddCourse() {
   const [addNameCourse, setAddNameCourse] = useState("");
   const [addDesriptionCourse, setAddDescriptionCourse] = useState("")
@@ -28,6 +28,8 @@ function AdminAddCourse() {
   }, []);
   let currentIdCourse=data+1
   console.log(currentIdCourse)
+  const location = useLocation();
+  // let path=
   const handleSubmitAdd = async (e) => {
     e.preventDefault();
     const Course = {

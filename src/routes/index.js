@@ -154,6 +154,13 @@ export default function App() {
                     <Route path="/upload">
                         <UploadTest />
                     </Route>
+                    
+                    <Route path="/adminAddLesson/:courseId">
+            <AddLesson />
+          </Route>
+          <Route path="/adminUpdateLesson/:lessonId">
+            <UpdateLesson />
+          </Route>
 
                     <Route path="/">
                         <Home />
@@ -173,4 +180,5 @@ export default function App() {
             </div>
         </Router>
     );
+          
 }

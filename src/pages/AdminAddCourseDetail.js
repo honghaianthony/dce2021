@@ -11,7 +11,6 @@ import coursesApi from "../apis/coursesApi";
 import LessonApi from "../apis/LessonApi";
 import {Link } from "react-router-dom";
 import { FaAngleRight } from 'react-icons/fa';
-
 function AdminAddCourseDetail() {
   const listAddCourse2 = [
     {
@@ -74,7 +73,7 @@ function AdminAddCourseDetail() {
                 </div>
               ))}
               
-              <Link to="/adminAddLesson" className="listAddCourse_BtnAdd">
+              <Link to={`/adminAddLesson/${courseId}`} className="listAddCourse_BtnAdd">
                 <div className="btnAdd_Decription">
                   <span><i class="fas fa-plus"></i>    Thêm Bài Học Mới</span>
                 </div>

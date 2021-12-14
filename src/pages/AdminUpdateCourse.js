@@ -29,7 +29,7 @@ function AdminUpdateCourse() {
       name: "Tính Đóng Gói",
     },
   ];
-
+  const { courseId } = useParams();
   const [items, setItem] = useState(listAddCourse);
   const [items2, setItem2] = useState(listAddCourse);
   const handleDeleteClick = (id) => {
@@ -45,7 +45,6 @@ function AdminUpdateCourse() {
   const [data, setDataCourse] = useState(null)
 
   const [dataDelete, deleteData] = useState()
-  const { courseId } = useParams();
   const [image, setImage] = useState(null); /*** */
   const [progress, setProgress] = useState(0); /*** */
   const [url, setUrl] = useState("");/*** */
@@ -59,7 +58,7 @@ function AdminUpdateCourse() {
   /**xóa */
   const handleDelete = async (e) => {
     e.preventDefault();
-    const res = await coursesApi.deleteCourseById(courseId);
+    const res = await coursesApi.deleteCourseById(courseId).then(history.push(`/admincourselist`));
     deleteData(res);
     if (res) {
       toast.success("Xóa thành công");
