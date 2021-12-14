@@ -3,7 +3,7 @@ import Navigation from "../components/Navigations/Navigation";
 import "../assets/styles/AdminUpdateCourse.css";
 // import AddCourseItem from "../components/AddCourseItem";
 import AddCourseItem from "../components/AdminCourses/AddCourse/AddCourse/AddCourseItem";
-import { useEffect, useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react";
 import AdminLayout from "../layouts/AdminLayout";
 import coursesApi from "../apis/coursesApi";
 import { useParams } from "react-router-dom";

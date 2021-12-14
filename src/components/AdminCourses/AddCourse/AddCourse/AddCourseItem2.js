@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import LessonApi from "../../../../apis/LessonApi";
 import "./AddCourseItem2.css";
