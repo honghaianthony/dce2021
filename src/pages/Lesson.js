@@ -12,6 +12,7 @@ function Lesson() {
   const history = useHistory();
   const [state, dispatch] = useStore();
   const [data, setData] = useState(null);
+  const [content, setContent] = useState("");
   const [testCase, setTestCase] = useState(null);
   const [comment, setComment] = useState([]);
   const [commentInput, setCommentInput] = useState("");
@@ -37,6 +38,10 @@ function Lesson() {
   useEffect(async () => {
     const res = await LessonApi.getLessonById(lessonId);
     setData(res);
+    let cont = res.content;
+    console.log(cont);
+    cont.replace(/\r\n/g, "<br />");
+    setContent(cont);
     const test = await LessonApi.getAllLessonTestById(lessonId);
     setTestCase(test);
     const cmt = await LessonApi.getAllLessonComment(lessonId);
@@ -249,10 +254,9 @@ function Lesson() {
                     >
                       <div
                         className="content-Lesson"
-                        dangerouslySetInnerHTML={data.content.replace(
-                          /\r\n/g,
-                          "<br />"
-                        )}
+                        dangerouslySetInnerHTML={{
+                          __html: content,
+                        }}
                       ></div>
                       {/* <div className="content-Lesson">{data.content}</div> */}
                     </div>
