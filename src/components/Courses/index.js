@@ -42,6 +42,7 @@ function CoursesMain() {
             rating={item.rate}
             description={item.description}
             path={path}
+            id={item.id}
           />
         );
       });
@@ -71,9 +72,7 @@ function CoursesMain() {
 
       <div className="courses">
         <div className="courses__container">
-          <div className="courses__wrapper">
-            {listCourse()}
-          </div>
+          <div className="courses__wrapper">{listCourse()}</div>
         </div>
       </div>
     </>

@@ -1,16 +1,18 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useHistory, Redirect } from "react-router-dom";
 import "../assets/styles/Lesson.css";
 import LessonApi from "../apis/LessonApi";
 import compileApi from "../apis/compileApi";
 import { useStore } from "../store";
 import { io } from "socket.io-client";
+import usersApi from "../apis/usersApi";
 
 function Lesson() {
+  const history = useHistory();
   const [state, dispatch] = useStore();
   const [data, setData] = useState(null);
-  const [testCase, setTestCase] = useState([]);
+  const [testCase, setTestCase] = useState(null);
   const [comment, setComment] = useState([]);
   const [commentInput, setCommentInput] = useState("");
   const [note, setNote] = useState("");
@@ -18,12 +20,6 @@ function Lesson() {
   const [savedNote, setSavedNote] = useState(true);
   const [realOutput, setRealOutput] = useState(" ");
   const [showMoreCmt, setShowMoreCmt] = useState(5);
-  const [testCaseShow, setTestCaseShow] = useState({
-    id: 0,
-    lessonId: 0,
-    input: "",
-    output: "",
-  });
   const [lang, setLang] = useState("C++");
   const [code, setCode] = useState("");
   const { lessonId } = useParams();
@@ -48,6 +44,8 @@ function Lesson() {
     if (getnote !== null) {
       setNote(getnote.content);
     }
+    setCode("");
+    setRealOutput("");
   }, [lessonId]);
 
   const [display, setdisplay] = useState("off");
@@ -58,55 +56,97 @@ function Lesson() {
   const handledisplay2 = () => {
     setdisplay2(display2 === "off" ? "on" : "off");
   };
-  useEffect(() => {
-    setRealOutput("");
-  }, [testCaseShow]);
 
   useEffect(() => {
     setSavedNote(false);
   }, [note]);
 
   const listTestCase = () => {
-    if (testCase.length > 0) {
-      return testCase.map((item, index) => {
-        return (
-          <li key={item.id} onClick={() => setTestCaseShow(item)}>
-            Test case {index + 1}
-          </li>
-        );
-      });
+    if (testCase) {
+      return <li>Test case 1</li>;
     } else {
       return <li>Không có test case</li>;
     }
   };
 
   const showTestCase = (item, real) => {
-    return (
-      <div className="testcase-display-lesson">
-        <p>Đầu vào: {item.input}</p>
-        <p>Đầu ra: {real}</p>
-        <p>Đầu ra mong muốn: {item.output}</p>
-        {/* <p>Thời gian thực hiện:</p>
-      <p>Tin nhắn:</p> */}
-      </div>
-    );
+    if (item) {
+      return (
+        <div className="testcase-display-lesson">
+          <p>Đầu vào: {item.input}</p>
+          <p>Đầu ra: {real}</p>
+          <p>Đầu ra mong muốn: {item.output}</p>
+          {/* <p>Thời gian thực hiện:</p>
+        <p>Tin nhắn:</p> */}
+        </div>
+      );
+    } else {
+      return (
+        <div className="testcase-display-lesson">
+          <p>Đầu vào: </p>
+          <p>Đầu ra: {real}</p>
+          <p>Đầu ra mong muốn: </p>
+          {/* <p>Thời gian thực hiện:</p>
+        <p>Tin nhắn:</p> */}
+        </div>
+      );
+    }
   };
 
   const handleSubmit = async () => {
     const body = {
       code: code,
-      input: testCaseShow.input,
+      input: testCase ? testCase.input : "",
       inputRadio: true,
       lang: lang,
     };
     const response = await compileApi.postCompile(body);
     if (response.output) {
       setRealOutput(response.output);
-      if (response.output.localeCompare(testCaseShow.output)) {
+      if (
+        response.output.localeCompare(testCase.output) ||
+        testCase.output === null
+      ) {
         setAllow(true);
       }
     } else {
       setRealOutput(response.error);
+    }
+  };
+
+  const handleNextLesson = async () => {
+    const all = await LessonApi.getAllLesson(data.courseId);
+    const index = all.map((i) => {
+      return i.id;
+    });
+    const body = {
+      lessonId: lessonId,
+      code: code,
+      isCompleted: true,
+    };
+    const done = await usersApi.doneLesson(body);
+    if (done.errCode != 0) {
+      return null;
+    } else {
+      if (index.indexOf(data.id) + 1 == all.length) {
+        const doneRes = await usersApi.checkDoneCourse(data.courseId);
+        let done = true;
+        doneRes.forEach((i) => {
+          if (!i.isCompleted) {
+            done = false;
+          }
+        });
+        if (done) {
+          const body2 = {
+            courseId: data.courseId,
+            isCompleted: true,
+          };
+          await usersApi.doneCourse(body2);
+        }
+        history.push("/courses");
+      } else {
+        history.push(`/lesson/${all[index.indexOf(data.id) + 1].id}`);
+      }
     }
   };
 
@@ -161,9 +201,10 @@ function Lesson() {
           <div className="lesson-container">
             {/* header */}
             <div className="lesson-name">
-              <Link to="/courses">
+              {/* <Link to="/courses">
                 <i class="fas fa-angle-left"></i>
-              </Link>
+              </Link> */}
+              <i class="fas fa-angle-left" onClick={history.goBack}></i>
               <p>{data.lessonName}</p>
             </div>
 
@@ -336,7 +377,7 @@ function Lesson() {
                       <div className="testcase-number-lesson">
                         <ul>{listTestCase()}</ul>
                       </div>
-                      {showTestCase(testCaseShow, realOutput)}
+                      {showTestCase(testCase, realOutput)}
                     </div>
                     <div className="testcase-button-lesson">
                       <button
@@ -346,8 +387,19 @@ function Lesson() {
                       >
                         Chạy thử
                       </button>
-                      {allow && (
-                        <button type="button" className="submit-btn-lesson">
+                      {allow ? (
+                        <button
+                          type="button"
+                          className="submit-btn-lesson"
+                          onClick={handleNextLesson}
+                        >
+                          Nộp bài
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          className="submit-btn-lesson-disable"
+                        >
                           Nộp bài
                         </button>
                       )}

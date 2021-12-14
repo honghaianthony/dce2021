@@ -2,16 +2,19 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./HomeDCE.css";
 import anh9 from "../../assets/images/download.png";
-import { useStore } from "../../store";
+import { useStore, actions } from "../../store";
 import blogsApi from "../../apis/blogsApi";
 import coursesApi from "../../apis/coursesApi";
 import ExerciseApi from "../../apis/ExerciseApi";
+import usersApi from "../../apis/usersApi";
 
 function HomeDCE() {
   const [state, dispatch] = useStore();
   const [blogs, setBlogs] = useState([]);
   const [courses, setCourses] = useState([]);
   const [exercises, setexErcises] = useState([]);
+  const [userCourse, setUserCourse] = useState([]);
+  const [userExercise, setUserExercise] = useState([]);
   useEffect(async () => {
     const res = await coursesApi.getAllCourses();
     setCourses(res);
@@ -19,6 +22,11 @@ function HomeDCE() {
     setBlogs(blo);
     const exe = await ExerciseApi.getAllExercise();
     setexErcises(exe.data);
+    dispatch(actions.reload());
+    const usco = await usersApi.getAllUserCourse();
+    setUserCourse(usco);
+    const usex = await usersApi.getAllUserExercise();
+    setUserExercise(usex);
   }, []);
 
   const coursesMap = () => {
@@ -50,18 +58,20 @@ function HomeDCE() {
     return blogs.map((item, index) => {
       return (
         index < 3 && (
-          <article className="blog-item list-style" key={item.id}>
-            <div className="wrap-blog-thumb">
-              <img
-                src={item.coverImage}
-                alt="Cài Đặt Visual Studio Code Lập Trình C++ Dễ Như Ăn Kẹo"
-              />
-            </div>
-            <div className="wrap-blog-item-content">
-              <h3 className="blog-title">{item.title}</h3>
-              <p className="short-desc">{item.description}</p>
-            </div>
-          </article>
+          <Link to={`/blogs/${item.id}`} className="blog-link">
+            <article className="blog-item list-style" key={item.id}>
+              <div className="wrap-blog-thumb">
+                <img
+                  src={item.coverImage}
+                  alt="Cài Đặt Visual Studio Code Lập Trình C++ Dễ Như Ăn Kẹo"
+                />
+              </div>
+              <div className="wrap-blog-item-content">
+                <h3 className="blog-title">{item.title}</h3>
+                <p className="short-desc">{item.description}</p>
+              </div>
+            </article>
+          </Link>
         )
       );
     });
@@ -71,7 +81,10 @@ function HomeDCE() {
       return (
         index < 3 && (
           <article className="col-xs-12 col-sm-4 training-item" key={item.id}>
-            <Link to={`/exercises`} className="wrap-training-content">
+            <Link
+              to={`/exercises/${item.id}`}
+              className="wrap-training-content"
+            >
               <div className="task-item-detail">
                 <h3 className="task-title">{item.exerciseName}</h3>
                 <span
@@ -138,7 +151,14 @@ function HomeDCE() {
                   <div className="col-xs-12 col-sm-4 detail-progress-item">
                     <h4>Khóa học</h4>
                     <div className="detail-progress-content">
-                      <span className="result">1/{courses.length}</span>
+                      <span className="result">
+                        {
+                          userCourse.filter((i) => {
+                            return i.isCompleted === true;
+                          }).length
+                        }
+                        /{courses.length}
+                      </span>
                     </div>
 
                     <div className="item-progress-bar">
@@ -149,7 +169,14 @@ function HomeDCE() {
                   <div className="col-xs-12 col-sm-4 detail-progress-item">
                     <h4>Luyện tập</h4>
                     <div className="detail-progress-content">
-                      <span className="result">5/{exercises.length}</span>
+                      <span className="result">
+                        {
+                          userExercise.filter((i) => {
+                            return i.isCompleted === true;
+                          }).length
+                        }
+                        /{exercises.length}
+                      </span>
                     </div>
 
                     <div className="item-progress-bar">

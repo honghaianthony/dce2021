@@ -255,6 +255,17 @@
   background-color: #42ff00;
   color: #fff;
 }
+
+.submit-btn-lesson-disable {
+  background-color: #94ca68;
+  color: #fff;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 0 10px;
+  width: 110px;
+}
 /*comment*/
 
 .comment-section-off-lesson {

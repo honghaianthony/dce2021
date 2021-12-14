@@ -11,19 +11,6 @@ const initState = {
 
 function reducer(state, action) {
   switch (action.type) {
-    case LOGIN:
-      localStorage.setItem("token", action.payload);
-      const info = jwt_decode(action.payload);
-      return {
-        isAuthenticated: true,
-        userId: info.userId,
-        username: info.username,
-        role: info.role,
-        fullname: info.fullname,
-      };
-    case LOGOUT:
-      localStorage.removeItem("token");
-      return initState;
     case RELOAD:
       const token = localStorage.getItem("token");
       if (token) {
@@ -38,6 +25,19 @@ function reducer(state, action) {
       } else {
         return initState;
       }
+    case LOGIN:
+      localStorage.setItem("token", action.payload);
+      const info = jwt_decode(action.payload);
+      return {
+        isAuthenticated: true,
+        userId: info.userId,
+        username: info.username,
+        role: info.role,
+        fullname: info.fullname,
+      };
+    case LOGOUT:
+      localStorage.removeItem("token");
+      return initState;
     default:
       throw new Error("Invalid action");
   }

@@ -9,6 +9,7 @@ function ListCourse(props) {
     const res = await LessonApi.getAllLesson(props.courseId);
     setData(res);
   }, []);
+
   return (
     <div className="ListCourse__Container">
       {props.isReg && (
@@ -17,6 +18,7 @@ function ListCourse(props) {
             <CourseItemInfo
               className="CourseItemInfo"
               key={CourseItem.id}
+              id={CourseItem.id}
               title={CourseItem.lessonName}
               decription={CourseItem.description}
               path={`/lesson/${CourseItem.id}`}
