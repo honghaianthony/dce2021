@@ -4,7 +4,7 @@ import { useState } from "react";
 import TestCase from "../../../AdminExercises/AddExercise/AddExercise/TestCase.js";
 import LessonApi from "../../../../apis/LessonApi";
 import Adminlayout from "../../../../layouts/AdminLayout";
-import { useEffect } from "react/cjs/react.development";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
@@ -202,7 +202,7 @@ function UpdateLesson() {
                         type="text"
                         name="output"
                         id="out-testExercise"
-                        placeholder="input bài học hiện tại"
+                        placeholder="output bài học hiện tại"
                         value={output}
                         onChange={(e) => setOutput(e.target.value)}
                       />

@@ -143,7 +143,7 @@ function AddLesson() {
                           type="text"
                           name="output"
                           id="out-testExercise"
-                          placeholder="input bài học hiện tại"
+                          placeholder="output bài học hiện tại"
                           // value={output}
                           onChange={(e) => setOutput(e.target.value)}
                         />
