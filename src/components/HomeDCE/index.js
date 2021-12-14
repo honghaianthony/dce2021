@@ -215,7 +215,7 @@ function HomeDCE() {
                   href="#suggest-courses"
                   className="cl-tab-control-item active"
                 >
-                  Khoá học giợi ý
+                  Khoá học gợi ý
                 </a>
               </li>
 
