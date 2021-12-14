@@ -5,6 +5,8 @@ import ExerciseApi from "../../../../apis/ExerciseApi";
 import Sidebar from "../../../SideBar/index";
 import MainLayout from "../../../../layouts/MainLayout";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import { FaAngleRight } from "react-icons/fa";
 function AddTestCase() {
   const [addShow, setAddShow] = useState("show");
   const [countTestcase, setSountTestcase] = useState();
@@ -19,19 +21,19 @@ function AddTestCase() {
 
   const handleSubmitTestCase = async (e) => {
     e.preventDefault();
-    for (var i = 0; i < 1; i++) {
-      const testCase = {
-        exerciseId: exerId,
-        input: inputTestCase,
-        output: outputTesCase,
-      };
-      const res = await ExerciseApi.createTestCase(testCase);
-      if (res) {
-        toast.success("Thêm thành công");
-      } else {
-        toast.error("Thêm thất bại");
-      }
+
+    const testCase = {
+      exerciseId: exerId,
+      input: inputTestCase,
+      output: outputTesCase,
+    };
+    const res = await ExerciseApi.createTestCase(testCase);
+    if (res) {
+      toast.success("Thêm thành công");
+    } else {
+      toast.error("Thêm thất bại");
     }
+    console.log(res);
   };
   const arrTestCase = [];
   const handleAdd = () => {
@@ -48,6 +50,17 @@ function AddTestCase() {
             <Sidebar />
           </div>
           <div className="AddExercise-right">
+            <div className="exerciselist-path addTestcase-path">
+              <Link to="/" className="exerciselist-link ">
+                <span>Quản lý bài luyện tập</span>
+              </Link>
+              <i className="icon-angle-right">
+                <FaAngleRight />
+              </i>
+              <Link to="/adminexerciselist" className="exerciselist-link">
+                <span>Thêm testcase</span>
+              </Link>
+            </div>
             <div className="AddExercise-right-title">
               <p>Tạo TestCase mới</p>
             </div>
@@ -55,7 +68,7 @@ function AddTestCase() {
               <form onSubmit={handleSubmitTestCase}>
                 <div className="row-AddExercise">
                   <label id="add-testcase-label" for="nameExercise">
-                    Chọn bài tập muốn tạo TestCase
+                  <i class="fas fa-check"></i>  Chọn bài tập muốn tạo TestCase
                   </label>
                   <select
                     name="id"
@@ -72,10 +85,9 @@ function AddTestCase() {
                   </select>
                 </div>
                 <div className="row-AddExercise">
-                  <h3 className="add-new-test-case" onClick={handleAdd}>
-                    <i class="fas fa-plus"></i>Testcase
+                  <h3 className="add-new-test-case" >
+                  <i class="fas fa-pencil-alt"></i>Nhập thông tin Testcase
                   </h3>
-
                   <div className="add-testcase">
                     {arrTestCase.map((testCaseIndex) => (
                       <>
@@ -88,32 +100,12 @@ function AddTestCase() {
                       </>
                     ))}
                     <div className="button-AddExercise">
-                      <input
-                        id="input-count-testcase"
-                        type="text"
-                        onChange={(event) =>
-                          setSountTestcase(event.target.value)
-                        }
-                        placeholder="Nhập số lượng testcase"
-                      />
-                      <div className="add-testcase">
-                        {arrTestCase.map((testCaseIndex) => (
-                          <>
-                            <TestCase
-                              key={testCaseIndex}
-                              id={testCaseIndex}
-                              handleChangeInput={setInputTestCase}
-                              handleChangeOutput={setOutputTestCase}
-                            />
-                          </>
-                        ))}
-                        <div className="button-AddExercise">
-                          <input
-                            type="submit"
-                            className="button-add-AddExercise"
-                            value="Thêm Testcase"
-                          />
-                        </div>
+                      <div className="button-AddExercise">
+                        <input
+                          type="submit"
+                          className="button-add-AddExercise btn-add-testcase"
+                          value="Thêm Testcase"
+                        />
                       </div>
                     </div>
                   </div>

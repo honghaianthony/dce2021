@@ -7,6 +7,8 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import Sidebar from "../../../SideBar/index";
 import MainLayout from "../../../../layouts/MainLayout";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import { FaAngleRight } from "react-icons/fa";
 
 function UpdateExercise() {
     const [exer, setExer] = useState();
@@ -16,18 +18,38 @@ function UpdateExercise() {
     const [exerName, setExerName] = useState("");
     const [exerContent, setExerContent] = useState("");
     const [exerLevel, setExerLevel] = useState(1);
-    const [input, setInput] = useState();
-    const [output, setOutput] = useState();
-    const [addShow, setAddShow] = useState("show");
-    const [countTestcase, setSountTestcase] = useState();
+    const [input, setInput] = useState("");
+    const [output, setOutput] = useState("");
+    const [idTestCase, setIdTestCase] = useState();
+    const [deleteTestcase, setDeleteTestcase] = useState();
     const arrTestCase = [];
     useEffect(async () => {
         const res = await ExerciseApi.getAllExerciseById(exerciseId);
         setExerName(res.exerciseName);
         setExerLevel(res.level);
         setExerContent(res.content);
-        const test = await ExerciseApi.getTestCaseByExerciseId(exerciseId);
+        if(!res)
+        {
+            return (
+                <h1>Không tìm thấy</h1>
+            )
+        }
     }, [exerciseId]);
+    useEffect(async () => {
+        const res = await ExerciseApi.getTestCaseByExerciseId(exerciseId);
+        if(!res)
+        {
+            setInput("Chưa có Input");
+            setOutput("Chưa có Output");
+        }
+        else{
+            setOutput(res.output);
+            setInput(res.input);
+            setIdTestCase(res.id);
+        }
+        
+        
+    }, [exerciseId])
     /*update*/
     const handleUpdate = async (e) => {
         e.preventDefault();
@@ -38,12 +60,19 @@ function UpdateExercise() {
             content: exerContent,
             level: exerLevel
         }
+        const testCase = {
+            id: idTestCase,
+            exerciseId: exerciseId,
+            input: input,
+            output: output
+        }
         const res = await ExerciseApi.updateExercise(exercise);
-        if (res) {
+        const resT = await ExerciseApi.updateTestCase(testCase);
+        if (resT) {
             toast.success("Cập nhật thành công");
-          } else {
+        } else {
             toast.error("Cập nhật thất bại");
-          }
+        }
     }
     /*delete*/
     const handleDelete = async (e) => {
@@ -57,46 +86,21 @@ function UpdateExercise() {
         }
         console.log(res);
     }
+    
+    const handleDeleteTestCase = async(e) =>
+    {
+        e.preventDefault();
+        const res =await ExerciseApi.deleteExerciseTest(idTestCase)
+        setDeleteTestcase(res);
+        console.log(res);
+        if (res) {
+            toast.success("Xóa testcase thành công");
+        } else {
+            toast.error("Xóa testcase thất bại");
+        }
+        console.log(res);
+    }
 
-    // const listTestCase = () => {
-    //     if (testCase.length > 0) {
-    //         return testCase.map((item) => {
-    //             return (
-    //                 <>
-    //                     <div className="testcase-option">
-    //                         <label className="addExercise-label" for="testExercise">Testcase {item.id} </label>
-    //                         <div className="delete-icon">
-    //                             <p><i class="fas fa-trash-alt"></i>Xóa TestCase</p>
-    //                         </div>
-    //                     </div>
-    //                     <div className="in-out-Exercise">
-
-    //                         <textarea type="text"
-    //                             name="input"
-    //                             id="in-testExercise"
-    //                             placeholder="input bài học hiện tại"
-    //                             value={item.input}
-    //                             onChange={(e) => setInput(e.target.value)}
-    //                         />
-    //                         <textarea type="text"
-    //                             name="output"
-    //                             id="out-testExercise"
-    //                             placeholder="input bài học hiện tại"
-    //                             value={item.output}
-    //                             onChange={(e) => setOutput(e.target.value)}
-    //                         />
-    //                     </div>
-    //                 </>
-    //             );
-    //         });
-    //     } else {
-    //         return (
-    //             <>
-    //                 <h2>Không có testcase</h2>
-    //             </>
-    //         );
-    //     }
-    // };
     return (
         <MainLayout>
             {exer === null ? (
@@ -108,10 +112,21 @@ function UpdateExercise() {
                             <Sidebar />
                         </div>
                         <div className="UpdateExercise-right">
+                            <div className="exerciselist-path addTestcase-path">
+                                <Link to="/adminexerciselist" className="exerciselist-link ">
+                                    <span>Quản lý bài luyện tập</span>
+                                </Link>
+                                <i className="icon-angle-right">
+                                    <FaAngleRight />
+                                </i>
+                                <Link to="/adminexerciselist" className="exerciselist-link">
+                                    <span>Chỉnh sửa bài luyện tập</span>
+                                </Link>
+                            </div>
                             <div className="UpdateExercise-right-title">
                                 <p>Chỉnh sửa bài luyện tập</p>
                                 <div className="btn_delete_container">
-                                    <button type="button" onClick={handleDelete}>Xóa</button>
+                                    <button type="button" onClick={handleDelete}>Xóa bài</button>
                                 </div>
                             </div>
 
@@ -161,8 +176,8 @@ function UpdateExercise() {
                                             <>
                                                 <div className="testcase-option">
                                                     <label className="addExercise-label" for="testExercise">Testcase  </label>
-                                                    <div className="delete-icon">
-                                                        <p><i class="fas fa-trash-alt"></i>Xóa TestCase</p>
+                                                    <div className="delete-testcase-icon">
+                                                         <button type="button" onClick={handleDeleteTestCase}>Xóa testcase</button>
                                                     </div>
                                                 </div>
                                                 <div className="in-out-Exercise">
@@ -170,17 +185,15 @@ function UpdateExercise() {
                                                     <textarea type="text"
                                                         name="input"
                                                         id="in-testExercise"
-                                                        placeholder="input bài học hiện tại"
                                                         value={input}
                                                         onChange={(e) => setInput(e.target.value)}
                                                     />
-                                                    {/* <textarea type="text"
-                                name="output"
-                                id="out-testExercise"
-                                placeholder="input bài học hiện tại"
-                                value={item.output}
-                                onChange={(e) => setOutput(e.target.value)} 
-                            /> */}
+                                                    <textarea type="text"
+                                                        name="output"
+                                                        id="out-testExercise"
+                                                        value={output}
+                                                        onChange={(e) => setOutput(e.target.value)}
+                                                    />
                                                 </div>
                                             </>
                                         </div>

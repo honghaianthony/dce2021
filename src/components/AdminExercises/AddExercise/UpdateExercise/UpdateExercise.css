@@ -1,6 +1,6 @@
 .UpdateExercise-container
 {
-    padding: 50px;
+    display: block;
 }
 .UpdateExercise-container h2
 {
@@ -17,6 +17,7 @@
 .button-UpdateExercise
 {
     text-align: right;
+    margin-right: 145px !important;
 }
 .button-search-updateExercise:hover,.button-update-updateExercise:hover
 {
@@ -52,13 +53,14 @@
 .UpdateExercise-left
 {
     width: 30%;
-    margin-right: 20px;
 }
 .UpdateExercise-right
 {
     width: 70%;
-    padding: 20px;
+    
     text-align:left;
+    padding-top: 20px;
+    padding-right: 100px;
 }
 .upExercise-label
 {
@@ -70,20 +72,20 @@
 {
     display:  flex;
     justify-content: space-between;
+    padding-right: 150px;
 }
 .UpdateExercise-right-title button
 { 
     padding: 5px 10px;
     border-radius: 5px;
+    color: #fff;
     border: red 1px solid;
-    background-color: white;
+    background-color: red;
 }
 .UpdateExercise-right-title button:hover
 {
     transform: scale(1.08);
-    cursor: pointer;
-    background-color: red;
-    color: #fff;
+    cursor: pointer; 
 }
 .UpdateExercise-right-title .btn_delete_container
 {
@@ -93,6 +95,7 @@
 {
     font-weight: 600;
     font-size: 28px;
+    margin: 0;
 }
 .row-updateExercise
 {
@@ -106,7 +109,7 @@
 }
 .UpdateExercise-right textarea
 {
-    width: 100%;
+    width: 84%;
     padding: 10px;
     margin: 5px 0;
 }
@@ -155,4 +158,21 @@
 #testExercise
 {
   height: 100px;
+}
+.delete-testcase-icon
+{
+    margin-right: -13px;
+}
+.delete-testcase-icon button
+{
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    border: red 1px solid;
+    background-color: red;
+}
+.delete-testcase-icon button:hover
+{
+    transform: scale(1.08);
+    cursor: pointer;
 }

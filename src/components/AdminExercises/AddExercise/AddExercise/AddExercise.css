@@ -6,6 +6,10 @@
 {
     color: #000;
 }
+.title-center
+{
+    text-align: center !important;
+}
 /*button*/
 .show{
     display: block;
@@ -61,6 +65,8 @@
 {
     font-weight: 600;
     font-size: 28px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 .row-AddExercise
 {
