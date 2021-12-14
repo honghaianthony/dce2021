@@ -200,7 +200,7 @@ function HomeDCE() {
             <span className="mobile-dropdown-control">
               <select className="mobile-dropdown-control-select">
                 <option value="#suggest-courses" defaultValue={true}>
-                  Khoá học giợi ý
+                  Khoá học gợi ý
                 </option>
                 <option value="#recent-courses"> Đang học</option>
                 <option value="#finish-courses"> Đã hoàn thành</option>
