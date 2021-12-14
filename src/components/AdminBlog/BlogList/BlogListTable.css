@@ -1,112 +1,122 @@
 .bloglisttable-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 1rem;
-  margin-bottom: 20px;
-  margin-left: 330px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1rem;
+    margin-bottom: 20px;
+    margin-left: 330px;
 }
 
 .bloglist-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
 }
 
 .bloglist-title {
-  text-align: center;
-  font-size: 35px;
-  color: black;
+    text-align: center;
+    font-size: 35px;
+    color: black;
 }
 
 .bloglist-search {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .bloglist-tablename {
-  text-align: left;
-  font-size: 35px;
-  margin-bottom: 20px;
-  margin-left: 0;
-  color: black;
+    text-align: left;
+    font-size: 35px;
+    margin-bottom: 20px;
+    margin-left: 0;
+    color: black;
 }
 
 .bloglisttable {
-  border-collapse: collapse;
-  width: 75vw;
-  border-radius: 10px;
-  overflow: hidden;
+    border-collapse: collapse;
+    width: 75vw;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .bloglisttable-row th,
 .bloglisttable-row td {
-  border: 1px solid #ffffff;
-  text-align: left;
-  padding: 8px;
-  font-size: 22px;
-  height: 60px;
+    border: 1px solid #ffffff;
+    text-align: left;
+    padding: 8px;
+    font-size: 22px;
+    height: 60px;
 }
 
 .bloglisttable-row td:nth-child(2) {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 720px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 720px;
 }
 
 .bloglisttable-row th {
-  background-color: #1e266d;
-  color: white;
-  font-weight: 500;
-  text-align: center;
+    background-color: #1e266d;
+    color: white;
+    font-weight: 500;
+    text-align: center;
 }
 
 .bloglisttable-row th:first-child {
-  width: 50px;
+    width: 50px;
 }
 
 .bloglisttable-row th:nth-child(4) {
-  width: 100px;
+    width: 100px;
 }
 
 .bloglisttable-row th:nth-child(5) {
-  width: 100px;
+    width: 100px;
 }
 
 .bloglisttable-body tr td {
-  text-align: center;
-  font-size: 20px;
-  height: 50px;
+    text-align: center;
+    font-size: 20px;
+    height: 50px;
 }
 
 .bloglisttable-body tr:nth-child(odd) {
-  background-color: rgb(205, 235, 253);
+    background-color: rgb(205, 235, 253);
 }
 
 .bloglisttable-body tr:nth-child(even) {
-  background-color: white;
+    background-color: white;
 }
 
 .view-btn-delete {
-  background-color: #e8505b !important;
+    font-size: 20px;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 8px 20px;
+    transition: all 0.3s ease-out;
+    background: #e8505b;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
 .view-btn {
-  font-size: 20px;
-  background-color: #4bc455;
-  color: white;
-  white-space: nowrap;
-  overflow: hidden;
-  padding: 8px 20px;
-  transition: all 0.3s ease-out;
+    font-size: 20px;
+    background-color: #4bc455;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 8px 20px;
+    transition: all 0.3s ease-out;
 }
 
 .view-btn:hover,
 .view-btn-delete:hover {
-  transition: all 0.3s ease-out;
-  background: #fff;
-  color: #242424;
-  transition: 250ms;
+    transition: all 0.3s ease-out;
+    background: #fff;
+    color: #242424;
+    transition: 250ms;
 }
