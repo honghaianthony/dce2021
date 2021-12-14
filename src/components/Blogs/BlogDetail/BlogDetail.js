@@ -30,7 +30,7 @@ function BlogDetail() {
     socket.on("receive-comment", (data) => {
       setComment([...comment, data]);
     });
-  }, [blogId, socket]);
+  }, [blogId]);
 
   const renderComment = () => {
     return comment
@@ -153,15 +153,15 @@ function BlogDetail() {
               </div>
               {showMoreCmt < comment.length && (
                 <div className="blog-comment-show-more">
-                  <button 
+                  <button
                     onClick={() => {
                       setShowMoreCmt(showMoreCmt + 5);
                     }}
                   >
-                    Xem thêm bình luận <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    Xem thêm bình luận{" "}
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
                   </button>
                 </div>
-                
               )}
             </div>
           </div>
