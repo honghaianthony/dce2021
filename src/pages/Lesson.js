@@ -32,12 +32,12 @@ function Lesson() {
     socket.current.on("receive-comment-lesson", (data) => {
       setComment([...comment, data]);
     });
-  }, [lessonId]);
+  }, [lessonId, socket.current]);
 
   useEffect(async () => {
     const res = await LessonApi.getLessonById(lessonId);
     setData(res);
-    const test = await LessonApi.getAllLessonTest(lessonId);
+    const test = await LessonApi.getAllLessonTestById(lessonId);
     setTestCase(test);
     const cmt = await LessonApi.getAllLessonComment(lessonId);
     setComment(cmt);

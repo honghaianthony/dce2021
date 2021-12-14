@@ -32,7 +32,7 @@ function BlogDetail() {
     socket.current.on("receive-comment", (data) => {
       setComment([...comment, data]);
     });
-  }, [blogId]);
+  }, [blogId, socket.current]);
 
   const renderComment = () => {
     return comment
