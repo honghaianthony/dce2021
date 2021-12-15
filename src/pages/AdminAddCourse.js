@@ -1,24 +1,24 @@
 import React from "react";
 import "../assets/styles/AdminAddCourse.css";
-import AdminLayout from "../layouts/AdminLayout"
+import AdminLayout from "../layouts/AdminLayout";
 import coursesApi from "../apis/coursesApi";
 import { useState, useEffect, useCallback } from "react";
 import { toast } from "react-toastify";
-import { uploadFile, deleteFile } from "../firebase/util";/*** */
-import {withRouter} from "react-router-dom";
-import { Link } from 'react-router-dom'
-import { FaAngleRight } from 'react-icons/fa';
+import { uploadFile, deleteFile } from "../firebase/util"; /*** */
+import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { FaAngleRight } from "react-icons/fa";
 import AdminPath from "../components/AdminBlog/AdminPath/AdminPath";
-import { useHistory,useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 function AdminAddCourse() {
   const [addNameCourse, setAddNameCourse] = useState("");
-  const [addDesriptionCourse, setAddDescriptionCourse] = useState("")
-  const [addImageCourse, setAddImageCourse] = useState("")
-  const [addTimeCourse, setAddTimeCourse] = useState(0)
-  const [addRateCourse, setAddRateCourse] = useState(0)
+  const [addDesriptionCourse, setAddDescriptionCourse] = useState("");
+  const [addImageCourse, setAddImageCourse] = useState("");
+  const [addTimeCourse, setAddTimeCourse] = useState(0);
+  const [addRateCourse, setAddRateCourse] = useState(0);
   const [progress, setProgress] = useState(0); /*** */
   const [image, setImage] = useState(null); /*** */
-  const [url, setUrl] = useState("");/*** */
+  const [url, setUrl] = useState(""); /*** */
   const [data, setData] = useState([]);
   // const [search, setSearch] = useState("");
   let history = useHistory();
@@ -26,8 +26,8 @@ function AdminAddCourse() {
     const res2 = await coursesApi.getAllCourses();
     setData(res2.slice(-1)[0].id);
   }, []);
-  let currentIdCourse=data+1
-  console.log(currentIdCourse)
+  let currentIdCourse = data + 1;
+  console.log(currentIdCourse);
   const location = useLocation();
   // let path=
   const handleSubmitAdd = async (e) => {
@@ -37,25 +37,24 @@ function AdminAddCourse() {
       description: addDesriptionCourse,
       rate: addRateCourse,
       time: addTimeCourse,
-      image: url
-    }
-    
-    const res = await coursesApi.createCourse(Course).then(history.push(`/adminaddcoursedetail/${currentIdCourse}`));
+      image: url,
+    };
+
+    const res = await coursesApi
+      .createCourse(Course)
+      .then(history.push(`/admincourselist`));
     if (res) {
-      toast.success("Thêm khóa học thành công. Tiếp tục thêm nội dung cho khóa học");
-      
+      toast.success(
+        "Thêm khóa học thành công. Tiếp tục thêm nội dung cho khóa học"
+      );
     } else {
       toast.error("Thêm khóa học thất bại");
     }
-    
-  }
-  
-  
-  // useEffect(()=>{
-    
-  // },[])
-  
+  };
 
+  // useEffect(()=>{
+
+  // },[])
 
   const imageChange = (e) => {
     if (e.target.files[0]) {
@@ -88,7 +87,7 @@ function AdminAddCourse() {
         toast.error("Lỗi!!!");
       }
     );
-  };/*** */
+  }; /*** */
   // const handleOnClick = useCallback(() => history.push('/'), [history]);
   //   const clickHandler = () => {
   //     try {
@@ -104,13 +103,15 @@ function AdminAddCourse() {
       {/* <Navigation /> */}
       <div className="AdminAddCourse__">
         {/* <div className="top_decription_link"> */}
-        <div className='admin-path'>
-          <Link to='/' className='admin-link'>
-              <span>Trang chủ</span>
+        <div className="admin-path">
+          <Link to="/" className="admin-link">
+            <span>Trang chủ</span>
           </Link>
-          <i className='icon-angle-right'><FaAngleRight/></i>
-          <Link to='/admincourselist' className='admin-link'>
-              <span>Quản lý khóa học</span>
+          <i className="icon-angle-right">
+            <FaAngleRight />
+          </i>
+          <Link to="/admincourselist" className="admin-link">
+            <span>Quản lý khóa học</span>
           </Link>
         </div>
         {/* </div> */}
@@ -139,7 +140,9 @@ function AdminAddCourse() {
                       name="description"
                       id="decriptionCourse"
                       placeholder="Nhập mô tả"
-                      onChange={(event) => setAddDescriptionCourse(event.target.value)}
+                      onChange={(event) =>
+                        setAddDescriptionCourse(event.target.value)
+                      }
                     ></textarea>
                   </div>
                   <div className="InputTime_AddCourse">
@@ -161,8 +164,7 @@ function AdminAddCourse() {
                       type="number"
                       min="0"
                       onChange={(event) => setAddRateCourse(event.target.value)}
-                    >
-                    </input>
+                    ></input>
                   </div>
                   <div className="InputTime_AddCourse__">
                     {/* <input
@@ -190,7 +192,10 @@ function AdminAddCourse() {
                           max="100"
                         />
                         <br />
-                        <i class="far fa-times-circle" onClick={deleteImage}></i>
+                        <i
+                          class="far fa-times-circle"
+                          onClick={deleteImage}
+                        ></i>
                         <img
                           className="preview-image"
                           src={url || "http://via.placeholder.com/300"}
@@ -199,18 +204,17 @@ function AdminAddCourse() {
                       </div>
                     )}
                   </div>
-                    <div className="btn_Submit_AdminAddCourse">
-                      <button type="submit" className="btn_submit_adminaddcourse" >Tiếp tục</button>
-                    </div>
-
+                  <div className="btn_Submit_AdminAddCourse">
+                    <button type="submit" className="btn_submit_adminaddcourse">
+                      Tiếp tục
+                    </button>
+                  </div>
                 </div>
               </form>
             </div>
-
           </div>
         </div>
       </div>
-
     </AdminLayout>
   );
 }

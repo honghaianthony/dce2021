@@ -10,7 +10,9 @@ const getAllBlogCommentByBlogId = async (id) => {
   return await axiosInstance.get(`blog/get-all-blog-comments?blogId=${id}`);
 };
 const postBlog = async (data) => {
-  return await axiosInstance.post(`blog/create-new-blog`, data, {});
+  return await axiosInstance.post(`blog/create-new-blog`, data, {
+    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+  });
 };
 
 const updateBlogById = async (data) => {
