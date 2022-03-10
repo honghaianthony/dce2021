@@ -57,6 +57,10 @@
     "sass": "^1.43.4"
   },
   "reactSnap": {
-    "inlineCss": true
+    "inlineCss": true,
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
   }
 }
