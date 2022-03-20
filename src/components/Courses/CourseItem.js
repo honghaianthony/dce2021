@@ -16,7 +16,7 @@ function CourseItem(props) {
     if (done && doneRes.length > 0) {
       setDone(true);
     }
-  });
+  }, [props.id]);
   const ratingStars = () => {
     if (props.rating === 3) {
       return (
