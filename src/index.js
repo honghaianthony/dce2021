@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import AuthProvider from "./store/Provider";
+import { HelmetProvider } from 'react-helmet-async';
 
 // ReactDOM.render(
 //   <React.StrictMode>
@@ -14,27 +15,38 @@ import AuthProvider from "./store/Provider";
 //   document.getElementById("root")
 // );
 
-const rootElement = document.getElementById("root");
+ReactDOM.hydrate(
+  <HelmetProvider>
+    <React.StrictMode>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </React.StrictMode>
+  </HelmetProvider>,
+  document.getElementById("root")
+);
 
-if (rootElement.hasChildNodes()) {
-  ReactDOM.hydrate(
-    <React.StrictMode>
-      <AuthProvider>
-        <App />
-      </AuthProvider>
-    </React.StrictMode>,
-    rootElement
-  );
-} else {
-  ReactDOM.render(
-    <React.StrictMode>
-      <AuthProvider>
-        <App />
-      </AuthProvider>
-    </React.StrictMode>,
-    rootElement
-  );
-}
+// const rootElement = document.getElementById("root");
+
+// if (rootElement.hasChildNodes()) {
+//   ReactDOM.hydrate(
+//     <React.StrictMode>
+//       <AuthProvider>
+//         <App />
+//       </AuthProvider>
+//     </React.StrictMode>,
+//     rootElement
+//   );
+// } else {
+//   ReactDOM.render(
+//     <React.StrictMode>
+//       <AuthProvider>
+//         <App />
+//       </AuthProvider>
+//     </React.StrictMode>,
+//     rootElement
+//   );
+// }
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
