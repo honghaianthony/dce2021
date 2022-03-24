@@ -6,7 +6,7 @@ const axiosInstance = axios.create({
 });
 
 axiosInstance.defaults.headers.common[
-  "Authorization"
+    "Authorization"
 ] = `Bearer ${localStorage.getItem("token")}`;
 
 // axiosInstance.interceptors.request.use(function (config) {
@@ -16,12 +16,12 @@ axiosInstance.defaults.headers.common[
 //   });
 
 axiosInstance.interceptors.response.use(
-  function (response) {
-    return response.data;
-  },
-  function (error) {
-    return Promise.reject(error);
-  }
+    function (response) {
+        return response.data;
+    },
+    function (error) {
+        return Promise.reject(error);
+    }
 );
 
 export default axiosInstance;
