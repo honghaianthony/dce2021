@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+
+<url>
+  <loc>https://dce2021.ml/</loc>
+  <lastmod>2022-03-24T03:39:27+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://dce2021.ml/HomeLogin</loc>
+  <lastmod>2022-03-24T03:39:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dce2021.ml/register</loc>
+  <lastmod>2022-03-24T03:39:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dce2021.ml/login</loc>
+  <lastmod>2022-03-24T03:39:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dce2021.ml/forgotpassword</loc>
+  <lastmod>2022-03-24T03:39:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://dce2021.ml/courses</loc>
+  <lastmod>2022-03-24T03:39:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://dce2021.ml/blogs</loc>
+  <lastmod>2022-03-24T03:39:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://dce2021.ml/blog/2022-hoc-ngon-ngu-gi-de-thanh-cong---tai-khoan-nhieu-so-0.1.html</loc>
+  <lastmod>2022-03-24T03:39:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://dce2021.ml/addblog</loc>
+  <lastmod>2022-03-24T03:39:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://dce2021.ml/exercises</loc>
+  <lastmod>2022-03-24T03:39:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://dce2021.ml/me</loc>
+  <lastmod>2022-03-24T03:39:27+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
