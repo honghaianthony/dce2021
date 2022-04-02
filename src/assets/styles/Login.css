@@ -1,15 +1,17 @@
-.cover-screen {
-  background-color: #000;
-  opacity: 0.5;
+.background-img-screen {
   height: 100vh;
   width: 100%;
-}
-body {
   background-image: url("https://nordiccoder.com/app/uploads/2020/01/58-developer.jpg");
   background-repeat: no-repeat;
   background-position: center;
 }
-
+.cover-screen {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  background-color: #000;
+  opacity: 0.5;
+}
 .login {
   height: 100vh;
   display: flex;

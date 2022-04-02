@@ -29,6 +29,7 @@ function Login() {
         history.push("/HomeLogin")
       ) : (
         <section className="login">
+          <div className="background-img-screen"></div>
           <div className="cover-screen"></div>
           <Link to="/" className="btn_back_login">
             <button>Trở về trang chủ</button>

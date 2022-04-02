@@ -4,7 +4,6 @@ import { useStore, actions } from "../store";
 import { Link, useHistory } from "react-router-dom";
 import authApi from "../apis/authApi";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-// import Hinhlaptrinh2 from "../assets/images/Hinhlaptrinh2.png"
 import hinhlaptrinh2 from "../assets/images/Hinhlaptrinh2.png";
 
 function Register() {
@@ -48,10 +47,7 @@ function Register() {
         history.push("/")
       ) : (
         <div className="Register__container">
-          <Helmet>
-            <meta charSet="utf-8" />
-            <title>Đăng ký</title>
-          </Helmet>
+          <div className="cover-screen"></div>
           <div className="img-content-left_register">
             <Link to="/" className="btn_back_login">
               <button>Trở về trang chủ</button>
@@ -76,7 +72,7 @@ function Register() {
                     type="text"
                     name="lastname"
                     id="lastname"
-                    placeholder="họ..."
+                    placeholder="Họ..."
                     className="register_input"
                   />
                   <label
@@ -89,7 +85,7 @@ function Register() {
                     type="text"
                     name="firstname"
                     id="firstname"
-                    placeholder="tên..."
+                    placeholder="Tên..."
                     className="register_input"
                   />
                 </div>
