@@ -3,6 +3,7 @@ import hinhlaptrinh from "../assets/images/background-login.png";
 import { Link, useHistory } from "react-router-dom";
 import { useStore, actions } from "../store";
 import authApi from "../apis/authApi";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 import "../assets/styles/Login.css";
 function Login() {
@@ -20,13 +21,21 @@ function Login() {
   };
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Đăng nhập</title>
+      </Helmet>
       {state.isAuthenticated ? (
         history.push("/HomeLogin")
       ) : (
         <section className="login">
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>Đăng nhập</title>
+          </Helmet>
           <div className="img-content-left">
             <Link to="/" className="btn_back_login">
-                  <button>Trở về trang chủ</button> 
+              <button>Trở về trang chủ</button>
             </Link>
             <img src={hinhlaptrinh} alt="Hình minh họa" />
           </div>
