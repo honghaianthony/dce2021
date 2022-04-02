@@ -1,206 +1,184 @@
+.cover-screen {
+  background-color: #000;
+  opacity: 0.5;
+  height: 100vh;
+  width: 100%;
+}
+body {
+  background-image: url("https://nordiccoder.com/app/uploads/2020/01/58-developer.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
-.login{
-    display:flex;
-    justify-content: space-between;
-    padding:40px;
-    position: relative;
-    /* width: 90%; */
-    /* margin-left: auto; */
-    /* margin-right: auto; */
-    /* overflow: hidden; */
-    /* position: relative; */
+.login {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
 }
-.form-content{
-    border: 1px solid #000;
-    border-radius: 2rem;
-    padding: 1rem 2rem;
-    max-width: 24rem;
-    /* width:450px; */
-    width: 30%;
-    /* margin-left: 10%; */
-    /* float:right; */
-    /* position: absolute; */
-    right:0;
+.form-content {
+  background-color: white;
+  position: absolute;
+  border: 1px solid #000;
+  border-radius: 2rem;
+  padding: 1rem 2rem;
+  min-width: 300px;
+  max-width: 500px;
+  width: 30%;
 }
-.img-content-left img{
-    width:100%;
-    /* margin-top:10%; */
-    height: 600px;
-    object-fit: contain;
-    /* height:70%; */
-    /* flex-shrink: 0; */
+.btn_back_login {
+  position: absolute;
+  cursor: pointer;
+  top: 20px;
+  left: 20px;
 }
-.btn_back_login{
-    position: absolute;
-    cursor: pointer;
-    top:20px;
-    left:20px;
+.btn_back_login button {
+  background-color: #2c31cf;
+  border-radius: 5px;
+  border: none;
+  font-size: 15px;
+  padding: 10px;
+  color: #fff;
+  cursor: pointer;
 }
-.btn_back_login button{
-    background-color: #2C31CF;
-    border-radius: 10px;
-    border: none;
-    font-size: 15px;
-    padding:8px;
-    color:#fff;
-    cursor: pointer;
+.btn_back_login button:hover {
+  background-color: #ccc;
+  color: #000;
 }
-.btn_back_login button:hover{
-    background-color: #ccc;
-    color:#000;
-}
-.img-content-left{
-    width: 60%;
-    /* background-image: url("../assets/images/background-login.png"); */
-    /* background-position: left;
-    background-repeat: no-repeat;
-    background-size: cover; */
-    /* position: absolute; */
-}
-.user-img img {
-    width:120px;
-    
-}
-.form-content-top{
-    display: block;
-    justify-content: center;
-    text-align: center;
+.form-content-top {
+  display: block;
+  justify-content: center;
+  text-align: center;
 }
 .login-text {
-    font-size: 32px;
-    line-height: 28px;
-    font-weight: 700;
-   
-    margin-top: 12px;
+  font-size: 32px;
+  line-height: 28px;
+  font-weight: 700;
+
+  margin-top: 12px;
 }
 .label-login {
-    display: flex;
-    font-size: 16px;
-    margin-top: 12px;
-    font-weight: 400;
+  display: flex;
+  font-size: 16px;
+  margin-top: 12px;
+  font-weight: 400;
 }
-.form-input{
-    border:1px solid #000;
-    width:100%;
-    padding:12px;
-    margin-top: 12px;
-    font-size:12px;
-    border-radius: 10px;
-    box-sizing: border-box;
-    
+.form-input {
+  border: 1px solid #000;
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  font-size: 12px;
+  border-radius: 10px;
+  box-sizing: border-box;
 }
 .form-checked {
-    margin-top: 8px;
-    display:flex;
+  margin-top: 8px;
+  display: flex;
 }
-.btn-checkbox-password{
-    margin:0;
+.btn-checkbox-password {
+  margin: 0;
 }
-.check-password{
-    margin-left:4px;
-    font-size: 12px;
-    opacity: 0.9;
+.check-password {
+  margin-left: 4px;
+  font-size: 12px;
+  opacity: 0.9;
 }
-.btn-submit-login{
-    font-size: 20px;
-    width: 100%;
-    cursor: pointer;
-    padding: 16px;
-    border-radius: 10px;
-    border: none;
-    background-color: #2C31CF;
-    color: #fff;
-    margin-top:12px;
+.btn-submit-login {
+  font-size: 20px;
+  width: 100%;
+  cursor: pointer;
+  padding: 16px;
+  border-radius: 10px;
+  border: none;
+  background-color: #2c31cf;
+  color: #fff;
+  margin-top: 12px;
 }
-.btn-submit-login:hover,.btn-submit-google:hover{
-    background-color: #ccc;
-    color:#000;
+.btn-submit-login:hover,
+.btn-submit-google:hover {
+  background-color: #ccc;
+  color: #000;
 }
-.btn-submit-google{
-    font-size: 20px;
-    width: 100%;
-    cursor: pointer;
-    padding: 16px;
-    border-radius: 10px;
-    border: none;
-    background-color: #EA453A;
-    color: #fff;
-    
+.btn-submit-google {
+  font-size: 20px;
+  width: 100%;
+  cursor: pointer;
+  padding: 16px;
+  border-radius: 10px;
+  border: none;
+  background-color: #ea453a;
+  color: #fff;
 }
-.text-submit{
-    margin-top: 12px;
-    margin-bottom: 12px;
-    text-align: center;
-    opacity: 0.6;
-    font-size:16px
+.text-submit {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  text-align: center;
+  opacity: 0.6;
+  font-size: 16px;
 }
-.text-submit p{
-    margin:0;
+.text-submit p {
+  margin: 0;
 }
 .form-bottom {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
 }
-.form-bottom .become-member p{
-    margin:0;
+.form-bottom .become-member p {
+  margin: 0;
 }
-.form-bottom .become-member a{
-    text-decoration: none;
+.form-bottom .become-member a {
+  text-decoration: none;
 }
-.form-bottom .forgot-pass a:hover{
-    color: #2C31CF;
-    opacity: 0.5;
+.form-bottom .forgot-pass a:hover {
+  color: #2c31cf;
+  opacity: 0.5;
 }
-.sign-up-now{
-    float:right;
-    margin-top: 6px;
+.sign-up-now {
+  float: right;
+  margin-top: 6px;
 }
-.form-bottom .become-member a{
-    color: #EA453A;
-    text-decoration: underline;
+.form-bottom .become-member a {
+  color: #ea453a;
+  text-decoration: underline;
 }
-.become-member a:hover{
-    color: #EA453A;
-    opacity: 0.5;
-}
-
-
-.login-overlay{
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
+.become-member a:hover {
+  color: #ea453a;
+  opacity: 0.5;
 }
 
 .login-overlay {
-    /* background-color: rgba(49, 49, 49, 0.7); */
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .register-form {
-    background-color: #fff;
-    width: 400px;
-    height: 500px;
-    /* top:50%; */
-    position: absolute;
-    border: 1px solid #000;
-    /* top: 5%;
+  background-color: #fff;
+  width: 400px;
+  height: 500px;
+  /* top:50%; */
+  position: absolute;
+  border: 1px solid #000;
+  /* top: 5%;
     left: 60%; */
-    /* transform: translate(-50%, 0); */
-    /* box-shadow: 0 0 25px 7px rgba(255, 255, 255, 0.3); */
-    border-radius: 15px;
-    border: 1px solid #000;
-    border-radius: 2rem;
-    padding: 1rem 2rem;
-    max-width: 24rem;
-    /* width:450px; */
-    width: 30%;
-    /* margin-left: 10%; */
-    /* float:right; */
-    /* position: absolute; */
-    right:40px;
+  /* transform: translate(-50%, 0); */
+  /* box-shadow: 0 0 25px 7px rgba(255, 255, 255, 0.3); */
+  border-radius: 15px;
+  border: 1px solid #000;
+  border-radius: 2rem;
+  padding: 1rem 2rem;
+  max-width: 24rem;
+  /* width:450px; */
+  width: 30%;
+  /* margin-left: 10%; */
+  /* float:right; */
+  /* position: absolute; */
+  right: 40px;
 }

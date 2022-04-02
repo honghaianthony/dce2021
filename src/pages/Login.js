@@ -29,16 +29,10 @@ function Login() {
         history.push("/HomeLogin")
       ) : (
         <section className="login">
-          <Helmet>
-            <meta charSet="utf-8" />
-            <title>Đăng nhập</title>
-          </Helmet>
-          <div className="img-content-left">
-            <Link to="/" className="btn_back_login">
-              <button>Trở về trang chủ</button>
-            </Link>
-            <img src={hinhlaptrinh} alt="Hình minh họa" />
-          </div>
+          <div className="cover-screen"></div>
+          <Link to="/" className="btn_back_login">
+            <button>Trở về trang chủ</button>
+          </Link>
           <div className="form-content">
             <div className="form-content-top">
               <div className="login-text">
