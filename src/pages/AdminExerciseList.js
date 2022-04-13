@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import ExerciseApi from "../apis/ExerciseApi";
 import usersApi from "../apis/usersApi";
 import "../components/AdminCourses/CourseList/CourseListTable.css";
+import { Helmet } from "react-helmet-async";
 
 function getFormattedDate(date) {
   return new Date(date).toLocaleDateString();
@@ -68,47 +69,53 @@ function AdminExerciseList() {
   };
 
   return (
-    <AdminLayout>
-      <div className="exerciselist">
-        <div className="exerciselist-path">
-          <Link to="/" className="exerciselist-link">
-            <span>Trang chủ </span>
-          </Link>
-          <i className="icon-angle-right">
-            <FaAngleRight />
-          </i>
-          <Link to="/adminexerciselist" className="exerciselist-link">
-            <span> Quản lý bài luyện tập</span>
-          </Link>
-        </div>
-        <div className="exerciselist-container">
-          <h2 className="exerciselist-title"> Danh sách bài luyện tập </h2>
-          <Search
-            placeholder="Nhập tên bài tập cần tìm"
-            className="exerciselist-search"
-            value={search}
-            onChange={setSearch}
-          />
-          <h2 className="exerciselist-title1">Thông tin bài luyện tập</h2>
-          <div className="listtables-container">
-            <table className="listtables">
-              <thead className="listtables-header">
-                <tr className="listtables-row">
-                  <th>ID</th>
-                  <th>Tên bài luyện tập</th>
-                  <th>Tác giả</th>
-                  <th>Ngày tạo</th>
-                  <th>Update</th>
-                  <th>Xem</th>
-                </tr>
-              </thead>
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Danh sách các bài tập</title>
+      </Helmet>
+      <AdminLayout>
+        <div className="exerciselist">
+          <div className="exerciselist-path">
+            <Link to="/" className="exerciselist-link">
+              <span>Trang chủ </span>
+            </Link>
+            <i className="icon-angle-right">
+              <FaAngleRight />
+            </i>
+            <Link to="/adminexerciselist" className="exerciselist-link">
+              <span> Quản lý bài luyện tập</span>
+            </Link>
+          </div>
+          <div className="exerciselist-container">
+            <h2 className="exerciselist-title"> Danh sách bài luyện tập </h2>
+            <Search
+              placeholder="Nhập tên bài tập cần tìm"
+              className="exerciselist-search"
+              value={search}
+              onChange={setSearch}
+            />
+            <h2 className="exerciselist-title1">Thông tin bài luyện tập</h2>
+            <div className="listtables-container">
+              <table className="listtables">
+                <thead className="listtables-header">
+                  <tr className="listtables-row">
+                    <th>ID</th>
+                    <th>Tên bài luyện tập</th>
+                    <th>Tác giả</th>
+                    <th>Ngày tạo</th>
+                    <th>Update</th>
+                    <th>Xem</th>
+                  </tr>
+                </thead>
 
-              <tbody className="listtables-body">{listExers()}</tbody>
-            </table>
+                <tbody className="listtables-body">{listExers()}</tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
-    </AdminLayout>
+      </AdminLayout>
+    </>
   );
 }
 export default AdminExerciseList;

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import usersApi from "../apis/usersApi";
 import "../components/AdminMembers/MemberListTable.css";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 function getFormattedDate(date) {
   return new Date(date).toLocaleDateString();
@@ -93,46 +94,52 @@ function AdminMemberList() {
   };
 
   return (
-    <AdminLayout>
-      <div className="courselist">
-        <div className="courselist-path">
-          <Link to="/" className="courselist-link">
-            <span>Trang chủ </span>
-          </Link>
-          <i className="icon-angle-right">
-            <FaAngleRight />
-          </i>
-          <Link to="/admincourselist" className="courselist-link">
-            <span> Quản lý thành viên</span>
-          </Link>
-        </div>
-        <div className="courselist-container">
-          <h2 className="courselist-title"> Quản lý thành viên </h2>
-          <Search
-            placeholder="Nhập tên tài khoản cần tìm"
-            className="courselist-search"
-            value={search}
-            onChange={setSearch}
-          />
-          <h2 className="courselist-title1">Thông tin thành viên</h2>
-          <div className="memberlisttable-container">
-            <table className="memberlisttable">
-              <thead className="memberlisttable-header">
-                <tr className="memberlisttable-row">
-                  <th>ID</th>
-                  <th>Tên tài khoản</th>
-                  <th>Email</th>
-                  <th>Ngày tham gia</th>
-                  <th>Role</th>
-                </tr>
-              </thead>
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Danh sách các thành viên</title>
+      </Helmet>
+      <AdminLayout>
+        <div className="courselist">
+          <div className="courselist-path">
+            <Link to="/" className="courselist-link">
+              <span>Trang chủ </span>
+            </Link>
+            <i className="icon-angle-right">
+              <FaAngleRight />
+            </i>
+            <Link to="/admincourselist" className="courselist-link">
+              <span> Quản lý thành viên</span>
+            </Link>
+          </div>
+          <div className="courselist-container">
+            <h2 className="courselist-title"> Quản lý thành viên </h2>
+            <Search
+              placeholder="Nhập tên tài khoản cần tìm"
+              className="courselist-search"
+              value={search}
+              onChange={setSearch}
+            />
+            <h2 className="courselist-title1">Thông tin thành viên</h2>
+            <div className="memberlisttable-container">
+              <table className="memberlisttable">
+                <thead className="memberlisttable-header">
+                  <tr className="memberlisttable-row">
+                    <th>ID</th>
+                    <th>Tên tài khoản</th>
+                    <th>Email</th>
+                    <th>Ngày tham gia</th>
+                    <th>Role</th>
+                  </tr>
+                </thead>
 
-              <tbody className="memberlisttable-body">{listUsers()}</tbody>
-            </table>
+                <tbody className="memberlisttable-body">{listUsers()}</tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
-    </AdminLayout>
+      </AdminLayout>
+    </>
   );
 }
 export default AdminMemberList;

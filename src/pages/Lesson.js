@@ -202,6 +202,10 @@ function Lesson() {
   };
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Bài học số {lessonId}</title>
+      </Helmet>
       {data ? (
         <>
           <div className="lesson-container">

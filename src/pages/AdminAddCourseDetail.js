@@ -38,6 +38,10 @@ function AdminAddCourseDetail() {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Thêm khóa học mới</title>
+      </Helmet>
       <AdminLayout>
         {dataCourse === null ? (
           <h1>Loading</h1>
