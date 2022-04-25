@@ -18,10 +18,13 @@ function Login() {
             password: e.target.password.value,
         };
         const res = await authApi.postLogin(body);
+        console.log(res);
         dispatch(actions.login(res.token));
     };
     const handleLoginGG = async (googleData) => {
         const res = await authApi.postGoogleLogin(googleData);
+        console.log(res);
+        dispatch(actions.login(res.token));
     };
     return (
         <>
