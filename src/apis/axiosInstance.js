@@ -1,11 +1,11 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000/api",
+    baseURL: "http://localhost:3000/api/v1",
 });
 
 axiosInstance.defaults.headers.common[
-  "Authorization"
+    "Authorization"
 ] = `Bearer ${localStorage.getItem("token")}`;
 
 // axiosInstance.interceptors.request.use(function (config) {
@@ -15,12 +15,12 @@ axiosInstance.defaults.headers.common[
 //   });
 
 axiosInstance.interceptors.response.use(
-  function (response) {
-    return response.data;
-  },
-  function (error) {
-    return Promise.reject(error);
-  }
+    function (response) {
+        return response.data;
+    },
+    function (error) {
+        return Promise.reject(error);
+    }
 );
 
 export default axiosInstance;
