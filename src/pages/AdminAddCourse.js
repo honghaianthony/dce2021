@@ -24,7 +24,7 @@ function AdminAddCourse() {
   let history = useHistory();
   useEffect(async () => {
     const res2 = await coursesApi.getAllCourses();
-    setData(res2.slice(-1)[0].id);
+    setData(res2.slice(-1)[0]._id);
   }, []);
   let currentIdCourse = data + 1;
   console.log(currentIdCourse);
@@ -35,11 +35,11 @@ function AdminAddCourse() {
     const Course = {
       courseName: addNameCourse,
       description: addDesriptionCourse,
-      rate: addRateCourse,
+      rating: addRateCourse,
       time: addTimeCourse,
       image: url,
     };
-
+    console.log(Course)
     const res = await coursesApi
       .createCourse(Course)
       .then(history.push(`/admincourselist`));
@@ -158,7 +158,7 @@ function AdminAddCourse() {
                   </div>
                   <div className="InputTime_AddCourse">
                     <input
-                      name="rate"
+                      name="rating"
                       id="rateCourse"
                       placeholder="Nhập số đánh giá"
                       type="number"

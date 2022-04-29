@@ -12,20 +12,6 @@ import LessonApi from "../apis/LessonApi";
 import { Link } from "react-router-dom";
 import { FaAngleRight } from "react-icons/fa";
 function AdminAddCourseDetail() {
-  const listAddCourse2 = [
-    {
-      id: "1",
-      name: "Lớp và hướng đối tượng",
-    },
-    {
-      id: "2",
-      name: "Biến Tĩnh, Phương Thức Tĩnh",
-    },
-    {
-      id: "3",
-      name: "Tính Đóng Gói",
-    },
-  ];
   const [dataCourse, setDataCourse] = useState(null);
   const { courseId } = useParams();
 
