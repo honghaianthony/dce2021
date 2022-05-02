@@ -29,7 +29,7 @@ function BlogDetail() {
   useEffect(() => {
     socket.current = io("http://localhost:3000");
     socket.current.emit("join-room", blogId);
-    socket.current.on("receive-comment", (data) => {
+    socket.current.on("receive-comment-blog", (data) => {
       setComment([...comment, data]);
     });
   }, [blogId, socket.current]);
@@ -46,14 +46,14 @@ function BlogDetail() {
                     <IoPersonCircleSharp />
                   </div>
                   <div className="blog-comment-name">
-                    <p>{`${item.User.lastName} ${item.User.firstName}`}</p>
+                    <p>{`${item.userResult.lastName} ${item.userResult.firstName}`}</p>
                   </div>
                   <div className="blog-comment-date">
                     <p>{new Date(item.updatedAt).toLocaleDateString()}</p>
                   </div>
                 </div>
                 <div className="blog-comment-content">
-                  <p>{item.content}</p>
+                  <p>{item.commentResult}</p>
                 </div>
               </div>
             </div>
@@ -65,7 +65,7 @@ function BlogDetail() {
   const sendComment = (e) => {
     e.preventDefault();
     const comment = commentInput;
-    socket.current.emit("send-comment", comment, state.userId, blogId);
+    socket.current.emit("send-comment-blog", comment, state.userId, blogId);
     setCommentInput("");
   };
   const handleCommentChange = (e) => {
