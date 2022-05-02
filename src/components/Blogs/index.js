@@ -46,12 +46,18 @@ function BlogsMain() {
         let path = "/blogs/" + item.id;
         return (
           <BlogItem
+            // key={index}
+            // src={item.coverImage}
+            // title={item.title}
+            // description={item.description}
+            // author={`${item.User.lastName} ${item.User.firstName}`}
+            // time={new Date(item.updatedAt).toLocaleDateString()}
+
             key={index}
-            src={item.coverImage}
             title={item.title}
-            description={item.description}
-            author={`${item.User.lastName} ${item.User.firstName}`}
-            time={new Date(item.updatedAt).toLocaleDateString()}
+            content={item.content}
+            src={item.coverImage}
+
             //view='134'
             path={path}
           />
@@ -67,12 +73,17 @@ function BlogsMain() {
       return (
         blogs[item] && (
           <BlogItem
+            // key={blogs[item].id}
+            // src={blogs[item].coverImage}
+            // title={blogs[item].title}
+            // description={blogs[item].description}
+            // author={`${blogs[item].User.lastName} ${blogs[item].User.firstName}`}
+            // time={new Date(blogs[item].updatedAt).toLocaleDateString()}
+
             key={blogs[item].id}
-            src={blogs[item].coverImage}
             title={blogs[item].title}
-            description={blogs[item].description}
-            author={`${blogs[item].User.lastName} ${blogs[item].User.firstName}`}
-            time={new Date(blogs[item].updatedAt).toLocaleDateString()}
+            content={blogs[item].content}
+            src={blogs[item].coverImage}
             //view='134'
             path={`/blogs/${blogs[item]._id}`}
           />
@@ -84,12 +95,17 @@ function BlogsMain() {
     return idArray.map((item) => {
       return (
         <BlogItem
+          // key={blogs[item].id}
+          // src={blogs[item].coverImage}
+          // title={blogs[item].title}
+          // description={blogs[item].description}
+          // author={`${blogs[item].User.lastName} ${blogs[item].User.firstName}`}
+          // time={new Date(blogs[item].updatedAt).toLocaleDateString()}
+
           key={blogs[item].id}
-          src={blogs[item].coverImage}
           title={blogs[item].title}
-          description={blogs[item].description}
-          author={`${blogs[item].User.lastName} ${blogs[item].User.firstName}`}
-          time={new Date(blogs[item].updatedAt).toLocaleDateString()}
+          content={blogs[item].content}
+          src={blogs[item].coverImage}
           //view='134'
           path={`/blogs/${blogs[item]._id}`}
         />
@@ -110,11 +126,15 @@ function BlogsMain() {
           <div className="blog-feature">
             <div className="blog-feature-item">
               <BlogItem
-                src={blogs[firstItem].coverImage}
+                // src={blogs[firstItem].coverImage}
+                // title={blogs[firstItem].title}
+                // description={blogs[firstItem].description}
+                // author={`${blogs[firstItem].User.lastName} ${blogs[firstItem].User.firstName}`}
+                // time={new Date(blogs[firstItem].updatedAt).toLocaleDateString()}
+
                 title={blogs[firstItem].title}
-                description={blogs[firstItem].description}
-                author={`${blogs[firstItem].User.lastName} ${blogs[firstItem].User.firstName}`}
-                time={new Date(blogs[firstItem].updatedAt).toLocaleDateString()}
+                content={blogs[firstItem].content}
+                src={blogs[firstItem].coverImage}
                 //view='134'
                 path={`/blogs/${blogs[firstItem]._id}`}
               />
