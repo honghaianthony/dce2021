@@ -74,8 +74,8 @@ function NewBlog() {
             userId: 1,
             title: inputValues.title,
             content: data,
-            description: inputValues.description,
             coverImage: url,
+            blogImage: url,
         };
         const res = await blogApi.postBlog(dataBlog);
         if (res) {
