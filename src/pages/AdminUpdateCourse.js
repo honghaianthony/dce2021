@@ -95,10 +95,10 @@ function AdminUpdateCourse() {
   const handleChangeData = async (e) => {
     e.preventDefault();
     const newCourse = {
-      id: courseId,
+      _id: courseId,
       courseName: courseName,
       description: courseDes,
-      rate: 0,
+      rating: 0,
       time: courseTime,
       image: courseImg,
     };

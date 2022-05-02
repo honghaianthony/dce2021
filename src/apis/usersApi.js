@@ -9,10 +9,10 @@ const getUserById = async (id) => {
   return await axiosInstance.get(`users/get-user-by-id?id=${id}`);
 };
 const getUserCourseByCourseId = async (courseId) => {
-  return await axiosInstance.get(`users/get-user-course-by-id?id=${courseId}`);
+  return await axiosInstance.get(`user/get-user-course-by-id?id=${courseId}`);
 };
 const createUserCourse = async (data) => {
-  return await axiosInstance.post(`users/create-new-user-course`, data, {
+  return await axiosInstance.post(`user/create-new-user-course`, data, {
     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };

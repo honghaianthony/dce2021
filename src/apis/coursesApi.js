@@ -1,23 +1,23 @@
 import axiosInstance from "./axiosInstance";
 
 const getAllCourses = async () => {
-  return await axiosInstance.get(`courses/get-all-courses`);
+  return await axiosInstance.get(`course/get-all-courses`);
 };
 const getCourseById = async (id) => {
-  return await axiosInstance.get(`courses/get-course-by-id?id=${id}`);
+  return await axiosInstance.get(`course/get-course-by-id?id=${id}`);
 };
 const createCourse = async (course) => {
-  return await axiosInstance.post(`/courses/create-new-courses`, course, {
+  return await axiosInstance.post(`/course/create-new-course`, course, {
     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };
 const deleteCourseById = async (id) => {
-  return await axiosInstance.delete(`courses/delete-courses?id=${id}`, {
+  return await axiosInstance.delete(`course/delete-courses?id=${id}`, {
     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };
 const updateCourseById = async (course) => {
-  return await axiosInstance.put(`courses/update-courses`, course, {
+  return await axiosInstance.put(`course/update-courses`, course, {
     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };

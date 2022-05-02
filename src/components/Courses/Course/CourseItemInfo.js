@@ -7,7 +7,7 @@ function CourseItemInfo(CouseItem) {
   const [isRegister, setIsRegister] = useState(false);
 
   useEffect(async () => {
-    const res = await usersApi.getUserLesson(CouseItem.id);
+    const res = await usersApi.getUserLesson(CouseItem._id);
     if (!res) {
       setIsRegister(true);
     }
@@ -16,7 +16,7 @@ function CourseItemInfo(CouseItem) {
   const handleRegisterLesson = async () => {
     if (isRegister) {
       const body = {
-        lessonId: CouseItem.id,
+        lessonId: CouseItem._id,
         code: "",
         isCompleted: false,
       };
@@ -31,7 +31,7 @@ function CourseItemInfo(CouseItem) {
         </div>
       </Link>
       <div className="CourseIntemInfo__Decription__Container">
-        <p className="CourseItemInfo__Decription">{CouseItem.decription}</p>
+        <p className="CourseItemInfo__Decription">{CouseItem.description}</p>
       </div>
     </div>
   );
