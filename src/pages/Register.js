@@ -32,6 +32,7 @@ function Register() {
       phone: e.target.phone.value,
       dateOfBirth: e.target.dateOfBirth.value,
     };
+    console.log(body);
     if (validPass) {
       const res = await authApi.register(body);
       dispatch(actions.login(res.token));

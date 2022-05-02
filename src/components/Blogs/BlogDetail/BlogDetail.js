@@ -16,14 +16,14 @@ function BlogDetail() {
   const [comment, setComment] = useState([]);
   const [commentInput, setCommentInput] = useState("");
   const [showMoreCmt, setShowMoreCmt] = useState(5);
-
+  console.log(blogId);
   useEffect(async () => {
+    console.log("haha");
     const res = await blogsApi.getBlogById(blogId);
     setData(res);
     const cmt = await blogsApi.getAllBlogCommentByBlogId(blogId);
     setComment(cmt);
   }, []);
-
   //socket.io
   const socket = useRef();
   // const socket = io("http://localhost:3000");
@@ -74,10 +74,10 @@ function BlogDetail() {
   };
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <meta charSet="utf-8" />
-        <title>Blog: {data.title}</title>
-      </Helmet>
+        <title>{data.title}</title>
+      </Helmet> */}
       <div className="blog-container">
         <BlogPath />
         {data ? (

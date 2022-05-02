@@ -11,6 +11,7 @@ import coursesApi from "../apis/coursesApi";
 import LessonApi from "../apis/LessonApi";
 import { Link } from "react-router-dom";
 import { FaAngleRight } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 function AdminAddCourseDetail() {
   const listAddCourse2 = [
     {

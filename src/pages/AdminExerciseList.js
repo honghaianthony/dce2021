@@ -14,67 +14,74 @@ function getFormattedDate(date) {
 }
 
 function AdminExerciseList() {
-  const [data, setExerciseList] = useState([]);
+  const [APIData, setAPIData] = useState([]);
   const [listUsers, setListUsers] = useState([]);
-  const [filteredData, setFilteredData] = useState(data);
+  const [filteredData, setFilteredData] = useState([]);
   const [search, setSearch] = useState("");
 
   useEffect(async () => {
     const res = await ExerciseApi.getAllExercise();
-    setExerciseList(res.data);
+    setAPIData(res);
   }, []);
-
-  useEffect(async () => {
-    const use = await usersApi.getAllUsers();
-    setListUsers(use);
-  }, []);
-  console.log(listUsers);
   useEffect(() => {
-    setFilteredData(data);
-  }, [data]);
-  useEffect(() => {
-    const newData = data.filter((item) => {
-      return (
-        item.exerciseName.toLowerCase().search(search.toLowerCase()) !== -1 ||
-        (item.id + "").indexOf(search) !== -1
-      );
+    const res = APIData.filter((item) => {
+      return Object.values(item)
+        .join("")
+        .toLowerCase()
+        .includes(search.toLowerCase());
     });
-    setFilteredData(newData);
+    setFilteredData(res);
   }, [search]);
+  const searchItems = (searchValue) => {
+    setSearch(searchValue);
+  };
 
   const listExers = () => {
-    if (filteredData.length > 0) {
-      return filteredData.map((item, index) => {
-        let pathExer = "/update-exercises/" + item.id;
-        return (
-          <tr>
-            <td>{item.id}</td>
-            <td>{item.exerciseName}</td>
-            <td>
-              <p>admin</p>
-            </td>
-            <td>{getFormattedDate(item.createdAt)}</td>
-            <td>{getFormattedDate(item.updatedAt)}</td>
-            <td>
-              <Link to={pathExer}>
-                <button className="view-btns">Chỉnh sửa</button>
-              </Link>
-            </td>
-          </tr>
-        );
-      });
-    } else {
-      return <div className="loader"></div>;
-    }
+    return filteredData.length > 0
+      ? filteredData.map((item, index) => {
+          let pathExer = "/update-exercises/" + item._id;
+          return (
+            <tr>
+              <td>{item._id}</td>
+              <td>{item.exerciseName}</td>
+              <td>
+                <p>admin</p>
+              </td>
+              <td>{getFormattedDate(item.createdAt)}</td>
+              <td>{getFormattedDate(item.updatedAt)}</td>
+              <td>
+                <Link to={pathExer}>
+                  <button className="view-btns">Chỉnh sửa</button>
+                </Link>
+              </td>
+            </tr>
+          );
+        })
+      : APIData.map((item, index) => {
+          let pathExer = "/update-exercises/" + item._id;
+          return (
+            <tr>
+              <td>{item._id}</td>
+              <td>{item.exerciseName}</td>
+              <td>
+                <p>admin</p>
+              </td>
+              <td>{getFormattedDate(item.createdAt)}</td>
+              <td>{getFormattedDate(item.updatedAt)}</td>
+              <td>
+                <Link to={pathExer}>
+                  <button className="view-btns">Chỉnh sửa</button>
+                </Link>
+              </td>
+            </tr>
+          );
+        });
   };
 
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Danh sách các bài tập</title>
-      </Helmet>
       <AdminLayout>
+        {console.log("re-render")}
         <div className="exerciselist">
           <div className="exerciselist-path">
             <Link to="/" className="exerciselist-link">
@@ -93,7 +100,7 @@ function AdminExerciseList() {
               placeholder="Nhập tên bài tập cần tìm"
               className="exerciselist-search"
               value={search}
-              onChange={setSearch}
+              onChange={searchItems}
             />
             <h2 className="exerciselist-title1">Thông tin bài luyện tập</h2>
             <div className="listtables-container">

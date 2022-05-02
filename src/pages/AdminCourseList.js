@@ -63,7 +63,7 @@ function AdminCourseList() {
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Danh sách các blog</title>
+        <title>Danh sách các khóa học</title>
       </Helmet>
       <AdminLayout>
         <div className="courselist">

@@ -8,6 +8,7 @@ import Lessons from "../components/Courses/Course/Lessons";
 import avatar from "../assets/images/giao.jpg";
 import coursesApi from "../apis/coursesApi";
 import usersApi from "../apis/usersApi";
+import { Helmet } from "react-helmet-async";
 
 function Course() {
   const [data, setData] = useState(null);

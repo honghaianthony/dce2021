@@ -7,6 +7,7 @@ import compileApi from "../apis/compileApi";
 import { useStore } from "../store";
 import { io } from "socket.io-client";
 import usersApi from "../apis/usersApi";
+import { Helmet } from "react-helmet-async";
 
 function Lesson() {
   const history = useHistory();

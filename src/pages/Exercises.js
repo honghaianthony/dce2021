@@ -12,26 +12,30 @@ function Exercises() {
   const [search, setSearch] = useState("");
   useEffect(async () => {
     const res = await ExerciseApi.getAllExercise();
-    setListExercise(res.data);
+    setListExercise(res);
+    setFilterExercis(res);
   }, []);
-  console.log(listExercise);
-  useEffect(() => {
-    setFilterExercis(listExercise);
-  }, [listExercise]);
 
-  useEffect(() => {
-    const newListExercise = listExercise.filter((item) => {
-      return (
-        item.exerciseName.toLowerCase().search(search.toLowerCase()) !== -1
-      );
-    });
-    setFilterExercis(newListExercise);
+  useEffect(async () => {
+    const res = await ExerciseApi.getAllExercise();
+    if (search == "") {
+      setListExercise(res);
+      setFilterExercis(res);
+    } else {
+      const newListExercise = await listExercise.filter((item) => {
+        return (
+          item.exerciseName.toLowerCase().search(search.toLowerCase()) !== -1
+        );
+      });
+      setListExercise(newListExercise);
+      setFilterExercis(newListExercise);
+    }
   }, [search]);
 
   const listExercises = () => {
     if (filterExercise.length > 0) {
       return filterExercise.map((item, index) => {
-        let pathExer = "/exercises/" + item.id;
+        let pathExer = "/exercises/" + item._id;
         return (
           <Frameexercise
             key={index}
@@ -46,8 +50,6 @@ function Exercises() {
       return <div className="loader"></div>;
     }
   };
-  console.log(listExercises);
-  console.log(listExercise);
   return (
     <>
       <Helmet>
@@ -62,7 +64,7 @@ function Exercises() {
         <div className="exercises-container">
           <div className="exercises-path">
             <Link to="/">Home</Link>
-            <i class="fas fa-angle-right"></i>
+            <i className="fas fa-angle-right"></i>
             <Link to="/exercises">Exercises</Link>
           </div>
           <div className="exercises-banner">
@@ -82,7 +84,7 @@ function Exercises() {
                 }}
               />
               <button className="icon-search-exer" type="submit">
-                <i class="fa fa-search"></i>
+                <i className="fa fa-search"></i>
               </button>
             </form>
           </div>
@@ -91,7 +93,7 @@ function Exercises() {
             <ul>
               <li>
                 <a href="">
-                  <i class="fas fa-angle-double-left"></i>
+                  <i className="fas fa-angle-double-left"></i>
                 </a>
               </li>
               <li>
@@ -114,7 +116,7 @@ function Exercises() {
               </li>
               <li>
                 <a href="">
-                  <i class="fas fa-angle-double-right"></i>
+                  <i className="fas fa-angle-double-right"></i>
                 </a>
               </li>
             </ul>

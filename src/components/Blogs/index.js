@@ -14,21 +14,23 @@ function BlogsMain() {
 
   useEffect(async () => {
     const res = await blogsApi.getAllBlogs();
+    //
+    console.log(res);
     setBlogs(res);
   }, []);
 
   useEffect(() => {
-      setFilteredData(data);
+    setFilteredData(data);
   }, [data]);
 
   useEffect(() => {
-      const newData = data.filter((item) => {
-          return (
-            item.title.toLowerCase().search(search.toLowerCase()) !== -1 ||
-            item.description.toLowerCase().search(search.toLowerCase()) !== -1
-          );
-      });
-      setFilteredData(newData);
+    const newData = data.filter((item) => {
+      return (
+        item.title.toLowerCase().search(search.toLowerCase()) !== -1 ||
+        item.description.toLowerCase().search(search.toLowerCase()) !== -1
+      );
+    });
+    setFilteredData(newData);
   }, [search]);
 
   const idArray = blogs.map((item, index) => {
@@ -72,7 +74,7 @@ function BlogsMain() {
             author={`${blogs[item].User.lastName} ${blogs[item].User.firstName}`}
             time={new Date(blogs[item].updatedAt).toLocaleDateString()}
             //view='134'
-            path={`/blogs/${blogs[item].id}`}
+            path={`/blogs/${blogs[item]._id}`}
           />
         )
       );
@@ -89,12 +91,11 @@ function BlogsMain() {
           author={`${blogs[item].User.lastName} ${blogs[item].User.firstName}`}
           time={new Date(blogs[item].updatedAt).toLocaleDateString()}
           //view='134'
-          path={`/blogs/${blogs[item].id}`}
+          path={`/blogs/${blogs[item]._id}`}
         />
       );
     });
   };
-  console.log(firstItem, trendBlogs, idArray);
   return (
     <div className="blogs-container">
       <BlogPath />
@@ -115,7 +116,7 @@ function BlogsMain() {
                 author={`${blogs[firstItem].User.lastName} ${blogs[firstItem].User.firstName}`}
                 time={new Date(blogs[firstItem].updatedAt).toLocaleDateString()}
                 //view='134'
-                path={`/blogs/${blogs[firstItem].id}`}
+                path={`/blogs/${blogs[firstItem]._id}`}
               />
             </div>
           </div>

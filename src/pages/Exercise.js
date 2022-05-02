@@ -56,8 +56,6 @@ function Exercise(Exercise) {
         <p>Đầu vào: {item.input}</p>
         <p>Đầu ra: {real}</p>
         <p>Đầu ra mong muốn: {item.output}</p>
-        {/* <p>Thời gian thực hiện:</p>
-          <p>Tin nhắn:</p> */}
       </div>
     );
   };
