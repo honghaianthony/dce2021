@@ -16,7 +16,7 @@ function AddTestCase() {
   const [listExercise, setListExercise] = useState([]);
   useEffect(async () => {
     const res = await ExerciseApi.getAllExercise();
-    setListExercise(res.data);
+    setListExercise(res);
   }, []);
 
   const handleSubmitTestCase = async (e) => {
@@ -78,7 +78,7 @@ function AddTestCase() {
                     <option value={""}></option>
                     {listExercise.map((exercise) => {
                       return (
-                        <option value={exercise.id}>
+                        <option value={exercise._id}>
                           {exercise.exerciseName}
                         </option>
                       );

@@ -14,6 +14,8 @@ import { FaAngleRight } from "react-icons/fa";
 
 import AdminPath from "../components/AdminBlog/AdminPath/AdminPath";
 import { useHistory } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+
 function AdminUpdateCourse() {
   const listAddCourse = [
     {
@@ -140,6 +142,10 @@ function AdminUpdateCourse() {
   }; /*** */
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Cập nhật thông tin khóa học</title>
+      </Helmet>
       <AdminLayout>
         {data === null ? (
           <div className="loader"></div>

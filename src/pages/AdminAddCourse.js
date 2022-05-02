@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { FaAngleRight } from "react-icons/fa";
 import AdminPath from "../components/AdminBlog/AdminPath/AdminPath";
 import { useHistory, useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 function AdminAddCourse() {
   const [addNameCourse, setAddNameCourse] = useState("");
   const [addDesriptionCourse, setAddDescriptionCourse] = useState("");
@@ -99,41 +100,36 @@ function AdminAddCourse() {
   // }
   // const [state, dispatch] = useStore(); /** */
   return (
-    <AdminLayout>
-      {/* <Navigation /> */}
-      <div className="AdminAddCourse__">
-        {/* <div className="top_decription_link"> */}
-        <div className="admin-path">
-          <Link to="/" className="admin-link">
-            <span>Trang chủ</span>
-          </Link>
-          <i className="icon-angle-right">
-            <FaAngleRight />
-          </i>
-          <Link to="/admincourselist" className="admin-link">
-            <span>Quản lý khóa học</span>
-          </Link>
-        </div>
-        {/* </div> */}
-        <div className="Container_____AdminAdCourse">
-          <div className="center_AdminAddCourse__container">
-            {/* <div className="center_menu_AdminAddCourse">
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Thêm khóa học mới</title>
+      </Helmet>
+      <AdminLayout>
+        {/* <Navigation /> */}
+        <div className="AdminAddCourse__">
+          {/* <div className="top_decription_link"> */}
+          <div className="admin-path">
+            <Link to="/" className="admin-link">
+              <span>Trang chủ</span>
+            </Link>
+            <i className="icon-angle-right">
+              <FaAngleRight />
+            </i>
+            <Link to="/admincourselist" className="admin-link">
+              <span>Quản lý khóa học</span>
+            </Link>
+          </div>
+          {/* </div> */}
+          <div className="Container_____AdminAdCourse">
+            <div className="center_AdminAddCourse__container">
+              {/* <div className="center_menu_AdminAddCourse">
             <p>Hello</p>
           </div> */}
-            <div className="center_content_AdminAddCourse">
-              <form onSubmit={handleSubmitAdd}>
-                <div className="top_decription_centercontent">
-                  <p>Tạo khóa học mới</p>
-                </div>
-                <div className="middle_decription_centercontent">
-                  <div className="InputName_AddCourse">
-                    <input
-                      type="text"
-                      name="id"
-                      id="idCourse"
-                      placeholder="Nhập tên khóa học mới"
-                      onChange={(event) => setAddNameCourse(event.target.value)}
-                    />
+              <div className="center_content_AdminAddCourse">
+                <form onSubmit={handleSubmitAdd}>
+                  <div className="top_decription_centercontent">
+                    <p>Tạo khóa học mới</p>
                   </div>
                   <div className="InputDescription_AddCourse">
                     <textarea
@@ -174,48 +170,52 @@ function AdminAddCourse() {
                       type="text"
                       onChange={(event)=>setAddImageCourse(event.target.value)}
                     /> */}
-                    {progress < 100 && (
-                      <input
-                        type="file"
-                        accept="image/*"
-                        name="coverImage"
-                        id="add-blog-cover-image"
-                        placeholder="Link hình ảnh"
-                        onChange={imageChange}
-                      />
-                    )}
-                    {progress > 0 && (
-                      <div className="upload-image">
-                        <progress
-                          className="progress-bar"
-                          value={progress}
-                          max="100"
+                      {progress < 100 && (
+                        <input
+                          type="file"
+                          accept="image/*"
+                          name="coverImage"
+                          id="add-blog-cover-image"
+                          placeholder="Link hình ảnh"
+                          onChange={imageChange}
                         />
-                        <br />
-                        <i
-                          class="far fa-times-circle"
-                          onClick={deleteImage}
-                        ></i>
-                        <img
-                          className="preview-image"
-                          src={url || "http://via.placeholder.com/300"}
-                          alt="firebase-image"
-                        />
-                      </div>
-                    )}
+                      )}
+                      {progress > 0 && (
+                        <div className="upload-image">
+                          <progress
+                            className="progress-bar"
+                            value={progress}
+                            max="100"
+                          />
+                          <br />
+                          <i
+                            class="far fa-times-circle"
+                            onClick={deleteImage}
+                          ></i>
+                          <img
+                            className="preview-image"
+                            src={url || "http://via.placeholder.com/300"}
+                            alt="firebase-image"
+                          />
+                        </div>
+                      )}
+                    </div>
+                    <div className="btn_Submit_AdminAddCourse">
+                      <button
+                        type="submit"
+                        className="btn_submit_adminaddcourse"
+                      >
+                        Tiếp tục
+                      </button>
+                    </div>
                   </div>
-                  <div className="btn_Submit_AdminAddCourse">
-                    <button type="submit" className="btn_submit_adminaddcourse">
-                      Tiếp tục
-                    </button>
-                  </div>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </AdminLayout>
+      </AdminLayout>
+    </>
   );
 }
 

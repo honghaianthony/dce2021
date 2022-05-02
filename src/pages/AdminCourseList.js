@@ -6,7 +6,7 @@ import { FaAngleRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import coursesApi from "../apis/coursesApi";
 import "../components/AdminCourses/CourseList/CourseListTable.css";
-import { useLayoutEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 function getFormattedDate(date) {
   return new Date(date).toLocaleDateString();
@@ -61,46 +61,52 @@ function AdminCourseList() {
   };
   
   return (
-    <AdminLayout>
-      <div className="courselist">
-        <div className="courselist-path">
-          <Link to="/" className="courselist-link">
-            <span>Trang chủ </span>
-          </Link>
-          <i className="icon-angle-right">
-            <FaAngleRight />
-          </i>
-          <Link to="/admincourselist" className="courselist-link">
-            <span> Quản lý khoá học</span>
-          </Link>
-        </div>
-        <div className="courselist-container">
-          <h2 className="courselist-title"> Danh sách khoá học </h2>
-          <Search
-            placeholder="Nhập tên khoá học cần tìm"
-            className="courselist-search"
-            value={search}
-            onChange={setSearch}
-          />
-          <h2 className="courselist-title1">Thông tin khoá học</h2>
-          <div className="listtables-container">
-            <table className="listtables">
-              <thead className="listtables-header">
-                <tr className="listtables-row">
-                  <th>ID</th>
-                  <th>Tên khoá học</th>
-                  <th>Admin</th>
-                  <th>Ngày tạo</th>
-                  <th>Update</th>
-                  <th>Xem</th>
-                </tr>
-              </thead>
-              <tbody className="listtables-body">{listCourses()}</tbody>
-            </table>
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Danh sách các khóa học</title>
+      </Helmet>
+      <AdminLayout>
+        <div className="courselist">
+          <div className="courselist-path">
+            <Link to="/" className="courselist-link">
+              <span>Trang chủ </span>
+            </Link>
+            <i className="icon-angle-right">
+              <FaAngleRight />
+            </i>
+            <Link to="/admincourselist" className="courselist-link">
+              <span> Quản lý khoá học</span>
+            </Link>
+          </div>
+          <div className="courselist-container">
+            <h2 className="courselist-title"> Danh sách khoá học </h2>
+            <Search
+              placeholder="Nhập tên khoá học cần tìm"
+              className="courselist-search"
+              value={search}
+              onChange={setSearch}
+            />
+            <h2 className="courselist-title1">Thông tin khoá học</h2>
+            <div className="listtables-container">
+              <table className="listtables">
+                <thead className="listtables-header">
+                  <tr className="listtables-row">
+                    <th>ID</th>
+                    <th>Tên khoá học</th>
+                    <th>Admin</th>
+                    <th>Ngày tạo</th>
+                    <th>Update</th>
+                    <th>Xem</th>
+                  </tr>
+                </thead>
+                <tbody className="listtables-body">{listCourses()}</tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
-    </AdminLayout>
+      </AdminLayout>
+    </>
   );
 }
 export default AdminCourseList;
