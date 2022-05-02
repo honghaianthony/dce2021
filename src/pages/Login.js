@@ -22,6 +22,11 @@ function Login() {
         console.log(res);
         dispatch(actions.login(res.token));
     };
+    const handleLoginGG = async (googleData) => {
+        const res = await authApi.postGoogleLogin(googleData);
+        console.log(res);
+        dispatch(actions.login(res.token));
+    };
   return (
     <>
       <Helmet>
@@ -103,11 +108,15 @@ function Login() {
                   <p>Hoặc</p>
                   <p>đăng nhập bằng</p>
                 </div>
-                <input
-                  className="btn-submit-google"
-                  type="submit"
-                  value="Google"
-                />
+                <GoogleLogin
+                    clientId={
+                        process.env.REACT_APP_GOOGLE_CLIENT_ID
+                    }
+                    buttonText="Log in with Google"
+                    onSuccess={handleLoginGG}
+                    onFailure={handleLoginGG}
+                    cookiePolicy={"single_host_origin"}
+                    />
               </div>
             </form>
             <div className="form-bottom">
