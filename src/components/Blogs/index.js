@@ -54,6 +54,7 @@ function BlogsMain() {
             key={index}
             title={item.title}
             content={item.content}
+            description={item.description}
             src={item.coverImage}
 
             //view='134'
@@ -81,6 +82,7 @@ function BlogsMain() {
             key={blogs[item].id}
             title={blogs[item].title}
             content={blogs[item].content}
+            description={blogs[item].description}
             src={blogs[item].coverImage}
             //view='134'
             path={`/blogs/${blogs[item].id}`}
@@ -103,6 +105,7 @@ function BlogsMain() {
           key={blogs[item].id}
           title={blogs[item].title}
           content={blogs[item].content}
+          description={blogs[item].description}
           src={blogs[item].coverImage}
           //view='134'
           path={`/blogs/${blogs[item].id}`}
@@ -133,6 +136,7 @@ function BlogsMain() {
 
                 title={blogs[firstItem].title}
                 content={blogs[firstItem].content}
+                description={blogs[firstItem].description}
                 src={blogs[firstItem].coverImage}
                 //view='134'
                 path={`/blogs/${blogs[firstItem].id}`}

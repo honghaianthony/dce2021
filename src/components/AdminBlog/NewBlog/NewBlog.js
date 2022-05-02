@@ -72,11 +72,12 @@ function NewBlog() {
 
   const sendBlog = async () => {
     const dataBlog = {
-      userId: 1,
+      // userId: 1,
       title: inputValues.title,
-      content: data,
+      // content: data,
       coverImage: url,
       blogImage: url,
+      description: url,
     };
     const res = await blogApi.postBlog(dataBlog);
     if (res) {

@@ -66,8 +66,12 @@ function BlogListTable() {
         return (
           <tr key={index}>
             <td>{item.id}</td>
-            <td>{item.title}</td>
             <td>{item.User.userName}</td>
+            <td>{item.title}</td>
+            <td>{item.content}</td>
+            <td>{item.coverImage}</td>
+            <td>{item.blogImage}</td>
+            {/* <td>{item.User.userName}</td> */}
             <td>{getFormattedDate(item.createdAt)}</td>
             <td>{getFormattedDate(item.updatedAt)}</td>
             <td>
@@ -111,8 +115,12 @@ function BlogListTable() {
         <thead className="bloglisttable-header">
           <tr className="bloglisttable-row">
             <th>ID</th>
-            <th>Tên blog</th>
             <th>Admin</th>
+            <th>Tên blog</th>
+            {/* <th>Admin</th> */}
+            <th>Nội dung</th>
+            <th>Hình ảnh</th>
+            <th>Ảnh blog</th>
             <th>Ngày tạo</th>
             <th>Update</th>
             <th>Chỉnh sửa</th>

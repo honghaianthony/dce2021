@@ -93,8 +93,9 @@ function UpdateBlogDetail() {
     const handleSaveBlog = async (e) => {
         e.preventDefault();
         const newBlog = {
-            id: blogId,
             title: blogName,
+            id: blogId,
+            // title: blogName,
             description: blogDescription,
             content: blogContent,
         };

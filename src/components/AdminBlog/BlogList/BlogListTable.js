@@ -13,7 +13,7 @@ function BlogListTable() {
     const [data, setListBlogs] = useState([]);
     const [filteredData, setFilteredData] = useState(data);
     const [search, setSearch] = useState("");
-    
+
     useEffect(async () => {
         const res = await blogsApi.getAllBlogs();
         console.log(res);
@@ -40,8 +40,11 @@ function BlogListTable() {
                 return (
                     <tr key={index}>
                         <td>{item.id}</td>
-                        <td>{item.title}</td>
                         <td>{item.User.userName}</td>
+                        <td>{item.title}</td>
+                        <td>{item.content}</td>
+                        <td>{item.coverImage}</td>
+                        <td>{item.blogImage}</td>
                         <td>{getFormattedDate(item.createdAt)}</td>
                         <td>{getFormattedDate(item.updatedAt)}</td>
                         <td>
@@ -64,7 +67,7 @@ function BlogListTable() {
                 <AdminPath />
                 <div className='bloglist-container'>
                     <h2 className='bloglist-title'> Danh sách blog </h2>
-                    <Search placeholder='Nhập tên blog cần tìm' className='bloglist-search' value={search} onChange={setSearch}/>
+                    <Search placeholder='Nhập tên blog cần tìm' className='bloglist-search' value={search} onChange={setSearch} />
                 </div>
             </div>
             <h2 className='bloglist-tablename'>Thông tin blog</h2>
@@ -72,8 +75,12 @@ function BlogListTable() {
                 <thead className="bloglisttable-header">
                     <tr className="bloglisttable-row">
                         <th>ID</th>
-                        <th>Tên blog</th>
                         <th>Admin</th>
+                        <th>Tên blog</th>
+                        {/* <th>Admin</th> */}
+                        <th>Nội dung</th>
+                        <th>Hình ảnh</th>
+                        <th>Ảnh blog</th>
                         <th>Ngày tạo</th>
                         <th>Update</th>
                         <th>Xem</th>
