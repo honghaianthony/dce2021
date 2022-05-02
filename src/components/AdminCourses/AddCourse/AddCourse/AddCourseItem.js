@@ -20,7 +20,7 @@ function AddCourseItem(data) {
           </div>
           <div className="Name_course_AddCourseItem">
             <span>
-              Bài {data.id}: {data.name}
+              Bài {data._id}: {data.name}
             </span>
           </div>
         </div>

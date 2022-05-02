@@ -14,6 +14,8 @@ function BlogsMain() {
 
   useEffect(async () => {
     const res = await blogsApi.getAllBlogs();
+    //
+    console.log(res);
     setBlogs(res);
   }, []);
 
@@ -85,7 +87,7 @@ function BlogsMain() {
             description={blogs[item].description}
             src={blogs[item].coverImage}
             //view='134'
-            path={`/blogs/${blogs[item].id}`}
+            path={`/blogs/${blogs[item]._id}`}
           />
         )
       );
@@ -108,12 +110,11 @@ function BlogsMain() {
           description={blogs[item].description}
           src={blogs[item].coverImage}
           //view='134'
-          path={`/blogs/${blogs[item].id}`}
+          path={`/blogs/${blogs[item]._id}`}
         />
       );
     });
   };
-  console.log(firstItem, trendBlogs, idArray);
   return (
     <div className="blogs-container">
       <BlogPath />
@@ -139,7 +140,7 @@ function BlogsMain() {
                 description={blogs[firstItem].description}
                 src={blogs[firstItem].coverImage}
                 //view='134'
-                path={`/blogs/${blogs[firstItem].id}`}
+                path={`/blogs/${blogs[firstItem]._id}`}
               />
             </div>
           </div>

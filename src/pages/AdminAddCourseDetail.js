@@ -11,21 +11,8 @@ import coursesApi from "../apis/coursesApi";
 import LessonApi from "../apis/LessonApi";
 import { Link } from "react-router-dom";
 import { FaAngleRight } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 function AdminAddCourseDetail() {
-  const listAddCourse2 = [
-    {
-      id: "1",
-      name: "Lớp và hướng đối tượng",
-    },
-    {
-      id: "2",
-      name: "Biến Tĩnh, Phương Thức Tĩnh",
-    },
-    {
-      id: "3",
-      name: "Tính Đóng Gói",
-    },
-  ];
   const [dataCourse, setDataCourse] = useState(null);
   const { courseId } = useParams();
 
@@ -38,6 +25,10 @@ function AdminAddCourseDetail() {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Thêm khóa học mới</title>
+      </Helmet>
       <AdminLayout>
         {dataCourse === null ? (
           <h1>Loading</h1>

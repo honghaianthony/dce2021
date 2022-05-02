@@ -3,33 +3,40 @@ import hinhlaptrinh from "../assets/images/background-login.png";
 import { Link, useHistory } from "react-router-dom";
 import { useStore, actions } from "../store";
 import authApi from "../apis/authApi";
+import { Helmet, HelmetProvider } from "react-helmet-async";
+
+import GoogleLogin from "react-google-login";
 
 import "../assets/styles/Login.css";
 function Login() {
-  const [state, dispatch] = useStore();
-  const history = useHistory();
+    const [state, dispatch] = useStore();
+    const history = useHistory();
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    const body = {
-      userName: e.target.username.value,
-      password: e.target.password.value,
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        const body = {
+            userName: e.target.username.value,
+            password: e.target.password.value,
+        };
+        const res = await authApi.postLogin(body);
+        console.log(res);
+        dispatch(actions.login(res.token));
     };
-    const res = await authApi.postLogin(body);
-    dispatch(actions.login(res.token));
-  };
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Đăng nhập</title>
+      </Helmet>
       {state.isAuthenticated ? (
         history.push("/HomeLogin")
       ) : (
         <section className="login">
-          <div className="img-content-left">
-            <Link to="/" className="btn_back_login">
-                  <button>Trở về trang chủ</button> 
-            </Link>
-            <img src={hinhlaptrinh} alt="Hình minh họa" />
-          </div>
+          <div className="background-img-screen"></div>
+          <div className="cover-screen"></div>
+          <Link to="/" className="btn_back_login">
+            <button>Trở về trang chủ</button>
+          </Link>
           <div className="form-content">
             <div className="form-content-top">
               <div className="login-text">

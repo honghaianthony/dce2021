@@ -32,7 +32,7 @@ function AddCourseItem2(data) {
       <div className="Item2_container">
         <div className="AddCourseItem2_left">
           <div className="btn_edit_AddCourseItem">
-            <Link to={`/adminUpdateLesson/${data.id}`}>
+            <Link to={`/adminUpdateLesson/${data._id}`}>
               <button type="button">
                 <i class="fas fa-pencil-alt "></i>
               </button>
@@ -40,7 +40,7 @@ function AddCourseItem2(data) {
           </div>
           <div className="Name_course_AddCourseItem2">
             <span>
-              Bài {data.id}: {data.name}
+              Bài {data._id}: {data.name}
             </span>
           </div>
         </div>
