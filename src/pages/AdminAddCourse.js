@@ -170,6 +170,7 @@ function AdminAddCourse() {
                       type="text"
                       onChange={(event)=>setAddImageCourse(event.target.value)}
                     /> */}
+                    <div>
                       {progress < 100 && (
                         <input
                           type="file"

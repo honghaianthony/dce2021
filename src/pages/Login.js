@@ -22,9 +22,6 @@ function Login() {
         console.log(res);
         dispatch(actions.login(res.token));
     };
-    const res = await authApi.postLogin(body);
-    dispatch(actions.login(res.token));
-  };
   return (
     <>
       <Helmet>
