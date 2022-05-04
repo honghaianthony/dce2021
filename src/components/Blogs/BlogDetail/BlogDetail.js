@@ -18,9 +18,8 @@ function BlogDetail() {
   const [showMoreCmt, setShowMoreCmt] = useState(5);
   console.log(blogId);
   useEffect(async () => {
-    console.log("haha");
     const res = await blogsApi.getBlogById(blogId);
-    setData(res);
+    setData(res);    
     const cmt = await blogsApi.getAllBlogCommentByBlogId(blogId);
     setComment(cmt);
   }, []);
@@ -47,14 +46,14 @@ function BlogDetail() {
                     <IoPersonCircleSharp />
                   </div>
                   <div className="blog-comment-name">
-                    <p>{`${item.userResult.lastName} ${item.userResult.firstName}`}</p>
+                    <p>{`${item.userId.lastName} ${item.userId.firstName}`}</p>
                   </div>
                   <div className="blog-comment-date">
                     <p>{new Date(item.updatedAt).toLocaleDateString()}</p>
                   </div>
                 </div>
                 <div className="blog-comment-content">
-                  <p>{item.commentResult}</p>
+                  <p>{item.content}</p>
                 </div>
               </div>
             </div>
@@ -86,7 +85,7 @@ function BlogDetail() {
               <div className="blog-main">
                 <div className="blog-author">
                   <span>Tác giả:</span>
-                  <span className="blog-author-name">{`${data.User.lastName} ${data.User.firstName}`}</span>
+                   <span className="blog-author-name">{`${data.user.lastName} ${data.user.firstName}`}</span>
                   <i className="blog-time-icon">
                     <BsCircle />
                   </i>
@@ -181,13 +180,13 @@ function BlogDetail() {
                     <IoPersonCircleSharp />
                   </div>
                   <div className="author-name">
-                    <p>{`${data.User.lastName} ${data.User.firstName}`}</p>
+                    <p>{`${data.user.lastName} ${data.user.firstName}`}</p>
                   </div>
                   <div className="author-info">
-                    <p>Email: {data.User.email}</p>
+                    <p>Email: {data.user.email}</p>
                     <p>
                       Thành viên từ{" "}
-                      {new Date(data.User.createdAt).toLocaleDateString()}
+                      {new Date(data.user.createdAt).toLocaleDateString()}
                     </p>
                   </div>
                 </div>
