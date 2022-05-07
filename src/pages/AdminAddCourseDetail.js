@@ -18,7 +18,7 @@ function AdminAddCourseDetail() {
 
   useEffect(async () => {
     const res = await LessonApi.getAllLesson(courseId);
-    setDataCourse(res);
+    setDataCourse(res.data);
   }, [courseId]);
 
   console.log(dataCourse);
@@ -62,7 +62,7 @@ function AdminAddCourseDetail() {
                   {dataCourse.map((item, index) => (
                     <div className="listAddCourse__Container" key={index}>
                       <AddCourseItem2
-                        id={item.id}
+                        id={item._id}
                         name={item.lessonName}
                         // item={dataCourse}
                       />

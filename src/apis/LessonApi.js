@@ -1,7 +1,9 @@
 import axiosInstance from "./axiosInstance";
 
 const getAllLesson = async (id) => {
-  return await axiosInstance.get(`/lessons/get-all-lessons?courseId=${id}`);
+  return await axiosInstance.get(
+    `/lessons/get-all-lessons?courseId=${id}`
+  );
 };
 const getAllLessonFindCourseId = async () => {
   return await axiosInstance.get(`/lessons/get-all-lessons`);

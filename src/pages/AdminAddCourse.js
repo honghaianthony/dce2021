@@ -106,30 +106,40 @@ function AdminAddCourse() {
         <title>Thêm khóa học mới</title>
       </Helmet>
       <AdminLayout>
-        {/* <Navigation /> */}
-        <div className="AdminAddCourse__">
-          {/* <div className="top_decription_link"> */}
-          <div className="admin-path">
-            <Link to="/" className="admin-link">
-              <span>Trang chủ</span>
-            </Link>
-            <i className="icon-angle-right">
-              <FaAngleRight />
-            </i>
-            <Link to="/admincourselist" className="admin-link">
-              <span>Quản lý khóa học</span>
-            </Link>
-          </div>
-          {/* </div> */}
-          <div className="Container_____AdminAdCourse">
-            <div className="center_AdminAddCourse__container">
-              {/* <div className="center_menu_AdminAddCourse">
+      {/* <Navigation /> */}
+      <div className="AdminAddCourse__">
+        {/* <div className="top_decription_link"> */}
+        <div className="admin-path">
+          <Link to="/" className="admin-link">
+            <span>Trang chủ</span>
+          </Link>
+          <i className="icon-angle-right">
+            <FaAngleRight />
+          </i>
+          <Link to="/admincourselist" className="admin-link">
+            <span>Quản lý khóa học</span>
+          </Link>
+        </div>
+        {/* </div> */}
+        <div className="Container_____AdminAdCourse">
+          <div className="center_AdminAddCourse__container">
+            {/* <div className="center_menu_AdminAddCourse">
             <p>Hello</p>
           </div> */}
-              <div className="center_content_AdminAddCourse">
-                <form onSubmit={handleSubmitAdd}>
-                  <div className="top_decription_centercontent">
-                    <p>Tạo khóa học mới</p>
+            <div className="center_content_AdminAddCourse">
+              <form onSubmit={handleSubmitAdd}>
+                <div className="top_decription_centercontent">
+                  <p>Tạo khóa học mới</p>
+                </div>
+                <div className="middle_decription_centercontent">
+                  <div className="InputName_AddCourse">
+                    <input
+                      type="text"
+                      name="id"
+                      id="idCourse"
+                      placeholder="Nhập tên khóa học mới"
+                      onChange={(event) => setAddNameCourse(event.target.value)}
+                    />
                   </div>
                   <div className="InputDescription_AddCourse">
                     <textarea
@@ -170,52 +180,48 @@ function AdminAddCourse() {
                       type="text"
                       onChange={(event)=>setAddImageCourse(event.target.value)}
                     /> */}
-                    <div>
-                      {progress < 100 && (
-                        <input
-                          type="file"
-                          accept="image/*"
-                          name="coverImage"
-                          id="add-blog-cover-image"
-                          placeholder="Link hình ảnh"
-                          onChange={imageChange}
+                    {progress < 100 && (
+                      <input
+                        type="file"
+                        accept="image/*"
+                        name="coverImage"
+                        id="add-blog-cover-image"
+                        placeholder="Link hình ảnh"
+                        onChange={imageChange}
+                      />
+                    )}
+                    {progress > 0 && (
+                      <div className="upload-image">
+                        <progress
+                          className="progress-bar"
+                          value={progress}
+                          max="100"
                         />
-                      )}
-                      {progress > 0 && (
-                        <div className="upload-image">
-                          <progress
-                            className="progress-bar"
-                            value={progress}
-                            max="100"
-                          />
-                          <br />
-                          <i
-                            class="far fa-times-circle"
-                            onClick={deleteImage}
-                          ></i>
-                          <img
-                            className="preview-image"
-                            src={url || "http://via.placeholder.com/300"}
-                            alt="firebase-image"
-                          />
-                        </div>
-                      )}
-                    </div>
-                    <div className="btn_Submit_AdminAddCourse">
-                      <button
-                        type="submit"
-                        className="btn_submit_adminaddcourse"
-                      >
-                        Tiếp tục
-                      </button>
-                    </div>
+                        <br />
+                        <i
+                          class="far fa-times-circle"
+                          onClick={deleteImage}
+                        ></i>
+                        <img
+                          className="preview-image"
+                          src={url || "http://via.placeholder.com/300"}
+                          alt="firebase-image"
+                        />
+                      </div>
+                    )}
                   </div>
-                </form>
-              </div>
+                  <div className="btn_Submit_AdminAddCourse">
+                    <button type="submit" className="btn_submit_adminaddcourse">
+                      Tiếp tục
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
-      </AdminLayout>
+      </div>
+    </AdminLayout>
     </>
   );
 }

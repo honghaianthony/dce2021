@@ -23,10 +23,12 @@ function UpdateLesson() {
   //     }
   /*Đổ dữ liệu */
   const { lessonId } = useParams();
+  // console.log(lessonId)
   const [data, setDataLesson] = useState(null);
   useEffect(async () => {
     const res = await LessonApi.getLessonById(lessonId);
-    setDataLesson(res);
+    setDataLesson(res.data);
+    // console.log(res.data)
   }, [lessonId]);
   const [lessonName, setLessonName] = useState("");
   const [lessonContent, setLessonContent] = useState("");
@@ -35,25 +37,28 @@ function UpdateLesson() {
   const [output, setOutput] = useState("");
   useEffect(async () => {
     const res = await LessonApi.getLessonById(lessonId);
-    setLessonName(res.lessonName);
+    setLessonName(res.data.lessonName);
   }, [lessonId]);
   useEffect(async () => {
     const res = await LessonApi.getLessonById(lessonId);
-    setLessonContent(res.content);
+    setLessonContent(res.data.content);
   }, [lessonId]);
   useEffect(async () => {
     const res = await LessonApi.getLessonById(lessonId);
-    setLessonDescription(res.description);
+    setLessonDescription(res.data.description);
   }, [lessonId]);
 
   const [idTest, setIdTest] = useState(0);
   useEffect(async () => {
     // const res=await LessonApi.getLessonById(lessonId)
     const res2 = await LessonApi.getAllLessonTestById(lessonId);
-    setIdTest(res2.id);
-    setInput(res2.input);
-    setOutput(res2.output);
-    console.log(res2);
+    // console.log(res2[data])
+    setIdTest(res2.data[0]._id);
+    // console.log(idTest)
+    setInput(res2.data[0].input);
+    setOutput(res2.data[0].output);
+    // console.log(res2.data[0]._id);
+    // console.log(res2.data);
   }, [lessonId]);
   /*sửa*/
   // console.log(courseId)
@@ -75,21 +80,25 @@ function UpdateLesson() {
   const handleChangeDataLesson = async (e) => {
     e.preventDefault();
     const newLesson = {
-      id: lessonId,
+      _id: lessonId,
       content: lessonContent,
       lessonName: lessonName,
       description: lessonDescription,
     };
+    console.log(newLesson)
     const res4 = await LessonApi.updateLessonById(newLesson);
+    // console.log(res4.msg)
     const newLessonTest = {
-      id: idTest,
+      lessonTestId: idTest,
       lessonId: lessonId,
       input: input,
       output: output,
     };
+    console.log(newLessonTest)
     const res5 = await LessonApi.updateLessonTestById(newLessonTest);
+    console.log(res5)
     console.log(newLessonTest);
-    if (res4 && res5) {
+    if (res4.msg==="success" && res5.msg==="success") {
       toast.success("Cập nhật thành công");
       // history.goBack();
       // window.history.back()

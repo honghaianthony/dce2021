@@ -37,30 +37,25 @@ function Course() {
     }
   };
   return (
-    <MainLayout>
-      {data.length === 0 ? (
-        <div className="contain-loader main-containter">
-          <div className="loader" />
-        </div>
-      ) : (
-        <div className="course__Container main-containter">
-          <div className="course__TopContent">
-            <div className="myCourseInfoLeft__Container">
-              <CourseInfo
-                nameCourse={data.courseName}
-                avatar={avatar}
-                nameMember="Nguyễn Văn A"
-                // numStarts="4.6"
-                numRates="100"
-                description={data.description}
-              />
-            </div>
-            <div className="myCourseInfoRight__Container">
-              <div className="MyCourseInfoDecription">
-                <CourseDes
-                  numHours={data.time}
-                  // numLessons="40"
-                  // numPeople="100"
+    <>
+      {/* <Helmet>
+        <meta charSet="utf-8" />
+        <title>Khóa học: {data.courseName}</title>
+      </Helmet> */}
+      <MainLayout>
+        {data === null ? (
+          <h1>Loading</h1>
+        ) : (
+          <div className="course__Container">
+            <div className="course__TopContent">
+              <div className="myCourseInfoLeft__Container">
+                <CourseInfo
+                  nameCourse={data.courseName}
+                  avatar={avatar}
+                  nameMember="Nguyễn Văn A"
+                  // numStarts="4.6"
+                  numRates="100"
+                  description={data.description}
                 />
               </div>
               <div className="MyCourseInfoDecriptionLine"></div>
