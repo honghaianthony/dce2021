@@ -11,7 +11,7 @@ import usersApi from "../apis/usersApi";
 import { Helmet } from "react-helmet-async";
 
 function Course() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [isRegister, setIsregister] = useState(false);
   const { courseId } = useParams();
 
@@ -30,63 +30,60 @@ function Course() {
         isCompleted: false,
       };
       const success = await usersApi.createUserCourse(body);
-      if (success.errCode == 0) {
+      console.log(success.userCourse.errCode);
+      if (success.userCourse.errCode == 0) {
         setIsregister(true);
       }
     }
   };
   return (
-    <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Khóa học: {data.courseName}</title>
-      </Helmet>
-      <MainLayout>
-        {data === null ? (
-          <h1>Loading</h1>
-        ) : (
-          <div className="course__Container">
-            <div className="course__TopContent">
-              <div className="myCourseInfoLeft__Container">
-                <CourseInfo
-                  nameCourse={data.courseName}
-                  avatar={avatar}
-                  nameMember="Nguyễn Văn A"
-                  // numStarts="4.6"
-                  numRates="100"
-                  description={data.description}
+    <MainLayout>
+      {data.length === 0 ? (
+        <div className="contain-loader main-containter">
+          <div className="loader" />
+        </div>
+      ) : (
+        <div className="course__Container main-containter">
+          <div className="course__TopContent">
+            <div className="myCourseInfoLeft__Container">
+              <CourseInfo
+                nameCourse={data.courseName}
+                avatar={avatar}
+                nameMember="Nguyễn Văn A"
+                // numStarts="4.6"
+                numRates="100"
+                description={data.description}
+              />
+            </div>
+            <div className="myCourseInfoRight__Container">
+              <div className="MyCourseInfoDecription">
+                <CourseDes
+                  numHours={data.time}
+                  // numLessons="40"
+                  // numPeople="100"
                 />
               </div>
-              <div className="myCourseInfoRight__Container">
-                <div className="MyCourseInfoDecription">
-                  <CourseDes
-                    numHours={data.time}
-                    // numLessons="40"
-                    // numPeople="100"
-                  />
+              <div className="MyCourseInfoDecriptionLine"></div>
+              <div className="MyCourseInfoDecription-btn">
+                <div className="MyCourseInfoDecription-btnTop">
+                  <h2>Miễn Phí</h2>
                 </div>
-                <div className="MyCourseInfoDecriptionLine"></div>
-                <div className="MyCourseInfoDecription-btn">
-                  <div className="MyCourseInfoDecription-btnTop">
-                    <h2>Miễn Phí</h2>
-                  </div>
-                  <div className="MyCourseInfoDecription-btnBottom">
-                    {isRegister ? (
-                      <button>Đã đăng ký</button>
-                    ) : (
-                      <button onClick={handleRegister}>Đăng Ký Ngay</button>
-                    )}
-                  </div>
+                <div className="MyCourseInfoDecription-btnBottom">
+                  {isRegister ? (
+                    <button>Đã đăng ký</button>
+                  ) : (
+                    <button onClick={handleRegister}>Đăng Ký Ngay</button>
+                  )}
                 </div>
               </div>
             </div>
-            <div className="course__CenterContent">
-              <Lessons courseId={courseId} isReg={isRegister} />
-            </div>
           </div>
-        )}
-      </MainLayout>
-    </>
+          <div className="course__CenterContent">
+            <Lessons courseId={courseId} isReg={isRegister} />
+          </div>
+        </div>
+      )}
+    </MainLayout>
   );
 }
 

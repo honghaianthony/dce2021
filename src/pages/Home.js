@@ -23,7 +23,7 @@ function Home() {
         />
       </Helmet>
       {state.isAuthenticated ? (
-        <Redirect to="/HomeLogin" />
+        <Redirect to="/home" />
       ) : (
         <MainLayout>
           <Intro />

@@ -7,7 +7,8 @@ function ListCourse(props) {
   const [data, setData] = useState([]);
   useEffect(async () => {
     const res = await LessonApi.getAllLesson(props.courseId);
-    setData(res);
+    console.log(res.data);
+    setData(res.data);
   }, []);
 
   return (
@@ -17,11 +18,11 @@ function ListCourse(props) {
           {data.map((CourseItem) => (
             <CourseItemInfo
               className="CourseItemInfo"
-              key={CourseItem.id}
-              id={CourseItem.id}
+              key={CourseItem._id}
+              id={CourseItem._id}
               title={CourseItem.lessonName}
               decription={CourseItem.description}
-              path={`/lesson/${CourseItem.id}`}
+              path={`/lesson/${CourseItem._id}`}
             />
           ))}
         </>

@@ -50,36 +50,41 @@ function Exercise(Exercise) {
       return <li>Không có test case</li>;
     }
   };
-  const showTestCase = (item, real) => {
-    return (
-      <div className="testcase-display-lesson">
-        <p>Đầu vào: {item.input}</p>
-        <p>Đầu ra: {real}</p>
-        <p>Đầu ra mong muốn: {item.output}</p>
-      </div>
-    );
+  const showTestCase = (items, real) => {
+    return items.map((item, index) => {
+      return (
+        <div>
+          <p>Testcase {index}</p>
+          <div className="testcase-display-lesson">
+            <p>Đầu vào: {item.input}</p>
+            <p>Đầu ra: {real}</p>
+            <p>Đầu ra mong muốn: {item.output}</p>
+          </div>
+        </div>
+      );
+    });
   };
   const handleSubmit = async () => {
     const body = {
       code: code,
-      input: testCaseShow.input,
+      //input: testCase[0].input,
       inputRadio: true,
       lang: lang,
     };
     const response = await compileApi.postCompile(body);
     console.log(response);
-    if (response.output) {
-      setRealOutput(response.output);
-    } else {
-      setRealOutput(response.error);
-    }
+    // if (response.output) {
+    //   setRealOutput(response.output);
+    // } else {
+    //   setRealOutput(response.error);
+    // }
   };
 
   return (
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Bài luyện tập số {exerciseId}</title>
+        <title>Bài luyện tập</title>
       </Helmet>
       {exercise === null ? (
         <h1>Loading</h1>
@@ -132,18 +137,6 @@ function Exercise(Exercise) {
                   <div className="content-disc">
                     <p>{exercise.content}</p>
                   </div>
-                  {/* <div className="content-input">
-                                <h2>Input:</h2>
-                                <p>
-                                    {exercise.input}
-                                </p>
-                            </div>
-                            <div className="content-output">
-                                <h2>Output:</h2>
-                                <p>
-                                    {exercise.output}
-                                </p>
-                            </div> */}
                 </div>
                 <div
                   className={
@@ -264,10 +257,7 @@ function Exercise(Exercise) {
                   <p>TEST CASE</p>
                 </div>
                 <div className="testcase-content">
-                  <div className="testcase-number">
-                    <ul>{listTestCase()}</ul>
-                  </div>
-                  {showTestCase(testCaseShow, realOutput)}
+                  {showTestCase(testCase, realOutput)}
                 </div>
                 <div className="testcase-button">
                   <button

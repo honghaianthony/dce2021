@@ -9,6 +9,12 @@
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
 }
+.App {
+  min-height: 100vh;
+}
+.main-containter {
+  min-height: calc(100vh - 70px - 290px);
+}
 
 /* Safari */
 @-webkit-keyframes spin {

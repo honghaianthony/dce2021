@@ -38,9 +38,9 @@ function Lesson() {
 
   useEffect(async () => {
     const res = await LessonApi.getLessonById(lessonId);
-    setData(res);
-    let cont = res.content;
-    console.log(cont);
+    console.log(res.data);
+    setData(res.data);
+    let cont = res.data.content;
     cont.replace(/\r\n/g, "<br />");
     setContent(cont);
     const test = await LessonApi.getAllLessonTestById(lessonId);

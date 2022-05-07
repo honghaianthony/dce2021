@@ -25,7 +25,7 @@ const getAllTestCase = async () => {
 };
 const getTestCaseByExerciseId = async (id) => {
   return await axiosInstance.get(
-    `/exercises/get-all-exercises-test-by-exerciseId?exerciseId=${id}`
+    `/exercises/get-all-exercises-test-by-exerciseId?id=${id}`
   );
 };
 const createTestCase = async (testcase) => {
