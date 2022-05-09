@@ -428,7 +428,9 @@ function Lesson() {
           </div>
         </>
       ) : (
-        <div className="loader"></div>
+        <div className="main-container">
+          <div className="loader" />
+        </div>
       )}
     </>
   );

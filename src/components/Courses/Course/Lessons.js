@@ -4,13 +4,12 @@ import CourseItemInfo from "./CourseItemInfo";
 import LessonApi from "../../../apis/LessonApi";
 
 function ListCourse(props) {
-  console.log(props)
+  console.log(props);
   const [data, setData] = useState([]);
   useEffect(async () => {
     const res = await LessonApi.getAllLesson(props.courseId);
-    console.log(res)
+    console.log(res);
     setData(res.data);
-    // console.log(data)
   }, []);
 
   return (

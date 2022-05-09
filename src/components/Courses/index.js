@@ -47,7 +47,7 @@ function CoursesMain() {
         );
       });
     } else {
-      return <div className="loader"></div>;
+      return <div className="loader" />;
     }
   };
   return (

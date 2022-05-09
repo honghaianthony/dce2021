@@ -69,6 +69,7 @@ div.contain-loader {
   opacity: 0.9;
 }
 .course__CenterContent {
+  width: 95%;
   margin-top: 20px;
   background-color: #1e266d;
   border-radius: 10px;

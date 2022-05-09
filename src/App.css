@@ -12,10 +12,12 @@
 .App {
   min-height: 100vh;
 }
-.main-containter {
+.main-container {
   min-height: calc(100vh - 70px - 290px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 /* Safari */
 @-webkit-keyframes spin {
   0% {
