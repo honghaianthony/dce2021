@@ -51,10 +51,10 @@ function AddLesson() {
     };
     console.log(Lesson, courseId);
     const res = await LessonApi.createLesson(Lesson);
-    console.log(res);
+    console.log(res.data._id);
     // setData(res.lesson.id);
     const testCase = {
-      lessonId: res.lesson.id,
+      lessonId: res.data._id,
       input: input,
       output: output,
     };

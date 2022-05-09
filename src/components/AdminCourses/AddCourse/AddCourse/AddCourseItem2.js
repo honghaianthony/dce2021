@@ -7,12 +7,14 @@ import "./AddCourseItem2.css";
 import { toast } from "react-toastify";
 
 function AddCourseItem2(data) {
+  console.log(data)
   //   const { lessonId } = useParams();
   // const [dataDelete, deleteData] = useState();
   //   const [data, setDataLesson] = useState(null)
   const handleDelete = async (e) => {
     e.preventDefault();
     const res = await LessonApi.deleteLessonById(data.id);
+    console.log(res)
     // deleteData(res);
     if (res) {
       toast.success("Xóa thành công");
@@ -32,7 +34,7 @@ function AddCourseItem2(data) {
       <div className="Item2_container">
         <div className="AddCourseItem2_left">
           <div className="btn_edit_AddCourseItem">
-            <Link to={`/adminUpdateLesson/${data._id}`}>
+            <Link to={`/adminUpdateLesson/${data.id}`}>
               <button type="button">
                 <i class="fas fa-pencil-alt "></i>
               </button>

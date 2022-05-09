@@ -37,10 +37,10 @@ function Course() {
   };
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <meta charSet="utf-8" />
         <title>Khóa học: {data.courseName}</title>
-      </Helmet>
+      </Helmet> */}
       <MainLayout>
         {data === null ? (
           <h1>Loading</h1>
