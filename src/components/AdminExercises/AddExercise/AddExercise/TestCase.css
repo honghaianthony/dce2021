@@ -1,31 +1,26 @@
-.testcase-option
-{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    width: 85%;
+.testcase-option {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  width: 85%;
 }
-.delete-icon p
-{
-    font-size: 20px;
-    font-weight: 600;
-    margin: 0 ;
+.delete-icon p {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
 }
-#in-testExercise
-{
-    margin-right: 20px;
+#in-testExercise {
+  margin-right: 20px;
 }
-#in-testExercise,#out-testExercise
-{
-    width: 40%;
-    height: 100px;
+#in-testExercise,
+#out-testExercise {
+  width: 40%;
+  height: 30px;
 }
-.delete-icon i
-{
-    margin-right: 10px;
+.delete-icon i {
+  margin-right: 10px;
 }
-.delete-icon:hover
-{
-    cursor: pointer;
-    color: red;
+.delete-icon:hover {
+  cursor: pointer;
+  color: red;
 }

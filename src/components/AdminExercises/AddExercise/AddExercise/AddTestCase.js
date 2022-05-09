@@ -16,7 +16,7 @@ function AddTestCase() {
   const [listExercise, setListExercise] = useState([]);
   useEffect(async () => {
     const res = await ExerciseApi.getAllExercise();
-    setListExercise(res.data);
+    setListExercise(res);
   }, []);
 
   const handleSubmitTestCase = async (e) => {
@@ -29,9 +29,13 @@ function AddTestCase() {
     };
     const res = await ExerciseApi.createTestCase(testCase);
     if (res) {
-      toast.success("Thêm thành công");
+      toast.success("Thêm testcase thành công", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     } else {
-      toast.error("Thêm thất bại");
+      toast.error("Thêm testcase thất bại", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     }
     console.log(res);
   };
@@ -78,7 +82,7 @@ function AddTestCase() {
                     <option value={""}></option>
                     {listExercise.map((exercise) => {
                       return (
-                        <option value={exercise.id}>
+                        <option value={exercise._id}>
                           {exercise.exerciseName}
                         </option>
                       );

@@ -30,7 +30,7 @@ function HomeDCE() {
   }, []);
 
   const coursesMap = () => {
-    return courses.map((item, index) => {
+    return courses?.map((item, index) => {
       return (
         index < 4 && (
           <article
@@ -44,7 +44,7 @@ function HomeDCE() {
               <h3 className="">{item.courseName}</h3>
               <p>{item.description}</p>
               <div className="course-info">
-                <Link to={`/courses/${item.id}`} className="btn btn-round">
+                <Link to={`/courses/${item._id}`} className="btn btn-round">
                   Học ngay
                 </Link>
               </div>
@@ -55,7 +55,7 @@ function HomeDCE() {
     });
   };
   const blogsMap = () => {
-    return blogs.map((item, index) => {
+    return blogs?.map((item, index) => {
       return (
         index < 3 && (
           <Link to={`/blogs/${item.id}`} className="blog-link">
@@ -77,7 +77,7 @@ function HomeDCE() {
     });
   };
   const exercisesMap = () => {
-    return exercises.map((item, index) => {
+    return exercises?.map((item, index) => {
       return (
         index < 3 && (
           <article className="col-xs-12 col-sm-4 training-item" key={item.id}>
@@ -173,9 +173,9 @@ function HomeDCE() {
                         {
                           userExercise.filter((i) => {
                             return i.isCompleted === true;
-                          }).length
+                          })?.length
                         }
-                        /{exercises.length}
+                        /{exercises?.length}
                       </span>
                     </div>
 

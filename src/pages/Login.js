@@ -3,6 +3,9 @@ import hinhlaptrinh from "../assets/images/background-login.png";
 import { Link, useHistory } from "react-router-dom";
 import { useStore, actions } from "../store";
 import authApi from "../apis/authApi";
+import { Helmet, HelmetProvider } from "react-helmet-async";
+import { toast } from "react-toastify";
+import GoogleLogin from "react-google-login";
 
 import "../assets/styles/Login.css";
 function Login() {
@@ -16,20 +19,37 @@ function Login() {
       password: e.target.password.value,
     };
     const res = await authApi.postLogin(body);
-    dispatch(actions.login(res.token));
+    if (res.success) {
+      toast.success("Đăng nhập thành công !", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      dispatch(actions.login(res.token));
+    } else {
+      toast.error("Đăng nhập thất bại !", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
   };
+    const handleLoginGG = async (googleData) => {
+        const res = await authApi.postGoogleLogin(googleData);
+        console.log(res);
+        dispatch(actions.login(res.token));
+    };
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Đăng nhập</title>
+      </Helmet>
       {state.isAuthenticated ? (
-        history.push("/HomeLogin")
+        history.push("/home")
       ) : (
         <section className="login">
-          <div className="img-content-left">
-            <Link to="/" className="btn_back_login">
-                  <button>Trở về trang chủ</button> 
-            </Link>
-            <img src={hinhlaptrinh} alt="Hình minh họa" />
-          </div>
+          <div className="background-img-screen"></div>
+          <div className="cover-screen"></div>
+          <Link to="/" className="btn_back_login">
+            <button>Trở về trang chủ</button>
+          </Link>
           <div className="form-content">
             <div className="form-content-top">
               <div className="login-text">
@@ -96,11 +116,15 @@ function Login() {
                   <p>Hoặc</p>
                   <p>đăng nhập bằng</p>
                 </div>
-                <input
-                  className="btn-submit-google"
-                  type="submit"
-                  value="Google"
-                />
+                <GoogleLogin
+                    clientId={
+                        process.env.REACT_APP_GOOGLE_CLIENT_ID
+                    }
+                    buttonText="Log in with Google"
+                    onSuccess={handleLoginGG}
+                    onFailure={handleLoginGG}
+                    cookiePolicy={"single_host_origin"}
+                    />
               </div>
             </form>
             <div className="form-bottom">

@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { FaAngleRight } from "react-icons/fa";
 import AdminPath from "../components/AdminBlog/AdminPath/AdminPath";
 import { useHistory, useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 function AdminAddCourse() {
   const [addNameCourse, setAddNameCourse] = useState("");
   const [addDesriptionCourse, setAddDescriptionCourse] = useState("");
@@ -24,7 +25,7 @@ function AdminAddCourse() {
   let history = useHistory();
   useEffect(async () => {
     const res2 = await coursesApi.getAllCourses();
-    setData(res2.slice(-1)[0].id);
+    setData(res2.slice(-1)[0]._id);
   }, []);
   let currentIdCourse = data + 1;
   console.log(currentIdCourse);
@@ -35,11 +36,11 @@ function AdminAddCourse() {
     const Course = {
       courseName: addNameCourse,
       description: addDesriptionCourse,
-      rate: addRateCourse,
+      rating: addRateCourse,
       time: addTimeCourse,
       image: url,
     };
-
+    console.log(Course)
     const res = await coursesApi
       .createCourse(Course)
       .then(history.push(`/admincourselist`));
@@ -99,7 +100,12 @@ function AdminAddCourse() {
   // }
   // const [state, dispatch] = useStore(); /** */
   return (
-    <AdminLayout>
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Thêm khóa học mới</title>
+      </Helmet>
+      <AdminLayout>
       {/* <Navigation /> */}
       <div className="AdminAddCourse__">
         {/* <div className="top_decription_link"> */}
@@ -158,7 +164,7 @@ function AdminAddCourse() {
                   </div>
                   <div className="InputTime_AddCourse">
                     <input
-                      name="rate"
+                      name="rating"
                       id="rateCourse"
                       placeholder="Nhập số đánh giá"
                       type="number"
@@ -216,6 +222,7 @@ function AdminAddCourse() {
         </div>
       </div>
     </AdminLayout>
+    </>
   );
 }
 

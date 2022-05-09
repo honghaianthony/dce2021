@@ -7,6 +7,7 @@ import compileApi from "../apis/compileApi";
 import { useStore } from "../store";
 import { io } from "socket.io-client";
 import usersApi from "../apis/usersApi";
+import { Helmet } from "react-helmet-async";
 
 function Lesson() {
   const history = useHistory();
@@ -37,9 +38,9 @@ function Lesson() {
 
   useEffect(async () => {
     const res = await LessonApi.getLessonById(lessonId);
-    setData(res);
-    let cont = res.content;
-    console.log(cont);
+    console.log(res.data);
+    setData(res.data);
+    let cont = res.data.content;
     cont.replace(/\r\n/g, "<br />");
     setContent(cont);
     const test = await LessonApi.getAllLessonTestById(lessonId);
@@ -167,7 +168,7 @@ function Lesson() {
                   <i class="fas fa-user-circle"></i>
                 </div>
                 <div className="user-infor-lesson">
-                  <p className="username">{`${item.User.lastName} ${item.User.firstName}`}</p>
+                  <p className="username">{`${item.userId.lastName} ${item.userId.firstName}`}</p>
                   <p>{new Date(item.updatedAt).toLocaleDateString()}</p>
                 </div>
               </div>
@@ -202,6 +203,10 @@ function Lesson() {
   };
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Bài học số {lessonId}</title>
+      </Helmet>
       {data ? (
         <>
           <div className="lesson-container">
@@ -423,7 +428,9 @@ function Lesson() {
           </div>
         </>
       ) : (
-        <div className="loader"></div>
+        <div className="main-container">
+          <div className="loader" />
+        </div>
       )}
     </>
   );

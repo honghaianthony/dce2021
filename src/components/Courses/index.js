@@ -33,7 +33,7 @@ function CoursesMain() {
   const listCourse = () => {
     if (filteredData.length > 0) {
       return filteredData.map((item, index) => {
-        let path = "/courses/" + item.id;
+        let path = "/courses/" + item._id;
         return (
           <CourseItem
             key={index}
@@ -42,12 +42,12 @@ function CoursesMain() {
             rating={item.rate}
             description={item.description}
             path={path}
-            id={item.id}
+            id={item._id}
           />
         );
       });
     } else {
-      return <div className="loader"></div>;
+      return <div className="loader" />;
     }
   };
   return (

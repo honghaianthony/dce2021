@@ -4,24 +4,26 @@ import CourseItemInfo from "./CourseItemInfo";
 import LessonApi from "../../../apis/LessonApi";
 
 function ListCourse(props) {
+  console.log(props);
   const [data, setData] = useState([]);
   useEffect(async () => {
     const res = await LessonApi.getAllLesson(props.courseId);
-    setData(res);
+    console.log(res);
+    setData(res.data);
   }, []);
 
   return (
     <div className="ListCourse__Container">
-      {props.isReg && (
+      {props?.isReg && (
         <>
-          {data.map((CourseItem) => (
+          {data?.map((CourseItem) => (
             <CourseItemInfo
               className="CourseItemInfo"
-              key={CourseItem.id}
-              id={CourseItem.id}
+              key={CourseItem._id}
+              id={CourseItem._id}
               title={CourseItem.lessonName}
               decription={CourseItem.description}
-              path={`/lesson/${CourseItem.id}`}
+              path={`/lesson/${CourseItem._id}`}
             />
           ))}
         </>

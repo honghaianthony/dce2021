@@ -7,14 +7,23 @@ import Banner from "../components/Home/Banner/index";
 import Talkabout from "../components/Home/TalkAbout/index";
 import { useStore } from "../store";
 import { Redirect } from "react-router-dom";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function Home() {
   const [state, dispatch] = useStore();
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Trang chủ</title>
+        <meta
+          name="description"
+          content="Học lập trình trở nên đơn giản hơn bao giờ hết. Bạn sẽ trở thành một lập trình viên tài năng thông qua quá trình nỗ lực học tập và luyện tập mỗi ngày."
+        />
+      </Helmet>
       {state.isAuthenticated ? (
-        <Redirect to="/HomeLogin" />
+        <Redirect to="/home" />
       ) : (
         <MainLayout>
           <Intro />

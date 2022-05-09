@@ -1,7 +1,5 @@
 import "../UpdateExercise/UpdateExercise.css";
-import TestCase from "../AddExercise/TestCase";
 import ExerciseApi from "../../../../apis/ExerciseApi";
-// import {getAllCourses} from '../apis/coursesApi'
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Sidebar from "../../../SideBar/index";
@@ -14,17 +12,10 @@ function UpdateExercise() {
   const [exer, setExer] = useState();
   const [testCase, setTestCase] = useState([]);
   const { exerciseId } = useParams();
-  const [deleteData, setDeleteData] = useState();
   const [exerName, setExerName] = useState("");
   const [exerContent, setExerContent] = useState("");
   const [exerLevel, setExerLevel] = useState(1);
-  const [input, setInput] = useState("");
-  const [output, setOutput] = useState("");
-  const [idTestCase, setIdTestCase] = useState();
-  const [deleteTestcase, setDeleteTestcase] = useState();
-
   const history = useHistory();
-  const arrTestCase = [];
   useEffect(async () => {
     const res = await ExerciseApi.getAllExerciseById(exerciseId);
     setExerName(res.exerciseName);
@@ -33,21 +24,13 @@ function UpdateExercise() {
     if (!res) {
       return <h1>Không tìm thấy</h1>;
     }
-  }, [exerciseId]);
+  }, []);
   useEffect(async () => {
     const res = await ExerciseApi.getTestCaseByExerciseId(exerciseId);
-    if (!res) {
-      setInput("Chưa có Input");
-      setOutput("Chưa có Output");
-    } else {
-      setOutput(res.output);
-      setInput(res.input);
-      setIdTestCase(res.id);
-    }
-  }, [exerciseId]);
+    setTestCase(res);
+  }, []);
   /*update*/
   const handleUpdate = async (e) => {
-    e.preventDefault();
     const exercise = {
       id: exerciseId,
       userId: 1,
@@ -55,46 +38,72 @@ function UpdateExercise() {
       content: exerContent,
       level: exerLevel,
     };
-    const testCase = {
-      id: idTestCase,
-      exerciseId: exerciseId,
-      input: input,
-      output: output,
-    };
     const res = await ExerciseApi.updateExercise(exercise);
-    const resT = await ExerciseApi.updateTestCase(testCase);
-    if (resT) {
-      toast.success("Cập nhật thành công");
+    if (res) {
+      toast.success("Cập nhật thành công", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       history.push("/adminexerciselist");
     } else {
-      toast.error("Cập nhật thất bại");
+      toast.error("Cập nhật thất bại", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     }
   };
+  const handleInputChange = (index, input) => {
+    const list = [...testCase];
+    list[index] = { ...list[index], input };
+    setTestCase(list);
+  };
+  const handleOutputChange = (index, output) => {
+    const list = [...testCase];
+    list[index] = { ...list[index], output };
+    setTestCase(list);
+  };
+  const handleUpdateTestCase = async (e, input, output, id) => {
+    e.preventDefault();
+    const reqData = {
+      id,
+      exerciseId,
+      input,
+      output,
+    };
+    await ExerciseApi.updateTestCase(reqData);
+    toast.success("Cập nhật testcase thành công", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
+
+  const handleDeleteTestCase = async (e, idTestCase) => {
+    e.preventDefault();
+    const isCompleted = await ExerciseApi.deleteExerciseTest(idTestCase);
+    if (isCompleted) {
+      toast.success("Xóa testcase thành công", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    } else {
+      toast.error("Xóa testcase thất bại", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
+    const res = await ExerciseApi.getTestCaseByExerciseId(exerciseId);
+    setTestCase(res);
+  };
+
   /*delete*/
   const handleDelete = async (e) => {
     e.preventDefault();
     const res = await ExerciseApi.deleteExercise(exerciseId);
-    setDeleteData(res);
     if (res) {
-      toast.success("Xóa thành công");
+      toast.success("Xóa thành công", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       history.push("/adminexerciselist");
     } else {
-      toast.error("Xóa thất bại");
+      toast.error("Xóa thất bại", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     }
-    console.log(res);
-  };
-
-  const handleDeleteTestCase = async (e) => {
-    e.preventDefault();
-    const res = await ExerciseApi.deleteExerciseTest(idTestCase);
-    setDeleteTestcase(res);
-    console.log(res);
-    if (res) {
-      toast.success("Xóa testcase thành công");
-    } else {
-      toast.error("Xóa testcase thất bại");
-    }
-    console.log(res);
   };
 
   return (
@@ -121,8 +130,12 @@ function UpdateExercise() {
               </div>
               <div className="UpdateExercise-right-title">
                 <p>Chỉnh sửa bài luyện tập</p>
-                <div className="btn_delete_container">
-                  <button type="button" onClick={handleDelete}>
+
+                <div>
+                  <button className="btn-update" onClick={handleUpdate}>
+                    Cập nhật nội dung
+                  </button>
+                  <button className="btn-delete" onClick={handleDelete}>
                     Xóa bài
                   </button>
                 </div>
@@ -145,7 +158,7 @@ function UpdateExercise() {
                     </div>
                     <div className="row-updateExercise">
                       <label className="upExercise-label" for="nameExercise">
-                        Level
+                        Cấp độ
                       </label>
                       <select
                         name="level"
@@ -159,7 +172,7 @@ function UpdateExercise() {
                     </div>
                     <div className="row-updateExercise">
                       <label className="upExercise-label" for="contentExercise">
-                        Content
+                        Nội dung
                       </label>
                       <textarea
                         type="text"
@@ -172,48 +185,54 @@ function UpdateExercise() {
                     <div className="row-updateExercise">
                       <h2>TestCase</h2>
                       <>
-                        <div className="testcase-option">
-                          <label
-                            className="addExercise-label"
-                            for="testExercise"
-                          >
-                            Testcase{" "}
-                          </label>
-                          <div className="delete-testcase-icon">
-                            <button
-                              type="button"
-                              onClick={handleDeleteTestCase}
-                            >
-                              Xóa testcase
-                            </button>
-                          </div>
-                        </div>
-                        <div className="in-out-Exercise">
-                          <textarea
-                            type="text"
-                            name="input"
-                            id="in-testExercise"
-                            value={input}
-                            onChange={(e) => setInput(e.target.value)}
-                          />
-                          <textarea
-                            type="text"
-                            name="output"
-                            id="out-testExercise"
-                            value={output}
-                            onChange={(e) => setOutput(e.target.value)}
-                          />
-                        </div>
+                        {testCase.map((item, index) => {
+                          return (
+                            <div key={index} className="in-out-Exercise">
+                              <textarea
+                                type="text"
+                                name="input"
+                                id="in-testExercise"
+                                value={item.input}
+                                onChange={(e) =>
+                                  handleInputChange(index, e.target.value)
+                                }
+                              />
+                              <textarea
+                                type="text"
+                                name="output"
+                                id="out-testExercise"
+                                value={item.output}
+                                onChange={(e) =>
+                                  handleOutputChange(index, e.target.value)
+                                }
+                              />
+                              <div className="flex-ue">
+                                <button
+                                  className="btn-update"
+                                  onClick={(e) =>
+                                    handleUpdateTestCase(
+                                      e,
+                                      item.input,
+                                      item.output,
+                                      item._id
+                                    )
+                                  }
+                                >
+                                  Cập nhật
+                                </button>
+                                <button
+                                  className="btn-delete"
+                                  onClick={(e) =>
+                                    handleDeleteTestCase(e, item._id)
+                                  }
+                                >
+                                  Xóa
+                                </button>
+                              </div>
+                            </div>
+                          );
+                        })}
                       </>
-                    </div>
-                    <div className="row-updateExercise">
-                      <div className="button-UpdateExercise">
-                        <input
-                          type="submit"
-                          className="button-update-updateExercise"
-                          value="Cập Nhật"
-                        />
-                      </div>
                     </div>
                   </form>
                 </div>

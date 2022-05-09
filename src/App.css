@@ -9,7 +9,15 @@
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
 }
-
+.App {
+  min-height: 100vh;
+}
+.main-container {
+  min-height: calc(100vh - 70px - 290px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /* Safari */
 @-webkit-keyframes spin {
   0% {

@@ -7,12 +7,14 @@ import "./AddCourseItem2.css";
 import { toast } from "react-toastify";
 
 function AddCourseItem2(data) {
+  console.log(data)
   //   const { lessonId } = useParams();
   // const [dataDelete, deleteData] = useState();
   //   const [data, setDataLesson] = useState(null)
   const handleDelete = async (e) => {
     e.preventDefault();
     const res = await LessonApi.deleteLessonById(data.id);
+    console.log(res)
     // deleteData(res);
     if (res) {
       toast.success("Xóa thành công");
@@ -40,7 +42,7 @@ function AddCourseItem2(data) {
           </div>
           <div className="Name_course_AddCourseItem2">
             <span>
-              Bài {data.id}: {data.name}
+              Bài {data._id}: {data.name}
             </span>
           </div>
         </div>
