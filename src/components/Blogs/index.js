@@ -121,7 +121,7 @@ function BlogsMain() {
         value={search}
         onChange={setSearch}
       />
-      {blogs.length > 0 ? (
+      {blogs.length > 0 && (
         <div className="blog-list">
           <div className="blog-feature">
             <div className="blog-feature-item">
@@ -153,7 +153,9 @@ function BlogsMain() {
             </div>
           )}
         </div>
-    );
+      )}
+    </div>
+  )
 }
 
 export default BlogsMain;

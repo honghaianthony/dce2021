@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "https://dce-uit.herokuapp.com/api",
+  baseURL: 'https://dce-docker.herokuapp.com/api/v1',
+  //   baseURL: "https://dce-uit.herokuapp.com/api",
   // baseURL: "http://localhost:3000/api",
 });
 
