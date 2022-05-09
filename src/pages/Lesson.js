@@ -168,12 +168,12 @@ function Lesson() {
                   <i class="fas fa-user-circle"></i>
                 </div>
                 <div className="user-infor-lesson">
-                  <p className="username">{`${item.userResult.lastName} ${item.userResult.firstName}`}</p>
+                  <p className="username">{`${item.userId.lastName} ${item.userId.firstName}`}</p>
                   <p>{new Date(item.updatedAt).toLocaleDateString()}</p>
                 </div>
               </div>
               <div className="content-of-comment-lesson">
-                <p>{item.commentResult}</p>
+                <p>{item.content}</p>
               </div>
             </div>
           )
