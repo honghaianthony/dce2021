@@ -29,9 +29,13 @@ function AddTestCase() {
     };
     const res = await ExerciseApi.createTestCase(testCase);
     if (res) {
-      toast.success("Thêm thành công");
+      toast.success("Thêm testcase thành công", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     } else {
-      toast.error("Thêm thất bại");
+      toast.error("Thêm testcase thất bại", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     }
     console.log(res);
   };

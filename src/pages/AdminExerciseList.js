@@ -81,7 +81,6 @@ function AdminExerciseList() {
   return (
     <>
       <AdminLayout>
-        {console.log("re-render")}
         <div className="exerciselist">
           <div className="exerciselist-path">
             <Link to="/" className="exerciselist-link">

@@ -1,82 +1,89 @@
-.course__Container{
-    padding:0 30px 30px ;
+div.contain-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.course__TopContent{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+.course__Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
-.myCourseInfoLeft__Container{
-    width:30%;
-    background-color: #1E266D;
-    border-radius: 10px;
-    padding:20px;
-
+.course__TopContent {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
-.MyCourseInfoDecriptionLine{
-    border-right: 1px solid #fff;
-    margin-right: 15px;
-    margin-left: 15px;
+.myCourseInfoLeft__Container {
+  width: 30%;
+  background-color: #1e266d;
+  border-radius: 10px;
+  padding: 20px;
 }
-.myCourseInfoRight__Container{
-    width:30%;
-    display: flex;
-    justify-content: space-between;
-    background-color: #1E266D;
-    border-radius: 10px;
-    padding:15px;
+.MyCourseInfoDecriptionLine {
+  border-right: 1px solid #fff;
+  margin-right: 15px;
+  margin-left: 15px;
 }
-.MyCourseInfoDecription{
-    width:50%;
+.myCourseInfoRight__Container {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #1e266d;
+  border-radius: 10px;
+  padding: 15px;
 }
-.MyCourseInfoDecription-btn{
-    width:50%;
+.MyCourseInfoDecription {
+  width: 50%;
 }
-.MyCourseInfoDecription-btnTop{
-    display: flex;
-    justify-content: center;
+.MyCourseInfoDecription-btn {
+  width: 50%;
 }
-.MyCourseInfoDecription-btnBottom{
-    display: flex;
-    justify-content: center;
-    margin-top:25px;
+.MyCourseInfoDecription-btnTop {
+  display: flex;
+  justify-content: center;
 }
-.MyCourseInfoDecription-btn .MyCourseInfoDecription-btnTop h2{
-    font-size: 25px;
-    color:#fff;
-    margin:0;
+.MyCourseInfoDecription-btnBottom {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
 }
-.MyCourseInfoDecription-btnBottom button{
-    margin-top: 20px;
-    padding:15px;
-    background-color: #26A7F0;
-    border-radius:24px;
-    /* border: 1px solid #26A7F0; */
-    font-size: 20px;
-    color:#fff;
-    font-weight: 700;
-    cursor: pointer;
-    border:1px solid #000;
+.MyCourseInfoDecription-btn .MyCourseInfoDecription-btnTop h2 {
+  font-size: 25px;
+  color: #fff;
+  margin: 0;
 }
-.MyCourseInfoDecription-btnBottom button:hover{
-    transform: scale(1.02);
-    opacity: 0.9;
+.MyCourseInfoDecription-btnBottom button {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #26a7f0;
+  border-radius: 24px;
+  /* border: 1px solid #26A7F0; */
+  font-size: 20px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid #000;
 }
-.course__CenterContent{
-    margin-top: 20px;
-    background-color: #1E266D;
-    border-radius: 10px;
+.MyCourseInfoDecription-btnBottom button:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+.course__CenterContent {
+  width: 95%;
+  margin-top: 20px;
+  background-color: #1e266d;
+  border-radius: 10px;
 }
 /*ĐT*/
-@media (max-width:46.1875em){
-    .course__TopContent{
-        flex-direction: column;
-    }
-    .myCourseInfoLeft__Container{
-        width:100%;
-    }
-    .myCourseInfoRight__Container{
-        width:100%;
-        margin-top: 20px;
-    }
+@media (max-width: 46.1875em) {
+  .course__TopContent {
+    flex-direction: column;
+  }
+  .myCourseInfoLeft__Container {
+    width: 100%;
+  }
+  .myCourseInfoRight__Container {
+    width: 100%;
+    margin-top: 20px;
+  }
 }

@@ -4,24 +4,32 @@ import { Link, useHistory } from "react-router-dom";
 import { useStore, actions } from "../store";
 import authApi from "../apis/authApi";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-
+import { toast } from "react-toastify";
 import GoogleLogin from "react-google-login";
 
 import "../assets/styles/Login.css";
 function Login() {
-    const [state, dispatch] = useStore();
-    const history = useHistory();
+  const [state, dispatch] = useStore();
+  const history = useHistory();
 
-    const handleLogin = async (e) => {
-        e.preventDefault();
-        const body = {
-            userName: e.target.username.value,
-            password: e.target.password.value,
-        };
-        const res = await authApi.postLogin(body);
-        console.log(res);
-        dispatch(actions.login(res.token));
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const body = {
+      userName: e.target.username.value,
+      password: e.target.password.value,
     };
+    const res = await authApi.postLogin(body);
+    if (res.success) {
+      toast.success("Đăng nhập thành công !", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      dispatch(actions.login(res.token));
+    } else {
+      toast.error("Đăng nhập thất bại !", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
+  };
     const handleLoginGG = async (googleData) => {
         const res = await authApi.postGoogleLogin(googleData);
         console.log(res);
@@ -34,7 +42,7 @@ function Login() {
         <title>Đăng nhập</title>
       </Helmet>
       {state.isAuthenticated ? (
-        history.push("/HomeLogin")
+        history.push("/home")
       ) : (
         <section className="login">
           <div className="background-img-screen"></div>
