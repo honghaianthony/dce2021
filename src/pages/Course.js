@@ -18,11 +18,13 @@ function Course() {
   useEffect(async () => {
     const res = await coursesApi.getCourseById(courseId);
     setData(res);
-    const register = await usersApi.getUserCourseByCourseId(courseId);
-    if (register !== null) {
+    const register = await usersApi.getAllUserCourse();
+    const isReg =
+      register.courses.filter((item) => item._id === courseId).length === 1;
+    if (isReg) {
       setIsregister(true);
     }
-  }, [courseId]);
+  }, []);
   const handleRegister = async () => {
     if (!isRegister) {
       const body = {

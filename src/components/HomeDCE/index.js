@@ -15,19 +15,55 @@ function HomeDCE() {
   const [exercises, setexErcises] = useState([]);
   const [userCourse, setUserCourse] = useState([]);
   const [userExercise, setUserExercise] = useState([]);
-  useEffect(async () => {
-    const res = await coursesApi.getAllCourses();
-    setCourses(res);
-    const blo = await blogsApi.getAllBlogs();
-    setBlogs(blo);
-    const exe = await ExerciseApi.getAllExercise();
-    setexErcises(exe.data);
-    dispatch(actions.reload());
-    const usco = await usersApi.getAllUserCourse();
-    setUserCourse(usco);
-    const usex = await usersApi.getAllUserExercise();
-    setUserExercise(usex);
+
+  // useEffect(() => {
+  //   const fetchAllData = async () => {
+  //     const res = await coursesApi.getAllCourses();
+  //     const blo = await blogsApi.getAllBlogs();
+  //     const exe = await ExerciseApi.getAllExercise();
+  //     const usco = await usersApi.getAllUserCourse();
+  //     const usex = await usersApi.getAllUserExercise();
+  //     // const usex1 = await usersApi.getAllUserExercise();
+  //     // const usex2 = await usersApi.getAllUserExercise();
+  //     setUserCourse(usco.courses);
+  //     setexErcises(exe);
+  //     setBlogs(blo);
+  //     setCourses(res);
+  //     setUserExercise(usex.exercises);
+  //     dispatch(actions.reload());
+  //   };
+  //   fetchAllData();
+  // }, []);
+  useEffect(() => {
+    const fetchAllData = async () => {
+      const res = await coursesApi.getAllCourses();
+      // const blo = await blogsApi.getAllBlogs();
+      // const exe = await ExerciseApi.getAllExercise();
+      // const usco = await usersApi.getAllUserCourse();
+      // const usex = await usersApi.getAllUserExercise();
+      // const usex1 = await usersApi.getAllUserExercise();
+      // const usex2 = await usersApi.getAllUserExercise();
+      setUserCourse([1]);
+      setexErcises([1]);
+      setBlogs([1]);
+      setCourses(res);
+      setUserExercise([1]);
+      dispatch(actions.reload());
+    };
+    fetchAllData();
   }, []);
+  // useEffect(async () => {
+  //   Promise.all([
+  //     coursesApi.getAllCourses().then((item) => setCourses(item)),
+  //     blogsApi.getAllBlogs().then(setBlogs),
+  //     ExerciseApi.getAllExercise().then(setexErcises),
+  //     usersApi.getAllUserExercise().then(setUserExercise),
+  //     usersApi.getAllUserCourse().then((item) => {
+  //       setUserCourse(item.courses);
+  //     }),
+  //   ]);
+  //   dispatch(actions.reload());
+  // }, []);
 
   const coursesMap = () => {
     return courses?.map((item, index) => {
@@ -35,7 +71,7 @@ function HomeDCE() {
         index < 4 && (
           <article
             className="course-item grid-style col-xs-12 col-sm-6 col-lg-3"
-            key={item.id}
+            key={item._id}
           >
             <div className="course-thumb">
               <img src={item.image} alt="C++ cho người mới bắt đầu" />
@@ -58,8 +94,8 @@ function HomeDCE() {
     return blogs?.map((item, index) => {
       return (
         index < 3 && (
-          <Link to={`/blogs/${item.id}`} className="blog-link">
-            <article className="blog-item list-style" key={item.id}>
+          <Link key={index} to={`/blogs/${item._id}`} className="blog-link">
+            <article className="blog-item list-style" key={item._id}>
               <div className="wrap-blog-thumb">
                 <img
                   src={item.coverImage}
@@ -80,9 +116,9 @@ function HomeDCE() {
     return exercises?.map((item, index) => {
       return (
         index < 3 && (
-          <article className="col-xs-12 col-sm-4 training-item" key={item.id}>
+          <article className="col-xs-12 col-sm-4 training-item" key={item._id}>
             <Link
-              to={`/exercises/${item.id}`}
+              to={`/exercises/${item._id}`}
               className="wrap-training-content"
             >
               <div className="task-item-detail">
@@ -115,6 +151,7 @@ function HomeDCE() {
   };
   return (
     <>
+      {console.log("re-render")}
       <div className="home-DCE">
         {/* ----------------------PHAN DAU----------------------- */}
         <div className="wrap-block-user">
