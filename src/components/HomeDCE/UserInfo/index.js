@@ -10,7 +10,7 @@ function Info() {
   const [users, setUsers] = useState([]);
   useEffect(async () => {
     const res = await usersApi.getMe();
-    setUsers(res);
+    setUsers(res.user.user);
   }, []);
 
   return (
@@ -22,7 +22,7 @@ function Info() {
             <div className="col-md-3">
               <div className="user--profile-left">
                 <ul className="user--profile--list-function">
-                  <li className="active" className="li">
+                  <li className="active li">
                     <span>Thông tin liên hệ</span>
                   </li>
 

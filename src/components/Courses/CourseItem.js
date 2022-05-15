@@ -7,8 +7,9 @@ function CourseItem(props) {
   const [done, setDone] = React.useState(false);
   React.useEffect(async () => {
     const doneRes = await usersApi.checkDoneCourse(props.id);
+    console.log(doneRes);
     let done = true;
-    doneRes.forEach((i) => {
+    doneRes.data.forEach((i) => {
       if (!i.isCompleted) {
         done = false;
       }

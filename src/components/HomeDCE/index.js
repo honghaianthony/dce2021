@@ -24,9 +24,9 @@ function HomeDCE() {
     setexErcises(exe.data);
     dispatch(actions.reload());
     const usco = await usersApi.getAllUserCourse();
-    setUserCourse(usco);
+    setUserCourse(usco.courses);
     const usex = await usersApi.getAllUserExercise();
-    setUserExercise(usex);
+    setUserExercise(usex.exercises);
   }, []);
 
   const coursesMap = () => {
