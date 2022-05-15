@@ -16,54 +16,20 @@ function HomeDCE() {
   const [userCourse, setUserCourse] = useState([]);
   const [userExercise, setUserExercise] = useState([]);
 
-  // useEffect(() => {
-  //   const fetchAllData = async () => {
-  //     const res = await coursesApi.getAllCourses();
-  //     const blo = await blogsApi.getAllBlogs();
-  //     const exe = await ExerciseApi.getAllExercise();
-  //     const usco = await usersApi.getAllUserCourse();
-  //     const usex = await usersApi.getAllUserExercise();
-  //     // const usex1 = await usersApi.getAllUserExercise();
-  //     // const usex2 = await usersApi.getAllUserExercise();
-  //     setUserCourse(usco.courses);
-  //     setexErcises(exe);
-  //     setBlogs(blo);
-  //     setCourses(res);
-  //     setUserExercise(usex.exercises);
-  //     dispatch(actions.reload());
-  //   };
-  //   fetchAllData();
-  // }, []);
-  useEffect(() => {
-    const fetchAllData = async () => {
-      const res = await coursesApi.getAllCourses();
-      // const blo = await blogsApi.getAllBlogs();
-      // const exe = await ExerciseApi.getAllExercise();
-      // const usco = await usersApi.getAllUserCourse();
-      // const usex = await usersApi.getAllUserExercise();
-      // const usex1 = await usersApi.getAllUserExercise();
-      // const usex2 = await usersApi.getAllUserExercise();
-      setUserCourse([1]);
-      setexErcises([1]);
-      setBlogs([1]);
-      setCourses(res);
-      setUserExercise([1]);
-      dispatch(actions.reload());
-    };
-    fetchAllData();
+  useEffect(async () => {
+    Promise.all([
+      coursesApi.getAllCourses().then(setCourses),
+      blogsApi.getAllBlogs().then(setBlogs),
+      ExerciseApi.getAllExercise().then(setexErcises),
+      usersApi.getAllUserExercise().then((item) => {
+        setUserExercise(item.exercises);
+      }),
+      usersApi.getAllUserCourse().then((item) => {
+        setUserCourse(item.courses);
+      }),
+    ]);
+    dispatch(actions.reload());
   }, []);
-  // useEffect(async () => {
-  //   Promise.all([
-  //     coursesApi.getAllCourses().then((item) => setCourses(item)),
-  //     blogsApi.getAllBlogs().then(setBlogs),
-  //     ExerciseApi.getAllExercise().then(setexErcises),
-  //     usersApi.getAllUserExercise().then(setUserExercise),
-  //     usersApi.getAllUserCourse().then((item) => {
-  //       setUserCourse(item.courses);
-  //     }),
-  //   ]);
-  //   dispatch(actions.reload());
-  // }, []);
 
   const coursesMap = () => {
     return courses?.map((item, index) => {
