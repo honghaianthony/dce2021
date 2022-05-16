@@ -19,7 +19,7 @@ function AdminMemberList() {
   const [search, setSearch] = useState("");
   useEffect(async () => {
     const res = await usersApi.getAllUsers();
-    setListMember(res);
+    setListMember(res.users);
   }, []);
 
   useEffect(() => {
@@ -42,7 +42,7 @@ function AdminMemberList() {
       return filteredData.map((item, index) => {
         return (
           <tr>
-            <td>{item.id}</td>
+            <td>{item._id}</td>
             <td>{item.userName}</td>
             <td>{item.email}</td>
             <td>{getFormattedDate(item.createdAt)}</td>
@@ -52,7 +52,7 @@ function AdminMemberList() {
                   className="member-role"
                   value={item.role}
                   onChange={async (e) => {
-                    await updateRole(item.id, e.target.value, index);
+                    await updateRole(item._id, e.target.value, index);
                   }}
                 >
                   <option value="1">Người dùng</option>
@@ -65,7 +65,31 @@ function AdminMemberList() {
         );
       });
     } else {
-      return <div className="loader"></div>;
+      return data.map((item, index) => {
+        return (
+          <tr>
+            <td>{item._id}</td>
+            <td>{item.userName}</td>
+            <td>{item.email}</td>
+            <td>{getFormattedDate(item.createdAt)}</td>
+            <td>
+              <div className="member-role-container">
+                <select
+                  className="member-role"
+                  value={item.role}
+                  onChange={async (e) => {
+                    await updateRole(item._id, e.target.value, index);
+                  }}
+                >
+                  <option value="1">Người dùng</option>
+                  <option value="2">Admin</option>
+                  <option value="3">Kiểm duyệt viên</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+        );
+      });
     }
   };
   const updateRole = async (id, role, index) => {
@@ -76,8 +100,6 @@ function AdminMemberList() {
     let response = await usersApi.updateRole(body);
     if (response.errCode === 0) {
       toast.success("Cập nhật thành công!");
-      // const res2 = await usersApi.getAllUsers();
-      // setListMember(res2);
       setRoleUI(index, role);
     } else {
       toast.error("Cập nhật thất bại!");

@@ -1,7 +1,7 @@
 import axiosInstance from "./axiosInstance";
 
 const getAllUsers = async () => {
-  return await axiosInstance.get(`users/get-all-users`, {
+  return await axiosInstance.get(`user/get-all-users`, {
     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };
@@ -18,7 +18,7 @@ const createUserCourse = async (data) => {
 };
 
 const updateRole = async (data) => {
-  return await axiosInstance.put(`users/update-users-role`, data, {
+  return await axiosInstance.put(`user/update-users-role`, data, {
     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };
@@ -49,7 +49,7 @@ const doneCourse = async (data) => {
 
 const checkDoneCourse = async (courseId) => {
   return await axiosInstance.get(
-    `users/check-course-done?courseId=${courseId}`,
+    `user/check-course-done?courseId=${courseId}`,
     {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     }
@@ -63,12 +63,12 @@ const getMe = async () => {
 };
 
 const getAllUserCourse = async () => {
-  return await axiosInstance.get(`users/get-all-user-course`, {
+  return await axiosInstance.get(`user/get-all-user-course`, {
     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };
 const getAllUserExercise = async () => {
-  return await axiosInstance.get(`users/get-all-user-exercise`, {
+  return await axiosInstance.get(`user/get-all-user-exercise`, {
     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };
