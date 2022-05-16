@@ -13,20 +13,13 @@ function UpdateLesson() {
   const [addShow, setAddShow] = useState("show");
   const [countTestcase, setSountTestcase] = useState();
   const arrTestCase = [];
-  // const handleAdd = () =>
-  // {
-  //     setAddShow(addShow === "show" ? "hide" : "show");
-  // }
-  // for(var i=0;i<countTestcase;i++)
-  //     {
-  //         arrTestCase.push(i+1);
-  //     }
   /*Đổ dữ liệu */
   const { lessonId } = useParams();
   // console.log(lessonId)
   const [data, setDataLesson] = useState(null);
   useEffect(async () => {
     const res = await LessonApi.getLessonById(lessonId);
+    console.log(res.data)
     setDataLesson(res.data);
     // console.log(res.data)
   }, [lessonId]);
@@ -39,6 +32,7 @@ function UpdateLesson() {
     const res = await LessonApi.getLessonById(lessonId);
     setLessonName(res.data.lessonName);
   }, [lessonId]);
+
   useEffect(async () => {
     const res = await LessonApi.getLessonById(lessonId);
     setLessonContent(res.data.content);
@@ -57,9 +51,8 @@ function UpdateLesson() {
     // console.log(idTest)
     setInput(res2.data[0].input);
     setOutput(res2.data[0].output);
-    // console.log(res2.data[0]._id);
-    // console.log(res2.data);
   }, [lessonId]);
+
   /*sửa*/
   // console.log(courseId)
   // const [data2,setData2]=useState({})
@@ -80,14 +73,14 @@ function UpdateLesson() {
   const handleChangeDataLesson = async (e) => {
     e.preventDefault();
     const newLesson = {
-      _id: lessonId,
+      id: lessonId,
       content: lessonContent,
       lessonName: lessonName,
       description: lessonDescription,
     };
     console.log(newLesson)
     const res4 = await LessonApi.updateLessonById(newLesson);
-    // console.log(res4.msg)
+    console.log(res4)
     const newLessonTest = {
       lessonTestId: idTest,
       lessonId: lessonId,
@@ -107,15 +100,6 @@ function UpdateLesson() {
       toast.error("Cập nhật thất bại");
     }
   };
-
-  // console.log(lessonId)
-  // const handleChangeDataLesson=async(e)=>{
-  //     e.preventDefault();
-  //     const newTest={
-
-  //     }
-  //     const res=await LessonApi.updateLessonById
-  // }
   return (
     <Adminlayout>
       {data === null ? (
