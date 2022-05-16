@@ -26,15 +26,7 @@ function Lesson() {
   const [code, setCode] = useState("");
   const { lessonId } = useParams();
 
-  //socket.io
-  const socket = useRef();
-  useEffect(() => {
-    socket.current = io("http://localhost:3000");
-    socket.current.emit("join-room", lessonId);
-    socket.current.on("receive-comment-lesson", (data) => {
-      setComment([...comment, data]);
-    });
-  }, [lessonId, socket.current]);
+  
 
   useEffect(async () => {
     const res = await LessonApi.getLessonById(lessonId);
@@ -53,7 +45,16 @@ function Lesson() {
     }
     setCode("");
     setRealOutput("");
-  }, [lessonId]);
+  }, []);
+  //socket.io
+  const socket = useRef();
+  useEffect(() => {
+    socket.current = io("http://localhost:3000");
+    socket.current.emit("join-room", lessonId);
+    socket.current.on("receive-comment-lesson", (data) => {
+      setComment([...comment, data]);
+    });
+  }, [lessonId, socket.current]);
 
   const [display, setdisplay] = useState("off");
   const setcomment = () => {
@@ -182,7 +183,8 @@ function Lesson() {
       .reverse();
   };
 
-  const sendComment = () => {
+  const sendComment = (e) => {
+    e.preventDefault();
     const comment = commentInput;
     socket.current.emit("send-comment-lesson", comment, state.userId, lessonId);
     setCommentInput("");
