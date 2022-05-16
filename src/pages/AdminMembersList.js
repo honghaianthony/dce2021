@@ -42,7 +42,7 @@ function AdminMemberList() {
       return filteredData.map((item, index) => {
         return (
           <tr>
-            <td>{item._id}</td>
+            <td>{index + 1}</td>
             <td>{item.userName}</td>
             <td>{item.email}</td>
             <td>{getFormattedDate(item.createdAt)}</td>
@@ -94,9 +94,10 @@ function AdminMemberList() {
   };
   const updateRole = async (id, role, index) => {
     const body = {
-      id: id,
+      userId: id,
       role: role,
     };
+    console.log(body);
     let response = await usersApi.updateRole(body);
     if (response.errCode === 0) {
       toast.success("Cập nhật thành công!");
@@ -147,14 +148,13 @@ function AdminMemberList() {
               <table className="memberlisttable">
                 <thead className="memberlisttable-header">
                   <tr className="memberlisttable-row">
-                    <th>ID</th>
+                    <th>STT</th>
                     <th>Tên tài khoản</th>
                     <th>Email</th>
                     <th>Ngày tham gia</th>
                     <th>Role</th>
                   </tr>
                 </thead>
-
                 <tbody className="memberlisttable-body">{listUsers()}</tbody>
               </table>
             </div>
