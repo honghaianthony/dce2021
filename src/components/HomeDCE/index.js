@@ -158,7 +158,10 @@ function HomeDCE() {
                         {
                           userCourse.filter((i) => {
                             return i.isCompleted === true;
-                          }).length
+                          }).length ? 
+                          userCourse.filter((i) => {
+                            return i.isCompleted === true;
+                          }).length : 0
                         }
                         /{courses.length}
                       </span>

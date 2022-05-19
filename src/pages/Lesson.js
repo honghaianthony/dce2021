@@ -22,7 +22,7 @@ function Lesson() {
   const [savedNote, setSavedNote] = useState(true);
   const [realOutput, setRealOutput] = useState(" ");
   const [showMoreCmt, setShowMoreCmt] = useState(5);
-  const [lang, setLang] = useState("C++");
+  const [lang, setLang] = useState("Python");
   const [code, setCode] = useState("");
   const { lessonId } = useParams();
 
@@ -36,7 +36,7 @@ function Lesson() {
     cont.replace(/\r\n/g, "<br />");
     setContent(cont);
     const test = await LessonApi.getAllLessonTestById(lessonId);
-    setTestCase(test);
+    setTestCase(test.data);
     const cmt = await LessonApi.getAllLessonComment(lessonId);
     setComment(cmt);
     const getnote = await LessonApi.getLessonNote(lessonId);
@@ -79,11 +79,12 @@ function Lesson() {
 
   const showTestCase = (item, real) => {
     if (item) {
+      console.log(item);
       return (
         <div className="testcase-display-lesson">
-          <p>Đầu vào: {item.input}</p>
+          <p>Đầu vào: {item[0].input}</p>
           <p>Đầu ra: {real}</p>
-          <p>Đầu ra mong muốn: {item.output}</p>
+          <p>Đầu ra mong muốn: {item[0].output}</p>
           {/* <p>Thời gian thực hiện:</p>
         <p>Tin nhắn:</p> */}
         </div>
@@ -104,7 +105,7 @@ function Lesson() {
   const handleSubmit = async () => {
     const body = {
       code: code,
-      input: testCase ? testCase.input : "",
+      input: testCase ? testCase[0].input : "",
       inputRadio: true,
       lang: lang,
     };
@@ -207,7 +208,7 @@ function Lesson() {
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Bài học số {lessonId}</title>
+        <title>Bài học {data.lessonName}</title>
       </Helmet>
       {data ? (
         <>
@@ -224,14 +225,14 @@ function Lesson() {
             {/* giữa */}
             <div className="main-lesson-content">
               <div className="lesson-main">
-                <div className={"content-lesson"}>
+                <div className={'content-lesson'}>
                   <div className="discuss-lesson">
                     <button
                       type="button"
                       className={
-                        display === "on"
-                          ? "discuss-icon-on-lesson"
-                          : "discuss-icon-lesson"
+                        display === 'on'
+                          ? 'discuss-icon-on-lesson'
+                          : 'discuss-icon-lesson'
                       }
                       onClick={setcomment}
                     >
@@ -240,9 +241,9 @@ function Lesson() {
                     <button
                       type="button"
                       className={
-                        display2 === "on"
-                          ? "discuss-icon-on-lesson"
-                          : "discuss-icon-lesson"
+                        display2 === 'on'
+                          ? 'discuss-icon-on-lesson'
+                          : 'discuss-icon-lesson'
                       }
                       onClick={handledisplay2}
                     >
@@ -254,9 +255,9 @@ function Lesson() {
                     <div
                       className={
                         // "main-content-lesson"
-                        display === "on" || display2 === "on"
-                          ? "main-content-lesson-off"
-                          : "main-content-lesson"
+                        display === 'on' || display2 === 'on'
+                          ? 'main-content-lesson-off'
+                          : 'main-content-lesson'
                       }
                     >
                       <div
@@ -271,9 +272,9 @@ function Lesson() {
                     {/* comment */}
                     <div
                       className={
-                        display === "on"
-                          ? "comment-section-on-lesson"
-                          : "comment-section-off-lesson"
+                        display === 'on'
+                          ? 'comment-section-on-lesson'
+                          : 'comment-section-off-lesson'
                       }
                     >
                       <div className="number-comments-lesson">
@@ -322,9 +323,9 @@ function Lesson() {
                     {/* note */}
                     <div
                       className={
-                        display2 === "on"
-                          ? "ListNode__Container"
-                          : "ListNode__Container-off"
+                        display2 === 'on'
+                          ? 'ListNode__Container'
+                          : 'ListNode__Container-off'
                       }
                     >
                       <div className="Noted__container">
@@ -341,14 +342,14 @@ function Lesson() {
                         {savedNote ? (
                           <button
                             type="button"
-                            className={"save-note-on btn btn-outline-primary"}
+                            className={'save-note-on btn btn-outline-primary'}
                           >
                             Lưu
                           </button>
                         ) : (
                           <button
                             type="button"
-                            className={"save-note-off btn btn-primary"}
+                            className={'save-note-off btn btn-primary'}
                             onClick={handleSaveNote}
                           >
                             Lưu
@@ -360,7 +361,7 @@ function Lesson() {
                 </div>
 
                 {/* code */}
-                <div className={"code-lesson"}>
+                <div className={'code-lesson'}>
                   <div className="intro-lesson">
                     <p className="intro-content-lesson">
                       Code in here
@@ -369,10 +370,10 @@ function Lesson() {
                         value={lang}
                         onChange={(e) => setLang(e.target.value)}
                       >
+                        <option value="Python">Python</option>
                         <option value="C++">C++</option>
                         <option value="C">C</option>
                         <option value="Java">Java</option>
-                        <option value="Python">Python</option>
                       </select>
                     </p>
 
