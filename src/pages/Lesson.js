@@ -26,8 +26,6 @@ function Lesson() {
   const [code, setCode] = useState("");
   const { lessonId } = useParams();
 
-  
-
   useEffect(async () => {
     const res = await LessonApi.getLessonById(lessonId);
     setData(res.data);
@@ -40,7 +38,7 @@ function Lesson() {
     setComment(cmt);
     const getnote = await LessonApi.getLessonNote(lessonId);
     if (getnote !== null) {
-      setNote(getnote.content);
+      setNote(getnote.data.content);
     }
     setCode("");
     setRealOutput("");
@@ -224,14 +222,14 @@ function Lesson() {
             {/* giữa */}
             <div className="main-lesson-content">
               <div className="lesson-main">
-                <div className={'content-lesson'}>
+                <div className={"content-lesson"}>
                   <div className="discuss-lesson">
                     <button
                       type="button"
                       className={
-                        display === 'on'
-                          ? 'discuss-icon-on-lesson'
-                          : 'discuss-icon-lesson'
+                        display === "on"
+                          ? "discuss-icon-on-lesson"
+                          : "discuss-icon-lesson"
                       }
                       onClick={setcomment}
                     >
@@ -240,9 +238,9 @@ function Lesson() {
                     <button
                       type="button"
                       className={
-                        display2 === 'on'
-                          ? 'discuss-icon-on-lesson'
-                          : 'discuss-icon-lesson'
+                        display2 === "on"
+                          ? "discuss-icon-on-lesson"
+                          : "discuss-icon-lesson"
                       }
                       onClick={handledisplay2}
                     >
@@ -254,9 +252,9 @@ function Lesson() {
                     <div
                       className={
                         // "main-content-lesson"
-                        display === 'on' || display2 === 'on'
-                          ? 'main-content-lesson-off'
-                          : 'main-content-lesson'
+                        display === "on" || display2 === "on"
+                          ? "main-content-lesson-off"
+                          : "main-content-lesson"
                       }
                     >
                       <div
@@ -271,9 +269,9 @@ function Lesson() {
                     {/* comment */}
                     <div
                       className={
-                        display === 'on'
-                          ? 'comment-section-on-lesson'
-                          : 'comment-section-off-lesson'
+                        display === "on"
+                          ? "comment-section-on-lesson"
+                          : "comment-section-off-lesson"
                       }
                     >
                       <div className="number-comments-lesson">
@@ -322,9 +320,9 @@ function Lesson() {
                     {/* note */}
                     <div
                       className={
-                        display2 === 'on'
-                          ? 'ListNode__Container'
-                          : 'ListNode__Container-off'
+                        display2 === "on"
+                          ? "ListNode__Container"
+                          : "ListNode__Container-off"
                       }
                     >
                       <div className="Noted__container">
@@ -341,14 +339,14 @@ function Lesson() {
                         {savedNote ? (
                           <button
                             type="button"
-                            className={'save-note-on btn btn-outline-primary'}
+                            className={"save-note-on btn btn-outline-primary"}
                           >
                             Lưu
                           </button>
                         ) : (
                           <button
                             type="button"
-                            className={'save-note-off btn btn-primary'}
+                            className={"save-note-off btn btn-primary"}
                             onClick={handleSaveNote}
                           >
                             Lưu
@@ -360,7 +358,7 @@ function Lesson() {
                 </div>
 
                 {/* code */}
-                <div className={'code-lesson'}>
+                <div className={"code-lesson"}>
                   <div className="intro-lesson">
                     <p className="intro-content-lesson">
                       Code in here
