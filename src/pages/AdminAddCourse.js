@@ -25,9 +25,9 @@ function AdminAddCourse() {
   //   const res2 = await coursesApi.getAllCourses();
   //   setData(res2.slice(-1)[0]._id);
   // }, []);
-  let currentIdCourse = data + 1;
-  console.log(currentIdCourse);
-  const location = useLocation();
+  // let currentIdCourse = data + 1;
+  // console.log(currentIdCourse);
+  // const location = useLocation();
   // let path=
   const handleSubmitAdd = async (e) => {
     e.preventDefault();

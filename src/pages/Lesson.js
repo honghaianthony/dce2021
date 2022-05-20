@@ -206,12 +206,12 @@ function Lesson() {
   };
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Bài học {data.lessonName}</title>
-      </Helmet>
       {data ? (
         <>
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>Bài học {data.lessonName}</title>
+          </Helmet>
           <div className="lesson-container">
             {/* header */}
             <div className="lesson-name">
