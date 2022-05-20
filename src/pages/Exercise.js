@@ -23,7 +23,7 @@ function Exercise(Exercise) {
     input: "",
     output: "",
   });
-  const [lang, setLang] = useState("C++");
+  const [lang, setLang] = useState("Python");
   const [code, setCode] = useState("");
   const { exerciseId } = useParams();
   const socket = io("http://localhost:3000");
@@ -234,10 +234,10 @@ function Exercise(Exercise) {
                     value={lang}
                     onChange={(e) => setLang(e.target.value)}
                   >
+                    <option value="Python">Python</option>
                     <option value="C++">C++</option>
                     <option value="C">C</option>
                     <option value="Java">Java</option>
-                    <option value="Python">Python</option>
                   </select>
                 </p>
                 <button type="button" className="refresh-btn">

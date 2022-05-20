@@ -20,8 +20,6 @@ function AdminAddCourse() {
   const [progress, setProgress] = useState(0); /*** */
   const [image, setImage] = useState(null); /*** */
   const [url, setUrl] = useState(""); /*** */
-  const [data, setData] = useState([]);
-  // const [search, setSearch] = useState("");
   let history = useHistory();
   // useEffect(async () => {
   //   const res2 = await coursesApi.getAllCourses();
@@ -51,15 +49,11 @@ function AdminAddCourse() {
     }
   };
 
-  // useEffect(()=>{
-
-  // },[])
-
   const imageChange = (e) => {
     if (e.target.files[0]) {
       setImage(e.target.files[0]);
     }
-  }; /*** */
+  }; 
   useEffect(() => {
     if (image !== null) {
       uploadFile(
@@ -72,7 +66,7 @@ function AdminAddCourse() {
         }
       );
     }
-  }, [image]); /*** */
+  }, [image]); 
   const deleteImage = () => {
     deleteFile(
       url,
