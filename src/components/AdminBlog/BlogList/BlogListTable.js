@@ -41,11 +41,11 @@ function BlogListTable() {
                     <tr key={index}>
                         <td>{item.id}</td>
                         <td>{item.title}</td>
-                        <td>{item.User.userName}</td>
+                        <td>{item.user.userName}</td>
                         <td>{getFormattedDate(item.createdAt)}</td>
                         <td>{getFormattedDate(item.updatedAt)}</td>
                         <td>
-                            <Link to={`/blogs/${item.id}`}>
+                            <Link to={`/blogs/${item._id}`}>
                                 <button className="view-btn">
                                     Xem chi tiết
                                 </button>
