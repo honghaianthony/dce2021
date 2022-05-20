@@ -61,7 +61,7 @@ function AdminExerciseList() {
           let pathExer = "/update-exercises/" + item._id;
           return (
             <tr>
-              <td>{item._id}</td>
+              <td>{index+1}</td>
               <td>{item.exerciseName}</td>
               <td>
                 <p>Khương Duy</p>

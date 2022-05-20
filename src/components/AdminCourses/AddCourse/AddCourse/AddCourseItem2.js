@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,useHistory } from "react-router-dom";
 import LessonApi from "../../../../apis/LessonApi";
 import "./AddCourseItem2.css";
 import { toast } from "react-toastify";
 
 function AddCourseItem2(data) {
   console.log(data);
+  const history=useHistory()
   //   const { lessonId } = useParams();
   // const [dataDelete, deleteData] = useState();
   //   const [data, setDataLesson] = useState(null)
@@ -18,7 +19,9 @@ function AddCourseItem2(data) {
     // deleteData(res);
     if (res) {
       toast.success("Xóa thành công");
-      window.location.reload(false);
+      // window.location.reload(false);
+      history.push(`/adminaddcoursedetail/${data.id}`)
+
     } else {
       toast.error("Xóa thất bại");
     }
