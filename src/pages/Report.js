@@ -25,7 +25,7 @@ function Report() {
 
   useEffect(async () => {
     const res = await usersApi.getAllUsers();
-    setListMember(res);
+    setListMember(res.users);
   }, []);
 
   useEffect(() => {
