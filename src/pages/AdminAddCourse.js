@@ -23,10 +23,10 @@ function AdminAddCourse() {
   const [data, setData] = useState([]);
   // const [search, setSearch] = useState("");
   let history = useHistory();
-  useEffect(async () => {
-    const res2 = await coursesApi.getAllCourses();
-    setData(res2.slice(-1)[0]._id);
-  }, []);
+  // useEffect(async () => {
+  //   const res2 = await coursesApi.getAllCourses();
+  //   setData(res2.slice(-1)[0]._id);
+  // }, []);
   let currentIdCourse = data + 1;
   console.log(currentIdCourse);
   const location = useLocation();
@@ -40,8 +40,6 @@ function AdminAddCourse() {
       time: addTimeCourse,
       image: url,
     };
-    console.log(Course);
-    console.log(Course);
     const res = await coursesApi.createCourse(Course);
     if (res) {
       toast.success(

@@ -62,13 +62,15 @@ function AdminUpdateCourse() {
     e.preventDefault();
     const res = await coursesApi
       .deleteCourseById(courseId)
-      .then(history.push(`/admincourselist`));
+      // .then(history.push(`/admincourselist`));
+    console.log(res)
     deleteData(res);
     if (res) {
       toast.success("Xóa thành công");
     } else {
       toast.error("Xóa thất bại");
     }
+    history.push(`/admincourselist`);
     console.log(res);
   };
 
@@ -97,7 +99,7 @@ function AdminUpdateCourse() {
   const handleChangeData = async (e) => {
     e.preventDefault();
     const newCourse = {
-      _id: courseId,
+      id: courseId,
       courseName: courseName,
       description: courseDes,
       rating: 0,
@@ -106,9 +108,10 @@ function AdminUpdateCourse() {
     };
     const res = await coursesApi
       .updateCourseById(newCourse)
-      .then(history.push(`/admincourselist`));
+      // .then(history.push(`/admincourselist`));
     if (res) {
       toast.success("Cập nhật thành công");
+      history.push(`/admincourselist`);
     } else {
       toast.error("Cập nhật thất bại");
     }
