@@ -19,12 +19,15 @@ function Course() {
     const res = await coursesApi.getCourseById(courseId);
     setData(res);
     const register = await usersApi.getAllUserCourse();
-    const isReg =
-      register.courses.filter((item) => item._id === courseId).length === 1;
+    console.log(register.courses)
+    
+    const isReg = 
+      register.courses.filter((item) => item!==null&&item._id === courseId).length === 1
     if (isReg) {
       setIsregister(true);
     }
   }, []);
+  // console.log()
   const handleRegister = async () => {
     if (!isRegister) {
       const body = {

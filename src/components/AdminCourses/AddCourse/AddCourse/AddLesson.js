@@ -51,7 +51,8 @@ function AddLesson() {
     };
     console.log(Lesson, courseId);
     const res = await LessonApi.createLesson(Lesson);
-    console.log(res.data._id);
+    console.log(res)
+    // console.log(res.data._id);
     // setData(res.lesson.id);
     const testCase = {
       lessonId: res.data._id,

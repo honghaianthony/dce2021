@@ -40,7 +40,7 @@ function AdminCourseList() {
       return filteredData.map((item, index) => {
         return (
           <tr>
-            <td>{item.id}</td>
+            <td>{index+1}</td>
             <td>{item.courseName}</td>
             <td>
               <p>admin</p>
