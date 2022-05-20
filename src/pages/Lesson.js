@@ -30,7 +30,6 @@ function Lesson() {
 
   useEffect(async () => {
     const res = await LessonApi.getLessonById(lessonId);
-    console.log(res.data);
     setData(res.data);
     let cont = res.data.content;
     cont.replace(/\r\n/g, "<br />");
@@ -79,7 +78,6 @@ function Lesson() {
 
   const showTestCase = (item, real) => {
     if (item) {
-      console.log(item);
       return (
         <div className="testcase-display-lesson">
           <p>Đầu vào: {item[0].input}</p>
@@ -112,8 +110,9 @@ function Lesson() {
     const response = await compileApi.postCompile(body);
     if (response.output) {
       setRealOutput(response.output);
+      // allow to Nộp bài
       if (
-        response.output.localeCompare(testCase.output) ||
+        response.output.localeCompare(testCase[0].output) == 1 ||
         testCase.output === null
       ) {
         setAllow(true);
