@@ -158,7 +158,7 @@ function AdminAddCourse() {
                         }
                       ></input>
                     </div>
-                    <div className="InputTime_AddCourse">
+                    {/* <div className="InputTime_AddCourse">
                       <input
                         name="rating"
                         id="rateCourse"
@@ -169,7 +169,7 @@ function AdminAddCourse() {
                           setAddRateCourse(event.target.value)
                         }
                       ></input>
-                    </div>
+                    </div> */}
                     <div className="InputTime_AddCourse__">
                       {/* <input
                       name="image"
