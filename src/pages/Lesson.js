@@ -36,10 +36,10 @@ function Lesson() {
         setTestCase(test.data);
         const cmt = await LessonApi.getAllLessonComment(lessonId);
         setComment(cmt);
-        const getnote = await LessonApi.getLessonNote(lessonId);
-        if (getnote.statusCode === 200) {
-            setNote(getnote.data.content);
-        }
+        // const getnote = await LessonApi.getLessonNote(lessonId);
+        // if (getnote.statusCode === 200) {
+        //     setNote(getnote.data.content);
+        // }
         setCode("");
         setRealOutput("");
     }, []);
@@ -131,9 +131,9 @@ function Lesson() {
             code: code,
             isCompleted: true,
         };
-
+        console.log(body);
         const done = await usersApi.doneLesson(body);
-
+        console.log(done);
         if (done.errCode !== 0) {
             return null;
         } else {
