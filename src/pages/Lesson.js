@@ -38,7 +38,7 @@ function Lesson() {
         setComment(cmt);
         const getnote = await LessonApi.getLessonNote(lessonId);
         if (getnote !== null) {
-            setNote(getnote.content);
+            setNote(getnote.data.content);
         }
         setCode("");
         setRealOutput("");
