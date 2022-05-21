@@ -12,6 +12,7 @@ div.contain-loader {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  width:100%;
 }
 .myCourseInfoLeft__Container {
   width: 30%;

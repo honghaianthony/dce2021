@@ -1,9 +1,7 @@
 import axiosInstance from "./axiosInstance";
 
 const getAllLesson = async (id) => {
-  return await axiosInstance.get(
-    `/lessons/get-all-lessons?courseId=${id}`
-  );
+  return await axiosInstance.get(`/lessons/get-all-lessons?courseId=${id}`);
 };
 const getAllLessonFindCourseId = async () => {
   return await axiosInstance.get(`/lessons/get-all-lessons`);
@@ -42,13 +40,13 @@ const createLessonTest = async (lesson) => {
   });
 };
 const getLessonNote = async (id) => {
-  return await axiosInstance.get(`note/get-note-by-id?id=${id}`, {
+  return await axiosInstance.get(`lessons/get-note-by-id?lessonId=${id}`, {
     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };
 
 const updateNote = async (data) => {
-  return await axiosInstance.put(`note/update-note`, data, {
+  return await axiosInstance.put(`lessons/update-note`, data, {
     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };

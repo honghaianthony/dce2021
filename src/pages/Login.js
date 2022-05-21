@@ -23,18 +23,20 @@ function Login() {
       toast.success("Đăng nhập thành công !", {
         position: toast.POSITION.TOP_RIGHT,
       });
-      dispatch(actions.login(res.token));
+      setTimeout(() => {
+        dispatch(actions.login(res.token));
+      }, 2000);
     } else {
       toast.error("Đăng nhập thất bại !", {
         position: toast.POSITION.TOP_RIGHT,
       });
     }
   };
-    const handleLoginGG = async (googleData) => {
-        const res = await authApi.postGoogleLogin(googleData);
-        console.log(res);
-        dispatch(actions.login(res.token));
-    };
+  const handleLoginGG = async (googleData) => {
+    const res = await authApi.postGoogleLogin(googleData);
+    console.log(res);
+    dispatch(actions.login(res.token));
+  };
   return (
     <>
       <Helmet>
@@ -117,14 +119,12 @@ function Login() {
                   <p>đăng nhập bằng</p>
                 </div>
                 <GoogleLogin
-                    clientId={
-                        process.env.REACT_APP_GOOGLE_CLIENT_ID
-                    }
-                    buttonText="Log in with Google"
-                    onSuccess={handleLoginGG}
-                    onFailure={handleLoginGG}
-                    cookiePolicy={"single_host_origin"}
-                    />
+                  clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                  buttonText="Log in with Google"
+                  onSuccess={handleLoginGG}
+                  onFailure={handleLoginGG}
+                  cookiePolicy={"single_host_origin"}
+                />
               </div>
             </form>
             <div className="form-bottom">

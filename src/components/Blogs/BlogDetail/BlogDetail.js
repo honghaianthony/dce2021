@@ -25,7 +25,6 @@ function BlogDetail() {
   }, []);
   //socket.io
   const socket = useRef();
-  // const socket = io("http://localhost:3000");
   useEffect(() => {
     socket.current = io("http://localhost:3000");
     socket.current.emit("join-room", blogId);

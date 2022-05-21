@@ -45,7 +45,7 @@ function AdminExerciseList() {
               <td>{item._id}</td>
               <td>{item.exerciseName}</td>
               <td>
-                <p>admin</p>
+                <p>Khương Duy</p>
               </td>
               <td>{getFormattedDate(item.createdAt)}</td>
               <td>{getFormattedDate(item.updatedAt)}</td>
@@ -61,10 +61,10 @@ function AdminExerciseList() {
           let pathExer = "/update-exercises/" + item._id;
           return (
             <tr>
-              <td>{item._id}</td>
+              <td>{index+1}</td>
               <td>{item.exerciseName}</td>
               <td>
-                <p>admin</p>
+                <p>Khương Duy</p>
               </td>
               <td>{getFormattedDate(item.createdAt)}</td>
               <td>{getFormattedDate(item.updatedAt)}</td>
