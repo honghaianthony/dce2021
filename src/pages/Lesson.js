@@ -46,7 +46,7 @@ function Lesson() {
     //socket.io
     const socket = useRef();
     useEffect(() => {
-        socket.current = io("http://localhost:3000");
+        socket.current = io('https://dce-docker.herokuapp.com');
         socket.current.emit("join-room", lessonId);
         socket.current.on("receive-comment-lesson", (data) => {
             setComment([...comment, data]);

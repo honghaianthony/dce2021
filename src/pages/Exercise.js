@@ -26,7 +26,7 @@ function Exercise(Exercise) {
   const [lang, setLang] = useState("Python");
   const [code, setCode] = useState("");
   const { exerciseId } = useParams();
-  const socket = io("http://localhost:3000");
+  const socket = io('https://dce-docker.herokuapp.com');
 
   useEffect(async () => {
     const res = await ExerciseApi.getAllExerciseById(exerciseId);
