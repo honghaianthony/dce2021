@@ -37,7 +37,7 @@ function Lesson() {
         const cmt = await LessonApi.getAllLessonComment(lessonId);
         setComment(cmt);
         const getnote = await LessonApi.getLessonNote(lessonId);
-        if (getnote !== null) {
+        if (getnote.statusCode === 200) {
             setNote(getnote.data.content);
         }
         setCode("");
