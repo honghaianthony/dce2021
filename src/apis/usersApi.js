@@ -35,6 +35,11 @@ const registerLesson = async (data) => {
   });
 };
 
+const registerExercise = async (data) => {
+  return await axiosInstance.post(`user/create-new-user-exercise`, data, {
+    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+  });
+};
 const doneLesson = async (data) => {
   return await axiosInstance.put(`user/update-user-lesson`, data, {
     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -55,7 +60,16 @@ const checkDoneCourse = async (courseId) => {
     }
   );
 };
-
+const checkDoneUserLesson = async (id) => {
+  return await axiosInstance.get(`user/check-userLesson-done?lessonId=${id}`, {
+    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+  });
+};
+const getCompletedUserLessonByLessonId = async (id) => {
+  return await axiosInstance.get(`/user/check-completed-userLesson-by-lessonId?lessonId=${id}`, {
+    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+  });
+};
 const getMe = async () => {
   return await axiosInstance.get(`user/me`, {
     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -80,6 +94,7 @@ export default {
   createUserCourse,
   updateRole,
   registerLesson,
+  registerExercise,
   doneLesson,
   getUserLesson,
   doneCourse,
@@ -87,4 +102,6 @@ export default {
   getMe,
   getAllUserCourse,
   getAllUserExercise,
+  checkDoneUserLesson,
+  getCompletedUserLessonByLessonId
 };

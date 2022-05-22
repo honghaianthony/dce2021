@@ -39,7 +39,7 @@ function Exercises() {
         return (
           <Frameexercise
             key={index}
-            id={item.id}
+            id={item._id}
             title={item.exerciseName}
             level={item.level}
             path={pathExer}
