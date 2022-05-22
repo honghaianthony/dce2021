@@ -7,18 +7,21 @@ function CourseItem(props) {
     const [done, setDone] = React.useState(false);
     let doneAnother = true;
     React.useEffect(async () => {
-        const doneRes = await usersApi.checkDoneCourse(props._id);
-        console.log("Done res", doneRes);
+        const doneRes = await usersApi.checkDoneCourse(props.id);
+
         doneRes.data.forEach((i) => {
             if (!i.isCompleted) {
                 doneAnother = false;
             }
         });
 
+        console.log(doneRes);
+
         if (doneAnother && doneRes.data.length > 0) {
             setDone(true);
         }
     }, [props._id]);
+
     const ratingStars = () => {
         if (props.rating === 3) {
             return (
