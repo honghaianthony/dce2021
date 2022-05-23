@@ -126,7 +126,6 @@ function HomeDCE() {
           </h2>
 
           <div className="profile-user">
-            <div className="col-xs-12 col-md-4">
               <div className="main-user-info">
                 <div className="user-ava">
                   <img
@@ -138,19 +137,17 @@ function HomeDCE() {
 
                 <div className="content-info">
                   <h3 className="user-name">{state.username}</h3>
-                  <p className="main-user-dee"></p>
                 </div>
 
                 <div className="user-process">
                   <span className="name">{state.fullname}</span>
                 </div>
               </div>
-            </div>
 
-            <div className="col-xs-12 col-md-8">
+           
               <div className="detail-user">
-                <div className="row">
-                  <div className="col-xs-12 col-sm-4 detail-progress-item">
+                
+                  <div className="detail-progress-item">
                     <h4>Khóa học</h4>
                     <div className="detail-progress-content">
                       <span className="result">
@@ -172,7 +169,7 @@ function HomeDCE() {
                     </div>
                   </div>
 
-                  <div className="col-xs-12 col-sm-4 detail-progress-item">
+                  <div className="detail-progress-item">
                     <h4>Luyện tập</h4>
                     <div className="detail-progress-content">
                       <span className="result">
@@ -192,11 +189,10 @@ function HomeDCE() {
                       <span className="current-progress"></span>
                     </div>
                   </div>
-                </div>
+                
               </div>
             </div>
           </div>
-        </div>
 
         {/* -----------------------------------PHAN 2---------------------------- */}
         <div className="home-section">

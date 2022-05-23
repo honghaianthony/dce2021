@@ -144,7 +144,58 @@ function Lesson() {
         const body = {
             lessonId: lessonId,
             code: code,
-            isCompleted: true,
+            // isCompleted: true,
+        };
+        console.log(body);
+        const done = await usersApi.doneLesson(body);
+        console.log(done);
+        if (done.errCode !== 0) {
+            return null;
+        } else {
+            if (index.indexOf(data._id) + 1 == all.data.length) {
+                const doneRes = await usersApi.checkDoneCourse(data.courseId);
+                let done = true;
+                console.log(doneRes.data);
+                doneRes.data.forEach((i) => {
+                    if (!i.isCompleted) {
+                        done = false;
+                    }
+                });
+
+                if (done) {
+                    const body2 = {
+                        courseId: data.courseId,
+                        isCompleted: true,
+                    };
+
+                    await usersApi.doneCourse(body2);
+                }
+                history.push("/courses");
+            } else {
+                const body = {
+                    lessonId: all.data[index.indexOf(data._id) + 1]._id,
+                    // code: "",
+                    isCompleted: false,
+                };
+                const suc = await usersApi.registerLesson(body);
+                console.log(suc);
+                history.push(
+                    `/lesson/${all.data[index.indexOf(data._id) + 1]._id}`
+                );
+                window.location.reload();
+            }
+        }
+    };
+    const handleNextLesson2 = async () => {
+        const all = await LessonApi.getAllLesson(data.courseId);
+        const index = all.data.map((i) => {
+            return i._id;
+        });
+        console.log(index);
+        const body = {
+            lessonId: lessonId,
+            code: codeSubmitted,
+            // isCompleted: true,
         };
         console.log(body);
         const done = await usersApi.doneLesson(body);
@@ -443,20 +494,19 @@ function Lesson() {
                                             Làm mới
                                         </button>
                                     </div>
-                                    { submit ? (
-                                        <div className="place-code-lesson">
-                                        <textarea
+                                    
+                                    <div className="place-code-lesson">
+                                        {submit ? (
+                                            <textarea
                                             id="code-of-exser-lesson"
                                             name="code-of-exser"
                                             value={codeSubmitted}
-                                            // onChange={(e) =>
-                                            //     setCode(e.target.value)
-                                            //     }
+                                            onChange={(e) =>
+                                                setCodeSubmitted(e.target.value)
+                                            }
                                         ></textarea>
-                                        </div>
-                                    ):(
-                                    <div className="place-code-lesson">
-                                        <textarea
+                                        ):(
+                                            <textarea
                                             id="code-of-exser-lesson"
                                             name="code-of-exser"
                                             value={code}
@@ -464,8 +514,9 @@ function Lesson() {
                                                 setCode(e.target.value)
                                             }
                                         ></textarea>
+                                        )}     
                                     </div>
-                                    )}
+                                    
                                     <div className="testcase-lesson">
                                         <div className="testcase-header-lesson">
                                             <p>TEST CASE</p>
@@ -485,12 +536,24 @@ function Lesson() {
                                                 Chạy thử
                                             </button>
                                             { submit ? (
-                                                <button
-                                                    type="button"
-                                                    className="submit-btn-lesson-disable"
-                                                >
-                                                    Đã nộp bài
-                                                </button>
+                                                <>
+                                                {allow ? (
+                                                    <button
+                                                        type="button"
+                                                        className="submit-btn-lesson"
+                                                        onClick={handleNextLesson2}
+                                                    >
+                                                        Cập nhật
+                                                    </button>
+                                                ) : (
+                                                    <button
+                                                        type="button"
+                                                        className="submit-btn-lesson-disable"
+                                                    >
+                                                        Cập nhật
+                                                    </button>
+                                                )}
+                                                </>
                                             ) : (
                                                 <>
                                                 {allow ? (
