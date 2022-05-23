@@ -17,7 +17,7 @@ function CourseItemInfo(CouseItem) {
         if (isRegister) {
             const body = {
                 lessonId: CouseItem._id,
-                code: "",
+                // code: "",
                 isCompleted: false,
             };
             const suc = await usersApi.registerLesson(body);

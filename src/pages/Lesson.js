@@ -24,6 +24,9 @@ function Lesson() {
     const [showMoreCmt, setShowMoreCmt] = useState(5);
     const [lang, setLang] = useState("Python");
     const [code, setCode] = useState("");
+    const [codeSubmitted, setCodeSubmitted] = useState("");
+
+    const [submit, setSubmit] =useState(false);
     const { lessonId } = useParams();
 
     useEffect(async () => {
@@ -43,7 +46,19 @@ function Lesson() {
         setCode("");
         setRealOutput("");
     }, []);
+    useEffect ( async () =>{
+        const checkdoneLesson = await usersApi.checkDoneUserLesson(lessonId);
+        if(checkdoneLesson.errCode == 0){
+            setSubmit(true);
+            const codeSubmit = await usersApi.getCompletedUserLessonByLessonId(lessonId);
+            if(codeSubmit)
+            {
+                setCodeSubmitted(codeSubmit.lesson.code);
+            }
+        }      
+    },[lessonId])
     //socket.io
+    console.log(code);
     const socket = useRef();
     useEffect(() => {
         socket.current = io("http://localhost:3000");
@@ -159,7 +174,7 @@ function Lesson() {
             } else {
                 const body = {
                     lessonId: all.data[index.indexOf(data._id) + 1]._id,
-                    code: "",
+                    // code: "",
                     isCompleted: false,
                 };
                 const suc = await usersApi.registerLesson(body);
@@ -428,6 +443,18 @@ function Lesson() {
                                             Làm mới
                                         </button>
                                     </div>
+                                    { submit ? (
+                                        <div className="place-code-lesson">
+                                        <textarea
+                                            id="code-of-exser-lesson"
+                                            name="code-of-exser"
+                                            value={codeSubmitted}
+                                            // onChange={(e) =>
+                                            //     setCode(e.target.value)
+                                            //     }
+                                        ></textarea>
+                                        </div>
+                                    ):(
                                     <div className="place-code-lesson">
                                         <textarea
                                             id="code-of-exser-lesson"
@@ -438,6 +465,7 @@ function Lesson() {
                                             }
                                         ></textarea>
                                     </div>
+                                    )}
                                     <div className="testcase-lesson">
                                         <div className="testcase-header-lesson">
                                             <p>TEST CASE</p>
@@ -456,22 +484,34 @@ function Lesson() {
                                             >
                                                 Chạy thử
                                             </button>
-                                            {allow ? (
-                                                <button
-                                                    type="button"
-                                                    className="submit-btn-lesson"
-                                                    onClick={handleNextLesson}
-                                                >
-                                                    Nộp bài
-                                                </button>
-                                            ) : (
+                                            { submit ? (
                                                 <button
                                                     type="button"
                                                     className="submit-btn-lesson-disable"
                                                 >
-                                                    Nộp bài
+                                                    Đã nộp bài
                                                 </button>
-                                            )}
+                                            ) : (
+                                                <>
+                                                {allow ? (
+                                                    <button
+                                                        type="button"
+                                                        className="submit-btn-lesson"
+                                                        onClick={handleNextLesson}
+                                                    >
+                                                        Nộp bài
+                                                    </button>
+                                                ) : (
+                                                    <button
+                                                        type="button"
+                                                        className="submit-btn-lesson-disable"
+                                                    >
+                                                        Nộp bài
+                                                    </button>
+                                                )}
+                                                </>
+                                            )
+                                            }
                                         </div>
                                     </div>
                                 </div>
