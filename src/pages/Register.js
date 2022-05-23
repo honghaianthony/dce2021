@@ -5,7 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import authApi from "../apis/authApi";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import hinhlaptrinh2 from "../assets/images/Hinhlaptrinh2.png";
-
+import { toast } from "react-toastify";
 function Register() {
   const [state, dispatch] = useStore();
   const history = useHistory();
@@ -35,7 +35,13 @@ function Register() {
     console.log(body);
     if (validPass) {
       const res = await authApi.register(body);
-      dispatch(actions.login(res.token));
+      // dispatch(actions.login(res.token));
+      toast.success("Đăng ký thành công !", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      setTimeout(() => {
+        history.push(`/login`)
+      }, 2000);
     }
   };
   return (
