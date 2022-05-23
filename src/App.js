@@ -1,6 +1,6 @@
 import './App.css';
 import Router from './routes';
-import Course from './pages/Course'
+import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <div className="App">

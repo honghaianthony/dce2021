@@ -154,13 +154,14 @@ function HomeDCE() {
                     <h4>Khóa học</h4>
                     <div className="detail-progress-content">
                       <span className="result">
+                        {/* userCourse?.filter((i) => {
+                              return i?.isCompleted === true;
+                            }).length ? 
+                            userCourse?.filter((i) => {
+                              return i?.isCompleted === true;
+                            }).length : 0 */}
                         {
-                          userCourse?.filter((i) => {
-                            return i?.isCompleted === true;
-                          }).length ? 
-                          userCourse?.filter((i) => {
-                            return i?.isCompleted === true;
-                          }).length : 0
+                          userCourse ? userCourse?.length : 0
                         }
                         /{courses.length}
                       </span>
@@ -175,10 +176,13 @@ function HomeDCE() {
                     <h4>Luyện tập</h4>
                     <div className="detail-progress-content">
                       <span className="result">
-                        {
+                        {/* {
                           userExercise.filter((i) => {
                             return i.isCompleted === true;
                           })?.length
+                        } */}
+                        {
+                          userCourse ? userExercise.length : 0
                         }
                         /{exercises?.length}
                       </span>
