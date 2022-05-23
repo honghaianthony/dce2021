@@ -39,10 +39,10 @@ function Lesson() {
         setTestCase(test.data);
         const cmt = await LessonApi.getAllLessonComment(lessonId);
         setComment(cmt);
-        // const getnote = await LessonApi.getLessonNote(lessonId);
-        // if (getnote.statusCode === 200) {
-        //     setNote(getnote.data.content);
-        // }
+        const getnote = await LessonApi.getLessonNote(lessonId);
+        if (getnote.statusCode === 200) {
+            setNote(getnote.data.content);
+        }
         setCode("");
         setRealOutput("");
     }, []);
