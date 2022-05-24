@@ -58,7 +58,6 @@ function Lesson() {
         }      
     },[lessonId])
     //socket.io
-    console.log(code);
     const socket = useRef();
     useEffect(() => {
         socket.current = io("http://localhost:3000");
@@ -112,10 +111,14 @@ function Lesson() {
             );
         }
     };
-
+    const handleRefresh = () =>{
+        submit ? setCodeSubmitted("") : setCode("");
+    }
     const handleSubmit = async () => {
+        const codeLesson =  submit ? codeSubmitted : code;
+        // console.log(codeLesson);
         const body = {
-            code: code,
+            code: codeLesson,
             input: testCase ? testCase[0].input : "",
             inputRadio: true,
             lang: lang,
@@ -490,6 +493,7 @@ function Lesson() {
                                         <button
                                             type="button"
                                             className="refresh-btn-lesson"
+                                            onClick={handleRefresh}
                                         >
                                             Làm mới
                                         </button>
