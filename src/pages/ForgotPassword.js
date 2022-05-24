@@ -83,7 +83,6 @@ function ForgotPassword() {
           </div>
         </div>
       </div>
-      <button className="test">OKE KHÔNG!</button>
     </>
   );
 }

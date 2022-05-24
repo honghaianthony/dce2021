@@ -66,9 +66,12 @@ const checkDoneUserLesson = async (id) => {
   });
 };
 const getCompletedUserLessonByLessonId = async (id) => {
-  return await axiosInstance.get(`/user/check-completed-userLesson-by-lessonId?lessonId=${id}`, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-  });
+  return await axiosInstance.get(
+    `/user/check-completed-userLesson-by-lessonId?lessonId=${id}`,
+    {
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    }
+  );
 };
 const getMe = async () => {
   return await axiosInstance.get(`user/me`, {
@@ -83,6 +86,11 @@ const getAllUserCourse = async () => {
 };
 const getAllUserExercise = async () => {
   return await axiosInstance.get(`user/get-all-user-exercise`, {
+    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+  });
+};
+const updateUserInfo = async (data) => {
+  return await axiosInstance.put(`user/update`, data, {
     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };
@@ -103,5 +111,6 @@ export default {
   getAllUserCourse,
   getAllUserExercise,
   checkDoneUserLesson,
-  getCompletedUserLessonByLessonId
+  getCompletedUserLessonByLessonId,
+  updateUserInfo,
 };

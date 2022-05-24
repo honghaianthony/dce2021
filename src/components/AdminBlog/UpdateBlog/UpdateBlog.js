@@ -18,7 +18,6 @@ function BlogListTable() {
 
   useEffect(async () => {
     const res = await blogsApi.getAllBlogs();
-    console.log(res);
     setListBlogs(res);
   }, []);
 
@@ -55,9 +54,7 @@ function BlogListTable() {
       } else {
         toast.success("Xóa thất bại");
       }
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   const listBlogs = () => {

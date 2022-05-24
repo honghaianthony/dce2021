@@ -13,13 +13,13 @@ function Profile() {
     <div className="menu-starter">
       <div className="menu">
         <div className="options">
-          <Link to={"/me"} >
+          <Link to={"/me"}>
             <p> Thông tin của tôi </p>
           </Link>
-          <Link to={"/addblog"} >
+          <Link to={"/addblog"}>
             <p> Đăng blog </p>
           </Link>
-          <Link to="/adminAddExercise" >
+          <Link to="/adminAddExercise">
             <p>Tạo bài luyện tập</p>
           </Link>
           <span onClick={handleLogout}>

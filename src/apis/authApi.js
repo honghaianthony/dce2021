@@ -19,6 +19,12 @@ const forgotPassword = async (data) => {
   return await axiosInstance.post("/forgot_password", data);
 };
 
+const updatePassword = async (data) => {
+  return await axiosInstance.post("/update-password", data, {
+    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+  });
+};
+
 const postGoogleLogin = async (data) => {
   return await axiosInstance.post("/auth/google", data);
 };
@@ -28,4 +34,5 @@ export default {
   register,
   postGoogleLogin,
   forgotPassword,
+  updatePassword,
 };
