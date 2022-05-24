@@ -101,3 +101,16 @@
     padding:5px;
     font-size: 20px;
 }
+.progress-bar{
+    border-radius: 20px;
+    border: 1px solid #fff;
+    font-weight: 500;
+    border-style: none;
+    box-shadow: -2px 2px 5px 2px #198754 !important;
+    width:100%;
+}
+.upload-image i{
+    top: 50px !important;
+    cursor: pointer;
+    border-radius: 10px;
+}
