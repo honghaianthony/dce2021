@@ -41,6 +41,7 @@ import Lessoncopy from "../pages/Lessoncopy";
 
 import { useStore, actions } from "../store";
 import Report from "../pages/Report";
+import SupportUs from "../pages/SupportUs";
 
 export default function App() {
   const [state, dispatch] = useStore();
@@ -155,6 +156,9 @@ export default function App() {
         </Route>
         <Route path="/upload">
           <UploadTest />
+        </Route>
+        <Route path="/supportus">
+          <SupportUs/>
         </Route>
 
         <Route path="/">
