@@ -2,14 +2,14 @@ import MainLayout from '../layouts/MainLayout';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import React, {useState} from 'react';
 import {Form, Container, Button} from 'react-bootstrap'
-import momoApi from "../apis/momoApi"
+import momoApi from "../apis/momoApi";
 
 function SupportUs() {
   const [amount, setAmount] = useState(0);
 
   const handleSend = async ()=> {
     const res = await momoApi.payment(amount);
-    console.log(res);
+    window.open(res.payUrl, '_self');
   }
 
   return (
