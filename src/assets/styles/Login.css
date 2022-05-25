@@ -1,3 +1,12 @@
+.button-login {
+  width: 100%;
+  justify-content: center;
+  border: 1px solid black !important;
+  border-radius: 12px !important ;
+}
+.button-login span {
+  text-align: center;
+}
 .background-img-screen {
   height: 100vh;
   width: 100%;
@@ -6,11 +15,12 @@
   background-position: center;
 }
 .cover-screen {
-  height: 100vh;
   width: 100%;
-  position: absolute;
+  height: 100%;
+  position: fixed;
   background-color: #000;
   opacity: 0.5;
+  top: 0;
 }
 .login {
   height: 100vh;
@@ -43,6 +53,8 @@
   padding: 10px;
   color: #fff;
   cursor: pointer;
+  position: relative;
+  z-index: 100;
 }
 .btn_back_login button:hover {
   background-color: #ccc;
