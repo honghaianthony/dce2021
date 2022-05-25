@@ -4,6 +4,7 @@
   outline: none;
   border: none;
   cursor: pointer;
+
 }
 
 .btn--primary {
@@ -47,6 +48,24 @@
 
 .btn--primary:hover,
 .btn--outline:hover {
-  background-color: #4D96FF;
-  color: white;
+  /* background-color: #4D96FF; */
+  /* color: white; */
+}
+button.btn.btn--outline.btn--medium {
+  background: #2c31cf;
+  color:#fff;
+  font-weight: 400;
+  font-size: 18px;
+}
+button.btn.btn--primary.btn--medium{
+  background: #e8505b;
+  color:#fff;
+  font-weight: 400;
+  font-size: 18px;
+}
+.btn:hover {
+  background: #fff !important;
+  color: #25308e !important;
+  /* border: 2px solid #25308e; */
+  /* opacity: 0.7; */
 }

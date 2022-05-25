@@ -10,6 +10,7 @@
   top: 0;
   z-index: 999;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  padding-top: 0 !important;
 }
 
 .navbar-container {
@@ -27,7 +28,7 @@
   text-decoration: none;
   font-size: 2rem;
   display: flex;
-  align-items: center;
+  align-items: center !important;
 }
 
 .dce-logo {
@@ -42,6 +43,7 @@
   text-align: center;
   width: 63vw;
   justify-content: start;
+  margin: 0;
 }
 
 .button-container {
@@ -53,6 +55,7 @@
   justify-content: end;
   align-items: center;
   width: 47vw;
+  margin: 0;
 }
 
 .nav-item {
@@ -256,4 +259,5 @@
     color: white;
     transition: 250ms;
   }
+  
 }
