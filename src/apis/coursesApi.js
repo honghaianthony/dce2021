@@ -8,17 +8,17 @@ const getCourseById = async (id) => {
 };
 const createCourse = async (course) => {
   return await axiosInstance.post(`/course/create-new-course`, course, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    // headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };
 const deleteCourseById = async (id) => {
   return await axiosInstance.delete(`course/delete-course?id=${id}`, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    // headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };
 const updateCourseById = async (course) => {
   return await axiosInstance.put(`course/update-course`, course, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    // headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };
 export default {

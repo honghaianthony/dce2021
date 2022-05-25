@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Form, Button, FloatingLabel } from "react-bootstrap";
 import { toast } from "react-toastify";
 import usersApi from "../../apis/usersApi";
+import Cookies from 'js-cookie';
 
 function ValidateEmail(inputText) {
   if (inputText === "") return true;
@@ -14,7 +15,6 @@ function ValidateEmail(inputText) {
 }
 
 function UpdateUserForm() {
-  const token = localStorage.getItem("token");
   const [user, setUser] = useState(null);
   const [email, setEmail] = useState("");
 
@@ -53,7 +53,8 @@ function UpdateUserForm() {
       toast.success("Cập nhật thông tin người dùng thành công", {
         position: toast.POSITION.TOP_RIGHT,
       });
-      localStorage.setItem("token", res.token);
+      // localStorage.setItem("token", res.token);
+      Cookies.set('token', res.token, { expires: 1 });
     }
   };
   return user !== null ? (

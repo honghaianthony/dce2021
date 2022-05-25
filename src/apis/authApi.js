@@ -21,7 +21,7 @@ const forgotPassword = async (data) => {
 
 const updatePassword = async (data) => {
   return await axiosInstance.post("/update-password", data, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    // headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };
 

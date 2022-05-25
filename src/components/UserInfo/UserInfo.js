@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import usersApi from "../../apis/usersApi";
 
 function UserInfo() {
-  const token = localStorage.getItem("token");
   const [user, setUser] = useState(null);
 
   useEffect(async () => {

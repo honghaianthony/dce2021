@@ -11,7 +11,7 @@ const getLessonById = async (id) => {
 };
 const deleteLessonById = async (id) => {
   return await axiosInstance.delete(`lessons/delete-lessons?id=${id}`, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    // headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };
 
@@ -31,33 +31,33 @@ const getLessonByCourseId = async (id) => {
 };
 const createLesson = async (lesson) => {
   return await axiosInstance.post(`/lessons/create-new-lesson`, lesson, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    // headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };
 const createLessonTest = async (lesson) => {
   return await axiosInstance.post(`/lessons/create-new-lesson-test`, lesson, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    // headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };
 const getLessonNote = async (id) => {
   return await axiosInstance.get(`lessons/get-note-by-id?lessonId=${id}`, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    // headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };
 
 const updateNote = async (data) => {
   return await axiosInstance.put(`lessons/update-note`, data, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    // headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };
 const updateLessonById = async (lesson) => {
   return await axiosInstance.put(`lessons/update-lessons`, lesson, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    // headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };
 const updateLessonTestById = async (lesson) => {
   return await axiosInstance.put(`lessons/update-lessons-test`, lesson, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    // headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };
 // const getLessonTestByLessonId=async(id)=>{

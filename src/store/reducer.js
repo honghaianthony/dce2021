@@ -1,5 +1,6 @@
 import { LOGIN, LOGOUT, RELOAD } from "./constants";
 import jwt_decode from "jwt-decode";
+import Cookies from 'js-cookie';
 
 const initState = {
   isAuthenticated: false,
@@ -12,7 +13,8 @@ const initState = {
 function reducer(state, action) {
   switch (action.type) {
     case RELOAD:
-      const token = localStorage.getItem("token");
+      // const token = localStorage.getItem("token");
+      const token = Cookies.get('token');
       if (token) {
         const infoReload = jwt_decode(token);
         return {
@@ -26,7 +28,8 @@ function reducer(state, action) {
         return initState;
       }
     case LOGIN:
-      localStorage.setItem("token", action.payload);
+      // localStorage.setItem("token", action.payload);
+      Cookies.set('token', action.payload, { expires: 1 });
       const info = jwt_decode(action.payload);
       return {
         isAuthenticated: true,
@@ -36,7 +39,8 @@ function reducer(state, action) {
         fullname: info.fullname,
       };
     case LOGOUT:
-      localStorage.removeItem("token");
+      // localStorage.removeItem("token");
+      Cookies.remove('token');
       return initState;
     default:
       throw new Error("Invalid action");

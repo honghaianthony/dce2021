@@ -7,12 +7,12 @@ const getAllExerciseById = async (id) => {
 };
 const conformExercise = async (exercise) => {
   return await axiosInstance.post(`/exercises/confirm-do-exercise`, exercise, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    // headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };
 const createExercise = async (exercise) => {
   return await axiosInstance.post(`/exercises/create-new-exercise`, exercise, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    // headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };
 const getTestCaseById = async (id) => {
@@ -33,31 +33,31 @@ const createTestCase = async (testcase) => {
     `/exercises/create-new-exercise-test`,
     testcase,
     {
-      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      // headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     }
   );
 };
 const updateExercise = async (exercise) => {
   return await axiosInstance.put(`/exercises/update-exercises`, exercise, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    // headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };
 const updateTestCase = async (testcase) => {
   return await axiosInstance.put(`/exercises/update-exercises-test`, testcase, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    // headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };
 const deleteExerciseTest = async (id) => {
   return await axiosInstance.delete(
     `/exercises/delete-exercises-test?id=${id}`,
     {
-      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      // headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     }
   );
 };
 const deleteExercise = async (id) => {
   return await axiosInstance.delete(`/exercises/delete-exercises?id=${id}`, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    // headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };
 
