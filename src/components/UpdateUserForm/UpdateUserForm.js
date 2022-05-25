@@ -23,7 +23,7 @@ function UpdateUserForm() {
     setUser(res.user.user);
     setEmail(res.user.user.email);
     return {};
-  }, [token]);
+  }, []);
 
   const handleSubmit = async () => {
     if (ValidateEmail(user.email) === false) {

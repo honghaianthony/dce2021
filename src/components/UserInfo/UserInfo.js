@@ -11,7 +11,7 @@ function UserInfo() {
     const res = await usersApi.getMe();
     setUser(res.user.user);
     return {};
-  }, [token]);
+  }, []);
   return user !== null ? (
     <div className="col-md-8 user--profile-right-container">
       <div className="user--profile-right">

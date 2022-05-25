@@ -59,7 +59,6 @@ function Register() {
             <div className="Top_Register_title">
               <span>Tạo Tài Khoản</span>
             </div>
-            {/* <div className="Top_Register_title_line"></div> */}
             <div className="center_Register_input">
               <form className="form_register" onSubmit={handleRegister}>
                 <div className="form_group">
@@ -90,9 +89,6 @@ function Register() {
                     className="register_input"
                   />
                 </div>
-                {/* <div className="form_group">
-                  
-                </div> */}
                 <div className="form_group">
                   <label className="label-register_container" htmlFor="email">
                     Email
@@ -184,7 +180,6 @@ function Register() {
                     className="register_input"
                   />
                 </div>
-
                 <div className="submit__register">
                   <input
                     className="btn-submit-register"
