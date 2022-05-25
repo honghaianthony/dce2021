@@ -2,10 +2,16 @@ import MainLayout from '../layouts/MainLayout';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import React, {useState} from 'react';
 import {Form, Container, Button} from 'react-bootstrap'
-import { payment } from "../apis/momoApi"
+import momoApi from "../apis/momoApi"
 
 function SupportUs() {
   const [amount, setAmount] = useState(0);
+
+  const handleSend = async ()=> {
+    const res = await momoApi.payment(amount);
+    console.log(res);
+  }
+
   return (
     <>
       <Helmet>
@@ -19,7 +25,7 @@ function SupportUs() {
               <Form.Label>Số tiền bạn muốn ủng hộ</Form.Label>
               <Form.Control value={amount} onChange={(e)=> {setAmount(e.target.value)}}/>
             </Form.Group>
-            <Button variant='primary'>Gửi</Button>
+            <Button variant='primary' onClick={handleSend}>Gửi</Button>
           </Form>
         </Container>
       </MainLayout>

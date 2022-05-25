@@ -1,40 +1,36 @@
 import axiosInstance from './axiosInstance';
 
 import crypto from 'crypto'
-var secretKey = process.env.SECRET_KEY;
-var iv = new Buffer(16); // 16 byte buffer with random data
-iv.fill(0); // fill with zeros
 
-function encrypt_token(data) {
-  var encipher = crypto.createCipheriv('aes-256-cbc', secretKey, iv),
-    buffer = Buffer.concat([encipher.update(data), encipher.final()]);
-  return buffer.toString('base64');
-}
+const secret = process.env.SECRET_KEY;
 
-function decrypt_token(data) {
-  var decipher = crypto.createDecipheriv('aes-256-cbc', secretKey, iv),
-    buffer = Buffer.concat([
-      decipher.update(Buffer.from(data, 'base64')),
-      decipher.final(),
-    ]);
-  return buffer.toString();
-}
 
-const payment = async (amount, signature) => {
+const payment = async (amount) => {
+  const requestId = process.env.PARTNER_KEY + new Date().getTime();
+  const data = `partnerCode=${process.env.PARTNER_KEY}&accessKey=${process.env.ACCESS_KEY}&requestId=${requestId}&amount=${amount}&orderId=${requestId}&orderInfo=DCE&returnUrl=https://momo.vn&notifyUrl=https://momo.vn&extraData=`;
+  console.log(data)
+  const signature = crypto
+    .createHmac('sha256', `${secret}`)
+    .update(data)
+    .digest('hex');
+  console.log(signature);
   const body = {
+    accessKey: process.env.ACCESS_KEY,
     partnerCode: process.env.PARTNER_KEY,
-    requestType: 'captureWallet',
-    ipnUrl: 'https://momo.vn',
-    redirectUrl: 'https://momo.vn',
-    orderId: 'MM1540456472575',
+    requestType: 'captureMoMoWallet',
+    notifyUrl: 'https://momo.vn',
+    returnUrl: 'https://momo.vn',
+    orderId: requestId,
     amount: amount,
-    lang: 'vi',
-    orderInfo: 'SDK team.',
-    requestId: 'MM1540456472575',
-    extraData: "",//'eyJ1c2VybmFtZSI6ICJtb21vIn0=',
-    signature: signature
+    orderInfo: 'DCE',
+    requestId: requestId,
+    extraData: '',
+    signature: signature,
   };
-  return await axiosInstance.post(process.env.MOMO_API, body)
+  return await axiosInstance.post(
+    'https://test-payment.momo.vn/gw_payment/transactionProcessor',
+    body
+  );
 }
 
 export default {
