@@ -1,4 +1,5 @@
 import axiosInstance from "./axiosInstance";
+import Cookies from 'js-cookie';
 
 const postLogin = async (data) => {
   return await axiosInstance
@@ -20,8 +21,8 @@ const forgotPassword = async (data) => {
 };
 
 const updatePassword = async (data) => {
-  return await axiosInstance.post("/update-password", data, {
-    // headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+  return await axiosInstance.post('/update-password', data, {
+    headers: { Authorization: `Bearer ${Cookies.get('token')}` },
   });
 };
 

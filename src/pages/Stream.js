@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import io from 'socket.io-client';
 import Peer from 'simple-peer';
