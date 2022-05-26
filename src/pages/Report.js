@@ -44,7 +44,7 @@ function Report() {
     const newData = data.filter((item) => {
       return (
         item.role === 1 &&
-        new Date(item.createdAt).getFullYear() == year &&
+        new Date(item.createdAt).getFullYear() === year &&
         (new Date(item.createdAt).getMonth() + 1).toString() ===
           month.toString()
       );

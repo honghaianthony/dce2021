@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import {
   Home,
@@ -22,7 +22,6 @@ import {
   Register,
   AdminUpdateCourse,
   ForgotPassword,
-  TestCallApi,
   UploadTest,
   AddBlog,
   AdminAddBlog,
@@ -37,7 +36,6 @@ import AddTestCase from "../components/AdminExercises/AddExercise/AddExercise/Ad
 import UpdateBlogDetail from "../components/AdminBlog/UpdateBlog/UpdateBlogDetail";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Lessoncopy from "../pages/Lessoncopy";
 
 import { useStore, actions } from "../store";
 import Report from "../pages/Report";

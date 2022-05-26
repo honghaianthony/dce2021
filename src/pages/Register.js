@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "../assets/styles/Register.css";
-import { useStore, actions } from "../store";
+import { useStore } from "../store";
 import { Link, useHistory } from "react-router-dom";
 import authApi from "../apis/authApi";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import { Helmet } from "react-helmet-async";
 import hinhlaptrinh2 from "../assets/images/Hinhlaptrinh2.png";
 import { toast } from "react-toastify";
 function Register() {
-  const [state, dispatch] = useStore();
+  const [state] = useStore();
   const history = useHistory();
   const [confirmPass, setConfirmPass] = useState("");
   const [validPass, setValidPass] = useState(true);
