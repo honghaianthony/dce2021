@@ -31,7 +31,10 @@ function Footer() {
             <Link to='/'>Hướng dẫn</Link>
             <Link to='/'>Câu hỏi thường gặp</Link>
             <Link to='/'>Mục tiêu</Link>
-            <Link to='/'>Tài trợ</Link>
+            <Link to='/supportus'>
+              Ủng hộ chúng tôi
+              <img src="/images/logo-momo-png-1.png" alt="momo" className='momo'/>
+            </Link>
           </div>
           <div className='footer-link-items'>
             <h2>Liên Kết</h2>
@@ -41,8 +44,8 @@ function Footer() {
             <Link to='/'>Blog</Link>
           </div>
           <div className='footer-link-items'>
-            <h2>Nhóm 7</h2>
-            <Link to='/'>Nhập môn Công nghệ phần mềm</Link>
+            <h2>Nhóm 3</h2>
+            <Link to='/'>Kỹ thuật phát triển hệ thống web</Link>
             <Link to='/'>Trường Đại học Công Nghệ Thông Tin</Link>
             <img src='/images/UIT-logo-60px.png' alt='UIT-logo' />
           </div>

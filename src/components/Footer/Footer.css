@@ -90,6 +90,13 @@
   text-align: center;
 }
 
+.momo {
+  margin-top: 10px;
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
 /* Copyrights */
 .social-icon-link {
   color: #000;
