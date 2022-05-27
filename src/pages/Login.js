@@ -119,6 +119,7 @@ function Login() {
                   <p>đăng nhập bằng</p>
                 </div>
                 <GoogleLogin
+                  className="button-login"
                   clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                   buttonText="Log in with Google"
                   onSuccess={handleLoginGG}

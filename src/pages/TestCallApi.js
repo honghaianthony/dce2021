@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import test from "../apis/testApi";
 import compileApi from "../apis/compileApi";
 import { useStore } from "../store";
 
 function TestCallApi() {
-  const [state, dispatch] = useStore();
+  const [state] = useStore();
 
   const handleSubmit = async (event) => {
     event.preventDefault();

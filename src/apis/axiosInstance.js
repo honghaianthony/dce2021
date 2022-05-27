@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from 'js-cookie';
 
 const axiosInstance = axios.create({
   baseURL: 'https://dce-docker.herokuapp.com/api/v1',
@@ -7,8 +8,8 @@ const axiosInstance = axios.create({
 });
 
 axiosInstance.defaults.headers.common[
-    "Authorization"
-] = `Bearer ${localStorage.getItem("token")}`;
+  "Authorization"
+] = `Bearer ${Cookies.get('token')}`;
 
 // axiosInstance.interceptors.request.use(function (config) {
 //     return config;

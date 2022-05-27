@@ -10,10 +10,11 @@
   text-align: left;
   position: relative;
   padding: 0 30px;
-  font-size: 16px;
 }
 .lesson-name > p {
   display: inline-block;
+  margin: 10px 0;
+  font-size: 20px;
 }
 .fa-angle-left {
   margin-right: 50px;
@@ -46,7 +47,7 @@
 }
 .lesson-main .content-and-comment-lesson {
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
 }
 .lesson-main .discuss-lesson {
   background-color: #050295;
@@ -154,15 +155,20 @@
 }
 .intro-lesson {
   text-align: left;
-  padding-left: 15px;
-  position: relative;
+  padding: 10px 15px;
+  /* position: relative; */
+  display: flex;
+  justify-content: space-between;
+}
+.intro-lesson p {
+  margin: 0;
 }
 .refresh-btn-lesson,
 .intro-content-lesson {
   display: inline-block;
 }
 .refresh-btn-lesson {
-  position: absolute;
+  /* position: absolute; */
   right: 10px;
   top: 16px;
   padding: 3px 12px;
@@ -178,14 +184,13 @@
 .place-code-lesson {
   padding: 10px;
   margin: -10px 0;
-  width: 96%;
 }
 #code-of-exser-lesson {
   background-color: #232432;
   color: #fff;
   font-size: 20px;
   display: block;
-  height: 250px;
+  height: 400px;
   width: 100%;
   border: 2px #fff solid;
   border-radius: 10px;
@@ -282,6 +287,11 @@
   font-size: 16px;
   font-weight: 500;
 }
+.number-comments-lesson p {
+  margin: 10px 0;
+  font-style: italic;
+  color:#40c111;
+}
 .write-comment-lesson {
   padding: 20px;
   text-align: left;
@@ -297,10 +307,10 @@
   text-align: right;
 }
 .place-write-comment-lesson {
-  width: 90%;
+  /* width: 90%; */
 }
 #place-write-comment-lesson {
-  width: 90%;
+  width: 100%;
   height: 70px;
   border-radius: 5px;
   background-color: #f1eeee;
@@ -314,7 +324,7 @@
   font-size: 16px;
   padding: 8px 20px;
   margin-top: 5px;
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 .post-comment-btn-lesson:hover {
   transform: scale(1.08);
@@ -364,9 +374,10 @@
 .Noted__container {
   width: 100%;
   /* height: 80vh; */
-  border: 1px solid;
+  /* border: 1px solid; */
   position: relative;
   text-align: center;
+  padding: 10px 15px;
 }
 .Noted__container_Top {
   width: 100%;
@@ -430,6 +441,7 @@
   justify-content: center;
   font-size: 30px;
   font-weight: 600;
+  font-family: 'Font Awesome 5 Brands';
 }
 .Noted_container_content {
   width: 100%;
@@ -484,6 +496,7 @@
 .lesson-comment-show-more {
   position: fixed;
   bottom: 0;
+  left: 250px;
   text-align: center;
   font-size: 16px;
   padding: 8px 20px;
@@ -491,6 +504,9 @@
   cursor: pointer;
   transition: all 0.5s;
   border: none;
+  background: #77cc22;
+  color: white;
+  font-weight: 500;
 }
 
 .lesson-comment-show-more:hover {

@@ -104,3 +104,11 @@
 .member-role-container .member-role {
   border-radius: 4px;
 }
+
+.iUIpSS:hover{
+  color: #000;
+  background: #050295;
+}
+.view-btn button{
+  border: 1px solid #000;
+}

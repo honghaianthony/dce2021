@@ -57,12 +57,14 @@
 .profile-user {
   /* margin-right: -15px;
   margin-left: -15px; */
-  margin-left: 150px;
+  /* margin-left: 150px; */
   /* display: flex;
   flex-wrap: wrap;  */
-  /* justify-content: space-between;  */
-  margin-top: 25px;
-  text-align: center;
+  /* margin-top: 25px;
+  text-align: center; */
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 145px;
 }
 
 .col-xs-12,
@@ -88,32 +90,30 @@
 }
 
 .main-user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: #575fa8e3;
-  padding: 15px 20px 20px 15px;
   border-radius: 5px;
-  width: 300px;
+  width: 400px;
+  padding: 20px 10px;
   height: fit-content;
-  margin-bottom: 30px;
 }
 
-.user-ava .future-img {
-  width: 100px;
-  height: 100px;
-  position: relative;
-  border-radius: 50%;
-  display: block;
-  align-items: center;
-  margin-left: 100px;
+.user-ava {
+
+  
 }
 
 .future-img {
-  margin-top: 30px;
-  vertical-align: middle;
-  border: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
 }
 
 .content-info {
-  margin-left: 0px;
+  margin-top: 10px;
 }
 
 .user-name {
@@ -131,27 +131,27 @@
 }
 
 .detail-user {
-  padding-left: 500px;
-  padding-top: 70px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+.detail-user .detail-progress-item:first-child {
+  margin-right: 100px;
 }
 
 /* .detail-user>.row, .detail-user {
   background-color: #1E266D;
 } */
 
-.row {
-  display: flex;
-  /* flex-wrap: wrap; */
-  justify-content: space-between;
-}
-
-.detail-progress-item {
+/* .detail-progress-item {
   margin-bottom: 20px;
   margin-right: 100px;
-}
+} */
 
 .detail-progress-item h4 {
   font-size: 24px;
+  margin-bottom: 20px;
 }
 
 .detail-progress-item .detail-progress-content {
@@ -437,7 +437,10 @@
 /* .wrap-home-content .btn .btn-round { */
 .course-info .btn-round {
   background-color: #25308e;
+  color: #fff;
+  font-weight:500;
   border-radius: 10px;
+
 }
 
 .btn {

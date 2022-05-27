@@ -23,9 +23,7 @@ function AddLesson() {
   //     const res = await LessonApi.getLessonByCourseId(courseId);
   //     setData(res.slice(-1)[0].id)
   // }, [courseId])
-  //   console.log(data);
   let history = useHistory();
-  // console.log(courseId)
   // const handleTestcase = async (event) => {
   //     event.preventDefault();
   //     const testCase = {
@@ -51,7 +49,7 @@ function AddLesson() {
     };
     console.log(Lesson, courseId);
     const res = await LessonApi.createLesson(Lesson);
-    console.log(res)
+    console.log(res);
     // console.log(res.data._id);
     // setData(res.lesson.id);
     const testCase = {

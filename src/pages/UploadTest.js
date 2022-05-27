@@ -46,7 +46,7 @@ function UploadTest() {
       <br />
       <a href={url}>{url}</a>
       <br />
-      <img src={url || "http://via.placeholder.com/300"} alt="firebase-image" />
+      <img src={url || "http://via.placeholder.com/300"} alt="firebase" />
     </div>
   );
 }
