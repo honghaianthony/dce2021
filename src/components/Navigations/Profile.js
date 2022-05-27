@@ -15,7 +15,7 @@ function Profile() {
 
   const startCall = () => {
     const uid = shortid.generate();
-    history.push(`/stream/${uid}#init`);
+    history.push(`/stream`);
   };
   return (
     <div className="menu-starter">
