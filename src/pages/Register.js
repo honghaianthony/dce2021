@@ -6,41 +6,144 @@ import authApi from "../apis/authApi";
 import { Helmet } from "react-helmet-async";
 import hinhlaptrinh2 from "../assets/images/Hinhlaptrinh2.png";
 import { toast } from "react-toastify";
+import { Col, Row, Form, Button } from "react-bootstrap";
 function Register() {
   const [state] = useStore();
   const history = useHistory();
-  const [confirmPass, setConfirmPass] = useState("");
-  const [validPass, setValidPass] = useState(true);
 
-  useEffect(() => {
-    const pass = document.getElementById("password").value;
-    if (confirmPass !== pass) {
-      setValidPass(false);
+  const [hidePW, setHidePW] = useState(true);
+  const [error, setError] = useState({
+    account: "",
+    email: "",
+    pw: "",
+    cfPw: "",
+    firstName: "",
+    lastName: "",
+    phone: "",
+    dob: "",
+  });
+  const [input, setInput] = useState({
+    account: "",
+    email: "",
+    pw: "",
+    cfPw: "",
+    firstName: "",
+    lastName: "",
+    phone: "",
+    dob: "",
+  });
+
+  const handleBack = () => {
+    history.goBack();
+  };
+  const handleChangeAccount = (e) => {
+    if (!e.target.validity.valid) {
+      e.target.className = "form-control invalid";
+      if (e.currentTarget.value === "") {
+        setError({ ...error, account: "Tài khoản không được để trống" });
+      } else {
+        setError({
+          ...error,
+          account: "Tài khoản không hợp lệ hoặc đã tồn tại",
+        });
+      }
     } else {
-      setValidPass(true);
+      e.target.className = "form-control valid";
+      setError({
+        ...error,
+        account: "",
+      });
     }
-  }, [confirmPass]);
-
+    setInput({ ...input, account: e.target.value });
+  };
+  const handleChangeEmail = (e) => {
+    if (!e.target.validity.valid) {
+      e.target.className = "form-control invalid";
+      if (e.currentTarget.value === "") {
+        setError({ ...error, email: "Email không được để trống" });
+      } else {
+        setError({
+          ...error,
+          email: "Email không hợp lệ hoặc đã tồn tại",
+        });
+      }
+    } else {
+      e.target.className = "form-control valid";
+      setError({
+        ...error,
+        email: "",
+      });
+    }
+    setInput({ ...input, email: e.target.value });
+  };
+  const handleChangePassword = (e) => {
+    const temp = { ...error };
+    if (!e.target.validity.valid) {
+      e.target.className = "form-control invalid";
+      if (e.target.value === "") {
+        temp.pw = "Mật khẩu không được để trống";
+      } else {
+        temp.pw = "Mật khẩu quá yếu hãy thử lại mật khẩu khác";
+      }
+    } else {
+      e.target.className = "form-control valid";
+      temp.pw = "";
+    }
+    if (input.cfPw !== "") {
+      if (e.target.value !== input.cfPw) {
+        document.getElementById("cfPw").className = "form-control invalid";
+        temp.cfPw = "Mật khẩu xác nhận không trùng khớp";
+      } else {
+        document.getElementById("cfPw").className = "form-control valid";
+        temp.cfPw = "";
+      }
+    } else {
+      document.getElementById("cfPw").className = "form-control";
+      temp.cfPw = "";
+    }
+    setError({ ...temp });
+    setInput({ ...input, pw: e.target.value });
+  };
+  const handleChangeCFPassword = (e) => {
+    const temp = { ...error };
+    if (e.target.value !== "") {
+      if (e.target.value !== input.pw) {
+        e.target.className = "form-control invalid";
+        temp.cfPw = "Mật khẩu xác nhận không trùng khớp";
+      } else {
+        e.target.className = "form-control valid";
+        temp.cfPw = "";
+      }
+    } else {
+      e.target.className = "form-control";
+      temp.cfPw = "";
+    }
+    setError({ ...temp });
+    setInput({ ...input, cfPw: e.target.value });
+  };
   const handleRegister = async (e) => {
     e.preventDefault();
-    const body = {
-      userName: e.target.username.value,
-      password: e.target.password.value,
-      firstName: e.target.firstname.value,
-      lastName: e.target.lastname.value,
-      email: e.target.email.value,
-      phone: e.target.phone.value,
-      dateOfBirth: e.target.dateOfBirth.value,
-    };
-    console.log(body);
-    if (validPass) {
+    if (
+      error.account == "" &&
+      error.pw == "" &&
+      error.cfPw == "" &&
+      error.email == ""
+    ) {
+      const body = {
+        userName: input.account,
+        password: input.pw,
+        firstName: input.firstName,
+        lastName: input.lastName,
+        email: input.email,
+        phone: input.phone,
+        dateOfBirth: input.dob,
+      };
       const res = await authApi.register(body);
-      // dispatch(actions.login(res.token));
       toast.success("Đăng ký thành công !", {
         position: toast.POSITION.TOP_RIGHT,
       });
       setTimeout(() => {
-        history.push(`/login`)
+        history.push(`/login`);
       }, 2000);
     }
   };
@@ -53,153 +156,106 @@ function Register() {
       {state.isAuthenticated ? (
         history.push("/")
       ) : (
-        <div className="Register__container">
+        <div className="register_form_container">
           <div className="cover-screen"></div>
-          <div className="img-content-left_register">
-            <Link to="/" className="btn_back_login">
-              <button>Trở về trang chủ</button>
-            </Link>
-            <img src={hinhlaptrinh2} alt="Hình minh họa" />
-          </div>
-          <div className="Register_content">
-            <div className="Top_Register_title">
-              <span>Tạo Tài Khoản</span>
-            </div>
-            <div className="center_Register_input">
-              <form className="form_register" onSubmit={handleRegister}>
-                <div className="form_group">
-                  <label
-                    className="label-register_container"
-                    htmlFor="firstname"
-                  >
-                    Họ
-                  </label>
-                  <input
-                    type="text"
-                    name="lastname"
-                    id="lastname"
-                    placeholder="Họ..."
-                    className="register_input"
-                  />
-                  <label
-                    className="label-register_container"
-                    htmlFor="lastname"
-                  >
-                    Tên
-                  </label>
-                  <input
-                    type="text"
-                    name="firstname"
-                    id="firstname"
-                    placeholder="Tên..."
-                    className="register_input"
-                  />
-                </div>
-                <div className="form_group">
-                  <label className="label-register_container" htmlFor="email">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="example@gmail.com..."
-                    className="register_input"
-                  />
-                </div>
-                <div className="form_group">
-                  <label className="label-register_container" htmlFor="phone">
-                    Số điện thoại
-                  </label>
-                  <input
-                    type="text"
-                    name="phone"
-                    id="phone"
-                    placeholder="Số điện thoại..."
-                    className="register_input"
-                  />
-                </div>
-                <div className="form_group">
-                  <label
-                    className="label-register_container"
-                    htmlFor="Username"
-                  >
-                    Tên người dùng
-                  </label>
-                  <input
-                    type="text"
-                    name="username"
-                    id="username"
-                    placeholder="Tên người dùng..."
-                    className="register_input"
-                    required
-                  />
-                </div>
-                <div className="form_group">
-                  <label
-                    className="label-register_container"
-                    htmlFor="password"
-                  >
-                    Mật khẩu
-                  </label>
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="Mật khẩu..."
-                    className="register_input"
-                    required
-                  />
-                </div>
-                <div className="form_group">
-                  <label
-                    className="label-register_container"
-                    htmlFor="confirmpassword"
-                  >
-                    Nhập lại mật khẩu
-                    {!validPass && <span>*Không khớp với mật khẩu</span>}
-                  </label>
-                  <input
-                    type="password"
-                    name="confirmpassword"
-                    id="confirmpassword"
-                    placeholder="Nhập lại Mật khẩu..."
-                    className="register_input"
-                    value={confirmPass}
-                    onChange={(e) => {
-                      setConfirmPass(e.target.value);
-                    }}
-                    required
-                  />
-                </div>
-                <div className="form_group">
-                  <label
-                    className="label-register_container"
-                    htmlFor="dateOfBirth"
-                  >
-                    Ngày sinh
-                  </label>
-                  <input
-                    type="date"
-                    name="dateOfBirth"
-                    id="dateOfBirth"
-                    className="register_input"
-                  />
-                </div>
-                <div className="submit__register">
-                  <input
-                    className="btn-submit-register"
-                    type="submit"
-                    value="Đăng ký"
-                  />
-                </div>
-              </form>
-            </div>
-          </div>
+          <Form className="register_form">
+            <h2>Đăng ký</h2>
+            <h4 className="mb-3">Tài khoản</h4>
+            <Form.Group className="mb-3">
+              <Form.Control
+                type="text"
+                placeholder="Tài khoản"
+                required
+                id="account"
+                value={input.account}
+                onChange={(e) => handleChangeAccount(e)}
+              />
+              <span>{error.account}</span>
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Control
+                type="email"
+                placeholder="Email"
+                required
+                id="email"
+                value={input.email}
+                onChange={(e) => handleChangeEmail(e)}
+              />
+              <span>{error.email}</span>
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Control
+                type={`${hidePW ? "password" : "text"}`}
+                placeholder="Mật khẩu"
+                required
+                pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+                id="pw"
+                value={input.pw}
+                onChange={(e) => handleChangePassword(e)}
+              />
+              <span>{error.pw}</span>
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Control
+                type={`${hidePW ? "password" : "text"}`}
+                placeholder="Xác nhận mật khẩu"
+                required
+                id="cfPw"
+                value={input.cfPw}
+                onChange={(e) => handleChangeCFPassword(e)}
+              />
+              <span>{error.cfPw}</span>
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Check
+                type="checkbox"
+                label="Hiện mật khẩu"
+                onChange={() => setHidePW(!hidePW)}
+              />
+            </Form.Group>
+            <h4 className="mb-3">Thông tin người dùng</h4>
+            <Row className="mb-3">
+              <Form.Group as={Col}>
+                <Form.Control type="text" placeholder="Họ" />
+              </Form.Group>
+
+              <Form.Group as={Col}>
+                <Form.Control type="text" placeholder="Tên" />
+              </Form.Group>
+            </Row>
+
+            <Form.Group className="mb-3">
+              <Form.Control type="tel" placeholder="Số điện thoại" />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Control
+                type="text"
+                placeholder="Ngày sinh"
+                onFocus={(e) => (e.currentTarget.type = "date")}
+                onBlur={(e) => {
+                  e.currentTarget.type = "text";
+                  e.currentTarget.placeholder = "Ngày sinh";
+                }}
+              />
+            </Form.Group>
+
+            <Button
+              variant="primary"
+              type="submit"
+              className="mb-3"
+              onClick={handleRegister}
+            >
+              Đăng ký
+            </Button>
+            <Button variant="success" onClick={handleBack}>
+              Đã có tài khoản, quay lại đăng nhập
+            </Button>
+          </Form>
         </div>
       )}
     </>
   );
 }
-
 export default Register;
