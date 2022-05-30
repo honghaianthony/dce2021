@@ -129,6 +129,14 @@ function Register() {
       error.cfPw == "" &&
       error.email == ""
     ) {
+      if (input.account === "" || input.pw === "" || input.cfPw == "") {
+        toast.error(
+          "Vui lòng nhập một số thông tin cơ bản cho tài khoản của bạn!",
+          {
+            position: toast.POSITION.TOP_RIGHT,
+          }
+        );
+      }
       const body = {
         userName: input.account,
         password: input.pw,
