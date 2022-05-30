@@ -225,16 +225,32 @@ function Register() {
             <h4 className="mb-3">Thông tin người dùng</h4>
             <Row className="mb-3">
               <Form.Group as={Col}>
-                <Form.Control type="text" placeholder="Họ" />
+                <Form.Control
+                  type="text"
+                  placeholder="Họ"
+                  onChange={(e) =>
+                    setInput({ ...input, lastName: e.target.value })
+                  }
+                />
               </Form.Group>
 
               <Form.Group as={Col}>
-                <Form.Control type="text" placeholder="Tên" />
+                <Form.Control
+                  type="text"
+                  placeholder="Tên"
+                  onChange={(e) =>
+                    setInput({ ...input, firstName: e.target.value })
+                  }
+                />
               </Form.Group>
             </Row>
 
             <Form.Group className="mb-3">
-              <Form.Control type="tel" placeholder="Số điện thoại" />
+              <Form.Control
+                type="tel"
+                placeholder="Số điện thoại"
+                onChange={(e) => setInput({ ...input, phone: e.target.value })}
+              />
             </Form.Group>
 
             <Form.Group className="mb-3">
@@ -246,6 +262,7 @@ function Register() {
                   e.currentTarget.type = "text";
                   e.currentTarget.placeholder = "Ngày sinh";
                 }}
+                onChange={(e) => setInput({ ...input, dob: e.target.value })}
               />
             </Form.Group>
 

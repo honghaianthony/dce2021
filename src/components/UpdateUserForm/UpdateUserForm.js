@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Form, Button, FloatingLabel } from "react-bootstrap";
 import { toast } from "react-toastify";
 import usersApi from "../../apis/usersApi";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 
 function ValidateEmail(inputText) {
   if (inputText === "") return true;
@@ -54,7 +54,7 @@ function UpdateUserForm() {
         position: toast.POSITION.TOP_RIGHT,
       });
       // localStorage.setItem("token", res.token);
-      Cookies.set('token', res.token, { expires: 1 });
+      Cookies.set("token", res.token, { expires: 1 });
     }
   };
   return user !== null ? (
