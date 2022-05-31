@@ -39,7 +39,7 @@ function Footer() {
           <div className='footer-link-items'>
             <h2>Liên Kết</h2>
             <Link to='/'>Trang chủ</Link>
-            <Link to='/'>Khoá học</Link>
+            <Link to='/courses'>Khoá học</Link>
             <Link to='/'>Luyện tập</Link>
             <Link to='/'>Blog</Link>
           </div>

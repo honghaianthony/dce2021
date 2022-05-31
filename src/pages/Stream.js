@@ -2,10 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useParams, useHistory } from 'react-router-dom'
 import { io } from 'socket.io-client'
-import { Container, Button, Col, Row } from 'react-bootstrap'
+import { Container, Button, Col, Row, Toast } from 'react-bootstrap'
 import Peer from 'simple-peer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faMicrophone, faCopy } from '@fortawesome/free-solid-svg-icons';
+import './Stream.css'
 
 const videoConstraints = {
   height: window.innerHeight / 2,
@@ -27,6 +28,7 @@ const Video = (props) => {
 function Stream() {
   const { id } = useParams();
   const [peers, setPeers] = useState([]);
+  const [toats, setToasts] = useState(false);
   const socketRef = useRef();
   const userVideo = useRef();
   const peersRef = useRef([]);
@@ -114,35 +116,52 @@ function Stream() {
         <title>Calling</title>
       </Helmet>
       <Container>
-        <video
-          playsInline
-          autoPlay
-          muted
-          ref={userVideo}
-          className="position-absolute bottom-0 end-0 mb-16 w-25"
-        />
-        {peers.map((peer, index) => {
-          return <Video key={index} peer={peer} className="" />;
-        })}
+        <Toast
+          onClose={() => setToasts(false)}
+          show={toats}
+          delay={3000}
+          autohide
+          className='toasts-copy'
+        >
+          <Toast.Header>
+            <strong className="me-auto">Thông báo</strong>
+          </Toast.Header>
+          <Toast.Body>
+            Đã copy
+          </Toast.Body>
+        </Toast>
+        <div className="">
+          <video
+            playsInline
+            autoPlay
+            muted
+            ref={userVideo}
+            className="user-video"
+          />
+          {peers.map((peer, index) => {
+            return <Video key={index} peer={peer} className="" />;
+          })}
+        </div>
         <div className="position-absolute bottom-0 end-0 bg-secondary bg-gradient w-100 h-auto text-center">
           <FontAwesomeIcon
             className="text-danger text-center p-2 m-2 bg-light rounded-circle"
             icon={faCopy}
-            onClick={() =>
+            onClick={() => {
               navigator.clipboard.writeText(
                 'http://localhost:3001/stream/' + id
-              )
-            }
+              );
+              setToasts(true)
+            }}
           />
           <FontAwesomeIcon
             icon={faPhone}
             className="text-danger text-center p-2 m-2 bg-light rounded-circle"
             onClick={handleEndCall}
           />
-          <FontAwesomeIcon
+          {/* <FontAwesomeIcon
             icon={faMicrophone}
             className="text-danger text-center p-2 m-2 bg-light rounded-circle"
-          />
+          /> */}
         </div>
       </Container>
     </>

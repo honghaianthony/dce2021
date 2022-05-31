@@ -1,6 +1,6 @@
 import MainLayout from '../layouts/MainLayout';
 import { Helmet } from 'react-helmet-async';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Form, Container, Button} from 'react-bootstrap'
 import momoApi from "../apis/momoApi";
 import './SupportUs.css';
@@ -16,6 +16,9 @@ function SupportUs() {
     window.open(res.payUrl, '_self');
   }
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Helmet>
