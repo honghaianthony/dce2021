@@ -35,11 +35,11 @@ function Stream() {
 
   useEffect(() => {
     socketRef.current = io('https://dce-docker.herokuapp.com');
+    socketRef.current.emit('join room', id);
     navigator.mediaDevices
       .getUserMedia({ video: videoConstraints, audio: true })
       .then((stream) => {
         userVideo.current.srcObject = stream;
-        socketRef.current.emit('join room', id);
         socketRef.current.on('all users', (users) => {
           const peers = [];
           users.forEach((userID) => {
