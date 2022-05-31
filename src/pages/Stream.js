@@ -34,7 +34,7 @@ function Stream() {
   const peersRef = useRef([]);
 
   useEffect(() => {
-    socketRef.current = io('http://localhost:3000');
+    socketRef.current = io('https://dce-docker.herokuapp.com');
     navigator.mediaDevices
       .getUserMedia({ video: videoConstraints, audio: true })
       .then((stream) => {
@@ -148,7 +148,7 @@ function Stream() {
             icon={faCopy}
             onClick={() => {
               navigator.clipboard.writeText(
-                'http://localhost:3001/stream/' + id
+                'https://dce2021/stream/' + id
               );
               setToasts(true)
             }}
