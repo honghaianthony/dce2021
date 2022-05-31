@@ -148,7 +148,7 @@ function Stream() {
             icon={faCopy}
             onClick={() => {
               navigator.clipboard.writeText(
-                'https://dce2021/stream/' + id
+                'https://dce2021.ml/stream/' + id
               );
               setToasts(true)
             }}
