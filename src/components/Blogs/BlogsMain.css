@@ -212,7 +212,8 @@ input:focus {
 /* blog feature */
 
 .blog-feature {
-  padding: 20px;
+  /* padding: 20px; */
+  width:100%;
 }
 
 .blog-feature-item  {
