@@ -15,7 +15,7 @@ function Profile() {
 
   const startCall = () => {
     const uid = shortid.generate();
-    history.push(`/stream`);
+    history.push(`/stream/${uid}`);
   };
   return (
     <div className="menu-starter">
@@ -30,7 +30,9 @@ function Profile() {
           <Link to="/adminAddExercise">
             <p>Tạo bài luyện tập</p>
           </Link>
-          {state.role === 2 && <button onClick={startCall}>Stream</button>}
+          <span onClick={startCall}>
+            <p> Tạo Meet</p>
+          </span>
           <span onClick={handleLogout}>
             <p> Thoát </p>
           </span>

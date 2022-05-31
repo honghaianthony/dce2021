@@ -40,6 +40,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useStore, actions } from "../store";
 import Report from "../pages/Report";
 import SupportUs from "../pages/SupportUs";
+import Stream from "../pages/Stream";
 
 export default function App() {
   const [state, dispatch] = useStore();
@@ -157,6 +158,9 @@ export default function App() {
         </Route>
         <Route path="/supportus">
           <SupportUs/>
+        </Route>
+        <Route path="/stream/:id">
+          <Stream/>
         </Route>
 
         <Route path="/">
