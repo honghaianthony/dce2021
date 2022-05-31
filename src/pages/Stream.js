@@ -35,12 +35,12 @@ function Stream() {
 
   useEffect(() => {
     socketRef.current = io('http://localhost:3000');
-    socketRef.current.emit('join room', id);
+    socketRef.current.emit('join--room', id);
     navigator.mediaDevices
       .getUserMedia({ video: videoConstraints, audio: true })
       .then((stream) => {
         userVideo.current.srcObject = stream;
-        socketRef.current.on('all users', (users) => {
+        socketRef.current.on('all-users', (users) => {
           const peers = [];
           users.forEach((userID) => {
             const peer = createPeer(userID, socketRef.current.id, stream);
@@ -53,7 +53,7 @@ function Stream() {
           setPeers(peers);
         });
 
-        socketRef.current.on('user joined', (payload) => {
+        socketRef.current.on('user-joined', (payload) => {
           const peer = addPeer(payload.signal, payload.callerID, stream);
           peersRef.current.push({
             peerID: payload.callerID,
@@ -63,7 +63,7 @@ function Stream() {
           setPeers((users) => [...users, peer]);
         });
 
-        socketRef.current.on('receiving returned signal', (payload) => {
+        socketRef.current.on('receiving-returned-signal', (payload) => {
           const item = peersRef.current.find((p) => p.peerID === payload.id);
           item.peer.signal(payload.signal);
         });
@@ -78,7 +78,7 @@ function Stream() {
     });
 
     peer.on('signal', (signal) => {
-      socketRef.current.emit('sending signal', {
+      socketRef.current.emit('sending-signal', {
         userToSignal,
         callerID,
         signal,
@@ -96,7 +96,7 @@ function Stream() {
     });
 
     peer.on('signal', (signal) => {
-      socketRef.current.emit('returning signal', { signal, callerID });
+      socketRef.current.emit('returning-signal', { signal, callerID });
     });
 
     peer.signal(incomingSignal);
