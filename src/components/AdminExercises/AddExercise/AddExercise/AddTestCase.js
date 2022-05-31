@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import TestCase from "./TestCase.js";
 import ExerciseApi from "../../../../apis/ExerciseApi";
 import Sidebar from "../../../SideBar/index";
-import MainLayout from "../../../../layouts/MainLayout";
+// import MainLayout from "../../../../layouts/MainLayout";
+import AdminLayout from "../../../../layouts/AdminLayout";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import { FaAngleRight } from "react-icons/fa";
@@ -47,7 +48,7 @@ function AddTestCase() {
     arrTestCase.push(i + 1);
   }
   return (
-    <MainLayout>
+    <AdminLayout>
       <div className="AddExercise-container">
         <div className="AddExercise-main">
           <div className="AddExercise-left">
@@ -120,7 +121,7 @@ function AddTestCase() {
           </div>
         </div>
       </div>
-    </MainLayout>
+    </AdminLayout>
   );
 }
 export default AddTestCase;

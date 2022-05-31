@@ -13,15 +13,15 @@ import { Link } from "react-router-dom";
 import { FaAngleRight } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 function AdminAddCourseDetail() {
-  const [dataCourse, setDataCourse] = useState([]);
+  const [dataLesson, setDataLesson] = useState([]);
   const { courseId } = useParams();
 
   useEffect(async () => {
     const res = await LessonApi.getAllLesson(courseId);
-    setDataCourse(res.data);
+    setDataLesson(res.data);
   }, [courseId]);
-
-  console.log(dataCourse);
+  
+  console.log(dataLesson);
 
   return (
     <>
@@ -30,7 +30,7 @@ function AdminAddCourseDetail() {
         <title>Thêm khóa học mới</title>
       </Helmet>
       <AdminLayout>
-        {dataCourse === null ? (
+        {dataLesson === null ? (
           <h1>Loading</h1>
         ) : (
           <div className="AdminAddCourseDetail___Container">
@@ -59,12 +59,13 @@ function AdminAddCourseDetail() {
                       Chỉnh sửa nội dung khóa học
                     </Link> */}
                   </div>
-                  {dataCourse.map((item, index) => (
+                  {dataLesson.map((item, index) => (
                     <div className="listAddCourse__Container" key={index}>
                       <AddCourseItem2
                         id={item._id}
                         name={item.lessonName}
                         // item={dataCourse}
+                        courseId={courseId}
                       />
                     </div>
                   ))}
