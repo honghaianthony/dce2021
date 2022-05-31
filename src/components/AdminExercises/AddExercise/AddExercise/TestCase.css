@@ -14,8 +14,9 @@
 }
 #in-testExercise,
 #out-testExercise {
-  width: 40%;
-  height: 30px;
+  width: 50%;
+  height: 40px;
+
 }
 .delete-icon i {
   margin-right: 10px;

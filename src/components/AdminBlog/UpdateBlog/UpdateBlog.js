@@ -46,7 +46,7 @@ function BlogListTable() {
 
   const handleDelete = async (blog) => {
     try {
-      let response = await blogApi.deleteBlog(blog.id);
+      let response = await blogApi.deleteBlog(blog._id);
       if (response && response.errCode === 0) {
         const succ = await blogApi.getAllBlogs();
         setListBlogs(succ);

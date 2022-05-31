@@ -104,7 +104,7 @@ function NewBlog() {
                 onChange={handleOnChangeInput}
               />
             </div>
-            <div className="add-blog-description">
+            {/* <div className="add-blog-description">
               <input
                 type="text"
                 name="description"
@@ -112,7 +112,7 @@ function NewBlog() {
                 placeholder="Nhập mô tả cho bài viết"
                 onChange={handleOnChangeInput}
               />
-            </div>
+            </div> */}
             <div className="add-blog-cover-image">
               {progress < 100 && (
                 <input
