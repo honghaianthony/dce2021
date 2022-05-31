@@ -79,9 +79,10 @@ function UpdateBlogDetail() {
         const res = await blogApi.getBlogById(blogId);
         setBlogName(res.title);
     }, [blogId]);
-
+    console.log(blogId)
     useEffect(async () => {
         const res = await blogApi.getBlogById(blogId);
+        console.log(res)
         setBlogDescription(res.description);
     }, [blogId]);
 
@@ -93,14 +94,14 @@ function UpdateBlogDetail() {
     const handleSaveBlog = async (e) => {
         e.preventDefault();
         const newBlog = {
-            id: blogId,
+            blogId: blogId,
             title: blogName,
-            description: blogDescription,
+            // description: blogDescription,
             content: blogContent,
         };
         const res = await blogApi.updateBlogById(newBlog);
 
-        if (res) {
+        if (res.errCode===0) {
             toast.success("Cập nhật thành công");
         } else {
             toast.error("Cập nhật thất bại");
@@ -128,7 +129,7 @@ function UpdateBlogDetail() {
                                     }
                                 />
                             </div>
-                            <div className="add-blog-description">
+                            {/* <div className="add-blog-description">
                                 <input
                                     type="text"
                                     name="description"
@@ -139,7 +140,7 @@ function UpdateBlogDetail() {
                                         setBlogDescription(event.target.value)
                                     }
                                 />
-                            </div>
+                            </div> */}
                             <div className="add-blog-cover-image">
                                 {progress < 100 && (
                                     <input

@@ -98,6 +98,8 @@
 }
 .in-out-Exercise {
   display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
 #testExercise {
   height: 100px;
@@ -148,3 +150,4 @@ button:hover {
   background-color: #c82333;
   border-color: #bd2130;
 }
+
