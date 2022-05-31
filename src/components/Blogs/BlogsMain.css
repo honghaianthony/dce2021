@@ -278,6 +278,7 @@ input:focus {
   margin: 0 auto;
   font-size: 16px;
   line-height: 22px;
+  width:100%;
 }
   
 .blog-trend-items {

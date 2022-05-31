@@ -5,7 +5,6 @@ import { useParams, useHistory } from "react-router-dom";
 import LessonApi from "../../../../apis/LessonApi";
 import "./AddCourseItem2.css";
 import { toast } from "react-toastify";
-
 function AddCourseItem2(data) {
   const history = useHistory();
   //   const { lessonId } = useParams();
@@ -18,11 +17,12 @@ function AddCourseItem2(data) {
     if (res) {
       toast.success("Xóa thành công");
       // window.location.reload(false);
-      history.push(`/adminaddcoursedetail/${data.id}`);
     } else {
       toast.error("Xóa thất bại");
     }
+    window.location.reload(false);
   };
+
   // useEffect(async () => {
   //     const res = await LessonApi.getLessonById(data.id);
   //     setDataCourse(res);

@@ -1,0 +1,14 @@
+.user-video {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 25%;
+  margin-bottom: 51px;
+}
+
+.toasts-copy {
+  z-index: 10;
+  position: absolute;
+  right: 50%;
+  bottom: 51px;
+}
