@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
+import { CKEditor } from 'ckeditor4-react';
 
 function UpdateLesson() {
   const [addShow, setAddShow] = useState("show");
@@ -24,7 +25,7 @@ function UpdateLesson() {
     // console.log(res.data)
   }, [lessonId]);
   const [lessonName, setLessonName] = useState("");
-  const [lessonContent, setLessonContent] = useState("");
+  const [lessonContent, setLessonContent] = useState('');
   const [lessonDescription, setLessonDescription] = useState("");
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
@@ -78,19 +79,19 @@ function UpdateLesson() {
       lessonName: lessonName,
       description: lessonDescription,
     };
-    console.log(newLesson)
+    // console.log(newLesson)
     const res4 = await LessonApi.updateLessonById(newLesson);
-    console.log(res4)
+    // console.log(res4)
     const newLessonTest = {
       lessonTestId: idTest,
       lessonId: lessonId,
       input: input,
       output: output,
     };
-    console.log(newLessonTest)
+    // console.log(newLessonTest)
     const res5 = await LessonApi.updateLessonTestById(newLessonTest);
-    console.log(res5)
-    console.log(newLessonTest);
+    // console.log(res5)
+    // console.log(newLessonTest);
     if (res4.msg==="success" && res5.msg==="success") {
       toast.success("Cập nhật thành công");
       // history.goBack();
@@ -100,6 +101,9 @@ function UpdateLesson() {
       toast.error("Cập nhật thất bại");
     }
   };
+  function handleEditorChange({ editor }) {
+    setLessonContent(editor.getData());
+  }
   return (
     <Adminlayout>
       {data === null ? (
@@ -119,7 +123,7 @@ function UpdateLesson() {
                   <form onSubmit={handleChangeDataLesson}>
                     <div className="row-updateLesson">
                       <label className="uplesson-label" for="nameLesson">
-                        Tên bài học{" "}
+                        Tên bài học{' '}
                       </label>
                       <input
                         type="text"
@@ -147,7 +151,7 @@ function UpdateLesson() {
                       <label className="uplesson-label" for="contentLesson">
                         Nội dung
                       </label>
-                      <textarea
+                      {/* <textarea
                         type="text"
                         name="content"
                         id="contentLesson"
@@ -155,7 +159,18 @@ function UpdateLesson() {
                         onChange={(event) =>
                           setLessonContent(event.target.value)
                         }
-                      />
+                      /> */}
+                      {lessonContent !== '' && (
+                        <CKEditor
+                          config={{
+                            extraPlugins: `justify`,
+                          }}
+                          onChange={(editor) => {
+                            handleEditorChange(editor);
+                          }}
+                          initData={lessonContent}
+                        />
+                      )}
                     </div>
                     <div className="row-updateLesson">
                       <h2>Kết Quả Mong Muốn</h2>
@@ -176,7 +191,7 @@ function UpdateLesson() {
                                 </div> */}
                     <div className="testcase-option">
                       <label className="addExercise-label" for="testExercise">
-                        Testcase{" "}
+                        Testcase{' '}
                       </label>
                       {/* <div className="delete-icon">
                                             <p><i class="fas fa-trash-alt"></i>Xóa TestCase</p>

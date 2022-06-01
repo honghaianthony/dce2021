@@ -33,7 +33,8 @@ function Lesson() {
         const res = await LessonApi.getLessonById(lessonId);
         setData(res.data);
         let cont = res.data.content;
-        cont.replace(/\r\n/g, "<br />");
+        // let cont2 = cont.replace(/\n/g, "<br />");
+        // console.log(cont2);
         setContent(cont);
         const test = await LessonApi.getAllLessonTestById(lessonId);
         setTestCase(test.data);
@@ -300,302 +301,275 @@ function Lesson() {
         }
     };
     return (
-        <>
-            {data ? (
-                <>
-                    <Helmet>
-                        <meta charSet="utf-8" />
-                        <title>Bài học {data.lessonName}</title>
-                    </Helmet>
-                    <div className="lesson-container">
-                        {/* header */}
-                        <div className="lesson-name">
-                            {/* <Link to="/courses">
+      <>
+        {data ? (
+          <>
+            <Helmet>
+              <meta charSet="utf-8" />
+              <title>Bài học {data.lessonName}</title>
+            </Helmet>
+            <div className="lesson-container">
+              {/* header */}
+              <div className="lesson-name">
+                {/* <Link to="/courses">
                 <i class="fas fa-angle-left"></i>
               </Link> */}
-                            <i
-                                class="fas fa-angle-left"
-                                onClick={history.goBack}
-                            ></i>
-                            <p>{data.lessonName}</p>
-                        </div>
+                <i class="fas fa-angle-left" onClick={history.goBack}></i>
+                <p>{data.lessonName}</p>
+              </div>
 
-                        {/* giữa */}
-                        <div className="main-lesson-content">
-                            <div className="lesson-main">
-                                <div className={"content-lesson"}>
-                                    <div className="discuss-lesson">
-                                        <button
-                                            type="button"
-                                            className={
-                                                display === "on"
-                                                    ? "discuss-icon-on-lesson"
-                                                    : "discuss-icon-lesson"
-                                            }
-                                            onClick={setcomment}
-                                        >
-                                            <i class="fab fa-rocketchat"></i>
-                                        </button>
-                                        <button
-                                            type="button"
-                                            className={
-                                                display2 === "on"
-                                                    ? "discuss-icon-on-lesson"
-                                                    : "discuss-icon-lesson"
-                                            }
-                                            onClick={handledisplay2}
-                                        >
-                                            <i class="far fa-clipboard"></i>
-                                        </button>
-                                    </div>
-                                    <div className="content-and-comment-lesson">
-                                        {/* content */}
-                                        <div
-                                            className={
-                                                // "main-content-lesson"
-                                                display === "on" ||
-                                                display2 === "on"
-                                                    ? "main-content-lesson-off"
-                                                    : "main-content-lesson"
-                                            }
-                                        >
-                                            <div
-                                                className="content-Lesson"
-                                                dangerouslySetInnerHTML={{
-                                                    __html: content,
-                                                }}
-                                            ></div>
-                                            {/* <div className="content-Lesson">{data.content}</div> */}
-                                        </div>
-
-                                        {/* comment */}
-                                        <div
-                                            className={
-                                                display === "on"
-                                                    ? "comment-section-on-lesson"
-                                                    : "comment-section-off-lesson"
-                                            }
-                                        >
-                                            <div className="number-comments-lesson">
-                                                <p>
-                                                    {comment.length} bình luận
-                                                </p>
-                                            </div>
-                                            <div className="write-comment-lesson">
-                                                <div className="comment-icon">
-                                                    <i class="fas fa-user-circle"></i>
-                                                    <p>{state.fullname}</p>
-                                                </div>
-                                                <div className="comment-and-button-lesson">
-                                                    <div className="place-write-comment-lesson">
-                                                        <textarea
-                                                            id="place-write-comment-lesson"
-                                                            name="place-write-comment"
-                                                            placeholder="Viết bình luận của bạn"
-                                                            value={commentInput}
-                                                            onChange={
-                                                                handleCommentChange
-                                                            }
-                                                        ></textarea>
-                                                    </div>
-
-                                                    <button
-                                                        type="button"
-                                                        className="post-comment-btn-lesson"
-                                                        onClick={sendComment}
-                                                    >
-                                                        Đăng
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div className="others-comment-lesson">
-                                                {comment.length > 0 &&
-                                                    renderComment()}
-                                                {showMoreCmt <
-                                                    comment.length && (
-                                                    <button
-                                                        className="lesson-comment-show-more"
-                                                        onClick={() => {
-                                                            setShowMoreCmt(
-                                                                showMoreCmt + 5
-                                                            );
-                                                        }}
-                                                    >
-                                                        Xem thêm bình luận
-                                                    </button>
-                                                )}
-                                            </div>
-                                        </div>
-
-                                        {/* note */}
-                                        <div
-                                            className={
-                                                display2 === "on"
-                                                    ? "ListNode__Container"
-                                                    : "ListNode__Container-off"
-                                            }
-                                        >
-                                            <div className="Noted__container">
-                                                <div className="Noted__container_title">
-                                                    <h3>Ghi chú </h3>
-                                                </div>
-                                                <textarea
-                                                    className="note-area"
-                                                    value={note}
-                                                    onChange={(e) => {
-                                                        setNote(e.target.value);
-                                                    }}
-                                                ></textarea>
-                                                {savedNote ? (
-                                                    <button
-                                                        type="button"
-                                                        className={
-                                                            "save-note-on btn btn-outline-primary"
-                                                        }
-                                                    >
-                                                        Lưu
-                                                    </button>
-                                                ) : (
-                                                    <button
-                                                        type="button"
-                                                        className={
-                                                            "save-note-off btn btn-primary"
-                                                        }
-                                                        onClick={handleSaveNote}
-                                                    >
-                                                        Lưu
-                                                    </button>
-                                                )}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* code */}
-                                <div className={"code-lesson"}>
-                                    <div className="intro-lesson">
-                                        <p className="intro-content-lesson">
-                                            Code in here
-                                            <select
-                                                className="lang-select"
-                                                value={lang}
-                                                onChange={(e) =>
-                                                    setLang(e.target.value)
-                                                }
-                                            >
-                                                <option value="Python">
-                                                    Python
-                                                </option>
-                                                <option value="C++">C++</option>
-                                                <option value="C">C</option>
-                                                <option value="Java">
-                                                    Java
-                                                </option>
-                                            </select>
-                                        </p>
-
-                                        <button
-                                            type="button"
-                                            className="refresh-btn-lesson"
-                                            onClick={handleRefresh}
-                                        >
-                                            Làm mới
-                                        </button>
-                                    </div>
-                                    
-                                    <div className="place-code-lesson">
-                                        {submit ? (
-                                            <textarea
-                                            id="code-of-exser-lesson"
-                                            name="code-of-exser"
-                                            value={codeSubmitted}
-                                            onChange={(e) =>
-                                                setCodeSubmitted(e.target.value)
-                                            }
-                                        ></textarea>
-                                        ):(
-                                            <textarea
-                                            id="code-of-exser-lesson"
-                                            name="code-of-exser"
-                                            value={code}
-                                            onChange={(e) =>
-                                                setCode(e.target.value)
-                                            }
-                                        ></textarea>
-                                        )}     
-                                    </div>
-                                    
-                                    <div className="testcase-lesson">
-                                        <div className="testcase-header-lesson">
-                                            <p>TEST CASE</p>
-                                        </div>
-                                        <div className="testcase-content-lesson">
-                                            <div className="testcase-number-lesson">
-                                                <ul>{listTestCase()}</ul>
-                                            </div>
-                                            {showTestCase(testCase, realOutput)}
-                                        </div>
-                                        <div className="testcase-button-lesson">
-                                            <button
-                                                type="button"
-                                                className="run-btn-lesson"
-                                                onClick={handleSubmit}
-                                            >
-                                                Chạy thử
-                                            </button>
-                                            { submit ? (
-                                                <>
-                                                {allow ? (
-                                                    <button
-                                                        type="button"
-                                                        className="submit-btn-lesson"
-                                                        onClick={handleNextLesson2}
-                                                    >
-                                                        Cập nhật
-                                                    </button>
-                                                ) : (
-                                                    <button
-                                                        type="button"
-                                                        className="submit-btn-lesson-disable"
-                                                    >
-                                                        Cập nhật
-                                                    </button>
-                                                )}
-                                                </>
-                                            ) : (
-                                                <>
-                                                {allow ? (
-                                                    <button
-                                                        type="button"
-                                                        className="submit-btn-lesson"
-                                                        onClick={handleNextLesson}
-                                                    >
-                                                        Nộp bài
-                                                    </button>
-                                                ) : (
-                                                    <button
-                                                        type="button"
-                                                        className="submit-btn-lesson-disable"
-                                                    >
-                                                        Nộp bài
-                                                    </button>
-                                                )}
-                                                </>
-                                            )
-                                            }
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+              {/* giữa */}
+              <div className="main-lesson-content">
+                <div className="lesson-main">
+                  <div className={'content-lesson'}>
+                    <div className="discuss-lesson">
+                      <button
+                        type="button"
+                        className={
+                          display === 'on'
+                            ? 'discuss-icon-on-lesson'
+                            : 'discuss-icon-lesson'
+                        }
+                        onClick={setcomment}
+                      >
+                        <i class="fab fa-rocketchat"></i>
+                      </button>
+                      <button
+                        type="button"
+                        className={
+                          display2 === 'on'
+                            ? 'discuss-icon-on-lesson'
+                            : 'discuss-icon-lesson'
+                        }
+                        onClick={handledisplay2}
+                      >
+                        <i class="far fa-clipboard"></i>
+                      </button>
                     </div>
-                </>
-            ) : (
-                <div className="main-container">
-                    <div className="loader" />
+                    <div className="content-and-comment-lesson">
+                      {/* content */}
+                      <div
+                        className={
+                          // "main-content-lesson"
+                          display === 'on' || display2 === 'on'
+                            ? 'main-content-lesson-off'
+                            : 'main-content-lesson'
+                        }
+                      >
+                        <div
+                          className="content-Lesson"
+                          dangerouslySetInnerHTML={{
+                            __html: content,
+                          }}
+                        ></div>
+                        {/* <div className="content-Lesson">{data.content}</div> */}
+                      </div>
+
+                      {/* comment */}
+                      <div
+                        className={
+                          display === 'on'
+                            ? 'comment-section-on-lesson'
+                            : 'comment-section-off-lesson'
+                        }
+                      >
+                        <div className="number-comments-lesson">
+                          <p>{comment.length} bình luận</p>
+                        </div>
+                        <div className="write-comment-lesson">
+                          <div className="comment-icon">
+                            <i class="fas fa-user-circle"></i>
+                            <p>{state.fullname}</p>
+                          </div>
+                          <div className="comment-and-button-lesson">
+                            <div className="place-write-comment-lesson">
+                              <textarea
+                                id="place-write-comment-lesson"
+                                name="place-write-comment"
+                                placeholder="Viết bình luận của bạn"
+                                value={commentInput}
+                                onChange={handleCommentChange}
+                              ></textarea>
+                            </div>
+
+                            <button
+                              type="button"
+                              className="post-comment-btn-lesson"
+                              onClick={sendComment}
+                            >
+                              Đăng
+                            </button>
+                          </div>
+                        </div>
+                        <div className="others-comment-lesson">
+                          {comment.length > 0 && renderComment()}
+                          {showMoreCmt < comment.length && (
+                            <button
+                              className="lesson-comment-show-more"
+                              onClick={() => {
+                                setShowMoreCmt(showMoreCmt + 5);
+                              }}
+                            >
+                              Xem thêm bình luận
+                            </button>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* note */}
+                      <div
+                        className={
+                          display2 === 'on'
+                            ? 'ListNode__Container'
+                            : 'ListNode__Container-off'
+                        }
+                      >
+                        <div className="Noted__container">
+                          <div className="Noted__container_title">
+                            <h3>Ghi chú </h3>
+                          </div>
+                          <textarea
+                            className="note-area"
+                            value={note}
+                            onChange={(e) => {
+                              setNote(e.target.value);
+                            }}
+                          ></textarea>
+                          {savedNote ? (
+                            <button
+                              type="button"
+                              className={'save-note-on btn btn-outline-primary'}
+                            >
+                              Lưu
+                            </button>
+                          ) : (
+                            <button
+                              type="button"
+                              className={'save-note-off btn btn-primary'}
+                              onClick={handleSaveNote}
+                            >
+                              Lưu
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* code */}
+                  <div className={'code-lesson'}>
+                    <div className="intro-lesson">
+                      <p className="intro-content-lesson">
+                        Code in here
+                        <select
+                          className="lang-select"
+                          value={lang}
+                          onChange={(e) => setLang(e.target.value)}
+                        >
+                          <option value="Python">Python</option>
+                          <option value="C++">C++</option>
+                          <option value="C">C</option>
+                          <option value="Java">Java</option>
+                        </select>
+                      </p>
+
+                      <button
+                        type="button"
+                        className="refresh-btn-lesson"
+                        onClick={handleRefresh}
+                      >
+                        Làm mới
+                      </button>
+                    </div>
+
+                    <div className="place-code-lesson">
+                      {submit ? (
+                        <textarea
+                          id="code-of-exser-lesson"
+                          name="code-of-exser"
+                          value={codeSubmitted}
+                          onChange={(e) => setCodeSubmitted(e.target.value)}
+                        ></textarea>
+                      ) : (
+                        <textarea
+                          id="code-of-exser-lesson"
+                          name="code-of-exser"
+                          value={code}
+                          onChange={(e) => setCode(e.target.value)}
+                        ></textarea>
+                      )}
+                    </div>
+
+                    <div className="testcase-lesson">
+                      <div className="testcase-header-lesson">
+                        <p>TEST CASE</p>
+                      </div>
+                      <div className="testcase-content-lesson">
+                        <div className="testcase-number-lesson">
+                          <ul>{listTestCase()}</ul>
+                        </div>
+                        {showTestCase(testCase, realOutput)}
+                      </div>
+                      <div className="testcase-button-lesson">
+                        <button
+                          type="button"
+                          className="run-btn-lesson"
+                          onClick={handleSubmit}
+                        >
+                          Chạy thử
+                        </button>
+                        {submit ? (
+                          <>
+                            {allow ? (
+                              <button
+                                type="button"
+                                className="submit-btn-lesson"
+                                onClick={handleNextLesson2}
+                              >
+                                Cập nhật
+                              </button>
+                            ) : (
+                              <button
+                                type="button"
+                                className="submit-btn-lesson-disable"
+                              >
+                                Cập nhật
+                              </button>
+                            )}
+                          </>
+                        ) : (
+                          <>
+                            {allow ? (
+                              <button
+                                type="button"
+                                className="submit-btn-lesson"
+                                onClick={handleNextLesson}
+                              >
+                                Nộp bài
+                              </button>
+                            ) : (
+                              <button
+                                type="button"
+                                className="submit-btn-lesson-disable"
+                              >
+                                Nộp bài
+                              </button>
+                            )}
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-            )}
-        </>
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className="main-container">
+            <div className="loader" />
+          </div>
+        )}
+      </>
     );
 }
 
