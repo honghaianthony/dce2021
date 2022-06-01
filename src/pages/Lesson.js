@@ -62,8 +62,12 @@ function Lesson() {
     useEffect(() => {
         socket.current = io('https://dce-docker.herokuapp.com');
         socket.current.emit("join-room", lessonId);
-        socket.current.on("receive-comment-lesson", (data) => {
-            setComment([...comment, data]);
+        socket.current.on("receive-comment-lesson", async (data) => {
+            // setComment([...comment, data]);
+            if(data){
+                const cmt = await LessonApi.getAllLessonComment(lessonId);
+                setComment(cmt);
+            }
         });
     }, [lessonId, socket.current]);
 
