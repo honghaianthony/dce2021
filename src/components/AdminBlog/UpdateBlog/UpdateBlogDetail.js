@@ -73,7 +73,7 @@ function UpdateBlogDetail() {
 
     const [blogName, setBlogName] = useState();
     const [blogDescription, setBlogDescription] = useState();
-    const [blogContent, setBlogContent] = useState();
+    const [blogContent, setBlogContent] = useState('');
 
     useEffect(async () => {
         const res = await blogApi.getBlogById(blogId);
@@ -109,27 +109,25 @@ function UpdateBlogDetail() {
     };
 
     return (
-        <AdminLayout>
-            <div className="add-adminblog-container">
-                <AdminPath />
-                <div className="add-blog-main">
-                    <div className="add-blog-sidebar"></div>
-                    <div className="add-blog">
-                        <h1>Chỉnh sửa bài blog</h1>
-                        <form onSubmit={handleSaveBlog}>
-                            <div className="add-blog-title">
-                                <input
-                                    type="text"
-                                    name="title"
-                                    id="add-blog-title"
-                                    placeholder="Nhập tiêu đề bài viết"
-                                    value={blogName}
-                                    onChange={(event) =>
-                                        setBlogName(event.target.value)
-                                    }
-                                />
-                            </div>
-                            {/* <div className="add-blog-description">
+      <AdminLayout>
+        <div className="add-adminblog-container">
+          <AdminPath />
+          <div className="add-blog-main">
+            <div className="add-blog-sidebar"></div>
+            <div className="add-blog">
+              <h1>Chỉnh sửa bài blog</h1>
+              <form onSubmit={handleSaveBlog}>
+                <div className="add-blog-title">
+                  <input
+                    type="text"
+                    name="title"
+                    id="add-blog-title"
+                    placeholder="Nhập tiêu đề bài viết"
+                    value={blogName}
+                    onChange={(event) => setBlogName(event.target.value)}
+                  />
+                </div>
+                {/* <div className="add-blog-description">
                                 <input
                                     type="text"
                                     name="description"
@@ -141,60 +139,56 @@ function UpdateBlogDetail() {
                                     }
                                 />
                             </div> */}
-                            <div className="add-blog-cover-image">
-                                {progress < 100 && (
-                                    <input
-                                        type="file"
-                                        accept="image/*"
-                                        name="coverImage"
-                                        id="add-blog-cover-image"
-                                        placeholder="Link hình ảnh"
-                                        onChange={imageChange}
-                                    />
-                                )}
-                                {progress > 0 && (
-                                    <div className="upload-image">
-                                        <progress
-                                            className="progress-bar"
-                                            value={progress}
-                                            max="100"
-                                        />
-                                        <br />
-                                        <i
-                                            class="far fa-times-circle"
-                                            onClick={deleteImage}
-                                        ></i>
-                                        <img
-                                            className="preview-image"
-                                            src={
-                                                url ||
-                                                "http://via.placeholder.com/300"
-                                            }
-                                            alt="firebase-image"
-                                        />
-                                    </div>
-                                )}
-                            </div>
-                            <div className="add-blog-cover"></div>
-                            <div className="add-blog-content">
-                                <CKEditor
-                                    config={{
-                                        extraPlugins: `justify`,
-                                    }}
-                                    onChange={handleEditorChange}
-                                    value={blogContent}
-                                />
-                            </div>
-                            <div className="add-blog-button">
-                                <button type="submit" className="add-blog-btn">
-                                    Tạo bài blog
-                                </button>
-                            </div>
-                        </form>
+                <div className="add-blog-cover-image">
+                  {progress < 100 && (
+                    <input
+                      type="file"
+                      accept="image/*"
+                      name="coverImage"
+                      id="add-blog-cover-image"
+                      placeholder="Link hình ảnh"
+                      onChange={imageChange}
+                    />
+                  )}
+                  {progress > 0 && (
+                    <div className="upload-image">
+                      <progress
+                        className="progress-bar"
+                        value={progress}
+                        max="100"
+                      />
+                      <br />
+                      <i class="far fa-times-circle" onClick={deleteImage}></i>
+                      <img
+                        className="preview-image"
+                        src={url || 'http://via.placeholder.com/300'}
+                        alt="firebase-image"
+                      />
                     </div>
+                  )}
                 </div>
+                <div className="add-blog-cover"></div>
+                <div className="add-blog-content">
+                  {blogContent !== '' && (
+                    <CKEditor
+                      config={{
+                        extraPlugins: `justify`,
+                      }}
+                      onChange={handleEditorChange}
+                      initData={blogContent}
+                    />
+                  )}
+                </div>
+                <div className="add-blog-button">
+                  <button type="submit" className="add-blog-btn">
+                    Tạo bài blog
+                  </button>
+                </div>
+              </form>
             </div>
-        </AdminLayout>
+          </div>
+        </div>
+      </AdminLayout>
     );
 }
 

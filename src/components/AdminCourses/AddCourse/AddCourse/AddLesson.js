@@ -8,6 +8,10 @@ import { useParams } from "react-router-dom";
 import { useHistory, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import AdminLayout from "../../../../layouts/AdminLayout";
+
+import { CKEditor } from 'ckeditor4-react';
+
+
 function AddLesson() {
   const [addShow, setAddShow] = useState("show");
   const [name, setName] = useState("");
@@ -77,6 +81,9 @@ function AddLesson() {
   }
   //   console.log(countTestcase);
   //   console.log(arrTestCase);
+  function handleEditorChange({ editor }) {
+    setContent(editor.getData());
+  }
   return (
     <AdminLayout>
       <div className="AddLesson-container">
@@ -109,12 +116,20 @@ function AddLesson() {
                     />
                   </div>
                   <div className="row-AddLesson">
-                    <textarea
+                    {/* <textarea
                       type="text"
                       name="content"
                       id="contentLesson"
                       placeholder="Thêm nội dung bài học"
                       onChange={(event) => setContent(event.target.value)}
+                    /> */}
+                    <CKEditor
+                      config={{
+                        extraPlugins: `justify`,
+                      }}
+                      onChange={(editor) => {
+                        handleEditorChange(editor);
+                      }}
                     />
                   </div>
                   <form onSubmit={handleSubmit}>
@@ -123,7 +138,7 @@ function AddLesson() {
                       {/* <TestCase2 />    */}
                       <div className="testcase-option">
                         <label className="addExercise-label" for="testExercise">
-                          Testcase{" "}
+                          Testcase{' '}
                         </label>
                         {/* <div className="delete-icon">
                                             <p><i class="fas fa-trash-alt"></i>Xóa TestCase</p>
