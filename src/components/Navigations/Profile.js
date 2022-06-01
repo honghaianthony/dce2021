@@ -24,12 +24,12 @@ function Profile() {
           <Link to={"/me"}>
             <p> Thông tin của tôi </p>
           </Link>
-          <Link to={"/addblog"}>
+          {/* <Link to={"/addblog"}>
             <p> Đăng blog </p>
           </Link>
           <Link to="/adminAddExercise">
             <p>Tạo bài luyện tập</p>
-          </Link>
+          </Link> */}
           <span onClick={startCall}>
             <p> Tạo Meet</p>
           </span>
