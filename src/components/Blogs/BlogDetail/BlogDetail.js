@@ -28,7 +28,7 @@ function BlogDetail() {
   useEffect(() => {
     socket.current = io('https://dce-docker.herokuapp.com');
     socket.current.emit("join-room", blogId);
-    socket.current.on("receive-comment-blog", (data) => {
+    socket.current.on("receive-comment-blog", async (data) => {
       const cmt = await blogsApi.getAllBlogCommentByBlogId(blogId);
       setComment(cmt);
     });

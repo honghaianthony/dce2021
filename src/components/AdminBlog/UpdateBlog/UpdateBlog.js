@@ -62,7 +62,7 @@ function BlogListTable() {
       return filteredData.map((item, index) => {
         return (
           <tr key={index}>
-            <td>{item.id}</td>
+            <td>{index + 1}</td>
             <td>{item.title}</td>
             <td>{item.user.userName}</td>
             <td>{getFormattedDate(item.createdAt)}</td>
@@ -73,14 +73,14 @@ function BlogListTable() {
               </Link>
             </td>
             <td>
-              <Link to={`/adminUpdateBlog`}>
+              {/* <Link to={`/adminUpdateBlog`}> */}
                 <button
                   className="view-btn-delete"
-                  onClick={() => handleDelete(item)}
+                  onClick={() => { handleDelete(item) }}
                 >
                   Xóa
                 </button>
-              </Link>
+              {/* </Link> */}
             </td>
           </tr>
         );
