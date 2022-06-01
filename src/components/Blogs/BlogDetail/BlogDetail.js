@@ -29,7 +29,8 @@ function BlogDetail() {
     socket.current = io('https://dce-docker.herokuapp.com');
     socket.current.emit("join-room", blogId);
     socket.current.on("receive-comment-blog", (data) => {
-      setComment([...comment, data]);
+      const cmt = await blogsApi.getAllBlogCommentByBlogId(blogId);
+      setComment(cmt);
     });
   }, [blogId, socket.current]);
 
